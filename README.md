@@ -5,9 +5,7 @@ To create a new web page linked from the home ALMECOM page
 
 1. create your_page_name.shtml as a blank file
 
-2. insert at the TOP of that file the line (*exactly this way*):
-
-`<!--#include virtual="include.shtml"-->`
+2. insert at the TOP of that file the line (*exactly this way*): `<!--#include virtual="include.shtml"-->`
 
 If your page is not in the same directory as the include file, you will need to prepend the appropriate path. 
 Example for a page in the research directory:
@@ -19,8 +17,7 @@ page.  The line above (from 2.) will automatically read the
 standard ALMECOM banner and sidebar into your page when it is
 viewed.
 
-4. Repeat steps 2 and 3 at the bottom of the file with the line 
-`<!--#include virtual="footer.shtml"-->`
+4. Repeat steps 2 and 3 at the bottom of the file with the line: `<!--#include virtual="footer.shtml"-->`
 
 5. For convenience, there is a TEMPLATE file that you can copy
 to your_page_name.shtml, that has the special "include" line
