@@ -3,9 +3,9 @@
 To create a new web page linked from the home ALMECOM page
 (or any other of our pages), do this:
 
-1. create your_page_name.shtml as a blank file
+1. Create your_page_name.shtml as a blank file
 
-2. insert at the TOP of that file the line (*exactly this way*): `<!--#include virtual="include.shtml"-->`
+2. Insert at the TOP of that file the line (*exactly this way*): `<!--#include virtual="include.shtml"-->`
 
 If your page is not in the same directory as the include file, you will need to prepend the appropriate path. 
 Example for a page in the research directory:
