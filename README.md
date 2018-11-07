@@ -49,4 +49,14 @@ file template.shtml is also identical to TEMPLATE.
 * primers/uncertain.shtml
 * primers/technical.shtml
 * primers/example_al_1.shtml
-*
+* research/index.shtml
+* research/planning.html
+* research/misid.html
+* research/contra.html
+* research/presup/presup.html
+* research/intage.html
+* research/conv.shtml
+* publications/index.shtml
+* publications/papers-search.shtml
+* people/index.shtml
+* MetaCogSeminar/index.html
