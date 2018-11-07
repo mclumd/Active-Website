@@ -1,6 +1,0 @@
-echo $1
-cat $1 | \
-sed  -e s/"<BODY bg.*"/"\<BODY bgcolor="#208B74" text="#C1FFC1" link="#EEEE00" vlink="#C1FFDD"\>"/g \
-| cat > foo ;\
-mv foo $1
-

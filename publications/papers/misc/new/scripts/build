@@ -1,4 +1,0 @@
-#!/usr/imports/bin/bash
-
-exec emacs --batch -q -l scripts/build.el -f build >& /tmp/log
-

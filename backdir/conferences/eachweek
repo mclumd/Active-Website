@@ -1,8 +1,0 @@
-#!/bin/csh
-
-# at  -f eachweek 20:00 + 1 week
-
-at now + 1 week < eachweek
-java SendNotice
-
-
