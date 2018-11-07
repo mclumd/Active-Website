@@ -33,6 +33,7 @@ file template.shtml is also identical to TEMPLATE.
 * Research Page links to empty contradiction page (research/contra.html linked from research/index.shtml line 26)
 * Bad A. V. Williams link (metacogseminar/index.html line 15)
 * Bad Seminar Links (metacogseminar.index.html lines 93-96)
+* Update the People page (people/index.shtml)
 * Broken People Links (people/index.shtml)
 * Papers list on publication by year page link to mclumd.github.io (publications/papers-search.shtml)
 * Broken activelogic.org links
