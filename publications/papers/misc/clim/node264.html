@@ -1,0 +1,178 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 99.1 release (March 30, 1999)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Pane Construction and Uses</TITLE>
+<META NAME="description" CONTENT="Pane Construction and Uses">
+<META NAME="keywords" CONTENT="clim">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v99.1 release">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="clim.css">
+
+<LINK REL="next" HREF="node267.html">
+<LINK REL="previous" HREF="node263.html">
+<LINK REL="up" HREF="node262.html">
+<LINK REL="next" HREF="node265.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html4371"
+ HREF="node265.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/icons/next_motif.gif"></A> 
+<A NAME="tex2html4367"
+ HREF="node262.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/icons/up_motif.gif"></A> 
+<A NAME="tex2html4361"
+ HREF="node263.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/icons/previous_motif.gif"></A> 
+<A NAME="tex2html4369"
+ HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/icons/contents_motif.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html4372"
+ HREF="node265.html">Pane Initialization Options</A>
+<B> Up:</B> <A NAME="tex2html4368"
+ HREF="node262.html">Panes</A>
+<B> Previous:</B> <A NAME="tex2html4362"
+ HREF="node263.html">Abstract Panes</A>
+ &nbsp <B>  <A NAME="tex2html4370"
+ HREF="node1.html">Contents</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION08320000000000000000">
+Pane Construction and Uses</A>
+</H1>
+
+<P>
+Applications typically define the hierarchy of panes used in their frames using
+the :pane or :panes options of define-application-frame.  These
+options generate the body of methods on functions that are invoked when the
+frame is being adopted into a particular frame manager, so the frame manager can
+select the specific implementations of the abstract panes.
+
+<P>
+There are two basic interfaces to constructing a pane: make-instance of a
+known pane type, and realize-pane of an abstract pane protocol name.  The
+make-instance approach requires the application to know the name of the
+specific pane implementation class that is desired; all pane class names,
+including those of the implementations of abstract pane protocol specifications,
+end in ``-PANE''.  Using make-instance directly circumvents the abstract
+pane selection mechanism, which is appropriate for some cases. For example, the
+programmer may want to use particular layout panes like vbox-pane and
+hbox-pane and avoid the costs and uncertainty of going through the
+realization mechanism.
+
+<P>
+The second approach, realize-pane, invokes the ``look and feel''
+realization process to select and construct a pane.  Normally this process is
+implemented by the frame manager, but other realizers are possible.  The
+realize-pane function is typically invoked using an abstract pane name,
+which is always a symbol in the CLIM package that doesn't include the ``-PANE''
+suffix.  This naming convention distinguish the names of the abstract pane
+protocols from the names of classes that implement them.  Programmers, however,
+are allowed to pass any pane class name to realize-pane, in which case the
+frame manager will in general instantiate that specific class.
+
+<P>
+SWM We surely want a pane protocol class, which is probably a
+subclass of sheet.  The instantiable pane classes to which you can do
+output should also be a subclass of medium.
+
+<P>
+realize-pane abstract-pane-protocol-name <TT> &amp;rest </TT>initargs
+
+<P>
+Selects a class that implements abstract pane protocol specified by
+<I> abstract-pane-protocol-name</I> and constructs a pane of that class.  It must
+be used within the dynamic scope of either a with-look-and-feel-realization
+or the :pane or :panes options of a define-application-frame
+(which sets up an implicit with-look-and-feel-realization).
+
+<P>
+realize-pane-internal realizer frame abstract-name <TT> &amp;rest </TT>initargs
+
+<P>
+This is the generic function that is actually invoked by a call to
+realize-pane.  The extant <I> realizer</I> is established by
+with-look-and-feel-realization.  Frame managers (and other realizers)
+define a method on this generic function to implement their realization policy.
+
+<P>
+with-look-and-feel-realization (realizer frame) <TT> &amp;body </TT>forms
+
+<P>
+Establishes a dynamic context that installs <I> realizer</I> as the entity
+responsible for realizing panes.  All calls to realize-pane within this
+context result in realize-pane-internal being invoked on <I> realizer</I>.
+This macro can be nested dynamically; inner uses shadow outer uses.
+<I> body</I> may have zero or more declarations as its first forms.
+
+<P>
+Typically <I> realizer</I> is a frame manager, but in some cases <I> realizer</I>
+may be some other object. For example, within the implementation of pane that is
+uses its own subpanes to achieve its function, this form might be used with
+<I> realizer</I> being the pane itself.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
+
+<UL>
+<LI><A NAME="tex2html4373"
+ HREF="node265.html">Pane Initialization Options</A>
+<LI><A NAME="tex2html4374"
+ HREF="node266.html">Pane Queries</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html4371"
+ HREF="node265.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/icons/next_motif.gif"></A> 
+<A NAME="tex2html4367"
+ HREF="node262.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/icons/up_motif.gif"></A> 
+<A NAME="tex2html4361"
+ HREF="node263.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/icons/previous_motif.gif"></A> 
+<A NAME="tex2html4369"
+ HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/icons/contents_motif.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html4372"
+ HREF="node265.html">Pane Initialization Options</A>
+<B> Up:</B> <A NAME="tex2html4368"
+ HREF="node262.html">Panes</A>
+<B> Previous:</B> <A NAME="tex2html4362"
+ HREF="node263.html">Abstract Panes</A>
+ &nbsp <B>  <A NAME="tex2html4370"
+ HREF="node1.html">Contents</A></B> 
+<!--End of Navigation Panel-->
+<ADDRESS>
+<I>&</I>
+<BR><I>2001-06-12</I>
+</ADDRESS>
+</BODY>
+</HTML>

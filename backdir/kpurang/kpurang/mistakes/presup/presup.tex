@@ -1,0 +1,831 @@
+\documentclass{article}
+\usepackage{times}
+\usepackage{eufrak}
+\pagestyle{myheadings}
+
+
+\oddsidemargin=0in
+\evensidemargin=0in
+\topmargin=0in
+\textheight=8.5in
+\textwidth=6.5in
+%\headheight=0in
+%\headsep=0in
+\parindent=0in
+\parskip=0.1in
+
+
+\newcommand{\comment}[1]{{\bf #1}}
+
+\begin{document}
+
+\section{Introduction}
+
+As a conversation proceeds, the new sentences of the participants is
+interpreted in the context of what has been mentioned earlier. The
+{\em discourse context} represents , for a participant in a dialog,
+what is being conveyed in the dialog. We expect the context to grow as
+the conversation proceeds and more information is available. The
+problem we consider here is a problematic aspect of the relationship
+between the discourse context and the presuppositions of a new
+utterance. 
+
+
+\section{Presuppositions}
+
+Presuppositions are propositions that are taken to be assumed in a
+natural language utternace and without which the utterance would make
+no sense. For instance, if someone says ``The roses are red'', one has
+to presuppose that there are some roses. Without that assumption,
+there is no referent for ``the roses'' and the truth of the sentence
+uttered cannot be evaluated. These could have been mentioned earlier
+and added to the discourse context, or if this is the first time the
+roses are mentioned, the presupposition that there are roses can be
+added to the context.
+
+Presuppositions are a pervasive part of natural language and can be
+triggered by many constructions, for example
+\begin{itemize}
+\item Definite noun phrases as above. ``The roses are red.''
+presupposes that there are roses.
+\item Cleft sentences as in ``It is the roses that are red.'' This
+presupposes that there are roses.
+\item Possessive noun phrases as ``John's roses are red.'' This
+presupposes that there are roses that belong to John.
+\item Aspectual verbs as ``It has stopped raining.'' This presupposes
+that it was raining.
+\item Factive verbs as ``John regrets picking the roses''. This
+presupposes that John picked the roses.
+\end{itemize}
+
+Note that presuppositions cannot be deduced from the utterance, they
+must be assumed before the meaning of the utterance can be determined.
+The sentence constructions above generate {\em potential}
+presuppositions that may or may not eventually be part of the context.
+
+\subsection{Updating the context}
+
+There are three possibilities when we have a new utterance: (1) the
+context entails the presuppositions of the utterance; (2) the context
+entails the negation of the presuppositions; (3) the context entails
+neiter the presupposition nor its negation. Cases (1) and (3) seem
+relatively unproblematic. In (1), there is no special problem relating
+to presuppositions. In (3), we can {\em accomodate} the utterance by
+adding the presupposition to the context (assuming we know that the
+context does not entail the negation of the presupposition). 
+
+\subsubsection{Heim's rules}
+
+Rules for updating context have been proposed by Heim\cite{}. A
+function $+$ maps a context $C$ and an utterance $U$ onto a new
+context. There is also an accomodation mechanism that handles cases
+that the presupposition is not entailed by the context. The four rules
+that specify $+$ are lsited below. The propositions are taken to be
+sets of possible worlds and that for an utterance $U$, the
+corresponding proposition is denoted $[[U]]$. 
+
+\begin{itemize}
+\item[CCPB] 
+\[C + U = C \cap [[U]] \]
+This is the basis case where the utterance is represented by an atomic
+proposition. Updating the context simply intersects the possible
+worlds of the context with those of the utterance.
+\item[CCPA]
+\[ C + (U and V) = ((C + U) + V) \]
+In the case of a conjunction, we first intersect the first proposition
+with the context, followed by the second one.
+\item[CCPN]
+\[ C + (not U) = C \setminus (C + U) \]
+In the case of negations, we first ``imagine'' what the set of
+possible worlds would be like if the proposition were true $C + U$ and
+remove those worlds from the current context.
+\item[CCPC]
+\[ C + (if U then V) = C \setminus ((C + U) \setminus ((C + U) + V))
+\]
+Conditionals ``if U then V'' are treated as ``not U or V'' which is
+equivalent to ``not(U and not V)''. 
+\end{itemize}
+
+The accomodation process is described by the accomodation rule. Let
+$Pr(U)$ be the presupposition of utterance $U$. Then if the context
+does not entail the presupposition of the utterance, we first add the
+presupposition then add the utterance: $C + U = (C + Pr(U)) + U$. The
+accomodation also occurs if the context entails the negation of the
+presupposition. In that case, $(C + Pr(U))$ ends up being an empty set
+of worlds which indicates a contradiction. This can cause problems in
+some cases.
+
+
+\section{The problem}
+
+
+Consider the following:
+\newline \noindent {\bf U1:} There are no roses.
+\newline \noindent {\bf U2:} So the roses are not in the fridge.
+
+We take the logical from of U1 to be $\neg \exists x~Roses(x)$ and
+that of U2 including the presuppositions that there is a fridge and
+that there are roses to be $\exists x~y~ Roses(x) \wedge Fridge(y)
+\wedge In(x, y)$.
+
+\begin{enumerate}
+\item We start with context $C_1$.
+\item After U1, the new context is $C_2 = C_1 + [[ \neg \exists x~Roses(x) ]]
+$
+\item Applying CCPN and accomodation to U2 results in context $C_3 =
+C_2 \setminus (((C_2 + Roses(x)) + Fridge(y)) + In(x, y))$
+Since $C_2$ entails that there are no roses, the proposition to the
+right of the $\setminus$ is the empty set of worlds and we are left
+with the $C_2$ which says that there are no roses.
+\end{enumerate}
+
+The problem here is that, we lose the information that there is a
+fridge. However we should retain that presupposition at the end of U2.
+
+The belief that there are roses which is one of the presuppositions of
+U2 is mistaken when viewed in the larger context. Heim's rules do not
+deal with this mistake correctly and the results are not intuitive.
+
+
+
+\section{Our solution}
+
+The solution is to realize that there is a mistake in beleiving the
+(potential) presupposition that there are roses in a context that
+denies that there are roses. We should then decide what to beleive: we
+would typically beleive U1, the assertion that there are no roses. The
+subsequent processing should then retain the presupposition that there
+is a fridge. Heim's solution seems not to reason about the mistake
+sufficiently and throws out all the rest of the information in U2.
+
+
+
+\subsection{Representation}
+
+This solution was implemented in active logic, although not in
+Alma. We first give an account of the representations used to model
+this problem.
+
+% {\bf Contexts} are represented as lists of formulas in the KB instead
+% of as sets of possible worlds. The context at time $t$ is represented
+% as $ctxt(C, t)$. The time argument allows us to track the evolution of
+% the context over time.
+
+\subsection{Predicates used.}
+\begin{enumerate}
+
+\item
+\emph{now(t)} indicates that we are now at the t$^{th}$ step of computation.
+
+\item
+\emph{ctxt(c, t)} represents that the context at time \emph{t}
+consists of the list \emph{c} of formulae.
+
+\item
+\emph{ut('X', t)} represents that \emph{X} has been uttered at time \emph{t}.
+
+\item
+\emph{parse(X, t)} is the parse obtained at time \emph{t} by processing an
+utterance at the previous step.
+
+\item
+\emph{dfnt(X)} represents a definite description in the utterance. (This is 
+produced by the parser).
+
+\item
+\emph{update(X, t)} represents at time \emph{t}, elements of the discourse
+that still need to be incorporated into the context according to Heim's
+ rules. X is a list of contexts, atoms from the inputs and the + and 
+$\setminus$ operators. In the subsequent presentation of rules and
+active logic steps, + will be denoted as PLUS, and $\setminus$ as SLASH.
+
+\item
+\emph{presup(X)} marks \emph{X} as a presupposition in the context.
+
+\item
+\emph{exists(x, P(x))} indicates that an object with property \emph{P}
+exists in the discourse context.\footnote{Our use of ``exists'' here
+is not the usual logical use with narrow scope. Rather, it has wider
+scope as used in DRT and by Heim.}
+
+\item
+\emph{assert(X)} marks \emph{X} as having been asserted in an
+utterance.
+
+\item
+\emph{contra(X, Y, t)} indicates that there is a contradiction between the
+formulae \emph{X} and \emph{Y} in the context at time \emph{t} $-$ 1.
+
+\item
+\emph{NULL(X)} indicates that formula X is not to be ``trusted''.
+
+\item
+\emph{SUSPECT(X)} indicates that formula X has given rise to a
+contradiction.
+
+\end{enumerate}
+
+\subsection{Rules of inference used.}
+
+The rules will be presented in the form:
+
+\begin{tabbing}
+i+1: \= \kill
+i:   \> X\\
+i+1:\> Y
+\end{tabbing}
+If X is believed at step i, then Y is added to the beliefs at step
+i+1. Nothing else is added to the beliefs that is not mentioned by
+these rules.
+
+\begin{enumerate}
+
+\item
+\begin{tabbing}
+i+1: \= \kill
+i:   \> ut('X', i) \\
+i+1:\> parse(Y, i+1)
+\end{tabbing}
+where Y is a parse of X.
+
+\item
+\begin{tabbing}
+i+1: \= \kill
+i:   \> ctxt(C, i) parse(X, i)\\
+i+1:\> update(Z, i+1)
+\end{tabbing}
+Z is a list of operators and operands such that successively applying
+the operators to their operands results in updating the context
+with the parsed input utterance according to Heim's rules (CCPA, 
+CCPN, CCPC). 
+
+\item
+\begin{tabbing}
+i+1: \= \kill
+i:\> update(X, i)\\
+i+1:\> update(Y, i+1)
+\end{tabbing}
+where Y is the result of applying the first operator (PLUS or SLASH)
+in the list Y to its arguments. There are several cases depending on
+the operator and on the form of the operands. These are not detailed
+here for brevity.
+
+\item
+\begin{tabbing}
+i+1: \= \kill
+i:\> update(X, i)\\
+i+1:\>ctxt(X, i+1)
+\end{tabbing}
+this rule is a subcase of the previous and is applied when all context 
+updating is complete for one particular utterance. Once the update is 
+complete, the new context is put back into the set of beliefs of the 
+system.
+
+\item
+\label{contraDetectionRule}
+\begin{tabbing}
+i+1: \= \kill
+i:\> ctxt([$...$, foo(X), $...$, bar(not(Y)), $...$], i)\\
+i+1: \> ctxt([$...$, SUSPECT(foo(X), $...$, SUSPECT(bar(not(Y))), $...$, 
+contra(foo(X), bar(not(Y)))], i+1)
+\end{tabbing}
+This rule detects direct contradictions in the context.
+Here, X and Y are unifiable and \emph{foo} and \emph{bar} are either 
+\emph{assert} or \emph{presup}. Note that \emph{foo(X)} and \emph{bar(not(X))}
+are tagged as being ``suspect'' at \emph{i+1}. 
+
+\item
+\label{contraResolutionRule}
+\begin{tabbing}
+i+1: \= \kill
+i: \> ctxt([$...$, SUSPECT(foo(X), $...$, SUSPECT(bar(not(Y))), $...$,  
+contra(foo(X), bar(not(Y)))], i+1) \\
+i+1:\> ctxt(Z, i+1)
+\end{tabbing}
+\emph{Z} is the context resulting from resolving the contradiction flagged
+at step i. The contradiction can be resolved by using various additional 
+sources of information including:\footnote{See
+Miller~\cite{miller:reasoning} for more on contradiction resolution in
+active logic}
+\begin{itemize}
+
+\item
+Other elements in the context, for example rhetorical relations,
+formulae in the context relevant to the contradictands, the sequence of
+
+inferences leading to the derivation of the contradictands.
+
+\item
+General knowledge which may be outside the context
+(though we do not treat this here).
+
+\item
+The status of the contradictands--- whether they are assertions, 
+presuppositions or distrusted.
+\end{itemize}
+
+Resolving the contradiction can result in one or both of the formulae being 
+distrusted, and in further changes in the context. Note that the resolution
+of a contradiction is itself defeasible---this resolution could later
+lead to other contradictions which could undo the changes done at this point.
+
+\item
+\begin{tabbing}
+i+1: \= \kill
+i:\> ctxt(X, i)\\
+i+1: \> ctxt(X, i+1)
+\end{tabbing}
+We simply inherit the context to the next step if there is no change.
+
+\item
+\begin{tabbing}
+i+1: \= \kill
+i:\> ctxt(X, i), ctxt(Y, i)\\
+i+1:\> ctxt(X $\cup$ Y, i+1)
+\end{tabbing}
+Note that taking the union of the 2 contexts could introduce
+contradictions in the total context. That will be detected at the next
+step.
+
+\item
+\begin{tabbing}
+i+1: \= \kill
+i:\> now(i)\\
+i+1: \> now(i+1)
+\end{tabbing}
+This is the ``clock rule''. Time does not stand still while we are reasoning.
+
+\end{enumerate}
+
+
+\section{Steps Galore}
+ 
+
+We consider only discourses that depend on `but', `so', `because',
+overtly. We will treat them as intersentential relevance markers.
+
+\noindent
+\textbf{The first example} 
+
+We now present our first example.\footnote{Some details
+are not shown, for example the argument representing time in the
+predicates.}
+
+D$_1$ = $\langle$There are roses and tulips. But the roses are not
+yellow$\rangle$
+
+\begin{tabbing}
+Step \= \\
+0\> ctxt( [], 0),ut( 'There are roses and tulips')
+\end{tabbing}
+
+Let c$_1$ = [].\footnote{We will use c$_i$ for both the list of
+formulae in the context and for the predicat ctxt(c$_i$, j). Which is
+meant will be evident from the context.}
+
+\begin{tabbing}
+Step \= \kill
+1\> c$_1$, parse(and(exists(x,R(x)),exists(y,T( y))))
+\end{tabbing}
+
+This is the result of parsing the utterance and inheriting the
+previous context.
+
+\begin{tabbing}
+Step \= \kill
+2\> c$_1$, update(\=[c$_1$,exists(x,R(x)),PLUS,exists(y,T(y)),PLUS])
+\end{tabbing}
+
+update is the result of applying Heim's rules recursively to the
+parsed utterance. Note that this is in postfix form, however.
+
+\begin{tabbing}
+Step \= \kill
+3\> c$_1$, update([c$_2$,exists(y,T(y)),PLUS])
+\end{tabbing}
+
+where c$_2$ = [assert(exists(x,R(x)))]
+
+The first operation is (c$_1$,exists(x,R(x)),PLUS). We just assert the
+new atom into the context.
+
+\begin{tabbing}
+Step \= \kill
+4\> c$_1$,update(c$_3$)
+\end{tabbing}
+
+where c$_3$ = c$_2$ $\cup$ assert(exists(y,T(y)))
+
+We assert the second part of the utterance into the context too.
+
+\begin{tabbing}
+Step \= \kill
+\>$\vdots$
+\end{tabbing}
+
+\begin{tabbing}
+Step \= \kill
+7\> c$_3$
+\end{tabbing}
+
+At the end of processing the first utterance, the context contains the
+assertions that there are both roses and tulips in the discourse
+context. We now add the next utterance.
+
+\begin{tabbing}
+Step \= \kill
+8\> c$_3$, ut('But the roses are not yellow')
+\end{tabbing}
+
+\begin{tabbing}
+Step \= \kill
+9\> c$_3$, parse(and(but,not(and(dfnt(R(z)),Y( z)))))
+\end{tabbing}
+
+The new utterance has been parsed and we now need to incorporate it
+into the context.
+
+\begin{tabbing}
+Step \= \kill
+10\> c$_3$, update(c$_3$,but,PLUS,c$_3$,but,PLUS,dfnt(R(z)),PLUS,Y(z), PLUS, SLASH])
+\end{tabbing}
+
+\begin{tabbing}
+Step \= \kill
+\>$\vdots$
+\end{tabbing}
+
+
+\begin{tabbing}
+Step \= \kill
+12\> c$_3$,update($c_4$,$c_4$,dfnt(R(z)),PLUS,Y(z),PLUS,SLASH])
+\end{tabbing}
+
+where c$_4$ = c$_3$ $\cup$ assert(but)
+
+Now we have to add ``the roses'' to the context. We search in the
+context for roses that were previously mentioned the closest to the
+present time---i.e., a mention of roses closest to the tail of the
+list. 
+
+
+\begin{tabbing}
+Step \= \kill
+13\> c$_3$,update(c$_4$,c$_5$,Y(z),PLUS,SLASH)
+\end{tabbing}
+
+where c$_5$ = c$_4$ $\cup$ assert(x=z)
+
+We have in fact mentioned roses before, and we make the new mention of
+roses designate the same roses as the previous mention by asserting
+x=z. 
+
+
+\begin{tabbing}
+Step \= \kill
+14\> c$_3$, update(c$_4$, c$_6$,SLASH)
+\end{tabbing}
+
+where c$_6$ = c$_5$ $\cup$ Y(z)
+
+\begin{tabbing}
+Step \= \kill
+15\> c$_3$, update(c$_4$ $\cup$ not(and(assert(x=z),assert(Y(z))))
+\end{tabbing}
+
+Set difference between the two contexts is done by adding to the first
+context the negation of the elements in the second context but not in
+the first.
+
+Here we have a choice of what to negate: either that x=z or that z are
+yellow, or both. It is at this point that we make appeal to rhetorical
+information in \emph{but} to help us make the best choice. If we make the
+right choice here, which seems to be not to doubt that the roses
+mentioned in the second utterance are the same roses mentioned in the
+first, we get eventually:
+
+\begin{tabbing}
+Step \= \kill
+\>ctxt(\=[assert(exists(x,R(x))),assert(exists(y,T(y))), assert(but),not(and(assert(x=z),assert(Y(z))),\\
+\>\>assert(not(Y(z))),assert(x=z).
+\end{tabbing}
+
+We could of course have made a bad choice here. Had that happened,
+it could have led to a contradiction later on in the discourse and the
+choice we made at this point would then be questioned.
+
+\noindent
+\textbf{A second example}
+
+We now show an example of active logic using the rules and predicates
+discussed above to a garden path sentence. This is essentially D$_7$.
+
+D$_9$ = $\langle$John bought flowers, [Are the roses in the fridge?], No,
+(the roses are not in the fridge), Because there were no
+roses$\rangle$
+
+Here we have a case where something is first added to the discourse
+context only to be promptly removed. As presented in
+~\cite{heim:projection_problem}, the CCP rules cannot deal with this
+discourse. The last sentence would simply produce a null set of
+possible worlds, making anything that followed "felicitous."
+
+To save space we will consider only the shortened discourse D$_7$:
+
+$D_7$ = $\langle$The roses are not in the fridge. Because there are no
+roses.$\rangle$
+
+\begin{tabbing}
+Step \= \\
+
+0 \> ctxt( [],0) ut( 'The roses are not in the fridge')
+\end{tabbing}
+
+Let c$_1$ = [].
+
+%\footnote{We will use c$_i$ for both the list of
+%formulae in the context and for the predicat ctxt(c$_i$, j). Which is
+%meant will be evident from the context.}
+
+% remove that footnote!!!!
+
+\begin{tabbing}
+Step \= \kill
+1\> c$_1$, parse(not(and(dfnt(R(x)),dfnt(F(y)),in(x, y))))
+\end{tabbing}
+
+This is the result of parsing the utterance and inheriting the
+previous context.
+
+\begin{tabbing}
+Step \= \kill
+2\> c$_1$, update([c$_1$, c$_1$,dfnt(R(x)),PLUS,dfnt(F(y)), PLUS, in( x,y), PLUS, SLASH])
+\end{tabbing}
+
+%update is the result of applying Heim's rules recursively to the
+We get the update predicate by applying Heim's rules as before.
+
+\begin{tabbing}
+Step \= \kill
+3\> c$_1$, update([c$_2$,c$_2$,dfnt(F(y)),PLUS,in( x,y),PLUS,SLASH])
+\end{tabbing}
+
+where c$_2$ = [presup(exists(x,R(x)))]
+
+The first operation is (c$_2$, dfnt(F(y)), PLUS).
+Since we have a definite descriptor, we first search the previous
+context (c$_1$) for a previous mention of roses.  As there is none, we
+accomodate (globally) the context with the presupposition that there
+are roses.
+
+\begin{tabbing}
+Step \= \kill
+4\> c$_1$, update([c$_3$, c$_3$,in(x,y),PLUS,SLASH])
+\end{tabbing}
+
+\begin{tabbing}
+where c$_3$\= = [presup(exists(x,R(x))), presup(exists(y,F(y)))]
+\end{tabbing}
+
+Similarly, we accomodate by adding the presupposition that there is a
+fridge to our context.
+
+\begin{tabbing}
+Step \= \kill
+5\> c$_1$, update([c$_3$, c$_3$ $\cup$ [assert(in(x,y))],SLASH]
+\end{tabbing}
+
+We simply assert that the roses are in the fridge. Note that here,
+only one context is being updated. We do not add the new assertion
+globally. 
+
+\begin{tabbing}
+Step \= \kill
+6\> c$_1$, update([c$_3$ $\cup$ [not(assert(in(x,y)))]])
+\end{tabbing}
+
+\begin{tabbing}
+Step \= \kill
+\>$\vdots$\\
+11\> c$_4$, ut('Because there are no roses')
+\end{tabbing}
+
+\begin{tabbing}
+where c$_4$\= = c$_3$ $\cup$ [not(assert(in(x,y)))] 
+ = \=[presup(exists(x,R(x))), presup(exists(y,F(y))) assert(not(in( x, y)))])
+\end{tabbing}
+%where c$_4$\= = c$_3$ $\cup$ [not(assert(in(x,y)))] \\
+%\> = \=[presup(exists(x,R(x))),\\
+%\> \>   presup(exists(y,F(y)))\\
+%\>  \>  assert(not(in( x, y)))])
+
+
+
+After some processing, we end up with a new context that contains the
+presuppositions that there are roses and a fridge and that the roses
+are in the fridge. To this new context, the second utterance is added.
+
+
+\begin{tabbing}
+Step \= \kill
+12\> c$_4$,parse(and(because,not(exists(z,R(z)))))
+\end{tabbing}
+
+We repeat the processing we did above.
+
+
+\begin{tabbing}
+Step \= \kill
+13\> c$_4$,
+update(c$_4$,because,PLUS,c$_4$,because,PLUS,exists(Z,R(z)),PLUS,SLASH)\\
+\> $\vdots$\\
+
+17\> c$_4$, update(c$_5$)
+\end{tabbing}
+
+\begin{tabbing}
+where c$_5$\= = c$_4$ $\cup$ [assert(because), not(assert(exists(z,R(z))))]
+\end{tabbing}
+
+We have asserted ``because'' in the context because ``because'' can
+serve as a clue to picking the right choice among several alternatives
+we could encounter in later processing.
+
+
+\begin{tabbing}
+Step \= \kill
+\> $\vdots$\\
+
+21\> ctxt(\=[presup(exists(x,R(x))),presup(y,F(y)),asssert(not(in(x,y))),assert(because),assert(not(exists(z,R(z))))
+\end{tabbing}
+
+We now have a context which presupposes that there are roses and which
+asserts that there are none.
+
+\begin{tabbing}
+Step \= \kill
+22\> ctxt(\=[SUSPECT(exists(x,R(x))),presup(y,F(y)),
+asssert(not(in(x,y))),assert(because),
+SUSPECT(not(exists(z,R(z))))\\
+\> \>contra(presup(exists(x,R(x))),assert(not(exists(z,R(z))))]
+\end{tabbing}
+
+That contradiction is detected and flagged. The formulae that caused
+the contradiction appear at this step flagged as being ``suspect''.
+
+\begin{tabbing}
+Step \= \kill
+23\> ctxt([NULL(exists(x,R(x))),presup(y,F(y)),
+asssert(not(in(x,y))),assert(because), assert(not(exists(z,R(z))))
+\end{tabbing}
+
+Using the fact that one of the contradictands was a presupposition and
+the other an assertion we conclude that we were mistaken about the
+presupposition. This is not always the right decision but it is a good
+heuristic. We make the presupposition that roses exist to be suspect
+and we reinstate the assertion that roses do not exist (in the
+discourse context).
+
+\begin{tabbing}
+Step \= \kill
+24\> ctxt(\=[NULL(exists(x,R(x))),presup(y,F(y)),
+asssert(NULL(in(x,y))),assert(because),
+assert(not(exists(z,R(z))))\\
+\end{tabbing}
+
+Since we doubt the existence of roses, we doubt the truthfulness of
+the statement that the roses are in the fridge.
+
+
+At the end of processing D$_7$, we ``know'' the following:
+\begin{itemize}
+\item
+There is a fridge.
+\item
+There are no roses.
+\end{itemize}
+And we have doubts about the following:
+\begin{itemize}
+\item
+There are roses.
+\item
+The roses are in the fridge.
+\end{itemize}
+
+\noindent
+And this is what we expect to get.
+
+ 
+\section{Discussion of the solution}
+
+In this section we highlight the aspects of the solution that enable
+us to reason about the mistake more flexibly than in the solution of
+Heim. This example does not involve actions or intentions. The mistake
+we deal with is a mistake in beliefs. This models a passive agnet
+listening to a stream of utterances without doing anything more.
+
+
+\subsection{Detecting and representing the mistake}
+
+A mistake ocurs in this problem when the context entails $\phi$ but
+the utterance being processed has $\neg \phi$ as a potential
+presupposition. We consider here the case that the context {\em
+contains} $\phi$. If $\phi$ is entailed but not contained in the
+context, the mistake will be noticed later.
+
+The contents of the context are represented as $assert(\phi)$ and the
+presuppositions as $presup(\neg \phi)$. Detecting the mistake then
+involves detecting such a pair of formulas in the current
+context. This is done by rule \ref{contraDetectionRule}. That rule
+removes the contradictory formulas from the context, asserts that they
+are $SUSPECT$ and asserts that there has been a contradiction.
+
+The mistake itself is represented here by the contradiction assertion:
+$contra(assert(\phi), presup(\neg \phi), t)$. 
+
+An example of the application of rule \ref{contraDetectionRule} is
+seen in step 22 od the second example.
+
+
+\subsection{Responding to the mistake}
+
+In addition to asserting that there has been a contradiction
+(mistake), rule \ref{contraDetectionRule} also removes the
+contradictory formulas from the context and asserts that they are
+$SUSPECT$. The removal of the formulas is the first line of defence:
+since one of the two formulas is false, by removing them, we minimize
+the derivation of false formulas.
+
+Resolution of the contradiction is done by rule
+\ref{contraResolutionRule}. This uses a preference assertion made in
+the KB to decide which of the contradictands to reinstate to the
+context at the next step. This results in $assert(X)$ formulas being
+added to the next step in preference to $presup(X)$ formulas. This is
+generally a good heuristic since the presuppositions are potential
+presuppositions that have to agree with the context.
+
+Once the mistake is resolved, the status of the preferred belief
+reverts to being beleived from being $SUSPECT$ while that of the
+mistaken beleif goes to $NULL$ which indicates that it is
+mistaken. The consequences of the mistaken belief are also changed to
+$NULL$. 
+
+This resolves the problem and the computation can proceed with the
+rest of the utterance being included into the context. Only the
+mistaken presipposition is removed.
+
+\subsection{No actions}
+
+It is to be noted that this example does not involve any actions other
+than manipulating the KB. Further, the changes done to the KB as a
+result of a mistake are simple and are the same for all possible
+mistakes that we consider. These factors make it easy to resolve the
+problem simply with representing that we have a mistake and invoking
+a standard method to resolve it.
+
+If there were actions undertaken in the world or if the response to
+the mistakes were more complex, it is unlikely that just asserting
+$contra$ would have sufficed. It may have been necessary to explicitly
+indicate which beliefs, intentions and actions were mistaken to be
+able to respond appropriately.
+
+\subsection{Why does it work and Heim's does not?}
+
+The reason our approach gives better results intuitively than Heim's
+approach is that we do more careful reasoning about the mistake that
+occurs. Once an inconsistency appears in Heim's approach, the whole
+segment of the dialog that is involved is discarded. In our case, then
+we notice the inconcistency, we note that as a mistake and we find the
+cause of hte mistake and resolve it which allows us to continue
+processing the rest of the utterance.
+
+In Heim's approach, the algorithm does not ``realize'' that there is a
+mistake. There is no special datastructure or procedure that comes
+into play when the mistake occurs. This makes it difficult to have
+anything but the simplest response to mistakes. 
+
+
+\subsection{General remarks}
+
+Here we list a few general remarks about this solution.
+
+The context is represented as a list of formulas. This is not the only
+way to do it, but it was convenient in that case. This sort of
+representation needs the logic to be able to do some metareasoning.
+
+The manipulation of the context is controlled by the logic but the
+changes to the context list are done by a set of prolog procedures
+that implement Heim's rules. This is an illustration of the usefulness
+to have procedures available to do routine work and yet have the
+interesting aspects of the problem visible and controllable by the
+logic. 
+
+Similarly, resolution of the mistake (contradiction) is done using
+procedural code, although in this case it was simple enough to be
+easily implemented in the logic.
+
+
+
+\end{document}
+
+

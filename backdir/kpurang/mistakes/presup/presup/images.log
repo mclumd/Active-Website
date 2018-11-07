@@ -1,0 +1,2711 @@
+This is TeX, Version 3.1415 (C version 6.1) (format=lplain 98.6.30)  16 JUN 2001 18:10
+**./images.tex
+(images.tex
+LaTeX Version 2.09 <25 March 1992>
+
+! Undefined control sequence.
+l.2 \documentclass
+                  {article}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+LaTeX error.  See LaTeX manual for explanation.
+              Type  H <return>  for immediate help.
+! Missing \begin{document}.
+\@latexerr ...for immediate help.}\errmessage {#1}
+                                                  
+<to be read again> 
+                   a
+l.2 \documentclass{a
+                    rticle}
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+! Undefined control sequence.
+l.4 \usepackage
+               {times}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.5 \usepackage
+               {eufrak}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.16 \providecommand
+                    {\comment}[1]{{\bf #1}}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.16 \providecommand{\comment
+                             }[1]{{\bf #1}}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+LaTeX error.  See LaTeX manual for explanation.
+              Type  H <return>  for immediate help.
+! Missing \begin{document}.
+\@latexerr ...for immediate help.}\errmessage {#1}
+                                                  
+<to be read again> 
+                   [
+l.16 \providecommand{\comment}[
+                               1]{{\bf #1}}
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+! You can't use `macro parameter character #' in horizontal mode.
+l.16 \providecommand{\comment}[1]{{\bf #
+                                        1}}
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+! Undefined control sequence.
+l.17 \par\usepackage
+                    [dvips]{color}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+LaTeX error.  See LaTeX manual for explanation.
+              Type  H <return>  for immediate help.
+! Missing \begin{document}.
+\@latexerr ...for immediate help.}\errmessage {#1}
+                                                  
+<to be read again> 
+                   [
+l.17 \par\usepackage[
+                     dvips]{color}
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+! Undefined control sequence.
+l.18 \pagecolor
+               [gray]{.7}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+\sizebox=\box25
+\lthtmlwrite=\write3
+! Undefined control sequence.
+\@floatplacement ...global \@toproom \topfraction 
+                                                  \@colht \global \@botnum \...
+
+\document ... \hsize \begingroup \@floatplacement 
+                                                  \@dblfloatplacement \makea...
+l.87 \begin{document}
+                     
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+\@floatplacement ...bal \@botroom \bottomfraction 
+                                                  \@colht \global \@colnum \...
+
+\document ... \hsize \begingroup \@floatplacement 
+                                                  \@dblfloatplacement \makea...
+l.87 \begin{document}
+                     
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+\@floatplacement ...er \@fpmin \floatpagefraction 
+                                                  \@colht 
+\document ... \hsize \begingroup \@floatplacement 
+                                                  \@dblfloatplacement \makea...
+l.87 \begin{document}
+                     
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+\@dblfloatplacement ...dbltoproom \dbltopfraction 
+                                                  \@colht \@fpmin \dblfloatp...
+
+\document ...\@floatplacement \@dblfloatplacement 
+                                                  \makeatletter \let \@write...
+l.87 \begin{document}
+                     
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+\@dblfloatplacement ...pmin \dblfloatpagefraction 
+                                                  \textheight \@fptop \@dblf...
+
+\document ...\@floatplacement \@dblfloatplacement 
+                                                  \makeatletter \let \@write...
+l.87 \begin{document}
+                     
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+No file images.aux.
+! Undefined control sequence.
+\document ...cmds \let \do \noexpand \@normalsize 
+                                                  \everypar {}\@noskipsecfalse 
+l.87 \begin{document}
+                     
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+latex2htmlLength hsize=349.0pt
+latex2htmlLength vsize=614.295pt
+latex2htmlLength hoffset=0.0pt
+latex2htmlLength voffset=0.0pt
+latex2htmlLength topmargin=0.0pt
+latex2htmlLength topskip=0.00003pt
+latex2htmlLength headheight=0.0pt
+latex2htmlLength headsep=0.0pt
+latex2htmlLength parskip=7.22743pt
+latex2htmlLength oddsidemargin=0.0pt
+latex2htmlLength evensidemargin=0.0pt
+! You can't use `\relax' after \advance.
+<recently read> \c@section 
+                           
+\stepcounter ...l \advance \csname c@#1\endcsname 
+                                                  \@ne {\let \@elt \@stpelt ...
+l.103 \stepcounter{section}
+                           
+I'm forgetting what you said and not changing anything.
+
+! You can't use `\relax' after \advance.
+<recently read> \c@section 
+                           
+\stepcounter ...l \advance \csname c@#1\endcsname 
+                                                  \@ne {\let \@elt \@stpelt ...
+l.104 \stepcounter{section}
+                           
+I'm forgetting what you said and not changing anything.
+
+! Undefined control sequence.
+\normalsize ...\normalsize \rm \else \@normalsize 
+                                                  \fi 
+\@outputpage ...ut \vbox {\reset@font \normalsize 
+                                                  \baselineskip \z@ \lineski...
+
+\@opcol ...lumn \@outputdblcol \else \@outputpage 
+                                                  \global \@colht \textheigh...
+<output> ...specialoutput \else \@makecol \@opcol 
+                                                  \@floatplacement \@startco...
+
+\newpage ->\par \vfil \penalty -\@M 
+                                    
+l.105 {\newpage
+               \clearpage
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+[1]
+! Undefined control sequence.
+\@floatplacement ...global \@toproom \topfraction 
+                                                  \@colht \global \@botnum \...
+<output> ...se \@makecol \@opcol \@floatplacement 
+                                                  \@startcolumn \@whilesw \i...
+
+\newpage ->\par \vfil \penalty -\@M 
+                                    
+l.105 {\newpage
+               \clearpage
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+\@floatplacement ...bal \@botroom \bottomfraction 
+                                                  \@colht \global \@colnum \...
+<output> ...se \@makecol \@opcol \@floatplacement 
+                                                  \@startcolumn \@whilesw \i...
+
+\newpage ->\par \vfil \penalty -\@M 
+                                    
+l.105 {\newpage
+               \clearpage
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+\@floatplacement ...er \@fpmin \floatpagefraction 
+                                                  \@colht 
+<output> ...se \@makecol \@opcol \@floatplacement 
+                                                  \@startcolumn \@whilesw \i...
+
+\newpage ->\par \vfil \penalty -\@M 
+                                    
+l.105 {\newpage
+               \clearpage
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+\realnormalsize ...malsize \rm \else \@normalsize 
+                                                  \fi 
+\normalsize ->\mathsurround =0pt \realnormalsize 
+                                                 \parindent =0pt\abovedispla...
+
+\lthtmlhboxmathA ->\adjustnormalsize 
+                                     \setbox \sizebox =\hbox \bgroup 
+\lthtmlinlinemathA ...thtype {#1}\lthtmlhboxmathA 
+                                                  \vrule height1.5ex width0pt 
+l.106 \lthtmlinlinemathA{tex2html_wrap_inline11}
+                                                %
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+l2hSize :tex2html_wrap_inline11:6.45831pt::0.0pt::5.00002pt.
+! Undefined control sequence.
+\realnormalsize ...malsize \rm \else \@normalsize 
+                                                  \fi 
+\normalsize ->\mathsurround =0pt \realnormalsize 
+                                                 \parindent =0pt\abovedispla...
+
+\@outputpage ...ut \vbox {\reset@font \normalsize 
+                                                  \baselineskip \z@ \lineski...
+
+\@opcol ...lumn \@outputdblcol \else \@outputpage 
+                                                  \global \@colht \textheigh...
+<output> ...specialoutput \else \@makecol \@opcol 
+                                                  \@floatplacement \@startco...
+
+\newpage ->\par \vfil \penalty -\@M 
+                                    
+...
+l.109 \hfill\lthtmlcheckvsize\clearpage
+                                       }
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+[2
+
+]
+! Undefined control sequence.
+\@floatplacement ...global \@toproom \topfraction 
+                                                  \@colht \global \@botnum \...
+<output> ...se \@makecol \@opcol \@floatplacement 
+                                                  \@startcolumn \@whilesw \i...
+
+\newpage ->\par \vfil \penalty -\@M 
+                                    
+\clearpage ->\newpage 
+                      \write \m@ne {}\vbox {}\penalty -\@Mi 
+l.109 \hfill\lthtmlcheckvsize\clearpage
+                                       }
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+\@floatplacement ...bal \@botroom \bottomfraction 
+                                                  \@colht \global \@colnum \...
+<output> ...se \@makecol \@opcol \@floatplacement 
+                                                  \@startcolumn \@whilesw \i...
+
+\newpage ->\par \vfil \penalty -\@M 
+                                    
+\clearpage ->\newpage 
+                      \write \m@ne {}\vbox {}\penalty -\@Mi 
+l.109 \hfill\lthtmlcheckvsize\clearpage
+                                       }
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+\@floatplacement ...er \@fpmin \floatpagefraction 
+                                                  \@colht 
+<output> ...se \@makecol \@opcol \@floatplacement 
+                                                  \@startcolumn \@whilesw \i...
+
+\newpage ->\par \vfil \penalty -\@M 
+                                    
+\clearpage ->\newpage 
+                      \write \m@ne {}\vbox {}\penalty -\@Mi 
+l.109 \hfill\lthtmlcheckvsize\clearpage
+                                       }
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! You can't use `\relax' after \advance.
+<recently read> \c@subsection 
+                              
+\stepcounter ...l \advance \csname c@#1\endcsname 
+                                                  \@ne {\let \@elt \@stpelt ...
+l.111 \stepcounter{subsection}
+                              
+I'm forgetting what you said and not changing anything.
+
+! You can't use `\relax' after \advance.
+<recently read> \c@subsubsection 
+                                 
+\stepcounter ...l \advance \csname c@#1\endcsname 
+                                                  \@ne {\let \@elt \@stpelt ...
+l.112 \stepcounter{subsubsection}
+                                 
+I'm forgetting what you said and not changing anything.
+
+! Undefined control sequence.
+\normalsize ...\normalsize \rm \else \@normalsize 
+                                                  \fi 
+\@outputpage ...ut \vbox {\reset@font \normalsize 
+                                                  \baselineskip \z@ \lineski...
+
+\@opcol ...lumn \@outputdblcol \else \@outputpage 
+                                                  \global \@colht \textheigh...
+<output> ...specialoutput \else \@makecol \@opcol 
+                                                  \@floatplacement \@startco...
+
+\newpage ->\par \vfil \penalty -\@M 
+                                    
+l.113 {\newpage
+               \clearpage
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+[3
+
+]
+! Undefined control sequence.
+\@floatplacement ...global \@toproom \topfraction 
+                                                  \@colht \global \@botnum \...
+<output> ...se \@makecol \@opcol \@floatplacement 
+                                                  \@startcolumn \@whilesw \i...
+
+\newpage ->\par \vfil \penalty -\@M 
+                                    
+l.113 {\newpage
+               \clearpage
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+\@floatplacement ...bal \@botroom \bottomfraction 
+                                                  \@colht \global \@colnum \...
+<output> ...se \@makecol \@opcol \@floatplacement 
+                                                  \@startcolumn \@whilesw \i...
+
+\newpage ->\par \vfil \penalty -\@M 
+                                    
+l.113 {\newpage
+               \clearpage
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+\@floatplacement ...er \@fpmin \floatpagefraction 
+                                                  \@colht 
+<output> ...se \@makecol \@opcol \@floatplacement 
+                                                  \@startcolumn \@whilesw \i...
+
+\newpage ->\par \vfil \penalty -\@M 
+                                    
+l.113 {\newpage
+               \clearpage
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+\realnormalsize ...malsize \rm \else \@normalsize 
+                                                  \fi 
+\normalsize ->\mathsurround =0pt \realnormalsize 
+                                                 \parindent =0pt\abovedispla...
+
+\lthtmlvboxmathA ->\adjustnormalsize 
+                                     \setbox \sizebox =\vbox \bgroup \let \i...
+l.114 \lthtmldisplayA{displaymath183}
+                                     %
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+l2hSize :displaymath183:14.5pt::0.0pt::349.0pt.
+! Undefined control sequence.
+\realnormalsize ...malsize \rm \else \@normalsize 
+                                                  \fi 
+\normalsize ->\mathsurround =0pt \realnormalsize 
+                                                 \parindent =0pt\abovedispla...
+
+\@outputpage ...ut \vbox {\reset@font \normalsize 
+                                                  \baselineskip \z@ \lineski...
+
+\@opcol ...lumn \@outputdblcol \else \@outputpage 
+                                                  \global \@colht \textheigh...
+<output> ...specialoutput \else \@makecol \@opcol 
+                                                  \@floatplacement \@startco...
+
+\newpage ->\par \vfil \penalty -\@M 
+                                    
+...
+l.117 \hfill\lthtmlcheckvsize\clearpage
+                                       }
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+[4
+
+]
+! Undefined control sequence.
+\@floatplacement ...global \@toproom \topfraction 
+                                                  \@colht \global \@botnum \...
+<output> ...se \@makecol \@opcol \@floatplacement 
+                                                  \@startcolumn \@whilesw \i...
+
+\newpage ->\par \vfil \penalty -\@M 
+                                    
+\clearpage ->\newpage 
+                      \write \m@ne {}\vbox {}\penalty -\@Mi 
+l.117 \hfill\lthtmlcheckvsize\clearpage
+                                       }
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+\@floatplacement ...bal \@botroom \bottomfraction 
+                                                  \@colht \global \@colnum \...
+<output> ...se \@makecol \@opcol \@floatplacement 
+                                                  \@startcolumn \@whilesw \i...
+
+\newpage ->\par \vfil \penalty -\@M 
+                                    
+\clearpage ->\newpage 
+                      \write \m@ne {}\vbox {}\penalty -\@Mi 
+l.117 \hfill\lthtmlcheckvsize\clearpage
+                                       }
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+\@floatplacement ...er \@fpmin \floatpagefraction 
+                                                  \@colht 
+<output> ...se \@makecol \@opcol \@floatplacement 
+                                                  \@startcolumn \@whilesw \i...
+
+\newpage ->\par \vfil \penalty -\@M 
+                                    
+\clearpage ->\newpage 
+                      \write \m@ne {}\vbox {}\penalty -\@Mi 
+l.117 \hfill\lthtmlcheckvsize\clearpage
+                                       }
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+\realnormalsize ...malsize \rm \else \@normalsize 
+                                                  \fi 
+\normalsize ->\mathsurround =0pt \realnormalsize 
+                                                 \parindent =0pt\abovedispla...
+
+\lthtmlvboxmathA ->\adjustnormalsize 
+                                     \setbox \sizebox =\vbox \bgroup \let \i...
+l.120 \lthtmldisplayA{displaymath185}
+                                     %
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+l2hSize :displaymath185:14.5pt::0.0pt::349.0pt.
+! Undefined control sequence.
+\realnormalsize ...malsize \rm \else \@normalsize 
+                                                  \fi 
+\normalsize ->\mathsurround =0pt \realnormalsize 
+                                                 \parindent =0pt\abovedispla...
+
+\@outputpage ...ut \vbox {\reset@font \normalsize 
+                                                  \baselineskip \z@ \lineski...
+
+\@opcol ...lumn \@outputdblcol \else \@outputpage 
+                                                  \global \@colht \textheigh...
+<output> ...specialoutput \else \@makecol \@opcol 
+                                                  \@floatplacement \@startco...
+
+\newpage ->\par \vfil \penalty -\@M 
+                                    
+...
+l.123 \hfill\lthtmlcheckvsize\clearpage
+                                       }
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+[5
+
+
+]
+! Undefined control sequence.
+\@floatplacement ...global \@toproom \topfraction 
+                                                  \@colht \global \@botnum \...
+<output> ...se \@makecol \@opcol \@floatplacement 
+                                                  \@startcolumn \@whilesw \i...
+
+\newpage ->\par \vfil \penalty -\@M 
+                                    
+\clearpage ->\newpage 
+                      \write \m@ne {}\vbox {}\penalty -\@Mi 
+l.123 \hfill\lthtmlcheckvsize\clearpage
+                                       }
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+\@floatplacement ...bal \@botroom \bottomfraction 
+                                                  \@colht \global \@colnum \...
+<output> ...se \@makecol \@opcol \@floatplacement 
+                                                  \@startcolumn \@whilesw \i...
+
+\newpage ->\par \vfil \penalty -\@M 
+                                    
+\clearpage ->\newpage 
+                      \write \m@ne {}\vbox {}\penalty -\@Mi 
+l.123 \hfill\lthtmlcheckvsize\clearpage
+                                       }
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+\@floatplacement ...er \@fpmin \floatpagefraction 
+                                                  \@colht 
+<output> ...se \@makecol \@opcol \@floatplacement 
+                                                  \@startcolumn \@whilesw \i...
+
+\newpage ->\par \vfil \penalty -\@M 
+                                    
+\clearpage ->\newpage 
+                      \write \m@ne {}\vbox {}\penalty -\@Mi 
+l.123 \hfill\lthtmlcheckvsize\clearpage
+                                       }
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+\realnormalsize ...malsize \rm \else \@normalsize 
+                                                  \fi 
+\normalsize ->\mathsurround =0pt \realnormalsize 
+                                                 \parindent =0pt\abovedispla...
+
+\lthtmlvboxmathA ->\adjustnormalsize 
+                                     \setbox \sizebox =\vbox \bgroup \let \i...
+l.126 \lthtmldisplayA{displaymath186}
+                                     %
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+l2hSize :displaymath186:14.5pt::0.0pt::349.0pt.
+! Undefined control sequence.
+\realnormalsize ...malsize \rm \else \@normalsize 
+                                                  \fi 
+\normalsize ->\mathsurround =0pt \realnormalsize 
+                                                 \parindent =0pt\abovedispla...
+
+\@outputpage ...ut \vbox {\reset@font \normalsize 
+                                                  \baselineskip \z@ \lineski...
+
+\@opcol ...lumn \@outputdblcol \else \@outputpage 
+                                                  \global \@colht \textheigh...
+<output> ...specialoutput \else \@makecol \@opcol 
+                                                  \@floatplacement \@startco...
+
+\newpage ->\par \vfil \penalty -\@M 
+                                    
+...
+l.130 \hfill\lthtmlcheckvsize\clearpage
+                                       }
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+[6
+
+
+]
+! Undefined control sequence.
+\@floatplacement ...global \@toproom \topfraction 
+                                                  \@colht \global \@botnum \...
+<output> ...se \@makecol \@opcol \@floatplacement 
+                                                  \@startcolumn \@whilesw \i...
+
+\newpage ->\par \vfil \penalty -\@M 
+                                    
+\clearpage ->\newpage 
+                      \write \m@ne {}\vbox {}\penalty -\@Mi 
+l.130 \hfill\lthtmlcheckvsize\clearpage
+                                       }
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+\@floatplacement ...bal \@botroom \bottomfraction 
+                                                  \@colht \global \@colnum \...
+<output> ...se \@makecol \@opcol \@floatplacement 
+                                                  \@startcolumn \@whilesw \i...
+
+\newpage ->\par \vfil \penalty -\@M 
+                                    
+\clearpage ->\newpage 
+                      \write \m@ne {}\vbox {}\penalty -\@Mi 
+l.130 \hfill\lthtmlcheckvsize\clearpage
+                                       }
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+\@floatplacement ...er \@fpmin \floatpagefraction 
+                                                  \@colht 
+<output> ...se \@makecol \@opcol \@floatplacement 
+                                                  \@startcolumn \@whilesw \i...
+
+\newpage ->\par \vfil \penalty -\@M 
+                                    
+\clearpage ->\newpage 
+                      \write \m@ne {}\vbox {}\penalty -\@Mi 
+l.130 \hfill\lthtmlcheckvsize\clearpage
+                                       }
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! You can't use `\relax' after \advance.
+<recently read> \c@section 
+                           
+\stepcounter ...l \advance \csname c@#1\endcsname 
+                                                  \@ne {\let \@elt \@stpelt ...
+l.132 \stepcounter{section}
+                           
+I'm forgetting what you said and not changing anything.
+
+! Undefined control sequence.
+\normalsize ...\normalsize \rm \else \@normalsize 
+                                                  \fi 
+\@outputpage ...ut \vbox {\reset@font \normalsize 
+                                                  \baselineskip \z@ \lineski...
+
+\@opcol ...lumn \@outputdblcol \else \@outputpage 
+                                                  \global \@colht \textheigh...
+<output> ...specialoutput \else \@makecol \@opcol 
+                                                  \@floatplacement \@startco...
+
+\newpage ->\par \vfil \penalty -\@M 
+                                    
+l.133 {\newpage
+               \clearpage
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+[7
+
+]
+! Undefined control sequence.
+\@floatplacement ...global \@toproom \topfraction 
+                                                  \@colht \global \@botnum \...
+<output> ...se \@makecol \@opcol \@floatplacement 
+                                                  \@startcolumn \@whilesw \i...
+
+\newpage ->\par \vfil \penalty -\@M 
+                                    
+l.133 {\newpage
+               \clearpage
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+\@floatplacement ...bal \@botroom \bottomfraction 
+                                                  \@colht \global \@colnum \...
+<output> ...se \@makecol \@opcol \@floatplacement 
+                                                  \@startcolumn \@whilesw \i...
+
+\newpage ->\par \vfil \penalty -\@M 
+                                    
+l.133 {\newpage
+               \clearpage
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+\@floatplacement ...er \@fpmin \floatpagefraction 
+                                                  \@colht 
+<output> ...se \@makecol \@opcol \@floatplacement 
+                                                  \@startcolumn \@whilesw \i...
+
+\newpage ->\par \vfil \penalty -\@M 
+                                    
+l.133 {\newpage
+               \clearpage
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+\realnormalsize ...malsize \rm \else \@normalsize 
+                                                  \fi 
+\normalsize ->\mathsurround =0pt \realnormalsize 
+                                                 \parindent =0pt\abovedispla...
+
+\lthtmlhboxmathA ->\adjustnormalsize 
+                                     \setbox \sizebox =\hbox \bgroup 
+\lthtmlinlinemathA ...thtype {#1}\lthtmlhboxmathA 
+                                                  \vrule height1.5ex width0pt 
+l.134 \lthtmlinlinemathA{tex2html_wrap_inline213}
+                                                 %
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+l2hSize :tex2html_wrap_inline213:8.0pt::8.0pt::61.31258pt.
+! Undefined control sequence.
+\realnormalsize ...malsize \rm \else \@normalsize 
+                                                  \fi 
+\normalsize ->\mathsurround =0pt \realnormalsize 
+                                                 \parindent =0pt\abovedispla...
+
+\@outputpage ...ut \vbox {\reset@font \normalsize 
+                                                  \baselineskip \z@ \lineski...
+
+\@opcol ...lumn \@outputdblcol \else \@outputpage 
+                                                  \global \@colht \textheigh...
+<output> ...specialoutput \else \@makecol \@opcol 
+                                                  \@floatplacement \@startco...
+
+\newpage ->\par \vfil \penalty -\@M 
+                                    
+...
+l.137 \hfill\lthtmlcheckvsize\clearpage
+                                       }
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+[8
+
+]
+! Undefined control sequence.
+\@floatplacement ...global \@toproom \topfraction 
+                                                  \@colht \global \@botnum \...
+<output> ...se \@makecol \@opcol \@floatplacement 
+                                                  \@startcolumn \@whilesw \i...
+
+\newpage ->\par \vfil \penalty -\@M 
+                                    
+\clearpage ->\newpage 
+                      \write \m@ne {}\vbox {}\penalty -\@Mi 
+l.137 \hfill\lthtmlcheckvsize\clearpage
+                                       }
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+\@floatplacement ...bal \@botroom \bottomfraction 
+                                                  \@colht \global \@colnum \...
+<output> ...se \@makecol \@opcol \@floatplacement 
+                                                  \@startcolumn \@whilesw \i...
+
+\newpage ->\par \vfil \penalty -\@M 
+                                    
+\clearpage ->\newpage 
+                      \write \m@ne {}\vbox {}\penalty -\@Mi 
+l.137 \hfill\lthtmlcheckvsize\clearpage
+                                       }
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+\@floatplacement ...er \@fpmin \floatpagefraction 
+                                                  \@colht 
+<output> ...se \@makecol \@opcol \@floatplacement 
+                                                  \@startcolumn \@whilesw \i...
+
+\newpage ->\par \vfil \penalty -\@M 
+                                    
+\clearpage ->\newpage 
+                      \write \m@ne {}\vbox {}\penalty -\@Mi 
+l.137 \hfill\lthtmlcheckvsize\clearpage
+                                       }
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+\realnormalsize ...malsize \rm \else \@normalsize 
+                                                  \fi 
+\normalsize ->\mathsurround =0pt \realnormalsize 
+                                                 \parindent =0pt\abovedispla...
+
+\lthtmlhboxmathA ->\adjustnormalsize 
+                                     \setbox \sizebox =\hbox \bgroup 
+\lthtmlinlinemathA ...thtype {#1}\lthtmlhboxmathA 
+                                                  \vrule height1.5ex width0pt 
+l.140 \lthtmlinlinemathA{tex2html_wrap_inline215}
+                                                 %
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+l2hSize :tex2html_wrap_inline215:8.0pt::8.0pt::163.92778pt.
+! Undefined control sequence.
+\realnormalsize ...malsize \rm \else \@normalsize 
+                                                  \fi 
+\normalsize ->\mathsurround =0pt \realnormalsize 
+                                                 \parindent =0pt\abovedispla...
+
+\@outputpage ...ut \vbox {\reset@font \normalsize 
+                                                  \baselineskip \z@ \lineski...
+
+\@opcol ...lumn \@outputdblcol \else \@outputpage 
+                                                  \global \@colht \textheigh...
+<output> ...specialoutput \else \@makecol \@opcol 
+                                                  \@floatplacement \@startco...
+
+\newpage ->\par \vfil \penalty -\@M 
+                                    
+...
+l.144 \hfill\lthtmlcheckvsize\clearpage
+                                       }
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+[9
+
+
+]
+! Undefined control sequence.
+\@floatplacement ...global \@toproom \topfraction 
+                                                  \@colht \global \@botnum \...
+<output> ...se \@makecol \@opcol \@floatplacement 
+                                                  \@startcolumn \@whilesw \i...
+
+\newpage ->\par \vfil \penalty -\@M 
+                                    
+\clearpage ->\newpage 
+                      \write \m@ne {}\vbox {}\penalty -\@Mi 
+l.144 \hfill\lthtmlcheckvsize\clearpage
+                                       }
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+\@floatplacement ...bal \@botroom \bottomfraction 
+                                                  \@colht \global \@colnum \...
+<output> ...se \@makecol \@opcol \@floatplacement 
+                                                  \@startcolumn \@whilesw \i...
+
+\newpage ->\par \vfil \penalty -\@M 
+                                    
+\clearpage ->\newpage 
+                      \write \m@ne {}\vbox {}\penalty -\@Mi 
+l.144 \hfill\lthtmlcheckvsize\clearpage
+                                       }
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+\@floatplacement ...er \@fpmin \floatpagefraction 
+                                                  \@colht 
+<output> ...se \@makecol \@opcol \@floatplacement 
+                                                  \@startcolumn \@whilesw \i...
+
+\newpage ->\par \vfil \penalty -\@M 
+                                    
+\clearpage ->\newpage 
+                      \write \m@ne {}\vbox {}\penalty -\@Mi 
+l.144 \hfill\lthtmlcheckvsize\clearpage
+                                       }
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+\realnormalsize ...malsize \rm \else \@normalsize 
+                                                  \fi 
+\normalsize ->\mathsurround =0pt \realnormalsize 
+                                                 \parindent =0pt\abovedispla...
+
+\lthtmlhboxmathA ->\adjustnormalsize 
+                                     \setbox \sizebox =\hbox \bgroup 
+\lthtmlinlinemathA ...thtype {#1}\lthtmlhboxmathA 
+                                                  \vrule height1.5ex width0pt 
+l.147 \lthtmlinlinemathA{tex2html_wrap_inline219}
+                                                 %
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+l2hSize :tex2html_wrap_inline219:8.0pt::8.0pt::121.24577pt.
+! Undefined control sequence.
+\realnormalsize ...malsize \rm \else \@normalsize 
+                                                  \fi 
+\normalsize ->\mathsurround =0pt \realnormalsize 
+                                                 \parindent =0pt\abovedispla...
+
+\@outputpage ...ut \vbox {\reset@font \normalsize 
+                                                  \baselineskip \z@ \lineski...
+
+\@opcol ...lumn \@outputdblcol \else \@outputpage 
+                                                  \global \@colht \textheigh...
+<output> ...specialoutput \else \@makecol \@opcol 
+                                                  \@floatplacement \@startco...
+
+\newpage ->\par \vfil \penalty -\@M 
+                                    
+...
+l.151 \hfill\lthtmlcheckvsize\clearpage
+                                       }
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+[10
+
+
+]
+! Undefined control sequence.
+\@floatplacement ...global \@toproom \topfraction 
+                                                  \@colht \global \@botnum \...
+<output> ...se \@makecol \@opcol \@floatplacement 
+                                                  \@startcolumn \@whilesw \i...
+
+\newpage ->\par \vfil \penalty -\@M 
+                                    
+\clearpage ->\newpage 
+                      \write \m@ne {}\vbox {}\penalty -\@Mi 
+l.151 \hfill\lthtmlcheckvsize\clearpage
+                                       }
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+\@floatplacement ...bal \@botroom \bottomfraction 
+                                                  \@colht \global \@colnum \...
+<output> ...se \@makecol \@opcol \@floatplacement 
+                                                  \@startcolumn \@whilesw \i...
+
+\newpage ->\par \vfil \penalty -\@M 
+                                    
+\clearpage ->\newpage 
+                      \write \m@ne {}\vbox {}\penalty -\@Mi 
+l.151 \hfill\lthtmlcheckvsize\clearpage
+                                       }
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+\@floatplacement ...er \@fpmin \floatpagefraction 
+                                                  \@colht 
+<output> ...se \@makecol \@opcol \@floatplacement 
+                                                  \@startcolumn \@whilesw \i...
+
+\newpage ->\par \vfil \penalty -\@M 
+                                    
+\clearpage ->\newpage 
+                      \write \m@ne {}\vbox {}\penalty -\@Mi 
+l.151 \hfill\lthtmlcheckvsize\clearpage
+                                       }
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+\realnormalsize ...malsize \rm \else \@normalsize 
+                                                  \fi 
+\normalsize ->\mathsurround =0pt \realnormalsize 
+                                                 \parindent =0pt\abovedispla...
+
+\lthtmlhboxmathA ->\adjustnormalsize 
+                                     \setbox \sizebox =\hbox \bgroup 
+\lthtmlinlinemathA ...thtype {#1}\lthtmlhboxmathA 
+                                                  \vrule height1.5ex width0pt 
+l.154 \lthtmlinlinemathA{tex2html_wrap_inline221}
+                                                 %
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+l2hSize :tex2html_wrap_inline221:8.0pt::8.0pt::236.18407pt.
+! Undefined control sequence.
+\realnormalsize ...malsize \rm \else \@normalsize 
+                                                  \fi 
+\normalsize ->\mathsurround =0pt \realnormalsize 
+                                                 \parindent =0pt\abovedispla...
+
+\@outputpage ...ut \vbox {\reset@font \normalsize 
+                                                  \baselineskip \z@ \lineski...
+
+\@opcol ...lumn \@outputdblcol \else \@outputpage 
+                                                  \global \@colht \textheigh...
+<output> ...specialoutput \else \@makecol \@opcol 
+                                                  \@floatplacement \@startco...
+
+\newpage ->\par \vfil \penalty -\@M 
+                                    
+...
+l.158 \hfill\lthtmlcheckvsize\clearpage
+                                       }
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+[11
+
+
+]
+! Undefined control sequence.
+\@floatplacement ...global \@toproom \topfraction 
+                                                  \@colht \global \@botnum \...
+<output> ...se \@makecol \@opcol \@floatplacement 
+                                                  \@startcolumn \@whilesw \i...
+
+\newpage ->\par \vfil \penalty -\@M 
+                                    
+\clearpage ->\newpage 
+                      \write \m@ne {}\vbox {}\penalty -\@Mi 
+l.158 \hfill\lthtmlcheckvsize\clearpage
+                                       }
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+\@floatplacement ...bal \@botroom \bottomfraction 
+                                                  \@colht \global \@colnum \...
+<output> ...se \@makecol \@opcol \@floatplacement 
+                                                  \@startcolumn \@whilesw \i...
+
+\newpage ->\par \vfil \penalty -\@M 
+                                    
+\clearpage ->\newpage 
+                      \write \m@ne {}\vbox {}\penalty -\@Mi 
+l.158 \hfill\lthtmlcheckvsize\clearpage
+                                       }
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+\@floatplacement ...er \@fpmin \floatpagefraction 
+                                                  \@colht 
+<output> ...se \@makecol \@opcol \@floatplacement 
+                                                  \@startcolumn \@whilesw \i...
+
+\newpage ->\par \vfil \penalty -\@M 
+                                    
+\clearpage ->\newpage 
+                      \write \m@ne {}\vbox {}\penalty -\@Mi 
+l.158 \hfill\lthtmlcheckvsize\clearpage
+                                       }
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+\realnormalsize ...malsize \rm \else \@normalsize 
+                                                  \fi 
+\normalsize ->\mathsurround =0pt \realnormalsize 
+                                                 \parindent =0pt\abovedispla...
+
+\lthtmlhboxmathA ->\adjustnormalsize 
+                                     \setbox \sizebox =\hbox \bgroup 
+\lthtmlinlinemathA ...thtype {#1}\lthtmlhboxmathA 
+                                                  \vrule height1.5ex width0pt 
+l.161 \lthtmlinlinemathA{tex2html_wrap_inline225}
+                                                 %
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+l2hSize :tex2html_wrap_inline225:8.0pt::8.0pt::5.00002pt.
+! Undefined control sequence.
+\realnormalsize ...malsize \rm \else \@normalsize 
+                                                  \fi 
+\normalsize ->\mathsurround =0pt \realnormalsize 
+                                                 \parindent =0pt\abovedispla...
+
+\@outputpage ...ut \vbox {\reset@font \normalsize 
+                                                  \baselineskip \z@ \lineski...
+
+\@opcol ...lumn \@outputdblcol \else \@outputpage 
+                                                  \global \@colht \textheigh...
+<output> ...specialoutput \else \@makecol \@opcol 
+                                                  \@floatplacement \@startco...
+
+\newpage ->\par \vfil \penalty -\@M 
+                                    
+...
+l.164 \hfill\lthtmlcheckvsize\clearpage
+                                       }
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+[12
+
+
+]
+! Undefined control sequence.
+\@floatplacement ...global \@toproom \topfraction 
+                                                  \@colht \global \@botnum \...
+<output> ...se \@makecol \@opcol \@floatplacement 
+                                                  \@startcolumn \@whilesw \i...
+
+\newpage ->\par \vfil \penalty -\@M 
+                                    
+\clearpage ->\newpage 
+                      \write \m@ne {}\vbox {}\penalty -\@Mi 
+l.164 \hfill\lthtmlcheckvsize\clearpage
+                                       }
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+\@floatplacement ...bal \@botroom \bottomfraction 
+                                                  \@colht \global \@colnum \...
+<output> ...se \@makecol \@opcol \@floatplacement 
+                                                  \@startcolumn \@whilesw \i...
+
+\newpage ->\par \vfil \penalty -\@M 
+                                    
+\clearpage ->\newpage 
+                      \write \m@ne {}\vbox {}\penalty -\@Mi 
+l.164 \hfill\lthtmlcheckvsize\clearpage
+                                       }
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+\@floatplacement ...er \@fpmin \floatpagefraction 
+                                                  \@colht 
+<output> ...se \@makecol \@opcol \@floatplacement 
+                                                  \@startcolumn \@whilesw \i...
+
+\newpage ->\par \vfil \penalty -\@M 
+                                    
+\clearpage ->\newpage 
+                      \write \m@ne {}\vbox {}\penalty -\@Mi 
+l.164 \hfill\lthtmlcheckvsize\clearpage
+                                       }
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! You can't use `\relax' after \advance.
+<recently read> \c@section 
+                           
+\stepcounter ...l \advance \csname c@#1\endcsname 
+                                                  \@ne {\let \@elt \@stpelt ...
+l.166 \stepcounter{section}
+                           
+I'm forgetting what you said and not changing anything.
+
+! You can't use `\relax' after \advance.
+<recently read> \c@subsection 
+                              
+\stepcounter ...l \advance \csname c@#1\endcsname 
+                                                  \@ne {\let \@elt \@stpelt ...
+l.167 \stepcounter{subsection}
+                              
+I'm forgetting what you said and not changing anything.
+
+! You can't use `\relax' after \advance.
+<recently read> \c@subsection 
+                              
+\stepcounter ...l \advance \csname c@#1\endcsname 
+                                                  \@ne {\let \@elt \@stpelt ...
+l.168 \stepcounter{subsection}
+                              
+I'm forgetting what you said and not changing anything.
+
+! You can't use `\relax' after \advance.
+<recently read> \c@subsection 
+                              
+\stepcounter ...l \advance \csname c@#1\endcsname 
+                                                  \@ne {\let \@elt \@stpelt ...
+l.169 \stepcounter{subsection}
+                              
+I'm forgetting what you said and not changing anything.
+
+! Undefined control sequence.
+\normalsize ...\normalsize \rm \else \@normalsize 
+                                                  \fi 
+\@outputpage ...ut \vbox {\reset@font \normalsize 
+                                                  \baselineskip \z@ \lineski...
+
+\@opcol ...lumn \@outputdblcol \else \@outputpage 
+                                                  \global \@colht \textheigh...
+<output> ...specialoutput \else \@makecol \@opcol 
+                                                  \@floatplacement \@startco...
+
+\newpage ->\par \vfil \penalty -\@M 
+                                    
+l.170 {\newpage
+               \clearpage
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+[13
+
+]
+! Undefined control sequence.
+\@floatplacement ...global \@toproom \topfraction 
+                                                  \@colht \global \@botnum \...
+<output> ...se \@makecol \@opcol \@floatplacement 
+                                                  \@startcolumn \@whilesw \i...
+
+\newpage ->\par \vfil \penalty -\@M 
+                                    
+l.170 {\newpage
+               \clearpage
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+\@floatplacement ...bal \@botroom \bottomfraction 
+                                                  \@colht \global \@colnum \...
+<output> ...se \@makecol \@opcol \@floatplacement 
+                                                  \@startcolumn \@whilesw \i...
+
+\newpage ->\par \vfil \penalty -\@M 
+                                    
+l.170 {\newpage
+               \clearpage
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+\@floatplacement ...er \@fpmin \floatpagefraction 
+                                                  \@colht 
+<output> ...se \@makecol \@opcol \@floatplacement 
+                                                  \@startcolumn \@whilesw \i...
+
+\newpage ->\par \vfil \penalty -\@M 
+                                    
+l.170 {\newpage
+               \clearpage
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+\realnormalsize ...malsize \rm \else \@normalsize 
+                                                  \fi 
+\normalsize ->\mathsurround =0pt \realnormalsize 
+                                                 \parindent =0pt\abovedispla...
+
+\lthtmlhboxmathA ->\adjustnormalsize 
+                                     \setbox \sizebox =\hbox \bgroup 
+\lthtmlinlinemathA ...thtype {#1}\lthtmlhboxmathA 
+                                                  \vrule height1.5ex width0pt 
+l.171 \lthtmlinlinemathA{tex2html_wrap_inline255}
+                                                 %
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+l2hSize :tex2html_wrap_inline255:6.45831pt::0.0pt::6.66669pt.
+! Undefined control sequence.
+\realnormalsize ...malsize \rm \else \@normalsize 
+                                                  \fi 
+\normalsize ->\mathsurround =0pt \realnormalsize 
+                                                 \parindent =0pt\abovedispla...
+
+\@outputpage ...ut \vbox {\reset@font \normalsize 
+                                                  \baselineskip \z@ \lineski...
+
+\@opcol ...lumn \@outputdblcol \else \@outputpage 
+                                                  \global \@colht \textheigh...
+<output> ...specialoutput \else \@makecol \@opcol 
+                                                  \@floatplacement \@startco...
+
+\newpage ->\par \vfil \penalty -\@M 
+                                    
+...
+l.174 \hfill\lthtmlcheckvsize\clearpage
+                                       }
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+[14
+
+]
+! Undefined control sequence.
+\@floatplacement ...global \@toproom \topfraction 
+                                                  \@colht \global \@botnum \...
+<output> ...se \@makecol \@opcol \@floatplacement 
+                                                  \@startcolumn \@whilesw \i...
+
+\newpage ->\par \vfil \penalty -\@M 
+                                    
+\clearpage ->\newpage 
+                      \write \m@ne {}\vbox {}\penalty -\@Mi 
+l.174 \hfill\lthtmlcheckvsize\clearpage
+                                       }
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+\@floatplacement ...bal \@botroom \bottomfraction 
+                                                  \@colht \global \@colnum \...
+<output> ...se \@makecol \@opcol \@floatplacement 
+                                                  \@startcolumn \@whilesw \i...
+
+\newpage ->\par \vfil \penalty -\@M 
+                                    
+\clearpage ->\newpage 
+                      \write \m@ne {}\vbox {}\penalty -\@Mi 
+l.174 \hfill\lthtmlcheckvsize\clearpage
+                                       }
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+\@floatplacement ...er \@fpmin \floatpagefraction 
+                                                  \@colht 
+<output> ...se \@makecol \@opcol \@floatplacement 
+                                                  \@startcolumn \@whilesw \i...
+
+\newpage ->\par \vfil \penalty -\@M 
+                                    
+\clearpage ->\newpage 
+                      \write \m@ne {}\vbox {}\penalty -\@Mi 
+l.174 \hfill\lthtmlcheckvsize\clearpage
+                                       }
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! You can't use `\relax' after \advance.
+<recently read> \c@section 
+                           
+\stepcounter ...l \advance \csname c@#1\endcsname 
+                                                  \@ne {\let \@elt \@stpelt ...
+l.176 \stepcounter{section}
+                           
+I'm forgetting what you said and not changing anything.
+
+! Undefined control sequence.
+\normalsize ...\normalsize \rm \else \@normalsize 
+                                                  \fi 
+\@outputpage ...ut \vbox {\reset@font \normalsize 
+                                                  \baselineskip \z@ \lineski...
+
+\@opcol ...lumn \@outputdblcol \else \@outputpage 
+                                                  \global \@colht \textheigh...
+<output> ...specialoutput \else \@makecol \@opcol 
+                                                  \@floatplacement \@startco...
+
+\newpage ->\par \vfil \penalty -\@M 
+                                    
+l.177 {\newpage
+               \clearpage
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+[15
+
+]
+! Undefined control sequence.
+\@floatplacement ...global \@toproom \topfraction 
+                                                  \@colht \global \@botnum \...
+<output> ...se \@makecol \@opcol \@floatplacement 
+                                                  \@startcolumn \@whilesw \i...
+
+\newpage ->\par \vfil \penalty -\@M 
+                                    
+l.177 {\newpage
+               \clearpage
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+\@floatplacement ...bal \@botroom \bottomfraction 
+                                                  \@colht \global \@colnum \...
+<output> ...se \@makecol \@opcol \@floatplacement 
+                                                  \@startcolumn \@whilesw \i...
+
+\newpage ->\par \vfil \penalty -\@M 
+                                    
+l.177 {\newpage
+               \clearpage
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+\@floatplacement ...er \@fpmin \floatpagefraction 
+                                                  \@colht 
+<output> ...se \@makecol \@opcol \@floatplacement 
+                                                  \@startcolumn \@whilesw \i...
+
+\newpage ->\par \vfil \penalty -\@M 
+                                    
+l.177 {\newpage
+               \clearpage
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+\realnormalsize ...malsize \rm \else \@normalsize 
+                                                  \fi 
+\normalsize ->\mathsurround =0pt \realnormalsize 
+                                                 \parindent =0pt\abovedispla...
+
+\lthtmlhboxmathA ->\adjustnormalsize 
+                                     \setbox \sizebox =\hbox \bgroup 
+\lthtmlinlinemathA ...thtype {#1}\lthtmlhboxmathA 
+                                                  \vrule height1.5ex width0pt 
+l.178 \lthtmlinlinemathA{tex2html_wrap_inline259}
+                                                 %
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+l2hSize :tex2html_wrap_inline259:8.0pt::8.0pt::3.8889pt.
+! Undefined control sequence.
+\realnormalsize ...malsize \rm \else \@normalsize 
+                                                  \fi 
+\normalsize ->\mathsurround =0pt \realnormalsize 
+                                                 \parindent =0pt\abovedispla...
+
+\@outputpage ...ut \vbox {\reset@font \normalsize 
+                                                  \baselineskip \z@ \lineski...
+
+\@opcol ...lumn \@outputdblcol \else \@outputpage 
+                                                  \global \@colht \textheigh...
+<output> ...specialoutput \else \@makecol \@opcol 
+                                                  \@floatplacement \@startco...
+
+\newpage ->\par \vfil \penalty -\@M 
+                                    
+...
+l.181 \hfill\lthtmlcheckvsize\clearpage
+                                       }
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+[16
+
+]
+! Undefined control sequence.
+\@floatplacement ...global \@toproom \topfraction 
+                                                  \@colht \global \@botnum \...
+<output> ...se \@makecol \@opcol \@floatplacement 
+                                                  \@startcolumn \@whilesw \i...
+
+\newpage ->\par \vfil \penalty -\@M 
+                                    
+\clearpage ->\newpage 
+                      \write \m@ne {}\vbox {}\penalty -\@Mi 
+l.181 \hfill\lthtmlcheckvsize\clearpage
+                                       }
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+\@floatplacement ...bal \@botroom \bottomfraction 
+                                                  \@colht \global \@colnum \...
+<output> ...se \@makecol \@opcol \@floatplacement 
+                                                  \@startcolumn \@whilesw \i...
+
+\newpage ->\par \vfil \penalty -\@M 
+                                    
+\clearpage ->\newpage 
+                      \write \m@ne {}\vbox {}\penalty -\@Mi 
+l.181 \hfill\lthtmlcheckvsize\clearpage
+                                       }
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+\@floatplacement ...er \@fpmin \floatpagefraction 
+                                                  \@colht 
+<output> ...se \@makecol \@opcol \@floatplacement 
+                                                  \@startcolumn \@whilesw \i...
+
+\newpage ->\par \vfil \penalty -\@M 
+                                    
+\clearpage ->\newpage 
+                      \write \m@ne {}\vbox {}\penalty -\@Mi 
+l.181 \hfill\lthtmlcheckvsize\clearpage
+                                       }
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+\realnormalsize ...malsize \rm \else \@normalsize 
+                                                  \fi 
+\normalsize ->\mathsurround =0pt \realnormalsize 
+                                                 \parindent =0pt\abovedispla...
+
+\lthtmlhboxmathA ->\adjustnormalsize 
+                                     \setbox \sizebox =\hbox \bgroup 
+\lthtmlinlinemathA ...thtype {#1}\lthtmlhboxmathA 
+                                                  \vrule height1.5ex width0pt 
+l.184 \lthtmlinlinemathA{tex2html_wrap_inline261}
+                                                 %
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+l2hSize :tex2html_wrap_inline261:8.0pt::8.0pt::3.8889pt.
+! Undefined control sequence.
+\realnormalsize ...malsize \rm \else \@normalsize 
+                                                  \fi 
+\normalsize ->\mathsurround =0pt \realnormalsize 
+                                                 \parindent =0pt\abovedispla...
+
+\@outputpage ...ut \vbox {\reset@font \normalsize 
+                                                  \baselineskip \z@ \lineski...
+
+\@opcol ...lumn \@outputdblcol \else \@outputpage 
+                                                  \global \@colht \textheigh...
+<output> ...specialoutput \else \@makecol \@opcol 
+                                                  \@floatplacement \@startco...
+
+\newpage ->\par \vfil \penalty -\@M 
+                                    
+...
+l.187 \hfill\lthtmlcheckvsize\clearpage
+                                       }
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+[17
+
+
+]
+! Undefined control sequence.
+\@floatplacement ...global \@toproom \topfraction 
+                                                  \@colht \global \@botnum \...
+<output> ...se \@makecol \@opcol \@floatplacement 
+                                                  \@startcolumn \@whilesw \i...
+
+\newpage ->\par \vfil \penalty -\@M 
+                                    
+\clearpage ->\newpage 
+                      \write \m@ne {}\vbox {}\penalty -\@Mi 
+l.187 \hfill\lthtmlcheckvsize\clearpage
+                                       }
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+\@floatplacement ...bal \@botroom \bottomfraction 
+                                                  \@colht \global \@colnum \...
+<output> ...se \@makecol \@opcol \@floatplacement 
+                                                  \@startcolumn \@whilesw \i...
+
+\newpage ->\par \vfil \penalty -\@M 
+                                    
+\clearpage ->\newpage 
+                      \write \m@ne {}\vbox {}\penalty -\@Mi 
+l.187 \hfill\lthtmlcheckvsize\clearpage
+                                       }
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+\@floatplacement ...er \@fpmin \floatpagefraction 
+                                                  \@colht 
+<output> ...se \@makecol \@opcol \@floatplacement 
+                                                  \@startcolumn \@whilesw \i...
+
+\newpage ->\par \vfil \penalty -\@M 
+                                    
+\clearpage ->\newpage 
+                      \write \m@ne {}\vbox {}\penalty -\@Mi 
+l.187 \hfill\lthtmlcheckvsize\clearpage
+                                       }
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+\realnormalsize ...malsize \rm \else \@normalsize 
+                                                  \fi 
+\normalsize ->\mathsurround =0pt \realnormalsize 
+                                                 \parindent =0pt\abovedispla...
+
+\lthtmlhboxmathA ->\adjustnormalsize 
+                                     \setbox \sizebox =\hbox \bgroup 
+\lthtmlinlinemathA ...thtype {#1}\lthtmlhboxmathA 
+                                                  \vrule height1.5ex width0pt 
+l.190 \lthtmlinlinemathA{tex2html_wrap_inline293}
+                                                 %
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+l2hSize :tex2html_wrap_inline293:15.05554pt::0.0pt::2.77779pt.
+! Undefined control sequence.
+\realnormalsize ...malsize \rm \else \@normalsize 
+                                                  \fi 
+\normalsize ->\mathsurround =0pt \realnormalsize 
+                                                 \parindent =0pt\abovedispla...
+
+\@outputpage ...ut \vbox {\reset@font \normalsize 
+                                                  \baselineskip \z@ \lineski...
+
+\@opcol ...lumn \@outputdblcol \else \@outputpage 
+                                                  \global \@colht \textheigh...
+<output> ...specialoutput \else \@makecol \@opcol 
+                                                  \@floatplacement \@startco...
+
+\newpage ->\par \vfil \penalty -\@M 
+                                    
+...
+l.193 \hfill\lthtmlcheckvsize\clearpage
+                                       }
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+[18
+
+
+]
+! Undefined control sequence.
+\@floatplacement ...global \@toproom \topfraction 
+                                                  \@colht \global \@botnum \...
+<output> ...se \@makecol \@opcol \@floatplacement 
+                                                  \@startcolumn \@whilesw \i...
+
+\newpage ->\par \vfil \penalty -\@M 
+                                    
+\clearpage ->\newpage 
+                      \write \m@ne {}\vbox {}\penalty -\@Mi 
+l.193 \hfill\lthtmlcheckvsize\clearpage
+                                       }
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+\@floatplacement ...bal \@botroom \bottomfraction 
+                                                  \@colht \global \@colnum \...
+<output> ...se \@makecol \@opcol \@floatplacement 
+                                                  \@startcolumn \@whilesw \i...
+
+\newpage ->\par \vfil \penalty -\@M 
+                                    
+\clearpage ->\newpage 
+                      \write \m@ne {}\vbox {}\penalty -\@Mi 
+l.193 \hfill\lthtmlcheckvsize\clearpage
+                                       }
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+\@floatplacement ...er \@fpmin \floatpagefraction 
+                                                  \@colht 
+<output> ...se \@makecol \@opcol \@floatplacement 
+                                                  \@startcolumn \@whilesw \i...
+
+\newpage ->\par \vfil \penalty -\@M 
+                                    
+\clearpage ->\newpage 
+                      \write \m@ne {}\vbox {}\penalty -\@Mi 
+l.193 \hfill\lthtmlcheckvsize\clearpage
+                                       }
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! You can't use `\relax' after \advance.
+<recently read> \c@section 
+                           
+\stepcounter ...l \advance \csname c@#1\endcsname 
+                                                  \@ne {\let \@elt \@stpelt ...
+l.195 \stepcounter{section}
+                           
+I'm forgetting what you said and not changing anything.
+
+! You can't use `\relax' after \advance.
+<recently read> \c@subsection 
+                              
+\stepcounter ...l \advance \csname c@#1\endcsname 
+                                                  \@ne {\let \@elt \@stpelt ...
+l.196 \stepcounter{subsection}
+                              
+I'm forgetting what you said and not changing anything.
+
+! Undefined control sequence.
+\normalsize ...\normalsize \rm \else \@normalsize 
+                                                  \fi 
+\@outputpage ...ut \vbox {\reset@font \normalsize 
+                                                  \baselineskip \z@ \lineski...
+
+\@opcol ...lumn \@outputdblcol \else \@outputpage 
+                                                  \global \@colht \textheigh...
+<output> ...specialoutput \else \@makecol \@opcol 
+                                                  \@floatplacement \@startco...
+
+\newpage ->\par \vfil \penalty -\@M 
+                                    
+l.197 {\newpage
+               \clearpage
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+[19
+
+]
+! Undefined control sequence.
+\@floatplacement ...global \@toproom \topfraction 
+                                                  \@colht \global \@botnum \...
+<output> ...se \@makecol \@opcol \@floatplacement 
+                                                  \@startcolumn \@whilesw \i...
+
+\newpage ->\par \vfil \penalty -\@M 
+                                    
+l.197 {\newpage
+               \clearpage
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+\@floatplacement ...bal \@botroom \bottomfraction 
+                                                  \@colht \global \@colnum \...
+<output> ...se \@makecol \@opcol \@floatplacement 
+                                                  \@startcolumn \@whilesw \i...
+
+\newpage ->\par \vfil \penalty -\@M 
+                                    
+l.197 {\newpage
+               \clearpage
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+\@floatplacement ...er \@fpmin \floatpagefraction 
+                                                  \@colht 
+<output> ...se \@makecol \@opcol \@floatplacement 
+                                                  \@startcolumn \@whilesw \i...
+
+\newpage ->\par \vfil \penalty -\@M 
+                                    
+l.197 {\newpage
+               \clearpage
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+\realnormalsize ...malsize \rm \else \@normalsize 
+                                                  \fi 
+\normalsize ->\mathsurround =0pt \realnormalsize 
+                                                 \parindent =0pt\abovedispla...
+
+\lthtmlhboxmathA ->\adjustnormalsize 
+                                     \setbox \sizebox =\hbox \bgroup 
+\lthtmlinlinemathA ...thtype {#1}\lthtmlhboxmathA 
+                                                  \vrule height1.5ex width0pt 
+l.198 \lthtmlinlinemathA{tex2html_wrap_inline445}
+                                                 %
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+l2hSize :tex2html_wrap_inline445:7.44444pt::7.44444pt::5.95834pt.
+! Undefined control sequence.
+\realnormalsize ...malsize \rm \else \@normalsize 
+                                                  \fi 
+\normalsize ->\mathsurround =0pt \realnormalsize 
+                                                 \parindent =0pt\abovedispla...
+
+\@outputpage ...ut \vbox {\reset@font \normalsize 
+                                                  \baselineskip \z@ \lineski...
+
+\@opcol ...lumn \@outputdblcol \else \@outputpage 
+                                                  \global \@colht \textheigh...
+<output> ...specialoutput \else \@makecol \@opcol 
+                                                  \@floatplacement \@startco...
+
+\newpage ->\par \vfil \penalty -\@M 
+                                    
+...
+l.201 \hfill\lthtmlcheckvsize\clearpage
+                                       }
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+[20
+
+]
+! Undefined control sequence.
+\@floatplacement ...global \@toproom \topfraction 
+                                                  \@colht \global \@botnum \...
+<output> ...se \@makecol \@opcol \@floatplacement 
+                                                  \@startcolumn \@whilesw \i...
+
+\newpage ->\par \vfil \penalty -\@M 
+                                    
+\clearpage ->\newpage 
+                      \write \m@ne {}\vbox {}\penalty -\@Mi 
+l.201 \hfill\lthtmlcheckvsize\clearpage
+                                       }
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+\@floatplacement ...bal \@botroom \bottomfraction 
+                                                  \@colht \global \@colnum \...
+<output> ...se \@makecol \@opcol \@floatplacement 
+                                                  \@startcolumn \@whilesw \i...
+
+\newpage ->\par \vfil \penalty -\@M 
+                                    
+\clearpage ->\newpage 
+                      \write \m@ne {}\vbox {}\penalty -\@Mi 
+l.201 \hfill\lthtmlcheckvsize\clearpage
+                                       }
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+\@floatplacement ...er \@fpmin \floatpagefraction 
+                                                  \@colht 
+<output> ...se \@makecol \@opcol \@floatplacement 
+                                                  \@startcolumn \@whilesw \i...
+
+\newpage ->\par \vfil \penalty -\@M 
+                                    
+\clearpage ->\newpage 
+                      \write \m@ne {}\vbox {}\penalty -\@Mi 
+l.201 \hfill\lthtmlcheckvsize\clearpage
+                                       }
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+\realnormalsize ...malsize \rm \else \@normalsize 
+                                                  \fi 
+\normalsize ->\mathsurround =0pt \realnormalsize 
+                                                 \parindent =0pt\abovedispla...
+
+\lthtmlhboxmathA ->\adjustnormalsize 
+                                     \setbox \sizebox =\hbox \bgroup 
+\lthtmlinlinemathA ...thtype {#1}\lthtmlhboxmathA 
+                                                  \vrule height1.5ex width0pt 
+l.204 \lthtmlinlinemathA{tex2html_wrap_inline447}
+                                                 %
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+l2hSize :tex2html_wrap_inline447:7.44444pt::7.44444pt::12.62503pt.
+! Undefined control sequence.
+\realnormalsize ...malsize \rm \else \@normalsize 
+                                                  \fi 
+\normalsize ->\mathsurround =0pt \realnormalsize 
+                                                 \parindent =0pt\abovedispla...
+
+\@outputpage ...ut \vbox {\reset@font \normalsize 
+                                                  \baselineskip \z@ \lineski...
+
+\@opcol ...lumn \@outputdblcol \else \@outputpage 
+                                                  \global \@colht \textheigh...
+<output> ...specialoutput \else \@makecol \@opcol 
+                                                  \@floatplacement \@startco...
+
+\newpage ->\par \vfil \penalty -\@M 
+                                    
+...
+l.207 \hfill\lthtmlcheckvsize\clearpage
+                                       }
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+[21
+
+
+]
+! Undefined control sequence.
+\@floatplacement ...global \@toproom \topfraction 
+                                                  \@colht \global \@botnum \...
+<output> ...se \@makecol \@opcol \@floatplacement 
+                                                  \@startcolumn \@whilesw \i...
+
+\newpage ->\par \vfil \penalty -\@M 
+                                    
+\clearpage ->\newpage 
+                      \write \m@ne {}\vbox {}\penalty -\@Mi 
+l.207 \hfill\lthtmlcheckvsize\clearpage
+                                       }
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+\@floatplacement ...bal \@botroom \bottomfraction 
+                                                  \@colht \global \@colnum \...
+<output> ...se \@makecol \@opcol \@floatplacement 
+                                                  \@startcolumn \@whilesw \i...
+
+\newpage ->\par \vfil \penalty -\@M 
+                                    
+\clearpage ->\newpage 
+                      \write \m@ne {}\vbox {}\penalty -\@Mi 
+l.207 \hfill\lthtmlcheckvsize\clearpage
+                                       }
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+\@floatplacement ...er \@fpmin \floatpagefraction 
+                                                  \@colht 
+<output> ...se \@makecol \@opcol \@floatplacement 
+                                                  \@startcolumn \@whilesw \i...
+
+\newpage ->\par \vfil \penalty -\@M 
+                                    
+\clearpage ->\newpage 
+                      \write \m@ne {}\vbox {}\penalty -\@Mi 
+l.207 \hfill\lthtmlcheckvsize\clearpage
+                                       }
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+\realnormalsize ...malsize \rm \else \@normalsize 
+                                                  \fi 
+\normalsize ->\mathsurround =0pt \realnormalsize 
+                                                 \parindent =0pt\abovedispla...
+
+\lthtmlhboxmathA ->\adjustnormalsize 
+                                     \setbox \sizebox =\hbox \bgroup 
+\lthtmlinlinemathA ...thtype {#1}\lthtmlhboxmathA 
+                                                  \vrule height1.5ex width0pt 
+l.210 \lthtmlinlinemathA{tex2html_wrap_inline453}
+                                                 %
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+l2hSize :tex2html_wrap_inline453:8.0pt::8.0pt::41.45378pt.
+! Undefined control sequence.
+\realnormalsize ...malsize \rm \else \@normalsize 
+                                                  \fi 
+\normalsize ->\mathsurround =0pt \realnormalsize 
+                                                 \parindent =0pt\abovedispla...
+
+\@outputpage ...ut \vbox {\reset@font \normalsize 
+                                                  \baselineskip \z@ \lineski...
+
+\@opcol ...lumn \@outputdblcol \else \@outputpage 
+                                                  \global \@colht \textheigh...
+<output> ...specialoutput \else \@makecol \@opcol 
+                                                  \@floatplacement \@startco...
+
+\newpage ->\par \vfil \penalty -\@M 
+                                    
+...
+l.213 \hfill\lthtmlcheckvsize\clearpage
+                                       }
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+[22
+
+
+]
+! Undefined control sequence.
+\@floatplacement ...global \@toproom \topfraction 
+                                                  \@colht \global \@botnum \...
+<output> ...se \@makecol \@opcol \@floatplacement 
+                                                  \@startcolumn \@whilesw \i...
+
+\newpage ->\par \vfil \penalty -\@M 
+                                    
+\clearpage ->\newpage 
+                      \write \m@ne {}\vbox {}\penalty -\@Mi 
+l.213 \hfill\lthtmlcheckvsize\clearpage
+                                       }
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+\@floatplacement ...bal \@botroom \bottomfraction 
+                                                  \@colht \global \@colnum \...
+<output> ...se \@makecol \@opcol \@floatplacement 
+                                                  \@startcolumn \@whilesw \i...
+
+\newpage ->\par \vfil \penalty -\@M 
+                                    
+\clearpage ->\newpage 
+                      \write \m@ne {}\vbox {}\penalty -\@Mi 
+l.213 \hfill\lthtmlcheckvsize\clearpage
+                                       }
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+\@floatplacement ...er \@fpmin \floatpagefraction 
+                                                  \@colht 
+<output> ...se \@makecol \@opcol \@floatplacement 
+                                                  \@startcolumn \@whilesw \i...
+
+\newpage ->\par \vfil \penalty -\@M 
+                                    
+\clearpage ->\newpage 
+                      \write \m@ne {}\vbox {}\penalty -\@Mi 
+l.213 \hfill\lthtmlcheckvsize\clearpage
+                                       }
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+\realnormalsize ...malsize \rm \else \@normalsize 
+                                                  \fi 
+\normalsize ->\mathsurround =0pt \realnormalsize 
+                                                 \parindent =0pt\abovedispla...
+
+\lthtmlhboxmathA ->\adjustnormalsize 
+                                     \setbox \sizebox =\hbox \bgroup 
+\lthtmlinlinemathA ...thtype {#1}\lthtmlhboxmathA 
+                                                  \vrule height1.5ex width0pt 
+l.216 \lthtmlinlinemathA{tex2html_wrap_inline455}
+                                                 %
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+l2hSize :tex2html_wrap_inline455:8.0pt::8.0pt::50.32304pt.
+! Undefined control sequence.
+\realnormalsize ...malsize \rm \else \@normalsize 
+                                                  \fi 
+\normalsize ->\mathsurround =0pt \realnormalsize 
+                                                 \parindent =0pt\abovedispla...
+
+\@outputpage ...ut \vbox {\reset@font \normalsize 
+                                                  \baselineskip \z@ \lineski...
+
+\@opcol ...lumn \@outputdblcol \else \@outputpage 
+                                                  \global \@colht \textheigh...
+<output> ...specialoutput \else \@makecol \@opcol 
+                                                  \@floatplacement \@startco...
+
+\newpage ->\par \vfil \penalty -\@M 
+                                    
+...
+l.219 \hfill\lthtmlcheckvsize\clearpage
+                                       }
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+[23
+
+
+]
+! Undefined control sequence.
+\@floatplacement ...global \@toproom \topfraction 
+                                                  \@colht \global \@botnum \...
+<output> ...se \@makecol \@opcol \@floatplacement 
+                                                  \@startcolumn \@whilesw \i...
+
+\newpage ->\par \vfil \penalty -\@M 
+                                    
+\clearpage ->\newpage 
+                      \write \m@ne {}\vbox {}\penalty -\@Mi 
+l.219 \hfill\lthtmlcheckvsize\clearpage
+                                       }
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+\@floatplacement ...bal \@botroom \bottomfraction 
+                                                  \@colht \global \@colnum \...
+<output> ...se \@makecol \@opcol \@floatplacement 
+                                                  \@startcolumn \@whilesw \i...
+
+\newpage ->\par \vfil \penalty -\@M 
+                                    
+\clearpage ->\newpage 
+                      \write \m@ne {}\vbox {}\penalty -\@Mi 
+l.219 \hfill\lthtmlcheckvsize\clearpage
+                                       }
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+\@floatplacement ...er \@fpmin \floatpagefraction 
+                                                  \@colht 
+<output> ...se \@makecol \@opcol \@floatplacement 
+                                                  \@startcolumn \@whilesw \i...
+
+\newpage ->\par \vfil \penalty -\@M 
+                                    
+\clearpage ->\newpage 
+                      \write \m@ne {}\vbox {}\penalty -\@Mi 
+l.219 \hfill\lthtmlcheckvsize\clearpage
+                                       }
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+\realnormalsize ...malsize \rm \else \@normalsize 
+                                                  \fi 
+\normalsize ->\mathsurround =0pt \realnormalsize 
+                                                 \parindent =0pt\abovedispla...
+
+\lthtmlhboxmathA ->\adjustnormalsize 
+                                     \setbox \sizebox =\hbox \bgroup 
+\lthtmlinlinemathA ...thtype {#1}\lthtmlhboxmathA 
+                                                  \vrule height1.5ex width0pt 
+l.222 \lthtmlinlinemathA{tex2html_wrap_inline459}
+                                                 %
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+l2hSize :tex2html_wrap_inline459:8.0pt::8.0pt::140.91808pt.
+! Undefined control sequence.
+\realnormalsize ...malsize \rm \else \@normalsize 
+                                                  \fi 
+\normalsize ->\mathsurround =0pt \realnormalsize 
+                                                 \parindent =0pt\abovedispla...
+
+\@outputpage ...ut \vbox {\reset@font \normalsize 
+                                                  \baselineskip \z@ \lineski...
+
+\@opcol ...lumn \@outputdblcol \else \@outputpage 
+                                                  \global \@colht \textheigh...
+<output> ...specialoutput \else \@makecol \@opcol 
+                                                  \@floatplacement \@startco...
+
+\newpage ->\par \vfil \penalty -\@M 
+                                    
+...
+l.225 \hfill\lthtmlcheckvsize\clearpage
+                                       }
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+[24
+
+
+]
+! Undefined control sequence.
+\@floatplacement ...global \@toproom \topfraction 
+                                                  \@colht \global \@botnum \...
+<output> ...se \@makecol \@opcol \@floatplacement 
+                                                  \@startcolumn \@whilesw \i...
+
+\newpage ->\par \vfil \penalty -\@M 
+                                    
+\clearpage ->\newpage 
+                      \write \m@ne {}\vbox {}\penalty -\@Mi 
+l.225 \hfill\lthtmlcheckvsize\clearpage
+                                       }
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+\@floatplacement ...bal \@botroom \bottomfraction 
+                                                  \@colht \global \@colnum \...
+<output> ...se \@makecol \@opcol \@floatplacement 
+                                                  \@startcolumn \@whilesw \i...
+
+\newpage ->\par \vfil \penalty -\@M 
+                                    
+\clearpage ->\newpage 
+                      \write \m@ne {}\vbox {}\penalty -\@Mi 
+l.225 \hfill\lthtmlcheckvsize\clearpage
+                                       }
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+\@floatplacement ...er \@fpmin \floatpagefraction 
+                                                  \@colht 
+<output> ...se \@makecol \@opcol \@floatplacement 
+                                                  \@startcolumn \@whilesw \i...
+
+\newpage ->\par \vfil \penalty -\@M 
+                                    
+\clearpage ->\newpage 
+                      \write \m@ne {}\vbox {}\penalty -\@Mi 
+l.225 \hfill\lthtmlcheckvsize\clearpage
+                                       }
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! You can't use `\relax' after \advance.
+<recently read> \c@subsection 
+                              
+\stepcounter ...l \advance \csname c@#1\endcsname 
+                                                  \@ne {\let \@elt \@stpelt ...
+l.227 \stepcounter{subsection}
+                              
+I'm forgetting what you said and not changing anything.
+
+! You can't use `\relax' after \advance.
+<recently read> \c@subsection 
+                              
+\stepcounter ...l \advance \csname c@#1\endcsname 
+                                                  \@ne {\let \@elt \@stpelt ...
+l.228 \stepcounter{subsection}
+                              
+I'm forgetting what you said and not changing anything.
+
+! You can't use `\relax' after \advance.
+<recently read> \c@subsection 
+                              
+\stepcounter ...l \advance \csname c@#1\endcsname 
+                                                  \@ne {\let \@elt \@stpelt ...
+l.229 \stepcounter{subsection}
+                              
+I'm forgetting what you said and not changing anything.
+
+! You can't use `\relax' after \advance.
+<recently read> \c@subsection 
+                              
+\stepcounter ...l \advance \csname c@#1\endcsname 
+                                                  \@ne {\let \@elt \@stpelt ...
+l.230 \stepcounter{subsection}
+                              
+I'm forgetting what you said and not changing anything.
+
+! Undefined control sequence.
+\normalsize ...\normalsize \rm \else \@normalsize 
+                                                  \fi 
+\@outputpage ...ut \vbox {\reset@font \normalsize 
+                                                  \baselineskip \z@ \lineski...
+
+\@opcol ...lumn \@outputdblcol \else \@outputpage 
+                                                  \global \@colht \textheigh...
+<output> ...specialoutput \else \@makecol \@opcol 
+                                                  \@floatplacement \@startco...
+
+\newpage ->\par \vfil \penalty -\@M 
+                                    
+\clearpage ->\newpage 
+                      \write \m@ne {}\vbox {}\penalty -\@Mi 
+...
+l.232 \end{document}
+                    
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+[25
+
+]
+! Undefined control sequence.
+\@floatplacement ...global \@toproom \topfraction 
+                                                  \@colht \global \@botnum \...
+<output> ...se \@makecol \@opcol \@floatplacement 
+                                                  \@startcolumn \@whilesw \i...
+
+\newpage ->\par \vfil \penalty -\@M 
+                                    
+\clearpage ->\newpage 
+                      \write \m@ne {}\vbox {}\penalty -\@Mi 
+\enddocument ->\@checkend {document}\clearpage 
+                                               \begingroup \if@filesw \immed...
+
+\end #1->\csname end#1\endcsname 
+                                 \@checkend {#1}\expandafter \endgroup \if@e...
+l.232 \end{document}
+                    
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+\@floatplacement ...bal \@botroom \bottomfraction 
+                                                  \@colht \global \@colnum \...
+<output> ...se \@makecol \@opcol \@floatplacement 
+                                                  \@startcolumn \@whilesw \i...
+
+\newpage ->\par \vfil \penalty -\@M 
+                                    
+\clearpage ->\newpage 
+                      \write \m@ne {}\vbox {}\penalty -\@Mi 
+\enddocument ->\@checkend {document}\clearpage 
+                                               \begingroup \if@filesw \immed...
+
+\end #1->\csname end#1\endcsname 
+                                 \@checkend {#1}\expandafter \endgroup \if@e...
+l.232 \end{document}
+                    
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+\@floatplacement ...er \@fpmin \floatpagefraction 
+                                                  \@colht 
+<output> ...se \@makecol \@opcol \@floatplacement 
+                                                  \@startcolumn \@whilesw \i...
+
+\newpage ->\par \vfil \penalty -\@M 
+                                    
+\clearpage ->\newpage 
+                      \write \m@ne {}\vbox {}\penalty -\@Mi 
+\enddocument ->\@checkend {document}\clearpage 
+                                               \begingroup \if@filesw \immed...
+
+\end #1->\csname end#1\endcsname 
+                                 \@checkend {#1}\expandafter \endgroup \if@e...
+l.232 \end{document}
+                    
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+(images.aux) ) 
+Here is how much of TeX's memory you used:
+ 57 strings out of 11977
+ 647 string characters out of 87168
+ 23624 words of memory out of 262141
+ 2021 multiletter control sequences out of 9500
+ 18996 words of font info for 72 fonts, out of 100000 for 255
+ 14 hyphenation exceptions out of 607
+ 10i,4n,12p,133b,74s stack positions out of 300i,100n,60p,3000b,4000s
+
+Output written on images.dvi (25 pages, 3500 bytes).

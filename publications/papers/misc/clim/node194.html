@@ -1,0 +1,125 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 99.1 release (March 30, 1999)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Random Comments</TITLE>
+<META NAME="description" CONTENT="Random Comments">
+<META NAME="keywords" CONTENT="clim">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v99.1 release">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="clim.css">
+
+<LINK REL="previous" HREF="node193.html">
+<LINK REL="up" HREF="node189.html">
+<LINK REL="next" HREF="node195.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html3373"
+ HREF="node195.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/icons/next_motif.gif"></A> 
+<A NAME="tex2html3369"
+ HREF="node189.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/icons/up_motif.gif"></A> 
+<A NAME="tex2html3365"
+ HREF="node193.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/icons/previous_motif.gif"></A> 
+<A NAME="tex2html3371"
+ HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/icons/contents_motif.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html3374"
+ HREF="node195.html">Extended Stream Input Facilities</A>
+<B> Up:</B> <A NAME="tex2html3370"
+ HREF="node189.html">Incremental Redisplay</A>
+<B> Previous:</B> <A NAME="tex2html3366"
+ HREF="node193.html">Incremental Redisplay Stream Protocol</A>
+ &nbsp <B>  <A NAME="tex2html3372"
+ HREF="node1.html">Contents</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION06750000000000000000">
+Random Comments</A>
+</H1>
+
+<P>
+Since we allow incremental redisplay to work on any output record,
+updating-output is just a hint.  It can tell us about two different kinds
+of things: (1) whether things have changed at all and (2) what this new
+output record corresponds to in the old hierarchy.
+
+<P>
+There are four ways to determine the output record in the current history that
+<I> body</I> corresponds to.  The first is if the programmer passes in
+:output-record.  The rest all rely on :unique-id and :id-test.
+The tree of updating-output defines a caching structure where mappings from
+a unique-id to an output record are maintained.  If the programmer specifies an
+output record 84#84 with :parent-cache, then we try to find a corresponding
+output record with the matching unique-id in the cache belonging to 84#84.  If
+neither :output-record nor :parent-cache is provided, then we look for
+the unique-id in the immediately dynamically enclosing updating-output.
+Finally, if all else fails, we use the unique-id to find the output record that
+is an child of (output-recording-stream-output-record <I> stream</I>).
+
+<P>
+Alternatively, you can specify :all-new t, which guarantees that nothing in
+this output record (or in any of its descendants) will match anything on the
+screen, so don't even bother trying.
+
+<P>
+Once we have a correspondence, we can use the cache-value and cache-test to
+tell us whether this output record has changed.  If it hasn't, and it's on the
+screen, we can just move the bits on the screen around.
+
+<P>
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html3373"
+ HREF="node195.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/icons/next_motif.gif"></A> 
+<A NAME="tex2html3369"
+ HREF="node189.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/icons/up_motif.gif"></A> 
+<A NAME="tex2html3365"
+ HREF="node193.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/icons/previous_motif.gif"></A> 
+<A NAME="tex2html3371"
+ HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/icons/contents_motif.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html3374"
+ HREF="node195.html">Extended Stream Input Facilities</A>
+<B> Up:</B> <A NAME="tex2html3370"
+ HREF="node189.html">Incremental Redisplay</A>
+<B> Previous:</B> <A NAME="tex2html3366"
+ HREF="node193.html">Incremental Redisplay Stream Protocol</A>
+ &nbsp <B>  <A NAME="tex2html3372"
+ HREF="node1.html">Contents</A></B> 
+<!--End of Navigation Panel-->
+<ADDRESS>
+<I>&</I>
+<BR><I>2001-06-12</I>
+</ADDRESS>
+</BODY>
+</HTML>

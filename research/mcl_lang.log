@@ -1,0 +1,63 @@
+This is TeX, Version 3.14159 (Web2C 7.3.1) (format=latex 2001.5.9)  1 DEC 2003 15:18
+**mcl_lang.tex
+(mcl_lang.tex
+LaTeX2e <1999/12/01> patch level 1
+Babel <v3.6Z> and hyphenation patterns for american, french, german, ngerman, n
+ohyphenation, loaded.
+(/usr/local/tetex-1.0.7/share/texmf/tex/latex/base/article.cls
+Document Class: article 1999/09/10 v1.4a Standard LaTeX document class
+(/usr/local/tetex-1.0.7/share/texmf/tex/latex/base/size10.clo
+File: size10.clo 1999/09/10 v1.4a Standard LaTeX file (size option)
+)
+\c@part=\count79
+\c@section=\count80
+\c@subsection=\count81
+\c@subsubsection=\count82
+\c@paragraph=\count83
+\c@subparagraph=\count84
+\c@figure=\count85
+\c@table=\count86
+\abovecaptionskip=\skip41
+\belowcaptionskip=\skip42
+\bibindent=\dimen102
+)
+
+LaTeX Warning: Unused global option(s):
+    [fullpage].
+
+(mcl_lang.aux)
+\openout1 = `mcl_lang.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 20.
+LaTeX Font Info:    ... okay on input line 20.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 20.
+LaTeX Font Info:    ... okay on input line 20.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 20.
+LaTeX Font Info:    ... okay on input line 20.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 20.
+LaTeX Font Info:    ... okay on input line 20.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 20.
+LaTeX Font Info:    ... okay on input line 20.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 20.
+LaTeX Font Info:    ... okay on input line 20.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <12> on input line 21.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <8> on input line 21.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <6> on input line 21.
+
+No file mcl_lang.bbl.
+[1
+
+] (mcl_lang.aux) ) 
+Here is how much of TeX's memory you used:
+ 223 strings out of 10901
+ 2212 string characters out of 196997
+ 47314 words of memory out of 263001
+ 3215 multiletter control sequences out of 10000+0
+ 7589 words of font info for 27 fonts, out of 400000 for 1000
+ 14 hyphenation exceptions out of 1000
+ 23i,6n,17p,116b,219s stack positions out of 300i,100n,500p,50000b,4000s
+
+Output written on mcl_lang.dvi (1 page, 3084 bytes).

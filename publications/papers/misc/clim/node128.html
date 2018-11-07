@@ -1,0 +1,135 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 99.1 release (March 30, 1999)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Flipping Ink</TITLE>
+<META NAME="description" CONTENT="Flipping Ink">
+<META NAME="keywords" CONTENT="clim">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v99.1 release">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="clim.css">
+
+<LINK REL="next" HREF="node129.html">
+<LINK REL="previous" HREF="node127.html">
+<LINK REL="up" HREF="node119.html">
+<LINK REL="next" HREF="node129.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2490"
+ HREF="node129.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/icons/next_motif.gif"></A> 
+<A NAME="tex2html2486"
+ HREF="node119.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/icons/up_motif.gif"></A> 
+<A NAME="tex2html2480"
+ HREF="node127.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/icons/previous_motif.gif"></A> 
+<A NAME="tex2html2488"
+ HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/icons/contents_motif.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html2491"
+ HREF="node129.html">Examples of Simple Drawing</A>
+<B> Up:</B> <A NAME="tex2html2487"
+ HREF="node119.html">Drawing in Color</A>
+<B> Previous:</B> <A NAME="tex2html2481"
+ HREF="node127.html">Indirect Inks</A>
+ &nbsp <B>  <A NAME="tex2html2489"
+ HREF="node1.html">Contents</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION05470000000000000000">
+Flipping Ink</A>
+</H1>
+
+<P>
+make-flipping-ink design1 design2
+
+<P>
+Returns a design that interchanges occurrences of the two <I> designs</I>
+<I> design1</I> and <I> design2</I>.  Drawing the resulting design over a background
+(either by drawing or with compose-over) is defined to change the color in
+the background that would have been drawn by <I> design1</I> at that point into
+the color that would have been drawn by <I> design2</I> at that point, and vice
+versa.  The effect on any color other than the colors determined by those two
+designs is unspecified; however, drawing the same figure twice using the same
+flipping ink is guaranteed to be an ``identity'' operation.  If either
+<I> design1</I> or <I> design2</I> is not solid, the consequences are unspecified.
+The purpose of flipping is to allow the use of ``XOR hacks'' for temporary
+changes to the display.
+
+<P>
+The opacity of a flipping ink is zero at points where the opacity of either
+<I> design1</I> or <I> design2</I> is zero.  Otherwise the opacity of a flipping ink
+is 1.  If <I> design1</I> or <I> design2</I> is translucent, the consequences are
+unspecified.  If compose-in or compose-out is used to make a flipping
+ink translucent, the consequences are unspecified.
+
+<P>
+If <I> design1</I> and <I> design2</I> are equivalent, the result can be
++nowhere+.
+
+<P>
+In Release 2, make-flipping-ink might require <I> design1</I> and
+<I> design2</I> to be colors.
+
+<P>
+ 
++flipping-ink+
+
+<P>
+A flipping ink that flips +foreground-ink+ and +background-ink+.
+
+<P>
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2490"
+ HREF="node129.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/icons/next_motif.gif"></A> 
+<A NAME="tex2html2486"
+ HREF="node119.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/icons/up_motif.gif"></A> 
+<A NAME="tex2html2480"
+ HREF="node127.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/icons/previous_motif.gif"></A> 
+<A NAME="tex2html2488"
+ HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/icons/contents_motif.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html2491"
+ HREF="node129.html">Examples of Simple Drawing</A>
+<B> Up:</B> <A NAME="tex2html2487"
+ HREF="node119.html">Drawing in Color</A>
+<B> Previous:</B> <A NAME="tex2html2481"
+ HREF="node127.html">Indirect Inks</A>
+ &nbsp <B>  <A NAME="tex2html2489"
+ HREF="node1.html">Contents</A></B> 
+<!--End of Navigation Panel-->
+<ADDRESS>
+<I>&</I>
+<BR><I>2001-06-12</I>
+</ADDRESS>
+</BODY>
+</HTML>

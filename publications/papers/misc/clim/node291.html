@@ -1,0 +1,174 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 99.1 release (March 30, 1999)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Resources</TITLE>
+<META NAME="description" CONTENT="Resources">
+<META NAME="keywords" CONTENT="clim">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v99.1 release">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="clim.css">
+
+<LINK REL="next" HREF="node292.html">
+<LINK REL="previous" HREF="node290.html">
+<LINK REL="up" HREF="node290.html">
+<LINK REL="next" HREF="node292.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html4715"
+ HREF="node292.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/icons/next_motif.gif"></A> 
+<A NAME="tex2html4711"
+ HREF="node290.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/icons/up_motif.gif"></A> 
+<A NAME="tex2html4705"
+ HREF="node290.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/icons/previous_motif.gif"></A> 
+<A NAME="tex2html4713"
+ HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/icons/contents_motif.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html4716"
+ HREF="node292.html">Multi-processing</A>
+<B> Up:</B> <A NAME="tex2html4712"
+ HREF="node290.html">The CLIM-SYS Package</A>
+<B> Previous:</B> <A NAME="tex2html4706"
+ HREF="node290.html">The CLIM-SYS Package</A>
+ &nbsp <B>  <A NAME="tex2html4714"
+ HREF="node1.html">Contents</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION09210000000000000000">
+Resources</A>
+</H1>
+
+<P>
+defresource name parameters
+			 <TT> &amp;key </TT>constructor initializer deinitializer
+			      matcher initial-copies
+
+<P>
+Defines a resource named <I> name</I>, which must be a symbol.  <I> parameters</I>
+is a lambda-list giving names and default values (for optional and keyword
+parameters) of parameters to an object of this type.
+
+<P>
+ 
+<I> constructor</I> is a form that is responsible for creating an object, and is
+called when someone tries to allocate an object from the resource and no
+suitable free objects exist.  The constructor form can access the parameters as
+variables.  This argument is required.
+
+<P>
+ 
+<I> initializer</I> is a form that is used to initialize an object gotten from the
+resource.  It can access the parameters as variables, and also has access to a
+variable called <I> name</I>, which is the object to be initialized.  The
+initializer is called both on newly created objects and objects that are being
+reused.
+
+<P>
+ 
+<I> deinitializer</I> is a form that is used to deinitialize an object when it is
+about to be returned to the resource.  It can access the parameters as
+variables, and also has access to a variable called <I> name</I>, which is the
+object to be deinitialized.  It is called whenever an object is deallocated back
+to the resource, but is not called by clear-resource.  Deinitializers are
+typically used to clear references to other objects.
+
+<P>
+ 
+<I> matcher</I> is a form that ensures that an object in the resource ``matches''
+the specified parameters, which it can access as variables.  In addition, the
+matcher also has access to a variable called <I> name</I>, which is the object in
+the resource being matched against.  If no matcher is supplied, the system
+remembers the values of the parameters (including optional ones that defaulted)
+that were used to construct the object, and assumes that it matches those
+particular values for all time. This comparison is done with equal.  The
+matcher should return <I> true</I> if there is a match, otherwise it should
+return <I> false</I>.
+
+<P>
+ 
+<I> initial-copies</I> is used to specify the number of objects that should be
+initially put into the resource.  It must be an integer or nil (the
+default), meaning that no initial copies should be made.  If initial copies are
+made and there are parameters, all the parameters must be optional; in this
+case, the initial copies have the default values of the parameters.
+
+<P>
+using-resource (variable resource <TT> &amp;rest </TT>parameters) <TT> &amp;body </TT>body
+
+<P>
+The forms in <I> body</I> are evaluated with <I> variable</I> bound to an object
+allocated from the resource named resource, using the given parameters given by
+<I> parameters</I>.  The parameters (if any) are evaluated, but <I> resource</I> is
+not.
+
+<P>
+After the body has been evaluated, using-resource returns the object in
+<I> variable</I> back to the resource.  If some form in the body sets
+<I> variable</I> to nil, the object will not be returned to the resource.
+Otherwise, the body should not changes the value of <I> variable</I>.
+
+<P>
+clear-resource resource
+
+<P>
+Clears the resource whose name is <I> resource</I>, that is, removes all of the
+resourced object from the resource.  <I> resource</I> must be a symbol that names
+a resource.
+
+<P>
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html4715"
+ HREF="node292.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/icons/next_motif.gif"></A> 
+<A NAME="tex2html4711"
+ HREF="node290.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/icons/up_motif.gif"></A> 
+<A NAME="tex2html4705"
+ HREF="node290.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/icons/previous_motif.gif"></A> 
+<A NAME="tex2html4713"
+ HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/icons/contents_motif.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html4716"
+ HREF="node292.html">Multi-processing</A>
+<B> Up:</B> <A NAME="tex2html4712"
+ HREF="node290.html">The CLIM-SYS Package</A>
+<B> Previous:</B> <A NAME="tex2html4706"
+ HREF="node290.html">The CLIM-SYS Package</A>
+ &nbsp <B>  <A NAME="tex2html4714"
+ HREF="node1.html">Contents</A></B> 
+<!--End of Navigation Panel-->
+<ADDRESS>
+<I>&</I>
+<BR><I>2001-06-12</I>
+</ADDRESS>
+</BODY>
+</HTML>

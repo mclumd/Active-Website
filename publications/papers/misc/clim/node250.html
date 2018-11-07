@@ -1,0 +1,175 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 99.1 release (March 30, 1999)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Application Frames</TITLE>
+<META NAME="description" CONTENT="Application Frames">
+<META NAME="keywords" CONTENT="clim">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v99.1 release">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="clim.css">
+
+<LINK REL="next" HREF="node262.html">
+<LINK REL="previous" HREF="node242.html">
+<LINK REL="up" HREF="node241.html">
+<LINK REL="next" HREF="node251.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html4180"
+ HREF="node251.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/icons/next_motif.gif"></A> 
+<A NAME="tex2html4176"
+ HREF="node241.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/icons/up_motif.gif"></A> 
+<A NAME="tex2html4170"
+ HREF="node249.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/icons/previous_motif.gif"></A> 
+<A NAME="tex2html4178"
+ HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/icons/contents_motif.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html4181"
+ HREF="node251.html">Overview</A>
+<B> Up:</B> <A NAME="tex2html4177"
+ HREF="node241.html">Building Applications</A>
+<B> Previous:</B> <A NAME="tex2html4171"
+ HREF="node249.html">Command Presentation Types</A>
+ &nbsp <B>  <A NAME="tex2html4179"
+ HREF="node1.html">Contents</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION08200000000000000000"></A>
+<A NAME="application-frames"></A>
+<BR>
+Application Frames
+</H1>
+
+<P>
+SWM Integrate the CLIM 0.9 stuff, but try to address the issues that
+DCPL raises and all of the stuff in the mail as well.
+
+<P>
+DCPL The Silica-based macrology for defining panes and layouts doesn't
+easily allow, if it allows at all, for sharing panes between multiple layouts.
+CLIM 1.0 seems to have this capability, but the syntax for the constraints is a
+bit baroque.  Perhaps there just isn't a good one, since in all these years
+we've never found it.  Another way to say all of this is that the functional
+aspects of frames (panes and streams) needs to be separated from the layout
+description.
+
+<P>
+DCPL We need to decide how much of the pane, stream and layout
+functionality we want to present in the API and/or SPEC, and how to present it.
+For example, CLIM 0.9's frame-pane isn't conceptually elegant because that
+is how you get the current layout, and the layout is a pane, and you have to
+know that.  Better is frame-current-layout and then have layout-XXX
+functions to interrogate the layout.  I think CLIM 1.0 does better here.
+
+<P>
+DCPL CLIM 0.9's method of having panes names be slot names is poor
+because it is implicit, and problematic because it uses slot-unbound, which
+while it may work, shoots up a red flag.  DW and presumably CLIM 1.0 have ways
+to ask for the pane names and ways to retrieve a pane from a frame given its
+name.  I think this is the right model.  The tricky thing, which Silica may
+allow and that we probably want to preserve if possible, is for a named pane to
+have another named pane as one of its descendants.  Also have a named pane have
+a named stream as one of its descendants (in the event we have streams that
+aren't panes).  This is important for viewport panes pointing at streams.
+
+<P>
+DCPL The concept of a frame manager is an important one, as it is the
+entity that bridges the gap between the application and the host windowing
+system.
+
+<P>
+DCPL The concept of server paths from CLIM 0.9 is superior to the
+explicit open-root-window paradigm of CLIM 1.0.  CLIM 0.9 has some problems
+in this regard, but I have some saved mail from an ILA conversation a while that
+goes a long way toward removing those problems.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
+
+<UL>
+<LI><A NAME="tex2html4182"
+ HREF="node251.html">Overview</A>
+<LI><A NAME="tex2html4183"
+ HREF="node252.html">Defining and Creating Application Frames</A>
+<LI><A NAME="tex2html4184"
+ HREF="node253.html">The Application Frame Protocol</A>
+<UL>
+<LI><A NAME="tex2html4185"
+ HREF="node254.html">Interface with Presentation Types</A>
+<LI><A NAME="tex2html4186"
+ HREF="node255.html">The Generic Command Loop</A>
+</UL>
+<LI><A NAME="tex2html4187"
+ HREF="node256.html">Window Viewport Management</A>
+<LI><A NAME="tex2html4188"
+ HREF="node257.html">Frame Managers</A>
+<UL>
+<LI><A NAME="tex2html4189"
+ HREF="node258.html">Finding Frame Managers</A>
+<LI><A NAME="tex2html4190"
+ HREF="node259.html">Frame Manager Operations</A>
+<LI><A NAME="tex2html4191"
+ HREF="node260.html">Frame Manager Settings</A>
+</UL>
+<LI><A NAME="tex2html4192"
+ HREF="node261.html">Examples of Applications</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html4180"
+ HREF="node251.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/icons/next_motif.gif"></A> 
+<A NAME="tex2html4176"
+ HREF="node241.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/icons/up_motif.gif"></A> 
+<A NAME="tex2html4170"
+ HREF="node249.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/icons/previous_motif.gif"></A> 
+<A NAME="tex2html4178"
+ HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/icons/contents_motif.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html4181"
+ HREF="node251.html">Overview</A>
+<B> Up:</B> <A NAME="tex2html4177"
+ HREF="node241.html">Building Applications</A>
+<B> Previous:</B> <A NAME="tex2html4171"
+ HREF="node249.html">Command Presentation Types</A>
+ &nbsp <B>  <A NAME="tex2html4179"
+ HREF="node1.html">Contents</A></B> 
+<!--End of Navigation Panel-->
+<ADDRESS>
+<I>&</I>
+<BR><I>2001-06-12</I>
+</ADDRESS>
+</BODY>
+</HTML>

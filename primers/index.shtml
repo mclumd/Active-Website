@@ -1,0 +1,14 @@
+<!--#include virtual="../include.shtml"-->
+<h2>Primers</h2>
+
+
+    <ul>
+        <li><a href="primers/uncertain.shtml">Introduction to Active Logic and Uncertainty </a> 
+        <li><a
+          href="primers/technical.shtml">Technical Introduction to Active Logics</a>  
+                
+        <li><a
+          href="primers/example_al_1.shtml">Examples of Active Logic Inferences</a> 
+
+      </ul>
+<!--#include virtual="../footer.shtml"-->

@@ -1,0 +1,174 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 99.1 release (March 30, 1999)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>The Output Recording Stream Protocol</TITLE>
+<META NAME="description" CONTENT="The Output Recording Stream Protocol">
+<META NAME="keywords" CONTENT="clim">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v99.1 release">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="clim.css">
+
+<LINK REL="next" HREF="node170.html">
+<LINK REL="previous" HREF="node168.html">
+<LINK REL="up" HREF="node168.html">
+<LINK REL="next" HREF="node170.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html3066"
+ HREF="node170.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/icons/next_motif.gif"></A> 
+<A NAME="tex2html3062"
+ HREF="node168.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/icons/up_motif.gif"></A> 
+<A NAME="tex2html3056"
+ HREF="node168.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/icons/previous_motif.gif"></A> 
+<A NAME="tex2html3064"
+ HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/icons/contents_motif.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html3067"
+ HREF="node170.html">Graphics Output Recording</A>
+<B> Up:</B> <A NAME="tex2html3063"
+ HREF="node168.html">Output Recording Streams</A>
+<B> Previous:</B> <A NAME="tex2html3057"
+ HREF="node168.html">Output Recording Streams</A>
+ &nbsp <B>  <A NAME="tex2html3065"
+ HREF="node1.html">Contents</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H2><A NAME="SECTION06231000000000000000">
+The Output Recording Stream Protocol</A>
+</H2>
+
+<P>
+The following generic functions comprise the output recording stream protocol.
+All subclasses of output-recording-stream must implement methods for these
+generic functions.
+
+<P>
+stream-recording-p stream
+
+<P>
+Returns <I> true</I> when the <I> output recording stream</I> <I> stream</I> is
+recording all output performed to it, otherwise returns <I> false</I>.
+
+<P>
+ 
+(setf stream-recording-p) value stream
+
+<P>
+Changes the state of stream-recording-p to be <I> value</I>, which must be
+either t or nil.
+
+<P>
+stream-drawing-p stream
+
+<P>
+Returns <I> true</I> when the <I> output recording stream</I> <I> stream</I> will
+actually draw on the viewport when output is being performed to it, otherwise
+returns <I> false</I>.
+
+<P>
+ 
+(setf stream-recording-p) value stream
+
+<P>
+Changes the state of stream-recording-p to be <I> value</I>, which must be
+either t or nil.
+
+<P>
+stream-output-history stream
+
+<P>
+Returns the history (or top-level output record) for the <I> output recording
+stream</I> <I> stream</I>.
+
+<P>
+stream-current-output-record stream
+
+<P>
+The current ``open'' output record for the <I> output recording stream</I>
+<I> stream</I>, the one to which stream-add-output-record will add a new
+child record.  Initially, this is the same as stream-output-history.  As
+nested output records are created, this acts as a ``stack''.
+
+<P>
+ 
+(setf stream-current-output-record) record stream
+
+<P>
+Sets the current ``open'' output record for the <I> output recording stream</I>
+<I> stream</I> to the <I> output record</I> <I> record</I>.
+
+<P>
+stream-add-output-record stream record
+
+<P>
+Adds the <I> output record</I> <I> record</I> to the current output record on the
+<I> output recording stream</I> <I> stream</I> (that is,
+stream-current-output-record).
+
+<P>
+output-recording-stream-replay stream <TT> &amp;optional </TT>region
+
+<P>
+Directs the <I> output recording stream</I> <I> stream</I> stream to invoke
+replay on its output history.  Only those records that overlap the
+<I> region</I> <I> region</I> (which defaults to the viewport of the stream) are
+replayed.
+
+<P>
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html3066"
+ HREF="node170.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/icons/next_motif.gif"></A> 
+<A NAME="tex2html3062"
+ HREF="node168.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/icons/up_motif.gif"></A> 
+<A NAME="tex2html3056"
+ HREF="node168.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/icons/previous_motif.gif"></A> 
+<A NAME="tex2html3064"
+ HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/icons/contents_motif.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html3067"
+ HREF="node170.html">Graphics Output Recording</A>
+<B> Up:</B> <A NAME="tex2html3063"
+ HREF="node168.html">Output Recording Streams</A>
+<B> Previous:</B> <A NAME="tex2html3057"
+ HREF="node168.html">Output Recording Streams</A>
+ &nbsp <B>  <A NAME="tex2html3065"
+ HREF="node1.html">Contents</A></B> 
+<!--End of Navigation Panel-->
+<ADDRESS>
+<I>&</I>
+<BR><I>2001-06-12</I>
+</ADDRESS>
+</BODY>
+</HTML>

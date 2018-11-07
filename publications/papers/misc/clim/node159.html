@@ -1,0 +1,171 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 99.1 release (March 30, 1999)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Output Records</TITLE>
+<META NAME="description" CONTENT="Output Records">
+<META NAME="keywords" CONTENT="clim">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v99.1 release">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="clim.css">
+
+<LINK REL="next" HREF="node163.html">
+<LINK REL="previous" HREF="node158.html">
+<LINK REL="up" HREF="node158.html">
+<LINK REL="next" HREF="node160.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2941"
+ HREF="node160.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/icons/next_motif.gif"></A> 
+<A NAME="tex2html2937"
+ HREF="node158.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/icons/up_motif.gif"></A> 
+<A NAME="tex2html2931"
+ HREF="node158.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/icons/previous_motif.gif"></A> 
+<A NAME="tex2html2939"
+ HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/icons/contents_motif.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html2942"
+ HREF="node160.html">The Basic Output Record</A>
+<B> Up:</B> <A NAME="tex2html2938"
+ HREF="node158.html">Output Recording</A>
+<B> Previous:</B> <A NAME="tex2html2932"
+ HREF="node158.html">Output Recording</A>
+ &nbsp <B>  <A NAME="tex2html2940"
+ HREF="node1.html">Contents</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION06210000000000000000">
+Output Records</A>
+</H1>
+
+<P>
+output-record
+
+<P>
+The protocol class that is used to indicate that an object is an output record,
+that is, an object that contains other output records.  This is a subclass of
+bounding-rectangle, and as such, output records obey the bounding rectangle
+protocol.
+an output record output-record
+
+<P>
+All output records are mutable.
+
+<P>
+output-record-p object
+
+<P>
+Returns <I> true</I> if <I> object</I> is an <I> output record</I>, otherwise
+returns <I> false</I>.
+
+<P>
+displayed-output-record
+
+<P>
+The protocol class that is used to indicate that an object is a displayed output
+record, that is, an object that represents a visible piece of output on
+some output stream.  This is a subclass of bounding-rectangle.
+a displayed output record displayed-output-record
+
+<P>
+All displayed output records are mutable.
+
+<P>
+displayed-output-record-p object
+
+<P>
+Returns <I> true</I> if <I> object</I> is a <I> displayed output record</I>,
+otherwise returns <I> false</I>.
+
+<P>
+ 
+:x-position
+:y-position
+:parent
+
+<P>
+All subclasses of either output-record or displayed-output-record must
+handle these three initargs, which are used to specify, respectively, the 1#1
+and 2#2 position of the output record, and the parent of the output record.
+
+<P>
+ 
+:size
+
+<P>
+All subclasses of output-record must handle the :size initarg.  It is
+used to specify how much room should be left for child output records (if, for
+example, the children are stored in a vector).  It is permissible for :size
+to be ignored, provided that the resulting output record is able to store the
+specified number of child output records.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
+
+<UL>
+<LI><A NAME="tex2html2943"
+ HREF="node160.html">The Basic Output Record Protocol</A>
+<LI><A NAME="tex2html2944"
+ HREF="node161.html">The Output Record ``Database'' Protocol</A>
+<LI><A NAME="tex2html2945"
+ HREF="node162.html">Output Record Change Notification Protocol</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2941"
+ HREF="node160.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/icons/next_motif.gif"></A> 
+<A NAME="tex2html2937"
+ HREF="node158.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/icons/up_motif.gif"></A> 
+<A NAME="tex2html2931"
+ HREF="node158.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/icons/previous_motif.gif"></A> 
+<A NAME="tex2html2939"
+ HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/icons/contents_motif.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html2942"
+ HREF="node160.html">The Basic Output Record</A>
+<B> Up:</B> <A NAME="tex2html2938"
+ HREF="node158.html">Output Recording</A>
+<B> Previous:</B> <A NAME="tex2html2932"
+ HREF="node158.html">Output Recording</A>
+ &nbsp <B>  <A NAME="tex2html2940"
+ HREF="node1.html">Contents</A></B> 
+<!--End of Navigation Panel-->
+<ADDRESS>
+<I>&</I>
+<BR><I>2001-06-12</I>
+</ADDRESS>
+</BODY>
+</HTML>

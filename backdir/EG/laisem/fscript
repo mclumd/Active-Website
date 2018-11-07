@@ -1,0 +1,8 @@
+#!/bin/csh
+echo $1
+set infile = $1
+set backupfile = "$infile.bak"
+echo "Backup " $backupfile
+cp $1 $backupfile
+cat $1 | fix.perl  | cat > foo 
+mv foo $1

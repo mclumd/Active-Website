@@ -1,0 +1,140 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 99.1 release (March 30, 1999)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Buffering of Output</TITLE>
+<META NAME="description" CONTENT="Buffering of Output">
+<META NAME="keywords" CONTENT="clim">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v99.1 release">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="clim.css">
+
+<LINK REL="previous" HREF="node156.html">
+<LINK REL="up" HREF="node147.html">
+<LINK REL="next" HREF="node158.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2903"
+ HREF="node158.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/icons/next_motif.gif"></A> 
+<A NAME="tex2html2899"
+ HREF="node147.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/icons/up_motif.gif"></A> 
+<A NAME="tex2html2895"
+ HREF="node156.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/icons/previous_motif.gif"></A> 
+<A NAME="tex2html2901"
+ HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/icons/contents_motif.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html2904"
+ HREF="node158.html">Output Recording</A>
+<B> Up:</B> <A NAME="tex2html2900"
+ HREF="node147.html">Extended Stream Output</A>
+<B> Previous:</B> <A NAME="tex2html2896"
+ HREF="node156.html">Attracting the User's Attention</A>
+ &nbsp <B>  <A NAME="tex2html2902"
+ HREF="node1.html">Contents</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION06160000000000000000">
+Buffering of Output</A>
+</H1>
+
+<P>
+Some sheets that support the output protocol may buffer output.  When buffering
+is enabled on a sheet, the time at which output is actually done on the sheet is
+unpredictable.  force-output or finish-output can be used to ensure
+that all pending output gets completed.  If the sheet is a bidirectional stream,
+a force-output is performed whenever any sort of input is requested on the
+stream.
+
+<P>
+with-buffered-output provides a way to control when buffering is enabled on
+a sheet.  By default, CLIM's interactive streams are buffered if the underlying
+window system supports buffering.
+
+<P>
+sheet-buffering-output-p sheet
+
+<P>
+Returns <I> true</I> if the <I> sheet</I> <I> sheet</I> is currently buffering
+output, otherwise returns <I> false</I>.
+
+<P>
+ 
+(setf sheet-buffering-output-p) buffer-p sheet
+
+<P>
+Sets sheet-buffering-output-p of the <I> sheet</I> <I> sheet</I> to
+<I> buffer-p</I>.
+
+<P>
+with-output-buffered (sheet <TT> &amp;optional </TT>(buffer-p t))
+                                  <TT> &amp;body </TT>body
+
+<P>
+If <I> buffer-p</I> is <I> true</I> (the default), this causes the <I> sheet</I>
+designated by <I> sheet</I> to start buffering output, and evaluates <I> body</I>
+in that context.  If <I> buffer-p</I> is <I> false</I>, force-output will be
+called before <I> body</I> is evaluated.  When <I> body</I> is exited (or aborted
+from), force-output will be called if output buffering will be disabled
+after with-output-buffered is exited.
+
+<P>
+The <I> sheet</I> argument is not evaluated, and must be a symbol that is bound to
+a sheet.  If <I> sheet</I> is t, *standard-output* is used.  <I> body</I>
+may have zero or more declarations as its first forms.
+
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2903"
+ HREF="node158.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/icons/next_motif.gif"></A> 
+<A NAME="tex2html2899"
+ HREF="node147.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/icons/up_motif.gif"></A> 
+<A NAME="tex2html2895"
+ HREF="node156.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/icons/previous_motif.gif"></A> 
+<A NAME="tex2html2901"
+ HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/icons/contents_motif.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html2904"
+ HREF="node158.html">Output Recording</A>
+<B> Up:</B> <A NAME="tex2html2900"
+ HREF="node147.html">Extended Stream Output</A>
+<B> Previous:</B> <A NAME="tex2html2896"
+ HREF="node156.html">Attracting the User's Attention</A>
+ &nbsp <B>  <A NAME="tex2html2902"
+ HREF="node1.html">Contents</A></B> 
+<!--End of Navigation Panel-->
+<ADDRESS>
+<I>&</I>
+<BR><I>2001-06-12</I>
+</ADDRESS>
+</BODY>
+</HTML>

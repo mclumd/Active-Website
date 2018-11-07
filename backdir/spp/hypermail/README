@@ -1,0 +1,66 @@
+README for Hypermail
+~~~~~~~~~~~~~~~~~~~~
+
+	Thanks for grabbing Hypermail! To compile this for your
+system:
+
+	1) Edit the default variables in "config.h" to your liking.
+	2) Type "make".
+
+	If you want to install the binary and man page:
+
+	1) Edit the BINDIR and MANDIR paths for your system in
+	   the Makefile. Make sure you have the permissions to
+	   write in these directories.
+	2) Type "make install". If you're compiling on a DEC Alpha
+           machine, type "make install.alpha".
+
+	A small CGI program, "mail", is included with this source
+for you to use with Hypermail. To compile and install it:
+
+	1) Edit the MAILCOMMAND variable in "config.h" to tailor
+	   how your mailer program will be called.
+	2) Edit the Makefile and change the variable CGIDIR to
+	   point to the directory that holds your site's CGI programs.
+	3) Type "make mail" to compile the mail program.
+	4) Type "make mail.install" to install the program in your
+	   CGI directory. If you're compiling on a DEC Alpha machine,
+	   type "make mail.install.alpha".
+
+	To install the HTML documentation:
+
+	1) Edit the Makefile and change HTMLDIR to point to the
+	   directory in which you want the documentation.
+	2) Type "make html.install". You should be able to view the
+	   HTML documentation using any World-Wide Web browser. If you've
+	   compiled on a DEC Alpha machine, type "make html.install.alpha".
+
+The latest, most up-to-date Hypermail documentation can be found at:
+
+	http://www.eit.com/software/hypermail/hypermail.html
+
+	This code has compiled successfully with cc under:
+
+	* SunOS 4.1.3
+	* IRIX 5.2
+	* Solaris 2.3
+	* OSF/1 2.0
+
+	...and is not guaranteed to compile under other environments.
+If you have been able to compile Hypermail on different systems, please
+let me know. You can send all bug reports, feature requests, patches,
+and other program-related things to me as well.
+	You'll find the image "hypermail.gif" included with the source;
+this icon is for you to use in your Hypermail-related pages and links
+to them.
+	Documentation on the Common Lisp version of Hypermail can be
+found at:
+
+	http://gummo.stanford.edu/html/hypermail/hypermail.html
+
+	Bug reports and comments regarding the Lisp version should be
+sent to Tom Gruber at ksl@stanford.edu.
+
+	-- Kevin Hughes
+           kevinh@eit.com
+           8/1/94

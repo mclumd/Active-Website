@@ -1,0 +1,140 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 99.1 release (March 30, 1999)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Sheet Protocols</TITLE>
+<META NAME="description" CONTENT="Sheet Protocols">
+<META NAME="keywords" CONTENT="clim">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v99.1 release">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="clim.css">
+
+<LINK REL="next" HREF="node48.html">
+<LINK REL="previous" HREF="node46.html">
+<LINK REL="up" HREF="node44.html">
+<LINK REL="next" HREF="node48.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html1421"
+ HREF="node48.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/icons/next_motif.gif"></A> 
+<A NAME="tex2html1417"
+ HREF="node44.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/icons/up_motif.gif"></A> 
+<A NAME="tex2html1411"
+ HREF="node46.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/icons/previous_motif.gif"></A> 
+<A NAME="tex2html1419"
+ HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/icons/contents_motif.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html1422"
+ HREF="node48.html">Sample Silica Program</A>
+<B> Up:</B> <A NAME="tex2html1418"
+ HREF="node44.html">Overview of Window Facilities</A>
+<B> Previous:</B> <A NAME="tex2html1412"
+ HREF="node46.html">Properties of Sheets</A>
+ &nbsp <B>  <A NAME="tex2html1420"
+ HREF="node1.html">Contents</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION04130000000000000000">
+Sheet Protocols</A>
+</H1>
+
+<P>
+A sheet is a participant in a number of protocols.  Every sheet must provide
+methods for the generic functions that make up these protocols.  These protocols
+are:
+
+<P>
+ 
+<DL>
+<DT><STRONG>The windowing protocol</STRONG></DT>
+<DD>Describes the relationships between the sheet and
+its parent and children (and, by extension, all of its ancestors and
+descendants).
+<P>
+ </DD>
+<DT><STRONG>The input protocol</STRONG></DT>
+<DD>Provides the event handler for a sheet.  Events may
+be handled synchronously, asynchronously, or not at all.
+
+<P>
+ </DD>
+<DT><STRONG>The output protocol</STRONG></DT>
+<DD>Provides graphical and textual output, and manages
+descriptive output state such as color, transformation, and clipping.
+
+<P>
+ </DD>
+<DT><STRONG>The repaint protocol</STRONG></DT>
+<DD>Invoked by the event handler and by user programs
+to ensure that the output appearing on the display device appears as the program
+expects it to appear.
+
+<P>
+ </DD>
+<DT><STRONG>The notification protocol</STRONG></DT>
+<DD>Invoked by the event handler and user programs
+to ensure that CLIM's representation of window system information is equivalent
+to the display server's.</DD>
+</DL>
+
+<P>
+These protocols may be handled directly by a sheet, queued for later processing
+by some other agent, or passed on to a delegate sheet for further processing.
+
+<P>
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html1421"
+ HREF="node48.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/icons/next_motif.gif"></A> 
+<A NAME="tex2html1417"
+ HREF="node44.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/icons/up_motif.gif"></A> 
+<A NAME="tex2html1411"
+ HREF="node46.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/icons/previous_motif.gif"></A> 
+<A NAME="tex2html1419"
+ HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/icons/contents_motif.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html1422"
+ HREF="node48.html">Sample Silica Program</A>
+<B> Up:</B> <A NAME="tex2html1418"
+ HREF="node44.html">Overview of Window Facilities</A>
+<B> Previous:</B> <A NAME="tex2html1412"
+ HREF="node46.html">Properties of Sheets</A>
+ &nbsp <B>  <A NAME="tex2html1420"
+ HREF="node1.html">Contents</A></B> 
+<!--End of Navigation Panel-->
+<ADDRESS>
+<I>&</I>
+<BR><I>2001-06-12</I>
+</ADDRESS>
+</BODY>
+</HTML>

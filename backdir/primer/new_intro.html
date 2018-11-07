@@ -1,0 +1,125 @@
+<HTML>
+<HEAD>
+<TITLE>UMCP Computer Science:  Active Logics</TITLE>
+</HEAD>
+<BODY>
+
+<H2>
+Introduction to Active Logics.
+</H2>
+
+<hr>
+
+<p>
+Active Logics are a family of inference engines that incorporate a history
+of their own reasoning as they run. At any time <em> T </em>, an active
+logic has a record of
+its reasoning at all times prior to <em> T </em>, and it also knows that the
+current time is <em> T </em>. As it continues to reason from time <em> T </em>, that
+reasoning is also recorded in the history, marked at time <em> T+1 </em> as
+having occurred at time <em> T </em>. Thus an active logic records the passage
+of time in discrete steps, and the ``current'' time slides forward
+as the system runs. It is convenient to regard its current inferences
+as occurring in a working memory, that is then transferred to the
+history (or long-term memory) in the next time-step.
+<p>
+
+There is a key aspect that makes such logics different from traditional
+temporal logics and from simple archival ``dumps'': <b>in active logics 
+the current time is itself noted in the working memory- <em>NOW(T) </em>and 
+this changes to <em>NOW(T+1)</em> one step later.</b> (A time-step should be thought 
+of as very fast, perhaps 0.1 sec in correspondence with performance of 
+elementary cognitive tasks by humans). Thus active logics ``ground'' <em>NOW</em> 
+in terms of real time-passage during reasoning. In particular, inference 
+rules can take the current time into account; so an active logic is a
+blend of syntax and semantics: there is a "real" value of <em>NOW</em> given in
+a canonical model with a clock, and this (changing) value influences the 
+inferences that are drawn.
+<p>
+
+It seems that the lack of flexibility of AI systems in the face of 
+nonsense, contradictions and so on, follows largely from the
+fact that these systems do not use the knowledge they have to recover
+from their mistakes. In these systems, recovery is a separate process
+from reasoning about the world and ignores the power of the inference 
+mechanism and world knowledge the system has. Active logics, on the 
+other hand, with their notion of history and time are designed to reason 
+about their beliefs and the mistakes 
+they make in the same way that they reason about birds or trees. Therefore,
+these systems can reason about their confusion and act in a more flexible
+way. Active logic systems then become more robust under a
+variety of conditions as: misidentifications,
+contradictions, conflicting advice, context shifts, new words, new
+meanings for old words, belief revision, tight deadlines, and 
+ambiguities. 
+<p>
+
+
+We have been performing various experiments using active logics
+in automated commonsense reasoning, aimed at a variety of complementary
+automated capabilities, including the following:
+
+<p>
+
+<em>
+<img src="/pics/blueball.gif">
+Making and executing plans under tight deadlines.
+</em>
+
+<p>
+<em>
+<img src="/pics/blueball.gif">
+Noting and resolving misidentification errors.
+</em>
+
+<p>
+<em>
+<img src="/pics/blueball.gif">
+Noting and resolving contradictions and ambiguities.
+</em>
+
+<p>
+<em>
+<img src="/pics/blueball.gif">
+Rapid semantic shift: learning/creating words and word meanings.
+</em>
+
+<p>
+<em>
+<img src="/pics/blueball.gif">
+Reasoning about others' reasoning.
+</em> <p>
+<em>
+<img src="/pics/blueball.gif">
+Changing one's mind.
+</em> <p>
+<em>
+<img src="/pics/blueball.gif">
+Taking advice.
+</em> <p>
+<em>
+<img src="/pics/blueball.gif">
+Memory limitations (forgetting, or losing focus).
+</em> <p>
+<em>
+<img src="/pics/blueball.gif">
+Focus of attention or context.
+</em> <p>
+<em>
+<img src="/pics/blueball.gif">
+Symbol grounding.
+</em>
+<p>
+
+These experiments are meant to capture larger aspects of common-sense 
+reasoning. Ultimately we hope to build full-scale real-world systems as
+intelligent robots and intelligent workstations using active logics.
+<p>
+<hr>
+
+<a href=/projects/active/active.html>
+<img src="/pics/back.xbm" alt="BACK"></a>
+
+</body>
+
+</HTML>

@@ -1,0 +1,148 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 99.1 release (March 30, 1999)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Input Protocol</TITLE>
+<META NAME="description" CONTENT="Input Protocol">
+<META NAME="keywords" CONTENT="clim">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v99.1 release">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="clim.css">
+
+<LINK REL="next" HREF="node61.html">
+<LINK REL="previous" HREF="node57.html">
+<LINK REL="up" HREF="node57.html">
+<LINK REL="next" HREF="node59.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html1571"
+ HREF="node59.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/icons/next_motif.gif"></A> 
+<A NAME="tex2html1567"
+ HREF="node57.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/icons/up_motif.gif"></A> 
+<A NAME="tex2html1561"
+ HREF="node57.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/icons/previous_motif.gif"></A> 
+<A NAME="tex2html1569"
+ HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/icons/contents_motif.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html1572"
+ HREF="node59.html">Input Protocol Functions</A>
+<B> Up:</B> <A NAME="tex2html1568"
+ HREF="node57.html">Sheet Protocols</A>
+<B> Previous:</B> <A NAME="tex2html1562"
+ HREF="node57.html">Sheet Protocols</A>
+ &nbsp <B>  <A NAME="tex2html1570"
+ HREF="node1.html">Contents</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION04310000000000000000">
+Input Protocol</A>
+</H1>
+
+<P>
+CLIM's windowing substrate provides an input architecture and standard
+functionality for notifying clients of input that is distributed to their
+sheets.  Input includes such events as the pointer entering and exiting sheets,
+pointer motion (whose granularity is defined by performance limitations), and
+pointer button and keyboard events.  At this level, input is represented as
+<I> event</I> objects.
+
+<P>
+Sheets either participate fully in the input protocol or are mute for input.  If
+any functions in the input protocol are called on a sheet that is mute for
+input, the sheet-is-mute-for-input error will be signalled.
+
+<P>
+Input is processed on a per-port basis by the function process-next-event.
+In multiprocessing environments, a process that calls process-next-event in a
+loop is created for each port.  In single-process Lisps, process-next-event
+is called whenever the user would go blocked for input.
+
+<P>
+process-next-event has three main tasks when it receives an event.  First,
+it must determine to which <I> client</I><A NAME="8533"></A> the event is addressed.  Typically,
+the client is a sheet, but there are other special-purpose clients to which
+events can also be dispatched.  Next, process-next-event formats the event
+into a standard format, and finally it <I> distributes</I><A NAME="8535"></A> the event to the
+client.  A client may then either handle the event synchronously, or it may
+queue it for later handling by another process.
+
+<P>
+Input events can be broadly categorized into <I> pointer events</I><A NAME="8537"></A> and
+<I> keyboard events</I><A NAME="8539"></A>.  By default, pointer events are dispatched to the
+lowest sheet in the hierarchy whose region contains the location of the pointer.
+Keyboard events are dispatched to the port's keyboard input focus; the accessor
+port-keyboard-input-focus contains the event client that receives the
+port's keyboard events.
+
+<P>
+SWM Can someone explain to me the exact distinction between
+dispatching, distributing, and processing?
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
+
+<UL>
+<LI><A NAME="tex2html1573"
+ HREF="node59.html">Input Protocol Functions</A>
+<LI><A NAME="tex2html1574"
+ HREF="node60.html">Input Protocol Classes</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html1571"
+ HREF="node59.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/icons/next_motif.gif"></A> 
+<A NAME="tex2html1567"
+ HREF="node57.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/icons/up_motif.gif"></A> 
+<A NAME="tex2html1561"
+ HREF="node57.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/icons/previous_motif.gif"></A> 
+<A NAME="tex2html1569"
+ HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/icons/contents_motif.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html1572"
+ HREF="node59.html">Input Protocol Functions</A>
+<B> Up:</B> <A NAME="tex2html1568"
+ HREF="node57.html">Sheet Protocols</A>
+<B> Previous:</B> <A NAME="tex2html1562"
+ HREF="node57.html">Sheet Protocols</A>
+ &nbsp <B>  <A NAME="tex2html1570"
+ HREF="node1.html">Contents</A></B> 
+<!--End of Navigation Panel-->
+<ADDRESS>
+<I>&</I>
+<BR><I>2001-06-12</I>
+</ADDRESS>
+</BODY>
+</HTML>

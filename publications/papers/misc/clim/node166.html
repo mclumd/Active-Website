@@ -1,0 +1,191 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 99.1 release (March 30, 1999)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Text Displayed Output Record</TITLE>
+<META NAME="description" CONTENT="Text Displayed Output Record">
+<META NAME="keywords" CONTENT="clim">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v99.1 release">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="clim.css">
+
+<LINK REL="next" HREF="node167.html">
+<LINK REL="previous" HREF="node165.html">
+<LINK REL="up" HREF="node163.html">
+<LINK REL="next" HREF="node167.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html3030"
+ HREF="node167.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/icons/next_motif.gif"></A> 
+<A NAME="tex2html3026"
+ HREF="node163.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/icons/up_motif.gif"></A> 
+<A NAME="tex2html3020"
+ HREF="node165.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/icons/previous_motif.gif"></A> 
+<A NAME="tex2html3028"
+ HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/icons/contents_motif.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html3031"
+ HREF="node167.html">Top-Level Output Records</A>
+<B> Up:</B> <A NAME="tex2html3027"
+ HREF="node163.html">Types of Output Records</A>
+<B> Previous:</B> <A NAME="tex2html3021"
+ HREF="node165.html">Graphics Displayed Output Records</A>
+ &nbsp <B>  <A NAME="tex2html3029"
+ HREF="node1.html">Contents</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H2><A NAME="SECTION06223000000000000000">
+Text Displayed Output Record</A>
+</H2>
+
+<P>
+Text displayed output records are used to record the textual output produced by
+such functions as stream-write-char and stream-write-string.  Each
+text displayed output record corresponds to no more than one line of textual
+output (that is, line breaks caused by terpri and fresh-line create a
+new text output record, as do certain other stream operations described below).
+
+<P>
+The exact contents of text displayed output records is unspecified, but they
+must store sufficient information to be able to exactly redraw the original
+output at replay time.  The minimum information that must be captured for all
+text displayed output records is as follows:
+
+<P>
+
+<UL>
+<LI>The displayed text strings.
+
+<P>
+ </LI>
+<LI>The starting and ending cursor positions.
+
+<P>
+ </LI>
+<LI>The text style in which the text string was written.  Depending on the
+CLIM implementation, this may be either fully merged against the medium's
+default or not; in the former case, subsequent changes to the medium's default
+text style will not affect replaying the record, but in the latter case changing
+the default text style will affect replaying.
+
+<P>
+ </LI>
+<LI>The programmer-supplied ink at the time the drawing function was called.
+Indirect inks must not be resolved, so that a user can later change the default
+foreground and background ink of the medium and have that change affect the
+already-created output records during replay.
+
+<P>
+ </LI>
+<LI>The programmer-supplied clipping region at the time the drawing function
+was called.</LI>
+</UL>
+
+<P>
+text-displayed-output-record
+
+<P>
+The protocol class that corresponds to text displayed output records.  This is
+a subclass of displayed-output-record.
+a text displayed output record text-displayed-output-record
+
+<P>
+text-displayed-output-record-p object
+
+<P>
+Returns <I> true</I> if <I> object</I> is a <I> text displayed output record</I>,
+otherwise returns <I> false</I>.
+
+<P>
+The following two generic functions comprise the text displayed output record
+protocol.
+
+<P>
+add-character-output-to-text-record text-record character text-style 
+                                                   width height baseline
+
+<P>
+Adds the character <I> character</I> to the <I> text displayed output record</I>
+<I> text-record</I> in the text style <I> text-style</I>.  <I> width</I> and
+<I> height</I> are the width and height of the character in device units, and are
+used to compute the bounding rectangle for the text record.  <I> baseline</I> is
+the new baseline for characters in the output record.
+
+<P>
+add-string-output-to-text-record text-record string start end text-style 
+                                                width height baseline
+
+<P>
+Adds the string <I> string</I> to the <I> text displayed output record</I>
+<I> text-record</I> in the text style <I> text-style</I>.  <I> start</I> and <I> end</I>
+are integers that specify the substring within <I> string</I> to add to the text
+output record.  <I> width</I> and <I> height</I> are the width and height of the
+character in device units, and are used to compute the bounding rectangle for
+the text record.  <I> baseline</I> is the new baseline for characters in the
+output record.
+
+<P>
+text-displayed-output-record-string text-record
+
+<P>
+Returns the string contained by the <I> text displayed output record</I>
+<I> text-record</I>.
+This function returns objects that reveal CLIM's internal state;
+do not modify those objects. 
+<P>
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html3030"
+ HREF="node167.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/icons/next_motif.gif"></A> 
+<A NAME="tex2html3026"
+ HREF="node163.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/icons/up_motif.gif"></A> 
+<A NAME="tex2html3020"
+ HREF="node165.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/icons/previous_motif.gif"></A> 
+<A NAME="tex2html3028"
+ HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/icons/contents_motif.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html3031"
+ HREF="node167.html">Top-Level Output Records</A>
+<B> Up:</B> <A NAME="tex2html3027"
+ HREF="node163.html">Types of Output Records</A>
+<B> Previous:</B> <A NAME="tex2html3021"
+ HREF="node165.html">Graphics Displayed Output Records</A>
+ &nbsp <B>  <A NAME="tex2html3029"
+ HREF="node1.html">Contents</A></B> 
+<!--End of Navigation Panel-->
+<ADDRESS>
+<I>&</I>
+<BR><I>2001-06-12</I>
+</ADDRESS>
+</BODY>
+</HTML>

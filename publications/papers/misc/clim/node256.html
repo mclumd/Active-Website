@@ -1,0 +1,149 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 99.1 release (March 30, 1999)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Window Viewport Management</TITLE>
+<META NAME="description" CONTENT="Window Viewport Management">
+<META NAME="keywords" CONTENT="clim">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v99.1 release">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="clim.css">
+
+<LINK REL="next" HREF="node257.html">
+<LINK REL="previous" HREF="node253.html">
+<LINK REL="up" HREF="node250.html">
+<LINK REL="next" HREF="node257.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html4263"
+ HREF="node257.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/icons/next_motif.gif"></A> 
+<A NAME="tex2html4259"
+ HREF="node250.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/icons/up_motif.gif"></A> 
+<A NAME="tex2html4253"
+ HREF="node255.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/icons/previous_motif.gif"></A> 
+<A NAME="tex2html4261"
+ HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/icons/contents_motif.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html4264"
+ HREF="node257.html">Frame Managers</A>
+<B> Up:</B> <A NAME="tex2html4260"
+ HREF="node250.html">Application Frames</A>
+<B> Previous:</B> <A NAME="tex2html4254"
+ HREF="node255.html">The Generic Command Loop</A>
+ &nbsp <B>  <A NAME="tex2html4262"
+ HREF="node1.html">Contents</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION08240000000000000000">
+Window Viewport Management</A>
+</H1>
+
+<P>
+The <I> viewport</I><A NAME="34989"></A> of a window is the area of the window's drawing plane
+that is currently visible in the window.
+
+<P>
+SWM Where does this discussion of viewports really belong?
+
+<P>
+window-clear window
+
+<P>
+Clears the entire drawing plane by filling it with the background design of the
+window stream <I> window</I>.  If <I> window</I> has an output history, that is
+cleared as well.  The text cursor position of <I> window</I>, if there is one, is
+reset to the upper left corner.
+
+<P>
+window-refresh window
+
+<P>
+Clears the visible part of the drawing plane of <I> window</I>, and then if the
+window stream is an output recording stream, the output records in the visible
+part of the window are replayed.
+
+<P>
+window-viewport window
+
+<P>
+Returns the viewport of <I> window</I>, which is an object of type area.
+Usually the viewport will be a standard-rectangle.
+
+<P>
+window-erase-viewport window
+
+<P>
+Clears the visible part of the drawing plane of <I> window</I> by filling it with
+the background design.
+
+<P>
+window-viewport-position* window
+
+<P>
+Returns two values, the 1#1 and 2#2 position of the top-left corner of
+<I> window</I>'s viewport.
+
+<P>
+ 
+(setf window-viewport-position*) x y window
+
+<P>
+Sets the position of <I> window</I>'s viewport to <I> x</I> and <I> y</I>.
+
+<P>
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html4263"
+ HREF="node257.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/icons/next_motif.gif"></A> 
+<A NAME="tex2html4259"
+ HREF="node250.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/icons/up_motif.gif"></A> 
+<A NAME="tex2html4253"
+ HREF="node255.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/icons/previous_motif.gif"></A> 
+<A NAME="tex2html4261"
+ HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/icons/contents_motif.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html4264"
+ HREF="node257.html">Frame Managers</A>
+<B> Up:</B> <A NAME="tex2html4260"
+ HREF="node250.html">Application Frames</A>
+<B> Previous:</B> <A NAME="tex2html4254"
+ HREF="node255.html">The Generic Command Loop</A>
+ &nbsp <B>  <A NAME="tex2html4262"
+ HREF="node1.html">Contents</A></B> 
+<!--End of Navigation Panel-->
+<ADDRESS>
+<I>&</I>
+<BR><I>2001-06-12</I>
+</ADDRESS>
+</BODY>
+</HTML>

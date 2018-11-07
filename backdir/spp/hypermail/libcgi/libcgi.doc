@@ -1,0 +1,200 @@
+There are two new data types in cgi.h (which must be #included in
+your program, presumably as lib/cgi.h):
+
+typedef struct
+{
+  char *server_software;
+  char *server_name;
+  char *gateway_interface;
+  char *server_protocol;
+  char *server_port;
+  char *request_method;
+  char *http_accept;
+  char *path_info;
+  char *path_translated;
+  char *script_name;
+  char *query_string;
+  char *remote_host;
+  char *remote_addr;
+  char *auth_type;
+  char *remote_user;
+  char *remote_ident;
+  char *content_type;
+  int content_length;
+} cgi_info;
+
+typedef struct festruct
+{
+  unsigned char *name;
+  unsigned char *val;
+  struct festruct *next;
+} form_entry;
+
+
+Here are the API functions that do relevant things:
+
+SYNOPSIS
+  main()
+  cgi_main()
+
+DESCRIPTION
+  libcgi contains a simple stub of a main program, which merely
+  calls cgi_main().  Thus cgi_main is actually the entry point for
+  your CGI-processing code.  It is this way to be upwardly-compatible
+  with linking in CGI programs to the server.  There will be name
+  conflicts with multiple cgi_main's, though.  We'll worry about it
+  later.
+
+--------
+
+SYNOPSIS
+  int get_cgi_info(cgi_info *)
+
+DESCRIPTION
+  This routine paws through the environment and fills up the struct
+  provided, which must already be allocated.
+
+RETURNS
+  zero if there is a problem.
+
+--------
+
+SYNOPSIS
+  form_entry *get_form_entries(cgi_info *)
+  void free_form_entries(cgi_info *)
+  char *parmval(form_entry *, char *)
+
+DESCRIPTION
+  get_form_entries parses any form inputs information into a linked-list
+  of name/value pairs, returning the head pointer of that list.  It does
+  all plus-to-space and hex code translations.
+  
+  free_form_entries reclaims all the memory from the provided linked-list.
+
+  parmval returns the value corresponding to the name in the second
+  argument (a caseless string compar) by a linear search through the list
+  in the first argument.
+
+RETURNS
+  get_form_enties returns the head pointer, or NULL if there is a problem
+  or no form input information was available.
+ 
+  parmval returns the corresponding value string or NULL if there is a
+  problem or no matching name.
+
+--------------
+
+SYNOPSIS
+  int syn_mimeheader(char *, char *)
+  int print_mimeheader(char *)
+
+DESCRIPTION
+  syn_mimeheader creates a MIME header based on the MIME type in
+  the second string and writes it into the first string buffer
+  (including trailing double-newline).
+
+  print_mimeheader creates the same MIME header based on the MIME
+  type in its sole argument, and prints it to stdout
+
+RETURNS
+  both return 0 if there is a problem
+
+-------------
+
+SYNOPSIS
+  int syn_base_url(char *, cgi_info *)
+  int print_base_url(cgi_info *)
+
+DESCRIPTION
+  syn_base_url reconstructs the virtual document's URL given the
+  cgi_info, minus any query string, and fills the provided char
+  buffer.
+
+  print_base_url does the same but prints to stdout instead
+
+RETURNS
+  both return 0 if there is a problem
+
+--------------
+
+SYNOPSIS
+  int mcode(cgi_info *)
+
+DESCRIPTION
+  This function examines the request_method in the cgi information
+  and returns an integer code.  These codes are defined in cgi.h.
+
+RETURNS
+  0 if it doesn't recognize the method name, otherwise the code as
+  defined in cgi.h
+
+--------------
+
+SYNOPSIS
+  char *trim(char *s)
+
+DESCRIPTION
+  Changes the string from blank-padded to NULL-padded
+
+RETURNS
+  its argument
+
+--------------
+
+SYNOPSIS
+  char *sanitize(char *to, char *from)
+
+DESCRIPTION
+  Prepares the string for inclusion in a URL.  That is, the from
+  string is copied to the to buffer except that blanks are turned
+  into '+' characters and non-alphanumerics are turned into
+  3-character sequences of a '%' followed by two hex digits
+  corresponding to the ascii code.
+
+RETURNS
+  the to string
+
+--------------
+
+SYNOPSIS
+  void print_sel_list(char *tname, char **opts, char *init)
+
+DESCRIPTION
+  Prints an HTML+ selection list construct to stdout.  The name of
+  the SELECT tag is given by tname, and the NULL-terminated string
+  array opts is turned into separate OPTION tags with values
+  corresponding to entries in opts.  If any of these entries
+  are a caseless match with init, then that OPTION tag is the
+  default selection.
+
+--------------
+
+SYNOPSIS
+  void print_input_blank(char *tname, unsigned size, char *init)
+
+DESCRIPTION
+  Prints an HTML+ INPUT tag (of type text) to stdout.  The tag's
+  name is tname, its size is size, and initial value is init.
+
+--------------
+
+SYNOPSIS
+  void print_submit(char *label)
+
+DESCRIPTION
+  Prints an HTML+ INPUT tag of type submit to stdout.  The submit
+  button will be labelled by label if non-NULL.
+
+--------------
+
+SYNOPSIS
+  char *strmaxcpy(char *s1, char *s2, int n)
+
+DESCRIPTION
+  copies at most n-1 characters from s2 into s1, and then
+  null-terminates.  Handy for truncating while copying.
+
+RETURNS
+  s1 as long as n > 0, NULL otherwise
+
+--------------

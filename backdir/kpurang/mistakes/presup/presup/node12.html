@@ -1,0 +1,114 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!--Converted with LaTeX2HTML 98.1p1 release (March 2nd, 1998)
+originally by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Detecting and representing the mistake</TITLE>
+<META NAME="description" CONTENT="Detecting and representing the mistake">
+<META NAME="keywords" CONTENT="presup">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<LINK REL="STYLESHEET" HREF="presup.css">
+<LINK REL="next" HREF="node13.html">
+<LINK REL="previous" HREF="node11.html">
+<LINK REL="up" HREF="node11.html">
+<LINK REL="next" HREF="node13.html">
+</HEAD>
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html144"
+ HREF="node13.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="http://www.cs.umd.edu/icons/latex2html/icons.gif/next_motif.gif"></A> 
+<A NAME="tex2html142"
+ HREF="node11.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="http://www.cs.umd.edu/icons/latex2html/icons.gif/up_motif.gif"></A> 
+<A NAME="tex2html136"
+ HREF="node11.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="http://www.cs.umd.edu/icons/latex2html/icons.gif/previous_motif.gif"></A>   
+<BR>
+<B> Next:</B> <A NAME="tex2html145"
+ HREF="node13.html">Responding to the mistake</A>
+<B> Up:</B> <A NAME="tex2html143"
+ HREF="node11.html">Discussion of the solution</A>
+<B> Previous:</B> <A NAME="tex2html137"
+ HREF="node11.html">Discussion of the solution</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H2><A NAME="SECTION00061000000000000000">
+Detecting and representing the mistake</A>
+</H2>
+
+<P>
+A mistake ocurs in this problem when the context entails <IMG
+ WIDTH="15" HEIGHT="14" ALIGN="MIDDLE" BORDER="0"
+ SRC="img14.gif"
+ ALT="$\phi$">
+but
+the utterance being processed has <IMG
+ WIDTH="13" HEIGHT="12" ALIGN="MIDDLE" BORDER="0"
+ SRC="img15.gif"
+ ALT="$\neg \phi$">
+as a potential
+presupposition. We consider here the case that the context <EM>contains</EM> <IMG
+ WIDTH="15" HEIGHT="14" ALIGN="MIDDLE" BORDER="0"
+ SRC="img14.gif"
+ ALT="$\phi$">.
+If <IMG
+ WIDTH="15" HEIGHT="14" ALIGN="MIDDLE" BORDER="0"
+ SRC="img14.gif"
+ ALT="$\phi$">
+is entailed but not contained in the
+context, the mistake will be noticed later.
+
+<P>
+The contents of the context are represented as 
+<!-- MATH: $assert(\phi)$ -->
+<IMG
+ WIDTH="11" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img16.gif"
+ ALT="$assert(\phi)$">
+and the
+presuppositions as 
+<!-- MATH: $presup(\neg \phi)$ -->
+<IMG
+ WIDTH="11" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img17.gif"
+ ALT="$presup(\neg \phi)$">.
+Detecting the mistake then
+involves detecting such a pair of formulas in the current
+context. This is done by rule <A HREF="node9.html#contraDetectionRule"><IMG  ALIGN="BOTTOM" BORDER="1" ALT="[*]"
+ SRC="http://www.cs.umd.edu/icons/latex2html/icons.gif/cross_ref_motif.gif"></A>. That rule
+removes the contradictory formulas from the context, asserts that they
+are <I>SUSPECT</I> and asserts that there has been a contradiction.
+
+<P>
+The mistake itself is represented here by the contradiction assertion:
+
+<!-- MATH: $contra(assert(\phi), presup(\neg \phi), t)$ -->
+<IMG
+ WIDTH="9" HEIGHT="27" ALIGN="MIDDLE" BORDER="0"
+ SRC="img18.gif"
+ ALT="$contra(assert(\phi), presup(\neg \phi), t)$">.
+
+<P>
+An example of the application of rule <A HREF="node9.html#contraDetectionRule"><IMG  ALIGN="BOTTOM" BORDER="1" ALT="[*]"
+ SRC="http://www.cs.umd.edu/icons/latex2html/icons.gif/cross_ref_motif.gif"></A> is
+seen in step 22 od the second example.
+
+<P>
+<BR><HR>
+<ADDRESS>
+<I>K. Purang</I>
+<BR><I>2001-06-16</I>
+</ADDRESS>
+</BODY>
+</HTML>

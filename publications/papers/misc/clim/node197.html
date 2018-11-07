@@ -1,0 +1,164 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 99.1 release (March 30, 1999)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Basic Input Streams</TITLE>
+<META NAME="description" CONTENT="Basic Input Streams">
+<META NAME="keywords" CONTENT="clim">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v99.1 release">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="clim.css">
+
+<LINK REL="next" HREF="node198.html">
+<LINK REL="previous" HREF="node196.html">
+<LINK REL="up" HREF="node196.html">
+<LINK REL="next" HREF="node198.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html3462"
+ HREF="node198.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/icons/next_motif.gif"></A> 
+<A NAME="tex2html3458"
+ HREF="node196.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/icons/up_motif.gif"></A> 
+<A NAME="tex2html3452"
+ HREF="node196.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/icons/previous_motif.gif"></A> 
+<A NAME="tex2html3460"
+ HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/icons/contents_motif.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html3463"
+ HREF="node198.html">Extended Input Streams</A>
+<B> Up:</B> <A NAME="tex2html3459"
+ HREF="node196.html">Extended Stream Input</A>
+<B> Previous:</B> <A NAME="tex2html3453"
+ HREF="node196.html">Extended Stream Input</A>
+ &nbsp <B>  <A NAME="tex2html3461"
+ HREF="node1.html">Contents</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION07110000000000000000">
+Basic Input Streams</A>
+</H1>
+
+<P>
+CLIM provides an implementation of the basic input stream facilities (described
+in more detail in Appendix&nbsp;<A HREF="node294.html#gray-streams">C</A>), either by directly using the
+underlying Lisp implementation, or by implementing the facilities itself.
+
+<P>
+standard-input-stream
+
+<P>
+This class provides an implementation of the CLIM's basic input stream protocol
+based on CLIM's input kernel.  It defines a handle-event method for
+keystroke events and queues the resulting characters in a per-stream input
+buffer.
+Members of this class are mutable. 
+<P>
+stream-read-char stream
+
+<P>
+Returns the next character available in the <I> input stream</I> <I> stream</I>, or
+:eof if the stream is at end-of-file.  If no character is available this
+function will wait until one becomes available.
+
+<P>
+stream-unread-char stream character
+
+<P>
+Places the character <I> character</I> back into the <I> input stream</I>
+<I> stream</I>'s input buffer.  The next call to read-char on <I> stream</I>
+will return the unread character.  The character supplied must be the most
+recent character read from the stream.
+
+<P>
+stream-read-char-no-hang stream
+
+<P>
+Like stream-read-char, except that if no character is available the
+function returns <I> false</I>.
+
+<P>
+stream-peek-char stream
+
+<P>
+Returns the next character available in the <I> input stream</I> <I> stream</I>.
+The character is not removed from the input buffer.  Thus, the same character
+will be returned by a subsequent call to stream-read-char.
+
+<P>
+stream-listen stream
+
+<P>
+Returns <I> true</I> if there is input available on the <I> input stream</I>
+<I> stream</I>, <I> false</I> if not.
+
+<P>
+stream-read-line stream
+
+<P>
+Reads and returns a string containing a line of text from the <I> input
+stream</I> <I> stream</I>, delimited by the <code>#\Newline</code> character.
+
+<P>
+stream-clear-input stream
+
+<P>
+Clears any buffered input associated with the <I> input stream</I> <I> stream</I>,
+and returns <I> false</I>.
+
+<P>
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html3462"
+ HREF="node198.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/icons/next_motif.gif"></A> 
+<A NAME="tex2html3458"
+ HREF="node196.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/icons/up_motif.gif"></A> 
+<A NAME="tex2html3452"
+ HREF="node196.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/icons/previous_motif.gif"></A> 
+<A NAME="tex2html3460"
+ HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/icons/contents_motif.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html3463"
+ HREF="node198.html">Extended Input Streams</A>
+<B> Up:</B> <A NAME="tex2html3459"
+ HREF="node196.html">Extended Stream Input</A>
+<B> Previous:</B> <A NAME="tex2html3453"
+ HREF="node196.html">Extended Stream Input</A>
+ &nbsp <B>  <A NAME="tex2html3461"
+ HREF="node1.html">Contents</A></B> 
+<!--End of Navigation Panel-->
+<ADDRESS>
+<I>&</I>
+<BR><I>2001-06-12</I>
+</ADDRESS>
+</BODY>
+</HTML>

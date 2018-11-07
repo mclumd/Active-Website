@@ -1,0 +1,239 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 99.1 release (March 30, 1999)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Bounding Rectangles</TITLE>
+<META NAME="description" CONTENT="Bounding Rectangles">
+<META NAME="keywords" CONTENT="clim">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v99.1 release">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="clim.css">
+
+<LINK REL="previous" HREF="node31.html">
+<LINK REL="up" HREF="node31.html">
+<LINK REL="next" HREF="node33.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html1187"
+ HREF="node33.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/icons/next_motif.gif"></A> 
+<A NAME="tex2html1183"
+ HREF="node31.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/icons/up_motif.gif"></A> 
+<A NAME="tex2html1179"
+ HREF="node31.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/icons/previous_motif.gif"></A> 
+<A NAME="tex2html1185"
+ HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/icons/contents_motif.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html1188"
+ HREF="node33.html">The Bounding Rectangle Protocol</A>
+<B> Up:</B> <A NAME="tex2html1184"
+ HREF="node31.html">Bounding Rectangles</A>
+<B> Previous:</B> <A NAME="tex2html1180"
+ HREF="node31.html">Bounding Rectangles</A>
+ &nbsp <B>  <A NAME="tex2html1186"
+ HREF="node1.html">Contents</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION03210000000000000000">
+Bounding Rectangles</A>
+</H1>
+
+<P>
+Every bounded region has a derived <I> bounding rectangle</I><A NAME="5814"></A>, which is a
+rectangular region whose sides are parallel to the coordinate axes.  Therefore,
+every bounded region participates in the bounding rectangle protocol.  The
+bounding rectangle for a region is the smallest rectangle that contains every
+point in the region.  However, the bounding rectangle may contain additional
+points as well.  Unbounded regions do not have a bounding rectangle and do not
+participate in the bounding rectangle protocol.  Other objects besides bounded
+regions participate in the bounding rectangle protocol, such as sheets and
+output records.
+
+<P>
+The coordinate system in which the bounding rectangle is maintained depends on
+the context.  For example, the coordinates of the bounding rectangle of a sheet
+are expressed in the sheet's parent's coordinate system.  For output records,
+the coordinates of the bounding rectangle are maintained in the coordinate
+system of the stream with which the output record is associated.
+
+<P>
+Note that the bounding rectangle of a transformed region is not in general the
+same as the result of transforming the bounding rectangle of a region, as shown
+in Figure&nbsp;<A HREF="node32.html#output-record-bbox">4.1</A>.  For transformations that satisfy
+rectilinear-transformation-p, the following equality holds.  For all other
+transformations, it does not hold.
+
+<P>
+ 
+<PRE>
+
+(region-equal
+  (transform-region transformation (bounding-rectangle region))
+  (bounding-rectangle (transform-region transformation region)))
+</PRE>
+
+<P>
+
+<P></P>
+<DIV ALIGN="CENTER"><A NAME="output-record-bbox"></A><A NAME="5812"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure:</STRONG>
+The bounding rectangle of an output record.</CAPTION>
+<TR><TD>29#29</TD></TR>
+</TABLE>
+</DIV><P></P>
+
+<P>
+CLIM uses bounding rectangles for a variety of purposes.  For example,
+repainting of windows is driven from the bounding rectangle of the window's
+viewport, intersected with a ``damage'' region.  The formatting engines used by
+formatting-table and formatting-graph operate on the bounding
+rectangles of the output records in the output.  Bounding rectangles are also
+used internally by CLIM to achieve greater efficiency.  For instance, when
+performing hit detection to see if the pointer is within the region of an output
+record, CLIM first checks to see if the pointer is within the bounding rectangle
+of the output record.
+
+<P>
+Note that the bounding rectangle for an output record may have a different size
+depending on the medium on which the output record is rendered.  Consider the
+case of rendering text on different output devices; the font chosen for a
+particular text style may vary considerably in size from one device to another.
+
+<P>
+bounding-rectangle
+
+<P>
+The protocol class that represents a bounding rectangle.
+a bounding rectangle bounding-rectangle
+
+<P>
+Note that bounding rectangles are not a subclass of rectangle, nor even a
+subclass of region.  This is because, in general, bounding rectangles do
+not obey the region protocols.  However, all bounded regions and sheets that
+obey the bounding rectangle protocol are subclasses of bounding-rectangle.
+
+<P>
+Bounding rectangles are immutable, but since they reflect the live state of such
+mutable objects as sheets and output records, bounding rectangles are volatile.
+Therefore, programmers must not depend on the bounding rectangle associated with
+a mutable object remaining constant.
+
+<P>
+bounding-rectangle-p object
+
+<P>
+Returns <I> true</I> if <I> object</I> is a <I> bounding rectangle</I> (that is,
+supports the bounding rectangle protocol), otherwise returns <I> false</I>.
+
+<P>
+standard-bounding-rectangle
+
+<P>
+An instantiable class that implements a bounding rectangle.  This is a subclass
+of both bounding-rectangle and rectangle, that is, standard bounding
+rectangles obey the rectangle protocol.
+
+<P>
+make-bounding-rectangle returns an object of this class.
+
+<P>
+The representation of bounding rectangles in CLIM is chosen to be efficient.
+CLIM will probably represent such rectangles by storing the coordinates of two
+opposing corners of the rectangle, namely, the ``min point'' and the ``max
+point''.  Because this representation is not sufficient to represent the result
+of arbitrary transformations of arbitrary rectangles, CLIM is allowed to return
+a polygon as the result of such a transformation.  (The most general class of
+transformations that is guaranteed to always turn a rectangle into another
+rectangle is the class of transformations that satisfy
+rectilinear-transformation-p.)
+
+<P>
+make-bounding-rectangle x1 y1 x2 y2
+
+<P>
+Returns an object of the class standard-bounding-rectangle with the edges
+specified by <I> x1</I>, <I> y1</I>, <I> x2</I>, and <I> y2</I>, which must be real
+numbers.
+
+<P>
+ 
+<I> x1</I>, <I> y1</I>, <I> x2</I>, and <I> y2</I> are ``canonicalized'' in the
+following way.  The min point of the rectangle has an 1#1 coordinate that is the
+smaller of <I> x1</I> and <I> x2</I> and a 2#2 coordinate that is the smaller of
+<I> y1</I> and <I> y2</I>.  The max point of the rectangle has an 1#1 coordinate
+that is the larger of <I> x1</I> and <I> x2</I> and a 2#2 coordinate that is the
+larger of <I> y1</I> and <I> y2</I>.  (Therefore, in a right-handed coordinate
+system the canonicalized values of <I> x1</I>, <I> y1</I>, <I> x2</I>, and <I> y2</I>
+correspond to the left, top, right, and bottom edges of the rectangle,
+respectively.)
+
+<P>
+This function returns fresh objects that may be modified. 
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
+
+<UL>
+<LI><A NAME="tex2html1189"
+ HREF="node33.html">The Bounding Rectangle Protocol</A>
+<LI><A NAME="tex2html1190"
+ HREF="node34.html">Bounding Rectangle Convenience Functions</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html1187"
+ HREF="node33.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/icons/next_motif.gif"></A> 
+<A NAME="tex2html1183"
+ HREF="node31.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/icons/up_motif.gif"></A> 
+<A NAME="tex2html1179"
+ HREF="node31.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/icons/previous_motif.gif"></A> 
+<A NAME="tex2html1185"
+ HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/icons/contents_motif.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html1188"
+ HREF="node33.html">The Bounding Rectangle Protocol</A>
+<B> Up:</B> <A NAME="tex2html1184"
+ HREF="node31.html">Bounding Rectangles</A>
+<B> Previous:</B> <A NAME="tex2html1180"
+ HREF="node31.html">Bounding Rectangles</A>
+ &nbsp <B>  <A NAME="tex2html1186"
+ HREF="node1.html">Contents</A></B> 
+<!--End of Navigation Panel-->
+<ADDRESS>
+<I>&</I>
+<BR><I>2001-06-12</I>
+</ADDRESS>
+</BODY>
+</HTML>

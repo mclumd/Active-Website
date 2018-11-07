@@ -1,0 +1,127 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 99.1 release (March 30, 1999)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Standard Input Contract</TITLE>
+<META NAME="description" CONTENT="Standard Input Contract">
+<META NAME="keywords" CONTENT="clim">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v99.1 release">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="clim.css">
+
+<LINK REL="next" HREF="node81.html">
+<LINK REL="previous" HREF="node77.html">
+<LINK REL="up" HREF="node73.html">
+<LINK REL="next" HREF="node81.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html1844"
+ HREF="node81.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/icons/next_motif.gif"></A> 
+<A NAME="tex2html1840"
+ HREF="node73.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/icons/up_motif.gif"></A> 
+<A NAME="tex2html1834"
+ HREF="node79.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/icons/previous_motif.gif"></A> 
+<A NAME="tex2html1842"
+ HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/icons/contents_motif.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html1845"
+ HREF="node81.html">Standard Output</A>
+<B> Up:</B> <A NAME="tex2html1841"
+ HREF="node73.html">Ports, Grafts, and Mirrored</A>
+<B> Previous:</B> <A NAME="tex2html1835"
+ HREF="node79.html">Internal Interfaces for Native</A>
+ &nbsp <B>  <A NAME="tex2html1843"
+ HREF="node1.html">Contents</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION04450000000000000000">
+Standard Input Contract</A>
+</H1>
+
+<P>
+Silica separates input processing into two phases:  <I> distribution</I><A NAME="8730"></A>
+(determining the appropriate sheet to receive the input) and
+<I> dispatching</I><A NAME="8732"></A> (translating the port-specific event representation into a
+suitable representation and delivering the event to the client of the recipient
+sheet).  Since input is received from the host window server and distribution is
+inherently affected by the properties of many and possibly distant sheets in a
+hierarchy, distribution is controlled by the port and an associated object
+called distribution contract or distributors for short.  The details of how
+distribution is handled by a port and its distributor aren't important to most
+users of standard input.  Hence, they are covered in
+Section&nbsp;refevent-distribution.
+
+<P>
+A sheet's input contract is responsible for dispatching events that are
+distributed to the sheet (which, as described above, includes both translating
+the port event and delivering it to the sheet's client).  The standard input
+contract translates the port-specific event into the standard event
+representation (which is described in Chapter&nbsp;<I> events</I>) and delivers it to
+the client by queueing on an event queue associated with the sheet.  In
+addition, this queueing interface is also used by the other standard contracts
+to queue their non-input-device-generated (such as windowing and repaint events)
+events.
+
+<P>
+A sheet's input contract is also responsible for providing other input services
+to the sheet including control of the pointer's appearance, polling for current
+pointer and keyboard state, and interactions with the port's distributor.  The
+standard input contract provides a standard interface to each of these services.
+
+<P>
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html1844"
+ HREF="node81.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/icons/next_motif.gif"></A> 
+<A NAME="tex2html1840"
+ HREF="node73.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/icons/up_motif.gif"></A> 
+<A NAME="tex2html1834"
+ HREF="node79.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/icons/previous_motif.gif"></A> 
+<A NAME="tex2html1842"
+ HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/icons/contents_motif.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html1845"
+ HREF="node81.html">Standard Output</A>
+<B> Up:</B> <A NAME="tex2html1841"
+ HREF="node73.html">Ports, Grafts, and Mirrored</A>
+<B> Previous:</B> <A NAME="tex2html1835"
+ HREF="node79.html">Internal Interfaces for Native</A>
+ &nbsp <B>  <A NAME="tex2html1843"
+ HREF="node1.html">Contents</A></B> 
+<!--End of Navigation Panel-->
+<ADDRESS>
+<I>&</I>
+<BR><I>2001-06-12</I>
+</ADDRESS>
+</BODY>
+</HTML>

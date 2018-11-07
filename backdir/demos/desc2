@@ -1,0 +1,22 @@
+<HTML>
+<BODY>
+<H4>Run: </H4>
+<UL>
+  <LI>Alma start with the description of the solution to the problem at step 1. 
+  This consists of a single assertion: "if it is now T and lunch is at T, assert 
+  lunch." 
+  <LI>At step 1, the assertion is instantiated with T = 1 since now it is 1. But 
+  since Alma does not have lunch_at(1), nothing happens. 
+  <LI>The same thing happens for eachof the other stpes. 
+  <LI>At step 7 we assert lunch_at(8). 
+  <LI>At step 8 the antecedents are true and 
+  <LI>At step 9 Alma asserts 'lunch' </LI></UL>
+<P>
+<H4>Note:</H4>The time at which lunch is asserted is one step later than the 
+time we specified because of the time the inference takes. <BR>This looks like a 
+rather strange way to do things because we have one of the "lunch_at(X) -&gt; 
+lunch" assertions derived for each step. See Settable alarm II for an 
+alternative. 
+<HR>
+</BODY>
+</HTML>

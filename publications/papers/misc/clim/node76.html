@@ -1,0 +1,238 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 99.1 release (March 30, 1999)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Grafts</TITLE>
+<META NAME="description" CONTENT="Grafts">
+<META NAME="keywords" CONTENT="clim">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v99.1 release">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="clim.css">
+
+<LINK REL="next" HREF="node77.html">
+<LINK REL="previous" HREF="node75.html">
+<LINK REL="up" HREF="node73.html">
+<LINK REL="next" HREF="node77.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html1796"
+ HREF="node77.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/icons/next_motif.gif"></A> 
+<A NAME="tex2html1792"
+ HREF="node73.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/icons/up_motif.gif"></A> 
+<A NAME="tex2html1786"
+ HREF="node75.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/icons/previous_motif.gif"></A> 
+<A NAME="tex2html1794"
+ HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/icons/contents_motif.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html1797"
+ HREF="node77.html">Mirrors and Mirrored Sheets</A>
+<B> Up:</B> <A NAME="tex2html1793"
+ HREF="node73.html">Ports, Grafts, and Mirrored</A>
+<B> Previous:</B> <A NAME="tex2html1787"
+ HREF="node75.html">Ports</A>
+ &nbsp <B>  <A NAME="tex2html1795"
+ HREF="node1.html">Contents</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION04430000000000000000">
+Grafts</A>
+</H1>
+
+<P>
+A graft is a special sheet that is directly connected to a display server.
+Typically, a graft is the CLIM sheet that represents the root window of the
+display.  There may be several grafts that are all attached to the same root
+window; these grafts may have differing coordinate systems.  
+
+<P>
+To display a sheet on a display, it must have a graft for an ancestor.  In
+addition, the sheet and all of its ancestors must be enabled, including the
+graft.  In general, a sheet becomes grafted when it (or one of its ancestors) is
+adopted by a graft.
+
+<P>
+sheet-grafted-p sheet
+
+<P>
+Returns <I> true</I> if any of the sheet's ancestors is a graft, otherwise
+returns <I> false</I>.
+
+<P>
+find-graft <TT> &amp;key </TT>(port (find-port)) (server-path *default-server-path*)
+			  (orientation :default) (units :device)
+
+<P>
+Finds a graft that represents the display device on the port <I> port</I> that
+also matches the other supplied parameters.  If no such graft exists, a new
+graft is constructed and returned.
+
+<P>
+If <I> server-path</I> is supplied, find-graft finds a graft whose port
+provides a connection to the window server addressed by <I> server-path</I>.
+
+<P>
+It is an error to provide both <I> port</I> and <I> server-path</I> in a call to
+find-graft.
+
+<P>
+ 
+<I> orientation</I> specifies the orientation of the graft's coordinate
+system.  Supported values are :default and :graphics, which have the
+meanings describe below:
+
+<P>
+
+<UL>
+<LI>:default--a coordinate system with its origin is in the upper left
+hand corner of the display device with 2#2 increasing from top to bottom and 1#1
+increasing from left to right.
+
+<P>
+ </LI>
+<LI>:graphics--a coordinate system with its origin in the lower left
+hand corner of the display device with 2#2 increasing from bottom to top and 1#1
+increasing from left to right.</LI>
+</UL>
+
+<P>
+ 
+<I> units</I> specifies the units of the coordinate system and defaults to
+:device, which means the device units of the host window system (such as
+pixels).  Other supported values include :inches, :millimeters, and
+:screen-sized, which means that one unit in each direction is the width and
+height of the display device.
+
+<P>
+RSL I don't know how much of this is obsolete.
+
+<P>
+sheet-graft sheet
+
+<P>
+Returns the graft currently associated with the <I> sheet</I> <I> sheet</I>.
+sheet-graft is defined for all kinds of sheets (including streams that
+support the CLIM graphics protocol) and mediums.  For degrafted sheets or other
+objects that aren't currently associated with a particular graft,
+sheet-graft will return nil.
+
+<P>
+map-over-grafts function port
+
+<P>
+Invokes <I> function</I> on each existing graft associated with the <I> port</I>
+<I> port</I>.  <I> function</I> is a function of one argument, the graft; it has
+dynamic extent.
+
+<P>
+with-graft-locked graft <TT> &amp;body </TT>body
+
+<P>
+Executes <I> body</I> after grabbing a lock associated with the <I> graft</I>
+<I> graft</I>, which may be a graft or any object on which the function
+sheet-graft works.  If <I> object</I> currently has no graft, <I> body</I> will
+be executed without locking.
+
+<P>
+ 
+<I> body</I> may have zero or more declarations as its first forms.
+
+<P>
+graft-orientation graft
+
+<P>
+Returns the orientation of the <I> graft</I> <I> graft</I>'s coordinate system.
+The returned value will be either :default or :graphics.  The meanings
+of these values are the same as described for the orientation argument to
+find-graft.
+
+<P>
+graft-units graft
+
+<P>
+Returns the units of the <I> graft</I> <I> graft</I>'s coordinate system.  The
+returned value will be one of :device, :inches, :millimeters, or
+:screen-sized.  The meanings of these values are the same as described for
+the units argument to find-graft.
+
+<P>
+graft-width graft <TT> &amp;key </TT>(units :device)
+graft-height graft <TT> &amp;key </TT>(units :device)
+
+<P>
+Returns the width and height of the <I> graft</I> <I> graft</I> (and by extension
+the associated host window) in the units indicated.  <I> Units</I> may be any of
+:device, :inches, :millimeters, or :screen-sized.  The
+meanings of these values are the same as described for the units argument to
+find-graft.  Note if a <I> unit</I> of :screen-sized is specified, both
+of these functions will return a value of 1.
+
+<P>
+graft-pixels-per-millimeter graft
+graft-pixels-per-inch graft
+
+<P>
+Returns the number of pixels per millimeter or inch of the <I> graft</I>
+<I> graft</I>.  These functions are provided as a convenience to programmers and
+can be easily written in terms of graft-width or graft-height.
+
+<P>
+Rao Do we want to support non-square pixels?  If so, these functions
+aren't sufficient.
+
+<P>
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html1796"
+ HREF="node77.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/icons/next_motif.gif"></A> 
+<A NAME="tex2html1792"
+ HREF="node73.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/icons/up_motif.gif"></A> 
+<A NAME="tex2html1786"
+ HREF="node75.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/icons/previous_motif.gif"></A> 
+<A NAME="tex2html1794"
+ HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/icons/contents_motif.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html1797"
+ HREF="node77.html">Mirrors and Mirrored Sheets</A>
+<B> Up:</B> <A NAME="tex2html1793"
+ HREF="node73.html">Ports, Grafts, and Mirrored</A>
+<B> Previous:</B> <A NAME="tex2html1787"
+ HREF="node75.html">Ports</A>
+ &nbsp <B>  <A NAME="tex2html1795"
+ HREF="node1.html">Contents</A></B> 
+<!--End of Navigation Panel-->
+<ADDRESS>
+<I>&</I>
+<BR><I>2001-06-12</I>
+</ADDRESS>
+</BODY>
+</HTML>

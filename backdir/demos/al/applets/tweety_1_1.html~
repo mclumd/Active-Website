@@ -1,0 +1,33 @@
+<html>
+<head>
+<title>
+Tweety 1.1 example
+</title>
+</head>
+
+<body bgcolor="#ffffee" text="#000000" link="#ff0000" vlink="0000ff">
+
+<h3>Tweety 1.1 example </h3>
+<p>
+<h4>Description: </h4>
+
+<br>
+
+<p>
+<a href="tweety_1_1_applet.html" target="History"> View the history applet</a>
+<br>
+<a href="../histories/tweety_1_1.pl"> Alma specification</a>
+<p>
+<h4>Run: </h4>
+<ul>
+
+</ul>
+<p>
+<h4>Note:</h4>
+
+
+<p>
+<hr>
+<a href="mailto:kpurang@cs.umd.edu">kpurang@cs.umd.edu</a>
+</html>
+

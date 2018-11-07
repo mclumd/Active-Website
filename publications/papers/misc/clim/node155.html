@@ -1,0 +1,192 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 99.1 release (March 30, 1999)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Wrapping of Text</TITLE>
+<META NAME="description" CONTENT="Wrapping of Text">
+<META NAME="keywords" CONTENT="clim">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v99.1 release">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="clim.css">
+
+<LINK REL="previous" HREF="node154.html">
+<LINK REL="up" HREF="node153.html">
+<LINK REL="next" HREF="node156.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2881"
+ HREF="node156.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/icons/next_motif.gif"></A> 
+<A NAME="tex2html2877"
+ HREF="node153.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/icons/up_motif.gif"></A> 
+<A NAME="tex2html2873"
+ HREF="node154.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/icons/previous_motif.gif"></A> 
+<A NAME="tex2html2879"
+ HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/icons/contents_motif.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html2882"
+ HREF="node156.html">Attracting the User's Attention</A>
+<B> Up:</B> <A NAME="tex2html2878"
+ HREF="node153.html">Text Protocol</A>
+<B> Previous:</B> <A NAME="tex2html2874"
+ HREF="node154.html">Mixing Text and Graphics</A>
+ &nbsp <B>  <A NAME="tex2html2880"
+ HREF="node1.html">Contents</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H2><A NAME="SECTION06142000000000000000">
+Wrapping of Text</A>
+</H2>
+
+<P>
+stream-end-of-line-action stream
+(setf stream-end-of-line-action) action stream
+
+<P>
+The end-of-line action controls what happens if the text cursor position moves
+horizontally out of the viewport, or if text output reaches the text margin.
+(By default the text margin is the width of the viewport, so these are usually
+the same thing.)
+
+<P>
+stream-end-of-line-action returns the end-of-line action for the
+<I> extended output stream</I> <I> stream</I>.  It can be changed by using
+setf on stream-end-of-line-action.
+
+<P>
+The end-of-line action is one of: 
+
+<P>
+
+<UL>
+<LI>:wrap--when doing text output, wrap the text around (that is, break
+the text line and start another line).  When setting the cursor position, scroll
+the window horizontally to keep the cursor position inside the viewport.  This
+is the default.
+
+<P>
+ </LI>
+<LI>:scroll--scroll the window horizontally to keep the cursor
+position inside the viewport, then keep doing the output.
+
+<P>
+ </LI>
+<LI>:allow--ignore the text margin and do the output on the drawing
+plane beyond the visible part of the viewport.</LI>
+</UL>
+
+<P>
+with-end-of-line-action (stream action) <TT> &amp;body </TT>body
+
+<P>
+Temporarily changes <I> stream</I>'s end-of-line action for the duration of
+execution of body.  <I> action</I> must be one of the actions described in
+stream-end-of-line-action.
+
+<P>
+The <I> stream</I> argument is not evaluated, and must be a symbol that is bound
+to a stream.  If <I> stream</I> is t, *standard-output* is used.
+<I> body</I> may have zero or more declarations as its first forms.
+
+<P>
+stream-end-of-page-action stream
+(setf stream-end-of-page-action) action stream
+
+<P>
+The end-of-page action controls what happens if the text cursor position moves
+vertically out of the viewport.
+
+<P>
+stream-end-of-page-action returns the end-of-page action for the
+<I> extended output stream</I> <I> stream</I>.  It can be changed by using
+setf on stream-end-of-page-action.
+
+<P>
+The end-of-page action is one of: 
+
+<P>
+
+<UL>
+<LI>:wrap--when doing text output, wrap the text around (that is, go back
+to the top of the viewport).
+
+<P>
+ </LI>
+<LI>:scroll--scroll the window vertically to keep the cursor position
+inside the viewport, then keep doing output.  This is the default.
+
+<P>
+ </LI>
+<LI>:allow--ignore the viewport and do the output on the drawing plane
+beyond the visible part of the viewport.</LI>
+</UL>
+
+<P>
+with-end-of-page-action (stream action) <TT> &amp;body </TT>body
+
+<P>
+Temporarily changes <I> stream</I>'s end-of-page action for the duration of
+execution of body.  <I> action</I> must be one of the actions described in
+stream-end-of-page-action.
+
+<P>
+The <I> stream</I> argument is not evaluated, and must be a symbol that is bound
+to a stream.  If <I> stream</I> is t, *standard-output* is used.
+<I> body</I> may have zero or more declarations as its first forms.
+
+<P>
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2881"
+ HREF="node156.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/icons/next_motif.gif"></A> 
+<A NAME="tex2html2877"
+ HREF="node153.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/icons/up_motif.gif"></A> 
+<A NAME="tex2html2873"
+ HREF="node154.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/icons/previous_motif.gif"></A> 
+<A NAME="tex2html2879"
+ HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/icons/contents_motif.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html2882"
+ HREF="node156.html">Attracting the User's Attention</A>
+<B> Up:</B> <A NAME="tex2html2878"
+ HREF="node153.html">Text Protocol</A>
+<B> Previous:</B> <A NAME="tex2html2874"
+ HREF="node154.html">Mixing Text and Graphics</A>
+ &nbsp <B>  <A NAME="tex2html2880"
+ HREF="node1.html">Contents</A></B> 
+<!--End of Navigation Panel-->
+<ADDRESS>
+<I>&</I>
+<BR><I>2001-06-12</I>
+</ADDRESS>
+</BODY>
+</HTML>

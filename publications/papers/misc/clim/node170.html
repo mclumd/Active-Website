@@ -1,0 +1,139 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 99.1 release (March 30, 1999)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Graphics Output Recording</TITLE>
+<META NAME="description" CONTENT="Graphics Output Recording">
+<META NAME="keywords" CONTENT="clim">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v99.1 release">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="clim.css">
+
+<LINK REL="next" HREF="node171.html">
+<LINK REL="previous" HREF="node169.html">
+<LINK REL="up" HREF="node168.html">
+<LINK REL="next" HREF="node171.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html3078"
+ HREF="node171.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/icons/next_motif.gif"></A> 
+<A NAME="tex2html3074"
+ HREF="node168.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/icons/up_motif.gif"></A> 
+<A NAME="tex2html3068"
+ HREF="node169.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/icons/previous_motif.gif"></A> 
+<A NAME="tex2html3076"
+ HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/icons/contents_motif.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html3079"
+ HREF="node171.html">Text Output Recording</A>
+<B> Up:</B> <A NAME="tex2html3075"
+ HREF="node168.html">Output Recording Streams</A>
+<B> Previous:</B> <A NAME="tex2html3069"
+ HREF="node169.html">The Output Recording Stream</A>
+ &nbsp <B>  <A NAME="tex2html3077"
+ HREF="node1.html">Contents</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H2><A NAME="SECTION06232000000000000000">
+Graphics Output Recording</A>
+</H2>
+
+<P>
+Using draw-line* as an example, calling any of the drawing functions
+specified in Section&nbsp;<A HREF="node113.html#drawing-functions">12.4</A> and
+Section&nbsp;<A HREF="node115.html#graphics-protocols">12.6</A> results in the following series of function
+calls on an output recording stream:
+
+<P>
+
+<UL>
+<LI>A program calls draw-line* on arguments <I> sheet</I>, <I> x1</I>,
+<I> y1</I>, <I> x2</I>, and <I> y2</I>, and perhaps some drawing options.
+
+<P>
+ </LI>
+<LI>draw-line* merges the supplied drawing options into the sheet's
+medium, and then calls medium-draw-line on the sheet.  (Note that a
+compiler macro could detect the case where there are no drawing options or
+constant drawing options, and do this at compile time.)
+
+<P>
+ </LI>
+<LI>The :around method for medium-draw-line on the output recording
+stream is called.  This creates an output record with all of the information
+necessary to replay the output record, if stream-recording-p is
+<I> true</I>.  If stream-drawing-p is <I> true</I>, this then does a
+call-next-method.  (Note that the call-next-method could be replaced
+by a call to the medium-draw-line method on the sheet's medium, avoiding
+the need for a trampolining function call.)
+
+<P>
+ </LI>
+<LI>medium-draw-line performs the necessary user transformations by
+applying the medium transformation to <I> x1</I>, <I> y1</I>, <I> x2</I>, and
+<I> y2</I>, and to the clipping region.  Then medium-draw-line calls
+port-draw-line to do the actual drawing.</LI>
+</UL>
+
+<P>
+replay-output-record for a graphics displayed output record simply calls
+the medium drawing function (such as medium-draw-line) directly on the
+sheet (<I> not</I> on the medium).
+
+<P>
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html3078"
+ HREF="node171.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/icons/next_motif.gif"></A> 
+<A NAME="tex2html3074"
+ HREF="node168.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/icons/up_motif.gif"></A> 
+<A NAME="tex2html3068"
+ HREF="node169.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/icons/previous_motif.gif"></A> 
+<A NAME="tex2html3076"
+ HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/icons/contents_motif.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html3079"
+ HREF="node171.html">Text Output Recording</A>
+<B> Up:</B> <A NAME="tex2html3075"
+ HREF="node168.html">Output Recording Streams</A>
+<B> Previous:</B> <A NAME="tex2html3069"
+ HREF="node169.html">The Output Recording Stream</A>
+ &nbsp <B>  <A NAME="tex2html3077"
+ HREF="node1.html">Contents</A></B> 
+<!--End of Navigation Panel-->
+<ADDRESS>
+<I>&</I>
+<BR><I>2001-06-12</I>
+</ADDRESS>
+</BODY>
+</HTML>

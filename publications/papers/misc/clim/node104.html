@@ -1,0 +1,149 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 99.1 release (March 30, 1999)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Controlling Text Style Mappings</TITLE>
+<META NAME="description" CONTENT="Controlling Text Style Mappings">
+<META NAME="keywords" CONTENT="clim">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v99.1 release">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="clim.css">
+
+<LINK REL="previous" HREF="node103.html">
+<LINK REL="up" HREF="node100.html">
+<LINK REL="next" HREF="node105.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2176"
+ HREF="node105.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/icons/next_motif.gif"></A> 
+<A NAME="tex2html2172"
+ HREF="node100.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/icons/up_motif.gif"></A> 
+<A NAME="tex2html2168"
+ HREF="node103.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/icons/previous_motif.gif"></A> 
+<A NAME="tex2html2174"
+ HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/icons/contents_motif.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html2177"
+ HREF="node105.html">Graphics</A>
+<B> Up:</B> <A NAME="tex2html2173"
+ HREF="node100.html">Text Styles</A>
+<B> Previous:</B> <A NAME="tex2html2169"
+ HREF="node103.html">Text Style Binding Forms</A>
+ &nbsp <B>  <A NAME="tex2html2175"
+ HREF="node1.html">Contents</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION05230000000000000000">
+Controlling Text Style Mappings</A>
+</H1>
+
+<P>
+Text styles are mapped to fonts using the text-style-mapping function,
+which takes a port, a character set, and a text style and returns a font
+object.  All ports must implement methods for the following generic functions,
+for all classes of text style.
+
+<P>
+The objects used to represent a font mapping are unspecified and are likely to
+vary from port to port.  For instance, a mapping might be some sort of font
+object on one type of port, or might simply be the name of a font on another.
+
+<P>
+SWM We still need to describe what a device font is.  Ditto, character
+sets.
+
+<P>
+Part of initializing a port is to define the mappings between text styles and
+font names for the port's host window system.
+
+<P>
+text-style-mapping port character-set text-style
+
+<P>
+Returns the font mapping that will be used when rendering characters in the
+character set <I> character-set</I> in the <I> text style</I> <I> text-style</I> on
+any medium on the <I> port</I> <I> port</I>.  If there is no mapping associated
+with <I> character-set</I> and <I> text-style</I> on <I> port</I>, then some other
+object will be returned that corresponds to the ``unmapped'' text style.
+
+<P>
+ 
+(setf text-style-mapping) mapping port character-set text-style 
+
+<P>
+Sets the text style mapping for <I> port</I>, <I> character-set</I>, and
+<I> text-style</I> to <I> mapping</I>.  <I> port</I>, <I> character-set</I>, and
+<I> text-style</I> are as for text-style-mapping.  <I> mapping</I> is either a
+font name or a list of the form (:style <I> family</I> <I> face</I>
+<I> size</I>); in the latter case, the given style is translated at runtime into
+the font represented by the specified style.
+
+<P>
+SWM While there is nothing wrong with this on the surface, there are
+indications that it is not really right.  It turns out that several platforms
+don't even use this mechanism, which may indicate that it is not good enough. 
+
+<P>
+make-device-font-text-style display-device device-font-name
+
+<P>
+Returns a text style object that will be mapped directly to the specified device
+font when text is output to a to the display device with this style.  Device
+font styles do not merge with any other kind of style.
+
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2176"
+ HREF="node105.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/icons/next_motif.gif"></A> 
+<A NAME="tex2html2172"
+ HREF="node100.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/icons/up_motif.gif"></A> 
+<A NAME="tex2html2168"
+ HREF="node103.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/icons/previous_motif.gif"></A> 
+<A NAME="tex2html2174"
+ HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/icons/contents_motif.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html2177"
+ HREF="node105.html">Graphics</A>
+<B> Up:</B> <A NAME="tex2html2173"
+ HREF="node100.html">Text Styles</A>
+<B> Previous:</B> <A NAME="tex2html2169"
+ HREF="node103.html">Text Style Binding Forms</A>
+ &nbsp <B>  <A NAME="tex2html2175"
+ HREF="node1.html">Contents</A></B> 
+<!--End of Navigation Panel-->
+<ADDRESS>
+<I>&</I>
+<BR><I>2001-06-12</I>
+</ADDRESS>
+</BODY>
+</HTML>

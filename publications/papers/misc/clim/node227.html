@@ -1,0 +1,127 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 99.1 release (March 30, 1999)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Sequence Presentation Types</TITLE>
+<META NAME="description" CONTENT="Sequence Presentation Types">
+<META NAME="keywords" CONTENT="clim">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v99.1 release">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="clim.css">
+
+<LINK REL="next" HREF="node228.html">
+<LINK REL="previous" HREF="node226.html">
+<LINK REL="up" HREF="node221.html">
+<LINK REL="next" HREF="node228.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html3853"
+ HREF="node228.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/icons/next_motif.gif"></A> 
+<A NAME="tex2html3849"
+ HREF="node221.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/icons/up_motif.gif"></A> 
+<A NAME="tex2html3843"
+ HREF="node226.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/icons/previous_motif.gif"></A> 
+<A NAME="tex2html3851"
+ HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/icons/contents_motif.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html3854"
+ HREF="node228.html">``Meta'' Presentation Types</A>
+<B> Up:</B> <A NAME="tex2html3850"
+ HREF="node221.html">Standard Presentation Types</A>
+<B> Previous:</B> <A NAME="tex2html3844"
+ HREF="node226.html">``One-of'' and ``Some-of'' Presentation</A>
+ &nbsp <B>  <A NAME="tex2html3852"
+ HREF="node1.html">Contents</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H2><A NAME="SECTION07276000000000000000">
+Sequence Presentation Types</A>
+</H2>
+
+<P>
+sequence type
+
+<P>
+The type that represents a sequence of elements of type <I> type</I>.  <I> type</I>
+can be a presentation type abbreviation.  The printed representation of a
+sequence type is the elements separated by commas.  It is unspecified
+whether accept returns a list or a vector.
+
+<P>
+The options to this type are <I> separator</I> and <I> echo-space</I>.
+<I> separator</I> is used to specify a character that will act as the separator
+between elements of the sequence; the default is the comma character <code>#\,</code>.
+<I> echo-space</I> must be <I> true</I> or <I> false</I>; when it is <I> true</I>
+(the default) a space will be automatically inserted into the input buffer when
+the user types a separator character.
+
+<P>
+sequence-enumerated <TT> &amp;rest </TT>types
+
+<P>
+sequence-enumerated is like sequence, except that the type of each
+element in the sequence is individually specified.  The elements of <I> types</I>
+can be presentation type abbreviations.  It is unspecified whether accept
+returns a list or a vector.
+
+<P>
+The options to this type are <I> separator</I> and <I> echo-space</I>, which are as
+for the sequence type.
+
+<P>
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html3853"
+ HREF="node228.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/icons/next_motif.gif"></A> 
+<A NAME="tex2html3849"
+ HREF="node221.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/icons/up_motif.gif"></A> 
+<A NAME="tex2html3843"
+ HREF="node226.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/icons/previous_motif.gif"></A> 
+<A NAME="tex2html3851"
+ HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/icons/contents_motif.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html3854"
+ HREF="node228.html">``Meta'' Presentation Types</A>
+<B> Up:</B> <A NAME="tex2html3850"
+ HREF="node221.html">Standard Presentation Types</A>
+<B> Previous:</B> <A NAME="tex2html3844"
+ HREF="node226.html">``One-of'' and ``Some-of'' Presentation</A>
+ &nbsp <B>  <A NAME="tex2html3852"
+ HREF="node1.html">Contents</A></B> 
+<!--End of Navigation Panel-->
+<ADDRESS>
+<I>&</I>
+<BR><I>2001-06-12</I>
+</ADDRESS>
+</BODY>
+</HTML>

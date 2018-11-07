@@ -1,0 +1,226 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 99.1 release (March 30, 1999)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Sheet Geometry Functions</TITLE>
+<META NAME="description" CONTENT="Sheet Geometry Functions">
+<META NAME="keywords" CONTENT="clim">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v99.1 release">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="clim.css">
+
+<LINK REL="next" HREF="node55.html">
+<LINK REL="previous" HREF="node53.html">
+<LINK REL="up" HREF="node53.html">
+<LINK REL="next" HREF="node55.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html1512"
+ HREF="node55.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/icons/next_motif.gif"></A> 
+<A NAME="tex2html1508"
+ HREF="node53.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/icons/up_motif.gif"></A> 
+<A NAME="tex2html1502"
+ HREF="node53.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/icons/previous_motif.gif"></A> 
+<A NAME="tex2html1510"
+ HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/icons/contents_motif.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html1513"
+ HREF="node55.html">Sheet Geometry Classes</A>
+<B> Up:</B> <A NAME="tex2html1509"
+ HREF="node53.html">Sheet Geometry</A>
+<B> Previous:</B> <A NAME="tex2html1503"
+ HREF="node53.html">Sheet Geometry</A>
+ &nbsp <B>  <A NAME="tex2html1511"
+ HREF="node1.html">Contents</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H2><A NAME="SECTION04221000000000000000">
+Sheet Geometry Functions</A>
+</H2>
+
+<P>
+sheet-transformation sheet
+(setf sheet-transformation) transformation sheet
+
+<P>
+Returns a transformation that converts coordinates in the <I> sheet</I>
+<I> sheet</I>'s coordinate system into coordinates in its parent's coordinate
+system.  Using setf on this accessor will modify the sheet's coordinate
+system, including moving its region in its parent's coordinate system.
+
+<P>
+sheet-region sheet
+(setf sheet-region) region sheet
+
+<P>
+Returns a region object that represents the set of points to which the
+<I> sheet</I> <I> sheet</I> refers.  The region is in the sheet's coordinate
+system.  Using setf on this accessor modifies the sheet's region.
+
+<P>
+SWM Aren't there some notification functions that get called when the
+sheet's region and transformation are changed?
+
+<P>
+RSL I'm not convinced I like this business of requesting a change by
+modifying an accessor.  It would actually be better to have a request-
+function, so it would be clear that there might be some delay before the region
+or transformation was modified.
+
+<P>
+RSL To reshape and move a region, you generally have to manipulate
+both of the above.  Maybe there should be a single function that takes either
+or both of a new transformation or region?  Maybe region coordinates should be
+expressed in parents' coordinates, since that's easier to set only one?
+
+<P>
+RSL Using setf on mirrored sheets actually requests that the
+server move/resize the sheet; the accessor will continue to return the old value
+until the notification comes in saying that the mirror has been moved.
+
+<P>
+map-sheet-point*-to-parent sheet x y
+
+<P>
+Applies the <I> sheet</I> <I> sheet</I>'s transformation to the point 6#6,
+returning the coordinates of that point in <I> sheet</I>'s parent's coordinate
+system.
+
+<P>
+map-sheet-point*-to-child sheet x y
+
+<P>
+Applies the inverse of the <I> sheet</I> <I> sheet</I>'s transformation to the
+point 6#6 (represented in <I> sheet</I>'s parent's coordinate system),
+returning the coordinates of that same point in <I> sheet</I> coordinate system.
+
+<P>
+map-sheet-bounding-rectangle*-to-parent sheet x1 y1 x2 y2 
+
+<P>
+Applies the <I> sheet</I> <I> sheet</I>'s transformation to the bounding rectangle
+specified by the corner points 32#32 and 33#33, returning the bounding
+rectangle of the transformed region as four values, <I> min-x</I>, <I> min-y</I>,
+<I> max-x</I>, and <I> max-y</I>.  The arguments <I> x1</I>, <I> y1</I>, <I> x2</I>, and
+<I> y1</I> are canonicalized in the same way as for make-bounding-rectangle.
+
+<P>
+map-sheet-bounding-rectangle*-to-child sheet x1 y1 x2 y2
+
+<P>
+Applies the inverse of the <I> sheet</I> <I> sheet</I>'s transformation to the
+bounding rectangle delimited by the corner points 32#32 and 33#33
+(represented in <I> sheet</I>'s parent's coordinate system), returning the
+bounding rectangle of the transformed region as four values, <I> min-x</I>,
+<I> min-y</I>, <I> max-x</I>, and <I> max-y</I>.  The arguments <I> x1</I>, <I> y1</I>,
+<I> x2</I>, and <I> y1</I> are canonicalized in the same way as for
+make-bounding-rectangle.
+
+<P>
+child-containing-point  sheet point
+child-containing-point* sheet x y
+
+<P>
+Returns the topmost (earliest) enabled child of the <I> sheet</I> <I> sheet</I>
+whose region contains the <I> point</I> <I> point</I> (or the position 6#6).
+The point is expressed in <I> sheet</I>'s coordinate system.
+
+<P>
+SWM What does ``earliest'' mean exactly in this context?  And does it
+return the earliest child, or the earliest descendant?  And does it return an
+enabled sheet, or any sheet?
+
+<P>
+children-overlapping-region     sheet region
+children-overlapping-rectangle* sheet x1 y1 x2 y2
+
+<P>
+Returns the list of enabled children of the <I> sheet</I> <I> sheet</I> whose
+region overlaps the <I> region</I> <I> region</I>.
+children-overlapping-rectangle* is a special case of
+children-overlapping-region in which the region is a bounding rectangle
+whose corner points are 32#32 and 33#33.  The region is expressed in
+<I> sheet</I>'s coordinate system.
+This function returns fresh objects that may be modified. 
+<P>
+sheet-delta-transformation sheet ancestor
+
+<P>
+Returns a transformation that is the composition of all of the sheet
+transformations between the <I> sheets</I> <I> sheet</I> and <I> ancestor</I>.  If
+<I> ancestor</I> is nil, sheet-delta-transformation will return the
+transformation to the root of the sheet hierarchy.  If <I> ancestor</I> is not an
+ancestor of sheet, the sheet-is-not-ancestor error will be signalled.
+
+<P>
+The computation of the delta transformation is likely to be cached.
+
+<P>
+SWM This used to be called fetch-delta-transformation, right?
+
+<P>
+sheet-allocated-region sheet child
+
+<P>
+Returns the visible region of the <I> sheet</I> <I> child</I> in the <I> sheet</I>
+<I> sheet</I>'s coordinate system.  If <I> child</I> is occluded by any of its
+siblings, those siblings' regions are subtracted (using region-difference)
+from <I> child</I>'s actual region.
+
+<P>
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html1512"
+ HREF="node55.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/icons/next_motif.gif"></A> 
+<A NAME="tex2html1508"
+ HREF="node53.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/icons/up_motif.gif"></A> 
+<A NAME="tex2html1502"
+ HREF="node53.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/icons/previous_motif.gif"></A> 
+<A NAME="tex2html1510"
+ HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/icons/contents_motif.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html1513"
+ HREF="node55.html">Sheet Geometry Classes</A>
+<B> Up:</B> <A NAME="tex2html1509"
+ HREF="node53.html">Sheet Geometry</A>
+<B> Previous:</B> <A NAME="tex2html1503"
+ HREF="node53.html">Sheet Geometry</A>
+ &nbsp <B>  <A NAME="tex2html1511"
+ HREF="node1.html">Contents</A></B> 
+<!--End of Navigation Panel-->
+<ADDRESS>
+<I>&</I>
+<BR><I>2001-06-12</I>
+</ADDRESS>
+</BODY>
+</HTML>

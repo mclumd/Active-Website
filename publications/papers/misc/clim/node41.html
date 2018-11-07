@@ -1,0 +1,189 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 99.1 release (March 30, 1999)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Composition of Transformations</TITLE>
+<META NAME="description" CONTENT="Composition of Transformations">
+<META NAME="keywords" CONTENT="clim">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v99.1 release">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="clim.css">
+
+<LINK REL="next" HREF="node42.html">
+<LINK REL="previous" HREF="node40.html">
+<LINK REL="up" HREF="node39.html">
+<LINK REL="next" HREF="node42.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html1300"
+ HREF="node42.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/icons/next_motif.gif"></A> 
+<A NAME="tex2html1296"
+ HREF="node39.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/icons/up_motif.gif"></A> 
+<A NAME="tex2html1290"
+ HREF="node40.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/icons/previous_motif.gif"></A> 
+<A NAME="tex2html1298"
+ HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/icons/contents_motif.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html1301"
+ HREF="node42.html">Applying Transformations</A>
+<B> Up:</B> <A NAME="tex2html1297"
+ HREF="node39.html">The Transformation Protocol</A>
+<B> Previous:</B> <A NAME="tex2html1291"
+ HREF="node40.html">Transformation Predicates</A>
+ &nbsp <B>  <A NAME="tex2html1299"
+ HREF="node1.html">Contents</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H2><A NAME="SECTION03332000000000000000">
+Composition of Transformations</A>
+</H2>
+
+<P>
+If we transform from one coordinate system to another, then from the second to a
+third coordinate system, we can regard the resulting transformation as a single
+transformation resulting from <I> composing</I><A NAME="6507"></A> the two component
+transformations.  It is an important and useful property of affine transformations
+that they are closed under composition.  Note that composition is not commutative;
+in general, the result of applying transformation 42#42 and then applying
+transformation 43#43 is not the same as applying 43#43 first, then 42#42.
+
+<P>
+Any arbitrary transformation can be built up by composing a number of simpler
+transformations, but that composition is not unique.
+
+<P>
+compose-transformations transformation1 transformation2
+
+<P>
+Returns a transformation that is the mathematical composition of its arguments.
+Composition is in right-to-left order, that is, the resulting transformation
+represents the effects of applying the <I> transformation</I>
+<I> transformation2</I> followed by the <I> transformation</I>
+<I> transformation1</I>.
+
+<P>
+invert-transformation transformation
+
+<P>
+Returns a transformation that is the inverse of the <I> transformation</I>
+<I> transformation</I>.  The result of composing a transformation with its inverse
+is equal to the identity transformation.
+
+<P>
+If <I> transformation</I> is singular, invert-transformation will signal the
+singular-transformation error, with a named restart that is invoked with a
+transformation and makes invert-transformation return that transformation.
+This is to allow a drawing application, for example, to use a generalized
+inverse to transform a region through a singular transformation.
+
+<P>
+Note that with finite-precision arithmetic there are several low-level
+conditions that might occur during the attempt to invert a singular or ``almost
+singular'' transformation.  (These include computation of a zero determinant,
+floating-point underflow during computation of the determinant, or
+floating-point overflow during subsequent multiplication.)
+invert-transformation must signal the singular-transformation error
+for all of these cases.
+
+<P>
+compose-translation-with-transformation transformation dx dy
+compose-scaling-with-transformation     transformation sx sy <TT> &amp;optional </TT>origin
+compose-rotation-with-transformation    transformation angle <TT> &amp;optional </TT>origin 
+
+<P>
+These functions create a new transformation by composing the
+<I> transformation</I> <I> transformation</I> with a given translation, scaling, or
+rotation, respectively.  The order of composition is that the translation,
+scaling, or rotation ``transformation'' is first, followed by
+<I> transformation</I>.
+
+<P>
+ 
+<I> dx</I> and <I> dy</I> are as for make-translation-transformation.
+<I> sx</I> and <I> sy</I> are as for make-scaling-transformation.
+<I> angle</I> and <I> origin</I> are as for make-rotation-transformation.
+
+<P>
+Note that these functions could be implemented by using the various constructors
+and compose-transformations.  They are provided, because it is common to
+build up a transformation as a series of simple transformations.
+
+<P>
+compose-transformation-with-translation transformation dx dy
+compose-transformation-with-scaling     transformation sx sy <TT> &amp;optional </TT>origin
+compose-transformation-with-rotation    transformation angle <TT> &amp;optional </TT>origin 
+
+<P>
+These functions create a new transformation by composing a given translation,
+scaling, or rotation, respectively, with the <I> transformation</I>
+<I> transformation</I>.  The order of composition is <I> transformation</I> is
+first, followed by the translation, scaling, or rotation ``transformation''.
+
+<P>
+ 
+<I> dx</I> and <I> dy</I> are as for make-translation-transformation.
+<I> sx</I> and <I> sy</I> are as for make-scaling-transformation.
+<I> angle</I> and <I> origin</I> are as for make-rotation-transformation.
+
+<P>
+Note that these functions could be implemented by using the various constructors
+and compose-transformations.  They are provided, because it is common to
+build up a transformation as a series of simple transformations.
+
+<P>
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html1300"
+ HREF="node42.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/icons/next_motif.gif"></A> 
+<A NAME="tex2html1296"
+ HREF="node39.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/icons/up_motif.gif"></A> 
+<A NAME="tex2html1290"
+ HREF="node40.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/icons/previous_motif.gif"></A> 
+<A NAME="tex2html1298"
+ HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/icons/contents_motif.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html1301"
+ HREF="node42.html">Applying Transformations</A>
+<B> Up:</B> <A NAME="tex2html1297"
+ HREF="node39.html">The Transformation Protocol</A>
+<B> Previous:</B> <A NAME="tex2html1291"
+ HREF="node40.html">Transformation Predicates</A>
+ &nbsp <B>  <A NAME="tex2html1299"
+ HREF="node1.html">Contents</A></B> 
+<!--End of Navigation Panel-->
+<ADDRESS>
+<I>&</I>
+<BR><I>2001-06-12</I>
+</ADDRESS>
+</BODY>
+</HTML>

@@ -1,0 +1,238 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 99.1 release (March 30, 1999)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Text Style Protocol and Text Style Suboptions</TITLE>
+<META NAME="description" CONTENT="Text Style Protocol and Text Style Suboptions">
+<META NAME="keywords" CONTENT="clim">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v99.1 release">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="clim.css">
+
+<LINK REL="previous" HREF="node101.html">
+<LINK REL="up" HREF="node101.html">
+<LINK REL="next" HREF="node103.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2154"
+ HREF="node103.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/icons/next_motif.gif"></A> 
+<A NAME="tex2html2150"
+ HREF="node101.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/icons/up_motif.gif"></A> 
+<A NAME="tex2html2146"
+ HREF="node101.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/icons/previous_motif.gif"></A> 
+<A NAME="tex2html2152"
+ HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/icons/contents_motif.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html2155"
+ HREF="node103.html">Text Style Binding Forms</A>
+<B> Up:</B> <A NAME="tex2html2151"
+ HREF="node101.html">Text Styles</A>
+<B> Previous:</B> <A NAME="tex2html2147"
+ HREF="node101.html">Text Styles</A>
+ &nbsp <B>  <A NAME="tex2html2153"
+ HREF="node1.html">Contents</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H2><A NAME="SECTION05211000000000000000">
+Text Style Protocol and Text Style Suboptions</A>
+</H2>
+
+<P>
+The following generic functions comprise the text style protocol.  All
+subclasses of text-style must implement methods for each of these generic
+functions.
+
+<P>
+Each of the suboptions described below has a corresponding reader accessor that
+can be used to extract a particular component from a text style.
+
+<P>
+text-style-components text-style
+
+<P>
+Returns the components of the <I> text style</I> <I> text-style</I> as three
+values, the family, face, and size.
+
+<P>
+ 
+:text-family
+text-style-family text-style
+
+<P>
+Specifies the family of the <I> text style</I> <I> text-style</I>.
+
+<P>
+ 
+:text-face
+text-style-face text-style
+
+<P>
+Specifies the face of the <I> text style</I> <I> text-style</I>.
+
+<P>
+ 
+:text-size
+text-style-size text-style
+
+<P>
+Specifies the size of the <I> text style</I> <I> text-style</I>.
+
+<P>
+parse-text-style style-spec  
+
+<P>
+Returns a text style object.  <I> style-spec</I> may be a text-style object
+or a device font, in which case it is returned as is, or it may be a list of the
+family, face, and size (that is, a ``style spec''), in which case it is
+``parsed'' and a text-style object is returned.  This function is for
+efficiency, since a number of common functions that take a style object as an
+argument can also take a style spec, in particular draw-text.
+
+<P>
+merge-text-styles style1 style2
+
+<P>
+Merges the <I> text styles</I> <I> style1</I> with <I> style2</I>, that is, returns a
+new text style that is the same as <I> style1</I>, except that unspecified
+components in <I> style1</I> are filled in from <I> style2</I>.  For convenience,
+the two arguments may be also be style specs.
+
+<P>
+When merging the sizes of two text styles, if the size from <I> style1</I> is a
+relative size, the resulting size is either the next smaller or next larger size
+than is specified by <I> style2</I>.  The ordering of sizes, from smallest to
+largest, is :tiny, :very-small, :small, :normal,
+:large, :very-large, and :huge.
+
+<P>
+SWM Need to describe face-merging properly.
+
+<P>
+text-style-ascent  text-style port 
+text-style-descent text-style port
+text-style-height  text-style port
+text-style-width   text-style port
+
+<P>
+Returns the ascent, descent, height, and width (respectively) of the font
+corresponding to the <I> text style</I> <I> text-style</I> as it would be rendered
+on any medium on the <I> port</I> <I> port</I>.  <I> text-style</I> must be a fully
+specified text style.
+
+<P>
+The ascent of a font is the distance between the top of the tallest character in
+that font and the font's baseline.  The descent of a font is the distance
+between the baseline and the bottom of the lowest descending character (usually
+``g'', ``p'', ``q'', or ``y'').  The height of a font is the sum of the ascent
+and the descent of the font.  The width of a font is the width of some
+representative character in the font.
+
+<P>
+The methods for these generic functions will typically specialize both the
+<I> text-style</I> and <I> port</I> arguments.  Implementations should also provide
+``trampoline'' for these generic function for mediums and output sheets; the
+trampolines will simply call the method for the port.
+
+<P>
+text-style-fixed-width-p text-style port
+
+<P>
+Returns <I> true</I> if the <I> text styles</I> <I> text-style</I> will map to a
+fixed-width font on any medium on the <I> port</I> <I> port</I>, otherwise returns
+<I> false</I>.  <I> text-style</I> must be a fully specified text style.
+
+<P>
+The methods for this generic function will typically specialize both the
+<I> text-style</I> and <I> port</I> arguments.  Implementations should also provide
+a ``trampoline'' for this generic function for mediums and output sheets; the
+trampoline will simply call the method for the port.
+
+<P>
+SWM Discuss baselines?  Kerning?
+
+<P>
+text-size medium string <TT> &amp;key </TT>text-style (start 0) end 
+
+<P>
+Computes the ``cursor motion'' in device units that would take place if
+<I> string</I> (which may be either a string or a character) were output to the
+<I> medium</I> <I> medium</I> starting at the position 31#31.  Five values are
+returned:  the total width of the string in device units, the total height of
+the string in device units, the final 1#1 cursor position (which is the same as
+the width if there are no <code>#\Newline</code> characters in the string), the final
+2#2 cursor position (which is 0 if the string has no <code>#\Newline</code> characters
+in it, and is incremented by the line height of <I> medium</I> for each
+<code>#\Newline</code> character in the string), and the string's baseline.
+
+<P>
+ 
+<I> text-style</I> specifies what text style is to be used when doing the output,
+and defaults to medium-merged-text-style of the medium.  <I> text-style</I>
+must be a fully specified text style.  <I> start</I> and <I> end</I> may be used to
+specify a substring of <I> string</I>.
+
+<P>
+If a programmer needs to account for kerning or the ascent or descent of the
+text style, he should measure the size of the bounding rectangle of the text
+rendered on <I> medium</I>.
+
+<P>
+All mediums and output sheets must implement a method for this generic function.
+
+<P>
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2154"
+ HREF="node103.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/icons/next_motif.gif"></A> 
+<A NAME="tex2html2150"
+ HREF="node101.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/icons/up_motif.gif"></A> 
+<A NAME="tex2html2146"
+ HREF="node101.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/icons/previous_motif.gif"></A> 
+<A NAME="tex2html2152"
+ HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/icons/contents_motif.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html2155"
+ HREF="node103.html">Text Style Binding Forms</A>
+<B> Up:</B> <A NAME="tex2html2151"
+ HREF="node101.html">Text Styles</A>
+<B> Previous:</B> <A NAME="tex2html2147"
+ HREF="node101.html">Text Styles</A>
+ &nbsp <B>  <A NAME="tex2html2153"
+ HREF="node1.html">Contents</A></B> 
+<!--End of Navigation Panel-->
+<ADDRESS>
+<I>&</I>
+<BR><I>2001-06-12</I>
+</ADDRESS>
+</BODY>
+</HTML>

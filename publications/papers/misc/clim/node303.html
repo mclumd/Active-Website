@@ -1,0 +1,139 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 99.1 release (March 30, 1999)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>The ``Delegation Problem''</TITLE>
+<META NAME="description" CONTENT="The ``Delegation Problem''">
+<META NAME="keywords" CONTENT="clim">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v99.1 release">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="clim.css">
+
+<LINK REL="previous" HREF="node302.html">
+<LINK REL="up" HREF="node301.html">
+<LINK REL="next" HREF="node304.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html4861"
+ HREF="node304.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/icons/next_motif.gif"></A> 
+<A NAME="tex2html4857"
+ HREF="node301.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/icons/up_motif.gif"></A> 
+<A NAME="tex2html4853"
+ HREF="node302.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/icons/previous_motif.gif"></A> 
+<A NAME="tex2html4859"
+ HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/icons/contents_motif.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html4862"
+ HREF="node304.html">Changes from CLIM 1.0</A>
+<B> Up:</B> <A NAME="tex2html4858"
+ HREF="node301.html">Encapsulating Stream Classes</A>
+<B> Previous:</B> <A NAME="tex2html4854"
+ HREF="node302.html">Encapsulating Stream Protocol</A>
+ &nbsp <B>  <A NAME="tex2html4860"
+ HREF="node1.html">Contents</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H2><A NAME="SECTION09412000000000000000">
+The ``Delegation Problem''</A>
+</H2>
+
+<P>
+The suggested implementation of encapsulating streams has a potential problem
+that we label the ``delegation'' or ``multiple self'' problem.  Here is an
+example of the problem.
+
+<P>
+Suppose we implement accepting-values by using an encapsulating stream
+class called accepting-values-stream that will be used to close over an
+ordinary extended input and output stream.  Let us examine two generic
+functions, stream-accept and prompt-for-accept.  The
+stream-accept method on an ordinary stream calls prompt-for-accept.
+Now suppose that accepting-values-stream specializes
+prompt-for-accept.  If we now create a stream of type
+accepting-values-stream (which we will designate 42#42) which encapsulates an
+ordinary stream 92#92, and then call stream-accept on the stream 93#93, it will
+trampoline to stream-accept on the stream 92#92.  The desired behavior is
+for stream-accept to call the prompt-for-accept method on the stream
+93#93, but instead what happens is that the prompt-for-accept method on the
+stream 92#92 is called.
+
+<P>
+In order to side-step this problem without attempting to solve a difficult
+general problem in object-oriented programming, CLIM implementations may
+introduce a special variable, *original-stream*, which is bound by
+trampoline functions to the original encapsulating stream.  Therefore, the
+stream-accept on the ordinary stream 92#92 will call prompt-for-accept
+on the value of (or *original-stream* <I> stream</I>).  This idiom only needs
+to be used in places where one stream protocol function calls a second stream
+protocol function that some encapsulating stream specializes.
+
+<P>
+This ``solution'' does not solve the more general problem of multiple levels of
+encapsulation, but the complete stream protocol provided by CLIM should allow
+implementors to avoid using nested encapsulating streams.
+
+<P>
+ 
+*original-stream*
+
+<P>
+This variable is bound by the trampoline methods on encapsulating streams to the
+encapsulating stream, before the operation is delegated to the underlying,
+encapsulated stream.
+
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html4861"
+ HREF="node304.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/icons/next_motif.gif"></A> 
+<A NAME="tex2html4857"
+ HREF="node301.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/icons/up_motif.gif"></A> 
+<A NAME="tex2html4853"
+ HREF="node302.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/icons/previous_motif.gif"></A> 
+<A NAME="tex2html4859"
+ HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/icons/contents_motif.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html4862"
+ HREF="node304.html">Changes from CLIM 1.0</A>
+<B> Up:</B> <A NAME="tex2html4858"
+ HREF="node301.html">Encapsulating Stream Classes</A>
+<B> Previous:</B> <A NAME="tex2html4854"
+ HREF="node302.html">Encapsulating Stream Protocol</A>
+ &nbsp <B>  <A NAME="tex2html4860"
+ HREF="node1.html">Contents</A></B> 
+<!--End of Navigation Panel-->
+<ADDRESS>
+<I>&</I>
+<BR><I>2001-06-12</I>
+</ADDRESS>
+</BODY>
+</HTML>

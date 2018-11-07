@@ -1,0 +1,261 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 99.1 release (March 30, 1999)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Overview of CLIM</TITLE>
+<META NAME="description" CONTENT="Overview of CLIM">
+<META NAME="keywords" CONTENT="clim">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v99.1 release">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="clim.css">
+
+<LINK REL="next" HREF="node4.html">
+<LINK REL="previous" HREF="node2.html">
+<LINK REL="up" HREF="node2.html">
+<LINK REL="next" HREF="node4.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html790"
+ HREF="node4.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/icons/next_motif.gif"></A> 
+<A NAME="tex2html786"
+ HREF="node2.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/icons/up_motif.gif"></A> 
+<A NAME="tex2html780"
+ HREF="node2.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/icons/previous_motif.gif"></A> 
+<A NAME="tex2html788"
+ HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/icons/contents_motif.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html791"
+ HREF="node4.html">Conventions</A>
+<B> Up:</B> <A NAME="tex2html787"
+ HREF="node2.html">Overview and Conventions</A>
+<B> Previous:</B> <A NAME="tex2html781"
+ HREF="node2.html">Overview and Conventions</A>
+ &nbsp <B>  <A NAME="tex2html789"
+ HREF="node1.html">Contents</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION02100000000000000000"></A>
+<A NAME="clim-overview"></A>
+<BR>
+Overview of CLIM
+</H1>
+
+<P>
+The Common Lisp Interface Manager (CLIM) is a powerful Lisp-based user interface
+programming interface that provides a layered set of portable facilities.  These
+include basic windowing, input, and output services provided by Silica (which is
+a portable layer for constructing windows and toolkit objects); stream-oriented
+input and output extended with facilities such as output recording,
+presentations, and context sensitive input; and a compositional toolkit similar
+to those found in the X world that supports look and feel independence.
+
+<P>
+CLIM provides an API (applications programmer interface) to user interface
+facilities for the Lisp application programmer.  CLIM does not compete with the
+window system or toolkits of the host machine (such as X/Motif or
+NEWS/OpenLook), but rather uses their services (to the extent that it makes
+sense) to integrate Lisp applications into the host's window environment.  For
+example, CLIM ``windows'' are mapped onto one or more host windows, and input
+and output operations performed on the CLIM window are ultimately carried out by
+the host window system.  CLIM will support a large number of host environments
+including Genera, X/Motif, X/OpenLook, the Macintosh, CLOE-386/486, and the Next
+machine.
+
+<P>
+The CLIM programmer is insulated from the complexities of portability, since the
+Lisp-based application need only deal with CLIM objects and functions regardless
+of their operating platform (that is, the combination of Lisp system, host
+computer, and host window environment).  CLIM abstracts out many of the concepts
+common to all window environments.  The programmer is encouraged to think in
+terms of these abstractions, rather than in the specific capabilities of a
+particular host system.  For example, using CLIM, the application can specify
+the appearance of output in high-level terms and those high-level descriptions
+are turned into the appropriate appearance for the given host.  Thus, the
+application has the same fundamental interface across multiple environments,
+although the details will differ from system to system.
+
+<P>
+Another important goal in the design and organization of CLIM is to provide a
+spectrum of user interface building options, all the way from detailed,
+low-level specification of ``what goes where'', to high-level user interface
+specification where the programmer leaves all of the details up to CLIM.  This
+allows CLIM to balance the ease of use on one hand, and versatility on the
+other.  The idea is that by using high level facilities, a programmer can build
+portable user interfaces quickly, whereas by recombining lower level facilities
+he can build his own programming and user interfaces according to his specific
+needs or requirements.  For example, CLIM supports the development of
+applications independent of look and feel (also dubbed ``chameleon look and
+feel'') as well as the portable development of toolkit libraries that define and
+implement a particular look and feel.
+
+<P>
+In addition, CLIM's modular design allows application programs to exclude
+facilities that they do not use, and reimplement any or all of the substrate.
+To these ends, CLIM is specified and implemented in a layered, modular fashion.
+Each facility documented in this specification has several layers of interface,
+and each facility is independently specified and has a documented external
+interface.
+
+<P>
+The facilities provided by CLIM include:
+
+<P>
+ 
+<DL>
+<DT><STRONG>Geometry</STRONG></DT>
+<DD>CLIM provides provides geometric objects like point,
+rectangle, and transformations and functions for manipulating them.
+<P>
+ </DD>
+<DT><STRONG>Graphics</STRONG></DT>
+<DD>CLIM provides a rich set of drawing functions,
+including ones for drawing complex geometric shapes, a wide variety of drawing
+options (such as line thickness), a sophisticated inking model, and color.
+CLIM provides full affine transforms, so that a drawing may be arbitrarily
+translated, rotated, and scaled (to the extent that the underlying window
+system supports the rendering of such objects).
+
+<P>
+ </DD>
+<DT><STRONG>Windowing</STRONG></DT>
+<DD>CLIM provides a portable layer for implementing <I> sheet</I>
+classes (types of window-like objects) that are suited to support particular
+high level facilities or interfaces.  The Silica module of CLIM defines a
+uniform interface for creating and managing hierarchies of these objects
+regardless of their sheet class.  In addition, Silica defines standard sheet
+classes that define a straightforward window that is more or less equivalent in
+functionality to an X window.
+
+<P>
+ </DD>
+<DT><STRONG>Output Recording</STRONG></DT>
+<DD>CLIM provides a facility for capturing all output
+done to a window.  This facility provides the support for arbitrarily scrollable
+windows.  In addition, this facility serves as the root for a variety of
+interesting high-level tools.
+
+<P>
+ </DD>
+<DT><STRONG>Formatted Output</STRONG></DT>
+<DD>CLIM provides a set of high-level macros that
+enable programs to produce neatly formatted tabular and graphical displays with
+little or no effort.
+
+<P>
+ </DD>
+<DT><STRONG>Context Sensitive Input</STRONG></DT>
+<DD>The <I> presentation type</I> facility of CLIM
+provides the ability to associate semantics with output, such that objects may
+be retrieved later via clicks on their displayed representation.  This
+<I> sensitivity</I> comes along automatically and is integrated with the Common
+Lisp type system.  A mechanism for type coercion is also included, providing the
+basis for powerful user interfaces.
+
+<P>
+ </DD>
+<DT><STRONG>Application Building</STRONG></DT>
+<DD>CLIM provides a set of tools for organizing
+an application's top-level user interface and command processing loops centered
+on objects called frames.  CLIM provides functionality for laying out frames
+under arbitrary constraints, managing command menus and/or menu bars, and
+linking user interface gestures with application commands.  Using these tools,
+application writers can easily and quickly construct user interfaces that can
+grow flexibly from prototype to delivery.
+
+<P>
+ </DD>
+<DT><STRONG>Adaptive Toolkit</STRONG></DT>
+<DD>CLIM provides a uniform interface to the standard
+compositional toolkits available in many environments.  CLIM defines abstract
+panes that are analogous to the gadgets or widgets of a toolkit like InterViews
+or the X toolkit.  CLIM fosters look and feel independence by specifying the
+interface of these abstract panes in terms of their function and not in terms of
+the details of their appearance or operation.  If an application uses these
+interfaces, its user interface will adapt to use whatever toolkit is available
+in the host environment.  By using this facility, application programmers can
+easily construct applications that will automatically conform to a variety of
+user interface standards.  In addition, a portable lisp-based implementation of
+the abstract panes is provided.
+
+<P>
+CLIM provides an architecture for building and incorporating panes that can be
+used by application users.  This includes a mechanism for selecting
+implementations of abstract panes based on the frame manager that controls the
+frame.   (It's look and feel is to be determined, but probably the right answer
+is Motif-like).
+
+<P>
+CLIM applications can be written without building in knowledge of particular
+frame managers.  They can later be tailored by the user and/or by the
+application developer for a particular frame manager.  The CLIM interface
+provide facilities that allow developing applications that are good citizens
+under various existing and emerging desktop manager.
+
+<P>
+ 
+[Wires and Triggers]  <I> to be defined, but roughly...</I> Wires
+provide a mechanism for hooking elements of the user interface to the
+applications functionality.
+
+<P>
+ 
+[Settings]  <I> to be defined, but roughly...</I> Settings are a
+mechanism for merging the look and feel preferences and defaults of users,
+frames, and frame managers.
+</DD>
+</DL><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html790"
+ HREF="node4.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/icons/next_motif.gif"></A> 
+<A NAME="tex2html786"
+ HREF="node2.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/icons/up_motif.gif"></A> 
+<A NAME="tex2html780"
+ HREF="node2.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/icons/previous_motif.gif"></A> 
+<A NAME="tex2html788"
+ HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/icons/contents_motif.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html791"
+ HREF="node4.html">Conventions</A>
+<B> Up:</B> <A NAME="tex2html787"
+ HREF="node2.html">Overview and Conventions</A>
+<B> Previous:</B> <A NAME="tex2html781"
+ HREF="node2.html">Overview and Conventions</A>
+ &nbsp <B>  <A NAME="tex2html789"
+ HREF="node1.html">Contents</A></B> 
+<!--End of Navigation Panel-->
+<ADDRESS>
+<I>&</I>
+<BR><I>2001-06-12</I>
+</ADDRESS>
+</BODY>
+</HTML>

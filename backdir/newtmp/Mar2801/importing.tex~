@@ -1,0 +1,13 @@
+
+In this paper we hope to have supported the view that (explicit)
+reasoning can be advantageous wherever there is uncertainty.  The
+underlying idea is that by having a suitable reasoning component
+attached to a procedural algorithm, that very algorithm becomes able
+to monitor itself in real time, thereby affording certain protections
+such as recognizing and correcting errors, and allowing for a kind of
+learning for future error-advoidance.
+
+In our view, this should apply almost across the board, not only to AI
+programs, or to automated theorem-provers, but also to operating
+systems.  Imagine an OS that...
+

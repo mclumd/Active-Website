@@ -1,0 +1,236 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 99.1 release (March 30, 1999)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>The Basics of the Layout Protocol</TITLE>
+<META NAME="description" CONTENT="The Basics of the Layout Protocol">
+<META NAME="keywords" CONTENT="clim">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v99.1 release">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="clim.css">
+
+<LINK REL="next" HREF="node269.html">
+<LINK REL="previous" HREF="node267.html">
+<LINK REL="up" HREF="node267.html">
+<LINK REL="next" HREF="node269.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html4422"
+ HREF="node269.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/icons/next_motif.gif"></A> 
+<A NAME="tex2html4418"
+ HREF="node267.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/icons/up_motif.gif"></A> 
+<A NAME="tex2html4412"
+ HREF="node267.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/icons/previous_motif.gif"></A> 
+<A NAME="tex2html4420"
+ HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/icons/contents_motif.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html4423"
+ HREF="node269.html">Layout Panes</A>
+<B> Up:</B> <A NAME="tex2html4419"
+ HREF="node267.html">Layout and Layout Panes</A>
+<B> Previous:</B> <A NAME="tex2html4413"
+ HREF="node267.html">Layout and Layout Panes</A>
+ &nbsp <B>  <A NAME="tex2html4421"
+ HREF="node1.html">Contents</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H2><A NAME="SECTION08331000000000000000">
+The Basics of the Layout Protocol</A>
+</H2>
+
+<P>
+The layout protocol is triggered by layout-frame, which is automatically
+called when a frame is adopted.
+
+<P>
+CLIM uses a two pass algorithm to lay out a pane hierarchy.  In the first pass,
+called space composition, the top-level pane is asked how much space it
+requires.  This may in turn lead to the question being asked recursively of all
+the panes in the hierarchy, with the answers being composed to produce the
+top-level pane's answer.  Each pane answers the query by returning a
+<I> space requirement</I><A NAME="36407"></A> (or space-requirement) object, which specifies
+the pane's desired width and height as well as its willingness to shrink or grow
+along the width and height axis.
+
+<P>
+In the second pass, called space allocation, the frame manager attempts to
+obtain the required amount of space from the host window system (of course, this
+may not be possible).  The top-level pane is allocated the space that is
+actually available.  Each pane, in turn, allocates space recursively to each of
+its descendants in the hierarchy according to the pane's rules of composition.
+
+<P>
+For many types of pane, the application programmer can indicate the space
+requirements of the pane at creation time using initialization arguments, as
+well as, dynamically using the change-space-requirement function described
+below.  For example, application panes are used to display application-specific
+information, so the application can determine how much space should normally be
+given to them.
+
+<P>
+Other pane types automatically calculate how much space they need based on the
+information they need to display.  For example, label panes, can automatically
+calculate their space requirement based on the text they need to display.
+
+<P>
+A composite pane calculates its space requirement based on the requirements of
+its children and its own particular rule for arranging them.  For example, a
+pane that arranges its children in a vertical stack would return as its desired
+height the sum of the heights of its children.  Note, however, a composite is
+not required by the layout protocol to respect the space requests of its
+children; in fact, composite panes aren't even required to ask their children.
+
+<P>
+Space requirements are expressed for each of the two dimensions as a preferred
+size, a mininum size below which the pane cannot be shrunk, and a maxium size
+above which the pane cannot be grown.  (The minimum and maximum sizes can also
+be specified as relative amounts.)  All sizes are specified as a real number
+indicating the number of device units (such as pixels).
+
+<P>
+The following pane initialization options control the space request parameters
+for the pane:
+
+<P>
+ 
+:width
+:max-width
+:min-width
+:height
+:max-height
+:min-height
+
+<P>
+These options control space layout.  The :width and :height options
+specify the preferred horizontal and vertical sizes.  The :max-width and
+:max-height options specify the maximum amount of space that may be
+consumed by the pane, and give CLIM's pane layout engine permission to grow the
+pane beyond the preferred size.  The :min-width and :min-height
+options specify the minimum amount of space that may be consumed by the pane,
+and give CLIM's pane layout engine permission to shrink the pane below the
+preferred size.
+
+<P>
+If either of the :max-width or :min-width options is not supplied, it
+defaults to :width.  If either of the :max-height or :min-height
+options is not supplied, it defaults to :height.
+
+<P>
+ 
+:max-width, :min-width, :max-height, and :min-height can
+also be specified as a relative size by supplying a list of the form
+(<I> number</I> :relative).  In this case, the number indicates the number
+of device units that the pane is willing to stretch or shrink.
+
+<P>
+The values of these options are specified in the same way as the :x-spacing
+and :y-spacing options to formatting-table.  (Note that
+:character and :line may only be used on those panes that display
+text, such as a message-pane.)
+
+<P>
+ 
++fill+
+
+<P>
+This constant can be used as a value to any of the relative size options.  It
+indicates that pane's willingness to adjust an arbitrary amount in the specified
+direction.
+
+<P>
+change-space-requirement pane <TT> &amp;key </TT>resize-frame <TT> &amp;rest </TT>space-req-keys 
+
+<P>
+This function can be invoked to indicate that the space requirements for
+<I> pane</I> have changed.  Any of the options that applied to the pane at
+creation time can be passed into this function as well.
+
+<P>
+ 
+<I> resize-frame</I> determines whether the frame should be resized to accommodate
+the new space requirement of the hierarchy.  If <I> resize-frame</I> is
+<I> true</I>, then layout-frame will be invoked on the frame.  If
+<I> resize-frame</I> is <I> false</I>, then the frame may or may not get resized
+depending on the pane hierarchy and the :resize-frame option that was
+supplied to define-application-framework.
+
+<P>
+changing-space-requirements (<TT> &amp;key </TT>resize-frame) <TT> &amp;body </TT>body
+
+<P>
+This macro supports batching the invocation of the layout protocol by calls
+to change-space-requirement.  Within the body, all calls to
+change-space-requirement change the internal structures of the pane and
+are recorded.  When the body is exited, the layout protocol is invoked
+appropriately.  <I> body</I> may have zero or more declarations as its first
+forms.
+
+<P>
+ILA There is still work to do in defining what this means exactly.
+
+<P>
+ILA The protocol for handling space allocation failures (such as a
+layout that cannot fit in the available space) needs to be specified.  The
+working proposal is that an error will be signalled when the constraints can't
+be satisfied.  If the application chooses, it can establish a condition handler.
+Otherwise the panes will fall where they may.  The define-frame-application
+macro should provide an option that allows programmers to conveniently specify a
+condition handler.
+
+<P>
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html4422"
+ HREF="node269.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/icons/next_motif.gif"></A> 
+<A NAME="tex2html4418"
+ HREF="node267.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/icons/up_motif.gif"></A> 
+<A NAME="tex2html4412"
+ HREF="node267.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/icons/previous_motif.gif"></A> 
+<A NAME="tex2html4420"
+ HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/icons/contents_motif.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html4423"
+ HREF="node269.html">Layout Panes</A>
+<B> Up:</B> <A NAME="tex2html4419"
+ HREF="node267.html">Layout and Layout Panes</A>
+<B> Previous:</B> <A NAME="tex2html4413"
+ HREF="node267.html">Layout and Layout Panes</A>
+ &nbsp <B>  <A NAME="tex2html4421"
+ HREF="node1.html">Contents</A></B> 
+<!--End of Navigation Panel-->
+<ADDRESS>
+<I>&</I>
+<BR><I>2001-06-12</I>
+</ADDRESS>
+</BODY>
+</HTML>

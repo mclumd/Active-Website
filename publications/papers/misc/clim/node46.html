@@ -1,0 +1,152 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 99.1 release (March 30, 1999)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Properties of Sheets</TITLE>
+<META NAME="description" CONTENT="Properties of Sheets">
+<META NAME="keywords" CONTENT="clim">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v99.1 release">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="clim.css">
+
+<LINK REL="next" HREF="node47.html">
+<LINK REL="previous" HREF="node45.html">
+<LINK REL="up" HREF="node44.html">
+<LINK REL="next" HREF="node47.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html1409"
+ HREF="node47.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/icons/next_motif.gif"></A> 
+<A NAME="tex2html1405"
+ HREF="node44.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/icons/up_motif.gif"></A> 
+<A NAME="tex2html1399"
+ HREF="node45.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/icons/previous_motif.gif"></A> 
+<A NAME="tex2html1407"
+ HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/icons/contents_motif.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html1410"
+ HREF="node47.html">Sheet Protocols</A>
+<B> Up:</B> <A NAME="tex2html1406"
+ HREF="node44.html">Overview of Window Facilities</A>
+<B> Previous:</B> <A NAME="tex2html1400"
+ HREF="node45.html">Introduction</A>
+ &nbsp <B>  <A NAME="tex2html1408"
+ HREF="node1.html">Contents</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION04120000000000000000">
+Properties of Sheets</A>
+</H1>
+
+<P>
+Sheets have the following properties:
+
+<P>
+ 
+<DL>
+<DT><STRONG>A coordinate system</STRONG></DT>
+<DD>Provides the ability to refer to locations in a
+sheet's abstract plane.
+<P>
+ </DD>
+<DT><STRONG>A region</STRONG></DT>
+<DD>Defines an area within a sheet's coordinate system that
+indicates the area of interest within the plane, that is, a clipping region for
+output and input.  This typically corresponds to the visible region of the sheet
+on the display.
+
+<P>
+ </DD>
+<DT><STRONG>A parent</STRONG></DT>
+<DD>A sheet that is the parent in a windowing relationship in which
+this sheet is a child.
+
+<P>
+ </DD>
+<DT><STRONG>Children</STRONG></DT>
+<DD>An ordered set of sheets that are each a child in a windowing
+relationship in which this sheet is a parent.  The ordering of the set
+corresponds to the stacking order of the sheets.  Not all sheets have children.
+
+<P>
+ </DD>
+<DT><STRONG>A transformation</STRONG></DT>
+<DD>Determines how points in this sheet's coordinate system
+are mapped into points in its parents.
+
+<P>
+ </DD>
+<DT><STRONG>An enabled flag</STRONG></DT>
+<DD>Indicates whether the sheet is currently actively
+participating in the windowing relationship with its parent and siblings.
+
+<P>
+ </DD>
+<DT><STRONG>An event handler</STRONG></DT>
+<DD>A procedure invoked when the display server wishes to
+inform CLIM of external events.
+
+<P>
+ </DD>
+<DT><STRONG>Output state</STRONG></DT>
+<DD>A set of values used when CLIM causes graphical or textual
+output to appear on the display.  This state is often represented by a medium.</DD>
+</DL>
+
+<P>
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html1409"
+ HREF="node47.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/icons/next_motif.gif"></A> 
+<A NAME="tex2html1405"
+ HREF="node44.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/icons/up_motif.gif"></A> 
+<A NAME="tex2html1399"
+ HREF="node45.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/icons/previous_motif.gif"></A> 
+<A NAME="tex2html1407"
+ HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/icons/contents_motif.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html1410"
+ HREF="node47.html">Sheet Protocols</A>
+<B> Up:</B> <A NAME="tex2html1406"
+ HREF="node44.html">Overview of Window Facilities</A>
+<B> Previous:</B> <A NAME="tex2html1400"
+ HREF="node45.html">Introduction</A>
+ &nbsp <B>  <A NAME="tex2html1408"
+ HREF="node1.html">Contents</A></B> 
+<!--End of Navigation Panel-->
+<ADDRESS>
+<I>&</I>
+<BR><I>2001-06-12</I>
+</ADDRESS>
+</BODY>
+</HTML>

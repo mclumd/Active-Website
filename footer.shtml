@@ -1,0 +1,34 @@
+</div>
+<!-- ======= END MAIN CONTENT  ============================ -->
+</div>
+
+        </div>
+<footer class="mt-4" style="position: absolute;
+  bottom: 0;background-color: #ffcc33;width:100%">
+    <div class="container-fluid py-3">
+        
+        <div class="row">
+            <div class="col-md-3"><a
+ href="http://www.cs.umd.edu" class="d-none d-md-block"> <img src="images/UMD_CMNS_CompSci_S1_Color.png" class="float-right img-fluid"></a></div>
+            <div class="col-md-6 text-center my-auto"><span style="color: rgba(0,0,0,0.5)">Copyright 2018 - All Rights Reserved </span></div>
+            
+            <div class="col-md-3 text-right my-auto align-self-end"><a href="https://www.umd.edu/web-accessibility" title="UMD Web Accessibility">Web Accessibility</a></div>
+        </div>
+    </div>
+</footer>
+
+                    
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML' async></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>$(window).scroll(function() {
+    if ($(window).scrollTop() > 40) {
+        $('.navbar').addClass('shadow-sm');
+    } else {
+        $('.navbar').removeClass('shadow-sm');
+    }
+});</script>
+</body>
+</html> 

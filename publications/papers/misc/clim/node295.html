@@ -1,0 +1,198 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 99.1 release (March 30, 1999)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Stream Classes</TITLE>
+<META NAME="description" CONTENT="Stream Classes">
+<META NAME="keywords" CONTENT="clim">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v99.1 release">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="clim.css">
+
+<LINK REL="next" HREF="node296.html">
+<LINK REL="previous" HREF="node294.html">
+<LINK REL="up" HREF="node294.html">
+<LINK REL="next" HREF="node296.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html4766"
+ HREF="node296.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/icons/next_motif.gif"></A> 
+<A NAME="tex2html4762"
+ HREF="node294.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/icons/up_motif.gif"></A> 
+<A NAME="tex2html4756"
+ HREF="node294.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/icons/previous_motif.gif"></A> 
+<A NAME="tex2html4764"
+ HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/icons/contents_motif.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html4767"
+ HREF="node296.html">Basic Stream Functions</A>
+<B> Up:</B> <A NAME="tex2html4763"
+ HREF="node294.html">Common Lisp Streams</A>
+<B> Previous:</B> <A NAME="tex2html4757"
+ HREF="node294.html">Common Lisp Streams</A>
+ &nbsp <B>  <A NAME="tex2html4765"
+ HREF="node1.html">Contents</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION09310000000000000000">
+Stream Classes</A>
+</H1>
+
+<P>
+The following classes must be used as superclasses of user-defined stream
+classes.  They are not intended to be directly instantiated; they just provide
+places to hang default methods.
+
+<P>
+fundamental-stream
+
+<P>
+This class is the base class for all CLIM streams.  It is a subclass of
+stream and of standard-object.
+
+<P>
+streamp object
+
+<P>
+Returns <I> true</I> if <I> object</I> is a member of the class
+fundamental-stream.  It may return <I> true</I> for other objects that are
+not members of the fundamental-stream class, but claim to serve as streams.
+(It is not sufficient to implement streamp as (typep object
+'fundamental-stream), because implementations may have additional ways of
+defining streams.)
+
+<P>
+fundamental-input-stream
+
+<P>
+A subclass of fundamental-stream that implements input streams.
+
+<P>
+input-stream-p object
+
+<P>
+Returns <I> true</I> when called on any object that is a member of the class
+fundamental-input-stream.  It may return <I> true</I> for other objects that
+are not members of the fundamental-input-stream class, but claim to serve
+as input streams.
+
+<P>
+fundamental-output-stream
+
+<P>
+A subclass of fundamental-stream that implements output streams.
+
+<P>
+output-stream-p object
+
+<P>
+Returns <I> true</I> when called on any object that is a member of the class
+fundamental-output-stream.  It may return <I> true</I> for other objects
+that are not members of the fundamental-output-stream class, but claim to
+serve as output streams.
+
+<P>
+Bidirectional streams can be formed by including both
+fundamental-input-stream and fundamental-output-stream.
+
+<P>
+fundamental-character-stream
+
+<P>
+A subclass of fundamental-stream.  It provides a method for
+stream-element-type, which returns character.
+
+<P>
+fundamental-binary-stream
+
+<P>
+A subclass of fundamental-stream.  Any instantiable class that includes
+this needs to define a method for stream-element-type.
+
+<P>
+fundamental-character-input-stream
+
+<P>
+A subclass of both fundamental-input-stream and
+fundamental-character-stream.  It provides default methods for several
+generic functions used for character input.
+
+<P>
+fundamental-character-output-stream
+
+<P>
+A subclass of both fundamental-output-stream and
+fundamental-character-stream.  It provides default methods for several
+generic functions used for character output.
+
+<P>
+fundamental-binary-input-stream
+
+<P>
+A subclass of both fundamental-input-stream and
+fundamental-binary-stream.
+
+<P>
+fundamental-binary-output-stream
+
+<P>
+A subclass of both fundamental-output-stream and
+fundamental-binary-stream.
+
+<P>
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html4766"
+ HREF="node296.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/icons/next_motif.gif"></A> 
+<A NAME="tex2html4762"
+ HREF="node294.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/icons/up_motif.gif"></A> 
+<A NAME="tex2html4756"
+ HREF="node294.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/icons/previous_motif.gif"></A> 
+<A NAME="tex2html4764"
+ HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/icons/contents_motif.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html4767"
+ HREF="node296.html">Basic Stream Functions</A>
+<B> Up:</B> <A NAME="tex2html4763"
+ HREF="node294.html">Common Lisp Streams</A>
+<B> Previous:</B> <A NAME="tex2html4757"
+ HREF="node294.html">Common Lisp Streams</A>
+ &nbsp <B>  <A NAME="tex2html4765"
+ HREF="node1.html">Contents</A></B> 
+<!--End of Navigation Panel-->
+<ADDRESS>
+<I>&</I>
+<BR><I>2001-06-12</I>
+</ADDRESS>
+</BODY>
+</HTML>

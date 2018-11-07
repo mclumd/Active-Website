@@ -1,0 +1,57 @@
+New Action Items:
+
+20091016#01(Shomir) will investigate command mode in Dragon, especially with
+regard to spelling.
+
+Continuing Action Items:
+
+20091002#02(Tim) will get Darsana an account on AI.
+20091002#03(Scott, Wikum, and Hamid) will complete the requirements specification for ALFRED Jr.
+20090918#02(Sam, Darsana, and Matt) will look at the list of standard test utterances and suggest any necessary additions or changes.
+20090904#07(Scott, Darsana, Mike, Tim, Don, and Hamid) will work on a desiderata for JAlma.
+20090904#05(Scott) will put together a set of sentences for an MCL demo.
+20090904#01(Tim) will get IRB approval.
+20090821#06 (All) Submit paper to special issue of MLJ on space applications.  Deadline: November, 2009.
+20090821#05 (Matt) Produce a guide for connecting MCL to hosts (the integration document).
+20090821#02 (Matt and Sam) will work on getting duration expectations for the move and turn controllers.
+20090710#03 (Darsana) will be testing the full MCL for flight controller.
+20090417#02 (Matt) will create an ontology file for MCL ATC.
+
+Completed Action Items:
+
+20090710#02 (Everyone) will read the LTC paper.
+20090904#03(Scott) will work on Roverse syntax and work on converting LFs to that.
+20090918#01(Mike) will have an updated spec for his robot controllers.
+20090918#06(Wikum) will try out Purang's demo programs for Alma.
+20091002#04(Mike) will extract requirements for the new ALMA from the original ALMA manual.
+20091002#01(Tim) will send a paper for discussion next time.
+20090918#07(Darsana) will send out the paper for reading at the next meeting.
+20090918#08(Everyone) come up with one question on the paper Darsana will send out.
+20090918#05(Shomir) will work on the Dragon-ALFRED link, either with Cygwin/X
+or a new solution.
+20090918#04(Shomir) will try out some of Mike's standard test utterances with
+Dragon.
+20090918#03(Hamid) will work with Scott and get up to speed on ALFRED.
+20090626#01 (Tim) emailing the info about the work on security policies (in Colorado), discussed in the AFOSR meeting.
+20090904#06(Shomir) will look at the existing work on the Dragon-ALFRED link.
+20090904#04(Shomir) will contact Ishan for the list of "standard" utterances for domain testing.  He will then send it to Mike for expansion.
+20090904#02(Tim) will send out the LTC paper.
+20090821#03 (Darsana) Provide documentation of expectations, actions and observations in the Air Traffic domain.
+20090626#03 (Scott and Hamid) parsing with LF for next meeting.  
+20090710#01 (Aparna) will look at the Jabberwacky domain, and develop examples for dialogue failures.
+20090417#03 (Matt and Sam) will work on getting duration expectations in the existing controllers.
+20090626#02 (Matt and Tim) proof reading the book chapter and final submission to Mike Cox.
+20090626#07 (Tim) might prepare something for the Paris event, or not.
+20090403#07 (Matt) will get the TCP interface for MCL working.
+20090529#01 (Matt) will request CVS accounts from UMBC for F&M people.
+20090529#02 (Matt and Tim) will formulate a schedule that will get us from where we are now to a journal article / new paper on the MCL. 
+20090529#03 (Scott, Matt and Sam) will coordinate to send a sentence to robots at NRL.
+20090501#02(Mike) will test the remote remote control.
+20090501#03(Mike) will have a document on the remote control by May 29.
+20090501#05(Matt) will send Mike his IP range for access to the F&M robots.
+20090501#06(Shomir) will send Darsana a draft for concept representation 
+in her mini-ALFRED in the old ALMA.
+20090417#01(Matt and Tim) will refine the approach to re-entrant MCL.
+20090403#09(Darsana and Shomir) will think about reactivating the old 
+ALFRED for new development.
+20090403#08(Matt) will dig up or write the MCL integration document.20090320#02(Mike) will get remote remote control (e.g., from UMCP) working for the robots.20090403#05(Mike) will get his students in touch with Matt.20090403#04(Mike) will waterfall his "remote remote control".20090403#06(Scott) will build rules for lexical lookup and work on automation of building of lexicons.20090320#04(Tim) will come up with an experiment plan for MCL for vetting at the next meeting.20090403#03(Sam and Matt) will confer on specifications for Moncon.20090403#02(Matt) and Tim will work on re-entrant MCL experimental design.20090220#02(Scott and Darsana) will work on rewriting the new ALFRED code in the old ALMA.  The goal will be to get one sentence through (e.g., "Recharge at six") through to Moncon.  Significant progress has been made; the hope is this will be done next time.20090306#01(ALFRED people) will carefully read Matt's triptych and make comments on it.20090306#02(Scott) will implement Strawman in old ALMA.20090306#04(Matt) will talk with Darsana about communication to turn robot right 90 and move 1m.20090306#05(Sam) will provide support for turning and moving robot.20090320#06(Shomir) will write some Prolog code to turn a list into a string.20090320#05(Scott) will work on getting Darsana's communication code working with his.  The goal is to get sentences through to Moncon.20090320#03(Shomir, et. al.) will send Mike IP address ranges to allow remote connections to his robots.20090220#05(Tim) and Matt will review their ideas on dialog-appropriate additions to the ontologies, and Matt will prepare a triptych of the updated ontologies.  This is partly complete; Matt circulated the document by email.20090220#04(Matt) will work on a simple socket TTY interface to Player/Stage.  This is roncon, currently under development.20090306#06(Hamid) will add results of discussion on ALMA features document and recirculate it.20090306#03(Darsana) will implement communication to moncon.20090220#01(Hamid) will collect documentation and comments out of the new ALMA code to begin determining which features do and do not work. Completed; Hamid handed out some notes on this and will add to them from our discussion.20090220#03(Shomir) will download KProlog (with Fluents) and see how feasible it would be to use.  He gave a report on this.  The long dormancy (10 years) of the code seemed a concern, as was the lack of user documentation on programming with fluents.20090220#07(Mike) will try to get Ubuntu (?) running on his laptop, perhaps with help from Matt or Sam.  This is done.20090220#06(Scott and Darsana) will also try to get "turn right pi/2" thru alfred and on to player/stage, and from there someone (Matt? Sam?) will see that it gets to NRL.  This item is not yet complete but will be merged with 20090220#02.20090220#08(Don) will try to get more funds from NSF, to hire someone to focus on an improved ALMA (whether JALMA or something else).  Done; waiting for NSF to respond.20090206#01(Matt and Tim) will refine the failure ontology with respect to language issues.20090206#02(Shomir) will work on installing Player/Stage and the Mars simulator when it is ready.  He will also continue working on the socket libraries for Alma.20090206#04(Hamid and Vicki) will start looking at ALMA more closely for future development.20090206#05(Mike) will circulate a software requirements document for communicating with his robots. 2009-01-23-#01(multiple): Matt, Shomir, and the ONR people will need to agree on a version of Player/Stage to run.  Shomir will tell Staff at UMCP to install it.2009-01-23-#02(multiple): ALMA group debugs sentence to parse step.2009-01-23-#03(multiple): ALFRED group works on parse to LF and LF to robotese.2009-01-23-#03(multiple): Matt and Tim get an account set up for NRL people and work on more ontologies examples. 2008-12-12-#01(Shomir): Draft quad chart for Herklotz.2008-12-12-#02(Hamid): Fix book chapter formatting for Mike Cox.2008-12-12-#03(Tim and Matt): Draft outline for CogSci paper.2008-12-12-#04(several people): look at bugs in ALMA.2008-12-12-#05(Matt): working on re-entrant MCL.2008-12-12-#06(Tim and Matt): work on end-to-end MCL example.2008-12-12-#07(Matt): prep demo of MCL (long term).2008-12-05-#01(Tim): Edit book chapter2008-12-05-#02(Tim): Find Mike Cox's RFI2008-12-05-#03(Tim): Send out information on grounded language learning2008-12-05-#04(Tim): Send out synchronous grammar reference2008-12-05-#05(Matt): Send report on state of MCL rover2008-12-05-#06(Matt): With Tim, plan conference paper on ontologies2008-12-05-#07(Matt): Work on ALFRED/MCL ontologies2008-12-05-#08(Hamid): Work with Scott to get logical forms into ALMA2008-12-05-#09(Shomir): Start thinking about language generation in ALFRED2008-12-05-#10(Shomir): Look into posting action items online2008-12-05-#11(Scott): With Darsana and Hamid, discuss translation of logical forms of sentences into ALMA2008-12-05-#12(Scott): Return to issue of algorithmically building logical forms2008-12-05-#13(Don): Keep in touch with NRLBogus Action Items:----

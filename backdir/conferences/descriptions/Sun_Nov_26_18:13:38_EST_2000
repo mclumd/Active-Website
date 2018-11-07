@@ -1,0 +1,116 @@
+Autonomy, Delegation, and Control:
+                     Interacting with Autonomous Agents
+                           A workshop at IJCAI-01
+              http://csce.uark.edu/~hexmoor/AA01/IJCAI01-cfp.htm
+                          Seattle, Washington, USA
+                               August, 2001
+        ------------------------------------------------------------
+
+Organizers:
+
+Henry Hexmoor(University of Arkansas - AR - USA)
+Cristiano Castelfranchi(University of Siena - Italy)
+Rino Falcone (National Research Council, Rome, Italy)
+Michael Cox(Wright State University) USA
+
+
+Program committee:
+
+Suzanne Barber (University of Texas) USA
+Scott A. DeLoach (Air Force Institute of Technology) USA
+Fiorella de Rosis (Bari University) Italy
+George Ferguson (University of Rochester) USA
+Jean-Michel Hoc (CNRS) France
+David Kortenkamp (NASA) Texas - USA
+Michael Luck (University of Liverpool) UK
+Munindar Singh (North Carolina State University) - USA
+
+Motivation:
+
+If an agent's action selection incorporates nontrivial consideration of
+other agents, it can benefit from determination, adjustment, and expression
+of (a)  autonomy, (b) delegation, and (c) control.
+
+Recent workshops on these topics have revealed research camps with
+differing perspectives on related issues. In human-robot interaction,
+robots are clearly considered subservient to humans and the concerns are
+mostly with interruptiblity of robots, safety of humans, and the nature of
+human guidance. In human-computer interaction, software agents are human
+proxies and the concerns are with user-interface and well-behaved agents
+with their respect to their human counterparts. In agent-agent interaction,
+the agents are designed to change their interaction in order to optimize
+local qualities such as cost or a system qualities such as coherence. In
+organizational theory, agents are designed to model the organizational
+structure and the concerns are mostly with deontic concepts.
+
+We are interested in finding commonalities across research camps. In
+particular, one of the aim of the workshop is to establish connections
+between the 'adjustable autonomy' approach and the 'mixed initiative'
+approach. In fact, we believe that there are quite relevant common issues,
+both at the theoretical and at the application level. 'Mixed initiative'
+has been mainly focused on HCI, but in fact it has been claimed that it
+does not necessarily involve humans (users); it can concern agent-agent
+interaction. 'Adjustable autonomy' has been mainly focused on human-robot
+interaction, but this is not conceptually necessary; it can concern
+human-agent or robot-robot interaction.
+
+Examples of common issues to be modelled are the following.
+
+   * the theory of 'initiative' in interaction, collaboration, and problem
+     solving;
+   * kinds and levels of initiative and consequent problems of lack of
+     control or coordination, and of intrusiveness;
+   * the problem of intention recognition (and in general 'mind reading')
+     and of shared or non-shared plan for dialogue, collaboration and
+     over-helping;
+   * the problem of when and how to monitor the other, and on the basis of
+     which kind of feedback (inspection, report, ....);
+   * the problem of forms of intervention for surveillance, advice,
+     assistance, or repair;
+   * the problem of coordination and its bases (shared knowledge and plan;
+     communication; observation; constraining infrastructures; rules and
+     conventions; etc.)
+   * the problem of reliance, responsibility and trust;
+   * the definition of the level of autonomy of the partners or of
+     hierarchical subordination; potential conflicts due to initiative and
+     autonomy in collaboration.
+   * others.
+
+Those are the topics of our workshop, and they seem definitely common to
+HCI (interfaces, dialogue, etc.), human-agent interaction (autonomous
+mediating software agents), human-robot interaction, and agent-agent /
+robot-robot interaction. Some of those issues are also important in the
+organization theory.
+
+Workshop:
+
+We are seeking papers that clearly exemplify central notions in a research
+camp or try to synthesize unified views. We plan to have both panels and
+brief presentations by participants in order to motivate discussion and
+promote cross-fertilization. To encourage interaction and a broad exchange
+of ideas, the workshop will be limited to 40 participants and ample time
+will be allotted for general discussion. Attendance is limited to active
+participants only. Workshop attendees must register for the main IJCAI
+conference.
+
+Submission:
+
+If you intend to participate or intend to submit a paper, send an email by
+February 15, 2000. We ask authors to submit an extended abstract (3-4
+pages) or a full paper of up to 8 pages by February 28, 2001. Decisions
+about submissions and an agenda will be announced on March 31, 2001.
+Camera-ready version of papers and abstracts must be submitted by April 20,
+2001. Manuscripts are expected to be in English (with American spelling
+preferred). Our first preference is HTML files. Otherwise, we prefer the
+following formats: MS word, PDF, postscript. If we receive adequate number
+of quality papers will seek to publish them as a collection.
+
+Participation:
+
+We will try to accommodate all who wish to participate. However, to keep
+the workshop size small, we will give priority to those who submit papers
+or abstracts.
+
+
+
+Correspondence:

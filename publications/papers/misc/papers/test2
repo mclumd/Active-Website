@@ -1,0 +1,30 @@
+<html>
+<body>
+<pre>
+@InProceedings{presup:ijcai95,
+<br>  author = 	 "J. Gurney and D. Perlis and K. Purang",
+<br>  title = 	 "Active Logic and {H}eim's Rule for Updating Discourse
+<br>		  Context",
+<br>  year =	 1995,
+<br>  organization = "IJCAI 95 Workshop on Context in Natural Language",
+<br>  keywords =	 "presupposition, discourse, context, accomodation,
+<br>		  active logic",
+<br><a href="http://www.cs.umd.edu/projects/active/papers/ijcai95.ps">  url =        "http://www.cs.umd.edu/projects/active/papers/ijcai95.ps",
+</a><br>  bibsource =    "file://that.cs.umd.edu/a/mimsy/info/www/projects/active/papers/papers.bib",
+<br>}
+<br>
+<br>@Article{presup:ci96,
+<br>  author = 	 "J. Gurney and D. Perlis and K. Purang",
+<br>  title = 	 "Updating Discourse Context with Active Logic",
+<br>  journal =	 "Computational Intelligence",
+<br>  year =	 "Submitted for publication",
+<br>  keywords =	 "discourse, context, active logic, implicature,
+<br>		  accomodation, presupposition",
+<br><a href="http://www.cs.umd.edu/projects/active/papers/lang/ci96.ps">  url =        "http://www.cs.umd.edu/projects/active/papers/lang/ci96.ps",
+</a><br>  bibsource =    "file://that.cs.umd.edu/a/mimsy/info/www/projects/active/papers/papers.bib",
+<br>}
+<br>
+<br>
+<br></pre>
+</body>
+</html>

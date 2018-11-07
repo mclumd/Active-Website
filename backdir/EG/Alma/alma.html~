@@ -1,0 +1,154 @@
+<HTML>
+<HEAD>
+<TITLE> The Alma/Carne reasoning system</title>
+</head>
+
+<body bgcolor="#ffffee" text="#000000" link="#ff0000" vlink="0000ff">
+
+
+<h2> The Alma/Carne reasoning system</h2> 
+<font size=-4 color=red> Under construction </font> 
+<hr>
+<p>
+
+<ul>
+<li><a href="#alma">What is Alma</a>
+<li><a href="#carne">What is Carne</a>
+<li><a href="#implementation">Implementation</a>
+<li><a href="#applications">Applications</a>
+<li><a href="docs/manual.ps">Draft manual</a>
+<li><a href="demo/demo.html"> Applets</a>
+
+</ul>
+
+<hr>
+<a name="alma"></a>
+<h4> Alma</h4>
+Alma is reasoner that is an implementation of <a
+href="http://www.cs.umd.edu/projects/active/">active logic</a> with
+the following characteristics: 
+<ul>
+<li> The current time is represented in the logic as a now(T) fact.
+
+<li> The reasoning occurs in discrete steps in which the rules of
+inference are applied to part or the whole of the KB to generate
+the KB that will be the basis of the next step.
+
+<li> All formulas in the database have names that can be used to
+assert properties of the formulas and to reason about them.  
+
+<li> Alma keeps track of its own reasoning, including the time
+formulas were derives and the derivations of the formulas. This
+information can be used in axioms using reserved predicates.  
+
+<li> In case of direct contradiction, i.e., the presence of both P and
+not(P) in the KB, Alma does the following:
+<ul>
+<li> It asserts contra(N1, N2, T) where N1 and N2 are the names of the
+contradictands and T is the time at which the contradiction occurred.
+<li> It distrusts the contradictands and their consequences. This
+effectively prevents these formulas from being used to derive further
+formulas. 
+<li> It asserts formulas of the form distrust(N, T) for each
+distrusted formula.
+</ul>
+In traditional first order logic, the presence of P and not(P) in the
+database makes all other formulas derivable. Alma prevents that from
+happening. 
+<li> A distrusted formula can be reinstated by asserting
+reinstate(N). 
+<br>
+The following scenario is now possible: Alma gets a
+contradiction between P and not(P); it distrusts both contradictands
+together with their descendants; it reasons about the contradiction
+using the metareasoning capabilities; as a result of that it
+determines that not(P) say, is the right contradictand; then it
+reinstates not(P) and the contradiction is resolved. 
+<br>
+All this takes place while other reasoning unrelated to the
+contradiction proceeds as usual.
+
+<li> Alma allows procedures to be run in the same process. But if the
+procedures are computationally expensive or cannot be run in Alma for
+other reasons, Carne is instructed to run them.
+
+<li> When Carne has been asked to run a procedure, the Alma KB
+contains the up-to-date status of the procedure: whether it is being
+done, or it has terminated successfully, or it has caused an error.
+
+<li> The usual mode of operation of Alma is forward chaining. However
+it can be instructed (in axioms or at the interface) to do backward
+chaining proofs. These, just like the forward chaining, occurs in
+discrete steps so that the results of the proof might appear after a
+few steps. Here too, Alma has facts in the KB about the status of the
+proof. 
+
+</ul>
+
+To summarize, Alma is a reasoner that is aware of the present, of what
+it is doing now and what it has done in the past. This knowledge can
+be used to inform its future behavior. These capabilities enable a
+range of interesting behaviors to be programmed into Alma. See <a
+href="demo/demo.html"> for some examples </a> and read more about
+active logic, which is what Alma is an implementation of at <a
+href="http://www.cs.umd.edu/projects/active"> the active logic page</a>.
+<p>
+
+<hr>
+<a name="carne"></a>
+<h4> Carne</h4>
+Carne is a process that runs independently from Alma and receives
+requests from Alma to run procedures. Carne updates Alma as to the
+status of the procedures and can also add or delete formulas in the
+Alma KB.
+<p>
+Carne can also be used as an interface between Alma and external
+systems. Inputs from the outside can go to Carne which processes them
+and then asserts them into Alma. Alma can decide on outputs to the
+system and send them to Carne which put them in the right form before
+sending them to the appropriate processes. Carne incorporates a KQML
+parser to facilitate that sort of communication.
+<p>
+
+<hr>
+<a name="implementation"></a>
+<h4> Implementation</h4>
+
+Alma and Carne have been implemented in Prolog. A user interface for
+Alma has been implemented in Java.
+<p>
+The user-interface runs in two modes: 1. while connected to an
+Alma/Carne process; 2. with a history file which records the reasoning
+in an earlier reasoning session.
+<p>
+In the second mode, one can move back and forth in the trace of the
+reasoning to examine how it took place.
+<p>
+We have provided some examples of reasoning in Alma in the second mode
+in <a href="demo/demo.html"> the examples page</a>. The first mode is
+not currently available over the web.
+
+<hr>
+<a name="applications"></a>
+<h4> Applications</h4>
+
+There is a wide range of applications for active logic and therefore
+for Alma. See <a href="demo/demo.html"> some examples </a>. Others are
+described in our <a
+href="http://www.cs.umd.edu/projects/active/papers/papers.html"> papers</a>.
+<p>
+The applications include nonmonotonic reasoning, belief change,
+reasoning about action, deadline coupled reasoning, reasoning about
+other's reasoning, reasoning about the meaning of terms, plan
+execution with errors, reasoning about presuppositions, reasoning
+about failed implicatures, dialog management, reasoning about failed
+reference resolution.
+
+
+
+<p>
+<hr>
+<a href="mailto:kpurang@cs.umd.edu">kpurang@cs.umd.edu</a>
+
+
+</html>

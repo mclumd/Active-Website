@@ -1,0 +1,117 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 99.1 release (March 30, 1999)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Lines</TITLE>
+<META NAME="description" CONTENT="Lines">
+<META NAME="keywords" CONTENT="clim">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v99.1 release">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="clim.css">
+
+<LINK REL="next" HREF="node27.html">
+<LINK REL="previous" HREF="node23.html">
+<LINK REL="up" HREF="node20.html">
+<LINK REL="next" HREF="node26.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html1107"
+ HREF="node26.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/icons/next_motif.gif"></A> 
+<A NAME="tex2html1103"
+ HREF="node20.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/icons/up_motif.gif"></A> 
+<A NAME="tex2html1097"
+ HREF="node24.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/icons/previous_motif.gif"></A> 
+<A NAME="tex2html1105"
+ HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/icons/contents_motif.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html1108"
+ HREF="node26.html">The Line Protocol</A>
+<B> Up:</B> <A NAME="tex2html1104"
+ HREF="node20.html">Other Region Types</A>
+<B> Previous:</B> <A NAME="tex2html1098"
+ HREF="node24.html">The Polygon and Polyline</A>
+ &nbsp <B>  <A NAME="tex2html1106"
+ HREF="node1.html">Contents</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H2><A NAME="SECTION03123000000000000000">
+Lines</A>
+</H2>
+
+<P>
+A line is a polyline consisting of a single segment.
+
+<P>
+line
+
+<P>
+The protocol class that corresponds to a mathematical line segment, that is, a
+polyline with only a single segment.  This is a subclass of polyline.
+a line line
+
+<P>
+linep object
+
+<P>
+Returns <I> true</I> if <I> object</I> is a <I> line</I>, otherwise returns
+<I> false</I>.
+
+<P>
+standard-line
+
+<P>
+An instantiable class that implements a line segment.  This is a subclass of
+line.  This is the class that make-line and make-line*
+instantiate.
+Members of this class are immutable. 
+<P>
+make-line  start-point end-point
+make-line* start-x start-y end-x end-y
+
+<P>
+Returns an object of class standard-line that connects the two
+<I> points</I> <I> start-point</I> and <I> end-point</I> (or the positions
+(<I> start-x</I>,<I> start-y</I>) and (<I> end-x</I>,<I> end-y</I>)).
+
+<P>
+This function is permitted to capture its mutable inputs; the
+consequences of modifying those objects are unspecified. 
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
+
+<UL>
+<LI><A NAME="tex2html1109"
+ HREF="node26.html">The Line Protocol</A>
+</UL>
+<!--End of Table of Child-Links-->
+<BR><HR>
+<ADDRESS>
+<I>&</I>
+<BR><I>2001-06-12</I>
+</ADDRESS>
+</BODY>
+</HTML>

@@ -1,0 +1,116 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 99.1 release (March 30, 1999)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Line Styles</TITLE>
+<META NAME="description" CONTENT="Line Styles">
+<META NAME="keywords" CONTENT="clim">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v99.1 release">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="clim.css">
+
+<LINK REL="previous" HREF="node94.html">
+<LINK REL="up" HREF="node92.html">
+<LINK REL="next" HREF="node98.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2091"
+ HREF="node98.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/icons/next_motif.gif"></A> 
+<A NAME="tex2html2087"
+ HREF="node92.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/icons/up_motif.gif"></A> 
+<A NAME="tex2html2083"
+ HREF="node96.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/icons/previous_motif.gif"></A> 
+<A NAME="tex2html2089"
+ HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/icons/contents_motif.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html2092"
+ HREF="node98.html">Line Style Protocol and</A>
+<B> Up:</B> <A NAME="tex2html2088"
+ HREF="node92.html">Drawing Options</A>
+<B> Previous:</B> <A NAME="tex2html2084"
+ HREF="node96.html">Establishing Local Coordinate Systems</A>
+ &nbsp <B>  <A NAME="tex2html2090"
+ HREF="node1.html">Contents</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION05130000000000000000"></A><A NAME="line-styles"></A>
+<BR>
+Line Styles
+</H1>
+
+<P>
+A line or other path is a one-dimensional object.  However in order to be
+visible, the rendering of a line must occupy some non-zero area on the display
+hardware.  A <I> line style</I><A NAME="11182"></A> represents the advice of CLIM to the rendering
+substrate on how to perform the rendering.
+
+<P>
+line-style
+
+<P>
+The protocol class for line styles.
+a line style line-style
+
+<P>
+line-style-p object
+
+<P>
+Returns <I> true</I> if <I> object</I> is a <I> line style</I>, otherwise returns
+<I> false</I>.
+
+<P>
+standard-line-style
+
+<P>
+An instantiable class that implements line styles.  A subclass of
+line-style.  This is the class that make-line-style instantiates.
+Members of this class are immutable. 
+<P>
+make-line-style <TT> &amp;key </TT>unit thickness joint-shape cap-shape dashes
+
+<P>
+Returns an object of class standard-line-style with the supplied
+characteristics.  The arguments and their default values are described in
+Section&nbsp;<A HREF="node98.html#line-style-options">10.3.1</A>.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
+
+<UL>
+<LI><A NAME="tex2html2093"
+ HREF="node98.html">Line Style Protocol and Line Style Suboptions</A>
+<LI><A NAME="tex2html2094"
+ HREF="node99.html">Contrasting Dash Patterns</A>
+</UL>
+<!--End of Table of Child-Links-->
+<BR><HR>
+<ADDRESS>
+<I>&</I>
+<BR><I>2001-06-12</I>
+</ADDRESS>
+</BODY>
+</HTML>

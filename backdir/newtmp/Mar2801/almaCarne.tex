@@ -1,0 +1,136 @@
+{\em Alma} is our current implementation of active logic and {\em Carne} is
+a process that executes non-logical computations independent of Alma
+steps. 
+
+{\bf Alma:}
+At each step, Alma applies the
+rules of inference to the formulas in the database at that
+step to produce a set of new formulas. These are added to the database,
+and the process repeats at each subsequent step.
+
+Some other defining charateristics of Alma are:
+\begin{itemize}
+
+\item
+The current step number is represented in the database and changes as
+the program executes. Formulas can  be written using the step number
+which makes it possible to reason about the current time.
+
+\item
+The formulas in the database have names which allow the user to
+assert properties of the formulas and to reason about these properties. 
+One can for instance, assert that a particular formula is
+to be preferred to another, or record what the source of the formula
+is, or the probability of the formula being true and so on.
+
+\item
+Alma maintains information about various properties of the
+formulas in the database, including the derivations of the formulas,
+their consequences and the time at which they were derived; indeed,
+the entire inferential history is preserved. This
+information are available for reasoning through reserved predicates.
+
+\item
+In general the set of formulas in the database may be
+inconsistent. This eventually leads to the derivation of a literal and
+of its negation. 
+
+These contradictions are detected by the contradiction-detection rule.
+The consequence of a contradiction between formulas $\phi$ and $\neg
+\phi$ named $N1$ and $N2$ are:\footnote
+{
+Names for formulas play a technical role that we will not detail here.
+}
+
+\begin{itemize}
+\item A formula of the form \texttt{contra(N1, N2, T)} is added to the
+database where $T$ is the step number at which the contradiction has
+been detected.
+\item The contradictands and their consequences are ``distrusted'' so
+that they cannot be used for further inference but can be
+reasoned about. This is indicated by:
+\item Formulas of the form \texttt{distrusted(N)} are added to the
+database where $N$ is the name of a formula.
+\end{itemize}
+
+Alma provides mechanisms to specify how contradictions are to be
+resolved. The properties of the formulas that Alma maintains can be  
+useful in specifying how the contradiction can be resolved. In cases
+where resolving the contradiction is procedural, intense, and/or long,
+external procedures can be used to resolve the contradiction through
+Carne. Such external procedures could interact with the user or
+trigger other reasoning modules that can assign preferences for the
+contradictands.  
+
+%We could
+%also start an external procedure to find a resolution for the
+%contradictions through Carne. These can include interaction with the
+%user or triggering other reasoning modules that can generate a
+%preference for the contradictands.
+
+\item
+Some computations that need to be done in the logic may be more
+easily, conveniently or efficiently done through procedures. To enable
+this, prolog programs can be specified as inputs to Alma. These can be
+invoked when needed through the formulas. An alternative for longer
+running procedures is Carne.
+
+\item 
+Alma can operate in both the forward and backward chaining modes.
+The usual mode of operation for Alma is in the forward direction. The
+way this is seen in active logics is to apply all the rules of
+inference possible to all the formulas available in the current step
+to get the formulas in the database at the next step. 
+
+%########################
+%REWORD EVERYTHING BELOW THIS in Alma. WE haven't talked about
+%inheritance and inference rules yet.. 
+
+However this is rather inefficient and this implementation first of
+all implicitly applies the inheritance rule to all the formulas and
+also applies the inference rules to the new formulas only.
+
+The new formulas from the previous step are the ones
+resulting from applications of inference rules or additions to the
+database at that step.
+
+All applicable inference rules are applied to the new formulas and
+between the new formulas and between the new formulas and the old
+ones. The resulting formulas and the new formulas added to the
+database at that step from external sources become the set of new
+formulas for the next step.
+
+In addition to forward chaining toward an answer, Alma allows one to do
+backward chaining to find whether some specific formula is
+derivable. This is also done in a step by step fashion, just as for
+forward chaining.
+
+\end{itemize}
+
+{\em Carne}
+
+Carne is a process that communicates with Alma but runs
+independently. The main use of Carne is to: run non-logical
+computations asynchronously from Alma steps. One of the computations
+it can do is to serve as an input-output interface to Alma. In this
+case Carne transforms external input to a form suitable for addition
+to the Alma database and conversely.
+
+Alma formulas can request computations to be done by Carne by
+asserting $call(X, Y, Z)$ in the database. This will trigger the
+program X in Carne. When the request is sent to Carne, $doing(X, Y)$
+is asserted in Alma to record that the action has been started. When
+Carne returns with an answer, $doing(X, Y)$ is deleted and $done(X,
+Y)$ is added. If the action fails, we have $error(X, Y)$ replacing the
+$doing(X, Y)$.
+
+Carne can add and delete formulas directly in Alma. This enables
+external inputs to be added to the ALma database whenever they become
+available.
+
+Carne interacts with external processes and with the user at standard
+input and output. A KQML parser converts the input to a form suitable
+for further processing in prolog. This causes a formula to be added to
+the Alma database. Alma can then request further processing of the
+incoming message based on user-defined message interpretation code.
+

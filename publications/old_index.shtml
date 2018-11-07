@@ -1,0 +1,73 @@
+
+<!--#include virtual="../include.shtml"-->
+
+
+
+
+<!-------------------------------------------------------------------------->    
+
+<table>
+<TR>
+  <TD ALIGN="LEFT" WIDTH="1200" BGCOLOR="#FFCC33"><B><FONT
+   COLOR="#000000" size="+1"> <u>Publications</u></FONT></B></TD>
+</TR>
+
+</table>
+
+
+<ul>
+
+<li><a href="http://www.cs.umd.edu/active/publications/papers-search.shtml">All papers by year.</a></li><br>
+
+<li>Dissertations
+  <ul>
+  <li><a href="http://www.cs.umd.edu/active/publications/papers/dissertations/drapkin_thesis.pdf">
+      Jennifer Elgot-Drapkin. </a></li>
+
+  <li><a href="http://www.cs.umd.edu/active/publications/papers/dissertations/DVF.pdf">
+      Michael Miller. </a></li>
+
+  <li><a href="http://www.cs.umd.edu/active/publications/papers/dissertations/madhura_thesis.pdf">
+      Madhura Nirkhe. </a></li>
+
+  <li><a href="http://www.cs.umd.edu/active/publications/papers/dissertations/purang_thesis.pdf">
+      Khemdut Purang. </a></li>
+
+  <li><a href="http://www.cs.umd.edu/active/publications/papers/dissertations/darsana_thesis.pdf">
+      Darsana Josyula. </a></li>
+
+  <li><a href="http://www.cs.umd.edu/active/publications/papers/dissertations/yuan_thesis.pdf">
+      Waiyian Chong. </a></li>
+
+  <li><a href="http://www.cs.umd.edu/active/publications/papers/dissertations/Dissertation-HamidHaidarianShahri2011.pdf">
+      Hamid Haidarian Shahri. </a></li>
+
+  <li><a
+  href="http://www.cs.umd.edu/active/publications/papers/dissertations/swilson_dissertation_web.pdf">
+  Shomir Wilson.  </a></li>  
+
+<li><a href="http://www.cs.umd.edu/active/publications/papers/dissertations/dwright.pdf">  Dean Wright. </a></li>
+  </ul></li>
+
+</ul>
+<!-- Google Scholar -->
+<form method="get" action="http://scholar.google.com/scholar">
+<table bgcolor="#FFFFFF">
+  <tr>
+    <td><a href="http://scholar.google.com/"> <img src="http://scholar.google.com/scholar/scholar_sm.gif" alt="Google Scholar" width="105" height="40" border="0" align="absmiddle" /></a>
+    <input type="hidden" name="hl" value="en">
+    <input type="text" name="q" size="25" maxlength="255" value="" />
+    <input type="submit" name="btnG" value="Search" />
+    </td>
+  </tr>
+</table>
+</form>
+<!-- Google Scholar --> 
+
+</td>
+<!-- ======= END MAIN CONTENT  ============================ -->
+
+</tr></table>
+
+</body>
+</html>

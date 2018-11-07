@@ -1,0 +1,57 @@
+<html>
+<head>
+<title>
+Lifschitz D2
+</title>
+</head>
+
+<body bgcolor="#ffffee" text="#000000" link="#ff0000" vlink="0000ff">
+
+<h3> Lifschitz D1 </h3>
+<p>
+<h4>Description: </h4>
+Assumptions:
+<ul>
+<li> After an action is performed, things normally remain as they are.
+<li> Any time a robot grasps a block, the block will be in the hand.
+<li> When the robot moves a block onto the table, the block will
+normally be on the table.
+<li> Moving a block that is not in the hand is an exception to this
+rule. 
+<li> Initially block A is not in the hand.
+<li> Initially block A is not on the table.
+</ul>
+Conclusions:
+<ul>
+<li> After the robot grasps block A, waits, and then moves it onto the
+table, the block will be on the table.
+</ul>
+
+
+
+<p>
+<a href="d2_applet.html" target="History"> View the history applet</a>
+<br>
+<a href="../../almafiles/lifschitz/d2.pl"> Alma specification</a>
+
+<p>
+<a href="../../almafiles/nmr_2.pl"> Default and contradiction
+handlers.</a>
+<br>
+<a href="../../almafiles/nmr_2_help.pl"> Prolog helper.</a>
+
+<h4>Run: </h4>
+<ul>
+
+
+</ul>
+<p>
+<h4>Note:</h4>
+
+
+
+<p>
+<hr>
+<a href="mailto:kpurang@cs.umd.edu">kpurang@cs.umd.edu</a>
+</html>
+

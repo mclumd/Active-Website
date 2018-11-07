@@ -1,0 +1,255 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 99.1 release (March 30, 1999)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Typed Output</TITLE>
+<META NAME="description" CONTENT="Typed Output">
+<META NAME="keywords" CONTENT="clim">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v99.1 release">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="clim.css">
+
+<LINK REL="next" HREF="node214.html">
+<LINK REL="previous" HREF="node208.html">
+<LINK REL="up" HREF="node205.html">
+<LINK REL="next" HREF="node214.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html3676"
+ HREF="node214.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/icons/next_motif.gif"></A> 
+<A NAME="tex2html3672"
+ HREF="node205.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/icons/up_motif.gif"></A> 
+<A NAME="tex2html3666"
+ HREF="node212.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/icons/previous_motif.gif"></A> 
+<A NAME="tex2html3674"
+ HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/icons/contents_motif.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html3677"
+ HREF="node214.html">Typed Input</A>
+<B> Up:</B> <A NAME="tex2html3673"
+ HREF="node205.html">Presentation Types</A>
+<B> Previous:</B> <A NAME="tex2html3667"
+ HREF="node212.html">Presentation Type Functions</A>
+ &nbsp <B>  <A NAME="tex2html3675"
+ HREF="node1.html">Contents</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION07230000000000000000">
+Typed Output</A>
+</H1>
+
+<P>
+An application can specify that all output done within a certain dynamic extent
+should be associated with a given Lisp object and be declared to be of a
+specified presentation type.  The resulting output is saved in the window's
+output history as a presentation.  Specifically, the presentation remembers the
+output that was performed (by saving the associated output record), the Lisp
+object associated with the output, and the presentation type specified at output
+time.  The object can be any Lisp object.
+
+<P>
+with-output-as-presentation (stream object type
+                                          <TT> &amp;key </TT>modifier single-box
+                                               allow-sensitive-inferiors record-type)
+                                         <TT> &amp;body </TT>body 
+
+<P>
+The output of <I> body</I> to the <I> extended output recording</I> <I> stream</I> is
+used to generate a presentation whose underlying object is <I> object</I> and
+whose presentation type is <I> type</I>.  Each invocation of this macro results in
+the creation of a presentation object in the stream's output history unless
+output recording has been disabled or :allow-sensitive-inferiors nil was
+specified at a higher level, in which case the presentation object is not
+inserted into the history.  with-output-as-presentation returns the
+presentation corresponding to the output.
+
+<P>
+The <I> stream</I> argument is not evaluated, and must be a symbol that is bound
+to an extended output stream or output recording stream.  If <I> stream</I> is
+t, *standard-output* is used. <I> body</I> may have zero or more
+declarations as its first forms.
+
+<P>
+ 
+<I> type</I> may be a presentation type abbreviation.
+
+<P>
+ 
+<I> modifier</I>, which defaults to nil, is some sort of object that
+describes how the presentation object might be modified.  For example, it might
+be a function of one argument (the new value) that can be called in order to
+store a new value for <I> object</I> after a user somehow ``edits'' the
+presentation.  <I> modifier</I> must have indefinite extent.
+
+<P>
+ 
+<I> single-box</I> is used to specify the presentation-single-box component
+of the resulting presentation.  It can take on the values described under
+presentation-single-box.
+
+<P>
+When the boolean <I> allow-sensitive-inferiors</I> is <I> false</I>, nested calls
+to present or with-output-as-presentation inside this one will not
+generate presentations.  The default is <I> true</I>.
+
+<P>
+ 
+<I> record-type</I> specifies the class of the presentation output record to be
+created.  It defaults to standard-presentation.  This argument should only
+be supplied by a programmer if there is a new class of output record that
+supports the updating output record protocol.
+
+<P>
+All arguments of this macro are evaluated.
+
+<P>
+For example,
+<PRE>
+
+(with-output-as-presentation (:object #p"foo" :type 'pathname)
+  (princ "FOO"))
+</PRE>
+
+<P>
+present object <TT> &amp;optional </TT>type
+                  <TT> &amp;key </TT>stream view modifier acceptably for-context-type
+                       single-box allow-sensitive-inferiors sensitive record-type
+
+<P>
+The <I> object</I> of <I> presentation type</I> <I> type</I> is presented to the
+<I> extended output stream</I> <I> stream</I> (which defaults to
+*standard-output*), using the type's present method for the supplied
+<I> view</I> <I> view</I>.  <I> type</I> is a presentation type specifier, and can be
+an abbreviation.  It defaults to the class of <I> object</I> (or one of its
+superclasses) if that class is a valid presentation type, otherwise it defaults
+to expression.  The other arguments and overall behavior of present
+are as for stream-present.
+
+<P>
+The returned value of present is the presentation object that contains the
+output corresponding to the object.
+
+<P>
+present must be implemented by first expanding any presentation type
+abbreviations (<I> type</I> and <I> for-context-type</I>), and then calling
+stream-present on <I> stream</I>, <I> object</I>, <I> type</I>, and the remaining
+keyword arguments, which are described below.
+
+<P>
+stream-present stream object type
+                              <TT> &amp;key </TT>view modifier acceptably for-context-type
+                                   single-box allow-sensitive-inferiors sensitive 
+                                   record-type
+
+<P>
+stream-present is the per-stream implementation of present, analogous
+to the relationship between write-char and stream-write-char.  All
+extended output streams and output recording streams must implement a method for
+stream-present.  The default method (on
+standard-extended-output-stream) implements the following behavior.
+
+<P>
+The object <I> object</I> of type <I> type</I> is presented to the <I> stream</I>
+<I> stream</I> by calling the type's present method for the supplied
+<I> view</I> <I> view</I>.  The returned value is the presentation containing the
+output corresponding to the object.
+
+<P>
+ 
+<I> type</I> is a presentation type specifier.  <I> view</I> is a view object that
+defaults to stream-default-view of <I> stream</I>.
+
+<P>
+ 
+<I> for-context-type</I> is a presentation type specifier that is passed to the
+present method for <I> type</I>, which can use it to tailor how the object
+will be presented.  <I> for-context-type</I> defaults to <I> type</I>.
+
+<P>
+ 
+<I> modifier</I>, <I> single-box</I>, <I> allow-sensitive-inferiors</I>, and
+<I> record-type</I> are the same as for with-output-as-presentation.
+
+<P>
+ 
+<I> acceptably</I> defaults to nil, which requests the present method to
+produce text designed to be read by human beings.  If <I> acceptably</I> is
+t, it requests the present method to produce text that is recognized
+by the accept method for <I> for-context-type</I>.  This makes no difference
+to most presentation types.
+
+<P>
+The boolean <I> sensitive</I> defaults to <I> true</I>.  If it is <I> false</I>, no
+presentation is produced.
+
+<P>
+present-to-string object <TT> &amp;optional </TT>type
+                            <TT> &amp;key </TT>view acceptably for-context-type string index
+
+<P>
+Same as present inside with-output-to-string.  If <I> string</I> is
+supplied, it must be a string with a fill pointer.  When <I> index</I> is
+supplied, it is used as an index into <I> string</I>.  <I> view</I>,
+<I> acceptably</I>, and <I> for-context-type</I> are as for present.
+
+<P>
+The first returned value is the string.  When <I> string</I> is supplied, a second
+value is returned, the updated <I> index</I>.
+
+<P>
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html3676"
+ HREF="node214.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/icons/next_motif.gif"></A> 
+<A NAME="tex2html3672"
+ HREF="node205.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/icons/up_motif.gif"></A> 
+<A NAME="tex2html3666"
+ HREF="node212.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/icons/previous_motif.gif"></A> 
+<A NAME="tex2html3674"
+ HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/icons/contents_motif.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html3677"
+ HREF="node214.html">Typed Input</A>
+<B> Up:</B> <A NAME="tex2html3673"
+ HREF="node205.html">Presentation Types</A>
+<B> Previous:</B> <A NAME="tex2html3667"
+ HREF="node212.html">Presentation Type Functions</A>
+ &nbsp <B>  <A NAME="tex2html3675"
+ HREF="node1.html">Contents</A></B> 
+<!--End of Navigation Panel-->
+<ADDRESS>
+<I>&</I>
+<BR><I>2001-06-12</I>
+</ADDRESS>
+</BODY>
+</HTML>

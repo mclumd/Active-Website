@@ -1,0 +1,80 @@
+1.
+
+combine declarative and procedural forms of real-time planning for
+deadline situations. IN deadline situations, time taken to reason
+brings deadline closer. Planing mechanism needs to take account of
+this. Attempt to treat all aspects of planning as deadline coupled.
+Problem is that keeping track of the time too takes time. take account
+of time for meta planning.
+
+Problems: multiple/competing plans and interacting subplans
+
+++++++++++++++++++++++++++++++++++++++++
+
+2.
+
+to plan planning in the presence of time constraints- metaplanning
+takes time (same as the other one)
+
+++++++++++++++++++++++++++++++++++++++++
+
+3.
+
+spend time reasoning toward and about partial plans. involves partial
+plan formulation, making decisions about alternatives, plan sequencing,
+plan failure, plan revision. (same story...) step logics are about 
+reasoning in time. step logic planner keeps track of approaching 
+deadline as it makes the plan and treats all facets os planning as
+deadline coupled. facers: planning and execution. metaplanning takes
+time. interleave planning and execution. step logic: plan evolves in
+time in a changing world.
+
+long term aim is to model a flexible reasoner with a large database
+of knowledge. logic based real time planner is feasible. competing
+plans, interacting subplans. whether to think more or not? frame
+problem, ramifications, qualifications, failure and error recovery, 
+perceptual reasoning, qualitative reasoning.
+
+++++++++++++++++++++++++++++++++++++++++
+
+4. 
+
+time, space and computational(not time?) bounds. 
+try to make planning more realistic.
+more realism: lotsa data, noisy data, fast data input, deadlines,no 
+parallelism in step logic thinker.
+limit how many things can be done in parallel in one step.
+focus of attention. STM LTM QTM. focus predicate
+
+++++++++++++++++++++++++++++++++++++++++
+
+5.
+
+frame issues. YSP variants solved by step logics.
+temporal persistence rule solves projection frame problem
+context set revision rule + MP deals with ramification
+qualification problem dealt wiht by a relevance mechanism
+
+++++++++++++++++++++++++++++++++++++++++
+
+6.
+
+treat planning as an action. in real time and dynamic planning, planning
+is seen different from actions. reasoning about and _within_ a deadline.
+what if time for meta planning is not short as usually assumed? solution:
+measure time planning and meta planning is taking and use that to figure
+what to do next (but that can only give a rough approximation) Don't
+precompute metaplaning time-use rough extimation. plan evolves. world
+changes.
+
+related work: temporal projection, plan interaction, metaplanning
+
+sl agent has capability to revise conclusions with new info, explain 
+previous events, use predictions
+sl agent is a total order planner. no optimization. meta reasoning takes
+time unlike critics.
+
+
+
+==============================================================================
+

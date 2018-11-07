@@ -1,0 +1,280 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 99.1 release (March 30, 1999)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>The Basic Output Record Protocol</TITLE>
+<META NAME="description" CONTENT="The Basic Output Record Protocol">
+<META NAME="keywords" CONTENT="clim">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v99.1 release">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="clim.css">
+
+<LINK REL="next" HREF="node161.html">
+<LINK REL="previous" HREF="node159.html">
+<LINK REL="up" HREF="node159.html">
+<LINK REL="next" HREF="node161.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2956"
+ HREF="node161.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/icons/next_motif.gif"></A> 
+<A NAME="tex2html2952"
+ HREF="node159.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/icons/up_motif.gif"></A> 
+<A NAME="tex2html2946"
+ HREF="node159.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/icons/previous_motif.gif"></A> 
+<A NAME="tex2html2954"
+ HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/icons/contents_motif.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html2957"
+ HREF="node161.html">The Output Record ``Database''</A>
+<B> Up:</B> <A NAME="tex2html2953"
+ HREF="node159.html">Output Records</A>
+<B> Previous:</B> <A NAME="tex2html2947"
+ HREF="node159.html">Output Records</A>
+ &nbsp <B>  <A NAME="tex2html2955"
+ HREF="node1.html">Contents</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H2><A NAME="SECTION06211000000000000000">
+The Basic Output Record Protocol</A>
+</H2>
+
+<P>
+All subclasses of output-record and displayed-output-record must
+inherit or implement methods for the following generic functions.
+
+<P>
+When the generic functions in this section take both <I> record</I> and a
+<I> stream</I> arguments, CLIM implementations will specialize the <I> stream</I>
+argument for the standard-output-recording-stream class and the
+<I> record</I> argument for all of the implementation-specific output record
+classes.
+
+<P>
+output-record-position* record
+
+<P>
+Returns the 1#1 and 2#2 position of the <I> output record</I> <I> record</I> as two
+rational numbers.  The position of an output record is the position of the
+upper-left corner of its bounding rectangle.  The position is relative to the
+stream, where 31#31 is (initially) the upper-left corner of the stream.
+
+<P>
+ 
+(setf output-record-position*) new-x new-y record
+
+<P>
+Changes the 1#1 and 2#2 position of the <I> output record</I> <I> record</I> to be
+<I> new-x</I> and <I> new-y</I> (which are rational numbers), and updates the
+bounding rectangle to reflect the new position (and saved cursor positions, if
+the output record stores it).  If <I> record</I> has any children, all of the
+children (and their descendants as well) will be moved by the same amount as
+<I> record</I> was moved.  The bounding rectangles of all of <I> record</I>'s
+ancestors will also be updated to be large enough to contain <I> record</I>.  This
+does not replay the output record, but the next time the output record is
+replayed it will appear at the new position.
+
+<P>
+output-record-start-cursor-position* record
+
+<P>
+Returns the 1#1 and 2#2 starting cursor position of the <I> output record</I>
+<I> record</I> as two integer values.  The positions are relative to the stream,
+where 31#31 is (initially) the upper-left corner of the stream.
+
+<P>
+Text output records and updating output records maintain the cursor position.
+Graphical output records and other output records that do not require or affect
+the cursor position will return nil as both of the values.
+
+<P>
+ 
+(setf output-record-start-cursor-position*) new-x new-y record
+
+<P>
+Changes the 1#1 and 2#2 starting cursor position of the <I> output record</I>
+<I> record</I> to be <I> new-x</I> and <I> new-y</I> (which are integers).  This does
+not affect the bounding rectangle of <I> record</I>, nor does it replay the output
+record.  For those output records that do not require or affect the cursor
+position, the method for this function is a no-op.
+
+<P>
+output-record-end-cursor-position* record
+
+<P>
+Returns the 1#1 and 2#2 ending cursor position of the <I> output record</I>
+<I> record</I> as two integer values.  The positions are relative to the stream,
+where 31#31 is (initially) the upper-left corner of the stream.  Graphical
+output records do not track the cursor position, so only text output record (and
+some others) will return meaningful values for this.
+
+<P>
+Text output records and updating output records maintain the cursor position.
+Graphical output records and other output records that do not require or affect
+the cursor position will return nil as both of the values.
+
+<P>
+ 
+(setf output-record-end-cursor-position*) new-x new-y record
+
+<P>
+Changes the 1#1 and 2#2 ending cursor position of the <I> output record</I>
+<I> record</I> to be <I> new-x</I> and <I> new-y</I> (which are integers).  This does
+not affect the bounding rectangle of <I> record</I>, nor does it replay the output
+record.  For those output records that do not require or affect the cursor
+position, the method for this function is a no-op.
+
+<P>
+output-record-parent record
+
+<P>
+Returns the output record that is the parent of the <I> output record</I>
+<I> record</I>, or nil if the record has no parent.
+
+<P>
+replay record stream <TT> &amp;optional </TT>region
+
+<P>
+This function bind stream-recording-p of <I> stream</I> to <I> false</I>, and
+then calls replay-output-record on the arguments <I> record</I>,
+<I> stream</I>, and <I> region</I>.  If stream-drawing-p of <I> stream</I> is
+<I> false</I>, replay does nothing.  replay is typically called during
+scrolling, by repaint handlers, and so on.
+
+<P>
+CLIM implementations are permitted to default <I> region</I> either to nil or
+to the region corresponding to viewport of <I> stream</I>.
+
+<P>
+replay-output-record record stream <TT> &amp;optional </TT>region
+
+<P>
+Displays the output captured by the <I> output record</I> <I> record</I> on the
+<I> output recording stream</I> <I> stream</I>, exactly as it was originally
+captured (subject to subsequent modifications).  The current user
+transformation, line style, text style, ink, and clipping region of <I> stream</I>
+are all ignored during the replay operation.  Instead, these are gotten from the
+output record.
+
+<P>
+If <I> record</I> is not a displayed output record, then replaying it involves
+replaying all of its children.  If <I> record</I> is a displayed output record,
+then replaying it involves redoing the graphics operation captured in the
+record.
+
+<P>
+ 
+<I> region</I> is a region that can be supplied to limit what records are
+displayed.  Only those records that overlap <I> region</I> are replayed.  The
+default for <I> region</I> is +everywhere+.
+
+<P>
+It is permissible for implementations to restrict replay-output-record such
+that <I> stream</I> must be the same stream on which the output records were
+originally recorded.
+
+<P>
+SWM How does replaying a text output record (or any record that
+maintains the cursor position) affect the cursor position of the stream?
+
+<P>
+erase-output-record record stream
+
+<P>
+Erases the <I> output record</I> <I> record</I> from the <I> output recording
+stream</I> <I> stream</I>, removes <I> record</I> from <I> stream</I>'s output history,
+and ensures that all other output records that were covered by <I> record</I> are
+visible.  In effect, this draws background ink over the record, and then redraws
+all the records that overlap <I> record</I>.
+
+<P>
+output-record-hit-detection-rectangle* record
+
+<P>
+This method is used to establish the usual ``effective size'' of <I> record</I>
+for hit detection queries.  Four values are returned corresponding to the edges
+of the bounding rectangle that is the hit detection rectangle.  The default
+method (on CLIM's standard output record class) is equivalent to calling calling
+bounding-rectangle* on <I> record</I>, but this method can be specialized to
+return a larger bounding rectangle in order to implement a form of hysteresis.
+
+<P>
+output-record-refined-sensitivity-test record x y
+
+<P>
+This is used to definitively answer hit detection queries, such as finding the
+output record that is located at the coordinates of a pointing device.  Once the
+position 6#6 has been determined to lie within
+output-record-hit-detection-rectangle*,
+output-record-refined-sensitivity-test is invoked.  Output record
+subclasses can provide a method that provides a more precise definition of a
+hit, for example, output records for elliptical rings will implement a method
+that detects whether the pointing device is on the elliptical ring.
+
+<P>
+highlight-output-record record stream state
+
+<P>
+This method is called in order to draw a highlighting box around the
+<I> output record</I> <I> record</I> on the <I> output recording stream</I>
+<I> stream</I>.  <I> state</I> will be either :highlight (meaning to draw the
+highlighting) or :unhighlight (meaning to erase the highlighting).  The
+default method (on CLIM's standard output record class) will simply draw a
+rectangle that corresponds the the bounding rectangle of <I> record</I>.
+
+<P>
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2956"
+ HREF="node161.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/icons/next_motif.gif"></A> 
+<A NAME="tex2html2952"
+ HREF="node159.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/icons/up_motif.gif"></A> 
+<A NAME="tex2html2946"
+ HREF="node159.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/icons/previous_motif.gif"></A> 
+<A NAME="tex2html2954"
+ HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/icons/contents_motif.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html2957"
+ HREF="node161.html">The Output Record ``Database''</A>
+<B> Up:</B> <A NAME="tex2html2953"
+ HREF="node159.html">Output Records</A>
+<B> Previous:</B> <A NAME="tex2html2947"
+ HREF="node159.html">Output Records</A>
+ &nbsp <B>  <A NAME="tex2html2955"
+ HREF="node1.html">Contents</A></B> 
+<!--End of Navigation Panel-->
+<ADDRESS>
+<I>&</I>
+<BR><I>2001-06-12</I>
+</ADDRESS>
+</BODY>
+</HTML>

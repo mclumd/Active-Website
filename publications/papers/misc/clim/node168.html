@@ -1,0 +1,116 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 99.1 release (March 30, 1999)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Output Recording Streams</TITLE>
+<META NAME="description" CONTENT="Output Recording Streams">
+<META NAME="keywords" CONTENT="clim">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v99.1 release">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="clim.css">
+
+<LINK REL="previous" HREF="node163.html">
+<LINK REL="up" HREF="node158.html">
+<LINK REL="next" HREF="node169.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html3050"
+ HREF="node169.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/icons/next_motif.gif"></A> 
+<A NAME="tex2html3046"
+ HREF="node158.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/icons/up_motif.gif"></A> 
+<A NAME="tex2html3042"
+ HREF="node167.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/icons/previous_motif.gif"></A> 
+<A NAME="tex2html3048"
+ HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/icons/contents_motif.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html3051"
+ HREF="node169.html">The Output Recording Stream</A>
+<B> Up:</B> <A NAME="tex2html3047"
+ HREF="node158.html">Output Recording</A>
+<B> Previous:</B> <A NAME="tex2html3043"
+ HREF="node167.html">Top-Level Output Records</A>
+ &nbsp <B>  <A NAME="tex2html3049"
+ HREF="node1.html">Contents</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION06230000000000000000">
+Output Recording Streams</A>
+</H1>
+
+<P>
+CLIM defines an extension to the stream protocol that supports output recording.
+The stream has an associated output history record and provides controls to
+enable and disable output recording.
+
+<P>
+SWM Do we want to support only output recording streams, or do we
+want to support output recording sheets as well?  If the latter, we need to
+split apart graphics output recording and textual output recording, and rename
+lots of things.
+
+<P>
+output-recording-stream
+
+<P>
+The protocol class that indicates that a stream is an output recording stream.
+an output recording stream output-recording-stream
+
+<P>
+output-recording-stream-p object
+
+<P>
+Returns <I> true</I> if <I> object</I> is an <I> output recording stream</I>,
+otherwise returns <I> false</I>.
+
+<P>
+standard-output-recording-stream
+
+<P>
+The class used by CLIM to implement output record streams.  This is a subclass
+of output-recording-stream.
+Members of this class are mutable. 
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
+
+<UL>
+<LI><A NAME="tex2html3052"
+ HREF="node169.html">The Output Recording Stream Protocol</A>
+<LI><A NAME="tex2html3053"
+ HREF="node170.html">Graphics Output Recording</A>
+<LI><A NAME="tex2html3054"
+ HREF="node171.html">Text Output Recording</A>
+<LI><A NAME="tex2html3055"
+ HREF="node172.html">Output Recording Utilities</A>
+</UL>
+<!--End of Table of Child-Links-->
+<BR><HR>
+<ADDRESS>
+<I>&</I>
+<BR><I>2001-06-12</I>
+</ADDRESS>
+</BODY>
+</HTML>

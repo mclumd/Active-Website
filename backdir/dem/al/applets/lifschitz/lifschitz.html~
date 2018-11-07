@@ -1,0 +1,42 @@
+<html>
+<head>
+<title>
+Lifchitz benchmarks
+</title>
+</head>
+
+<body bgcolor="#ffffee" text="#000000" link="#ff0000" vlink="0000ff">
+
+<h3>Lifschitz benchmarks </h3>
+<font size=-4 color=red> Under construction </font> 
+<p>
+
+We illustrate the use of Alma with some of Lifshitz's benchmark
+problems for nonmonotonic reasoning. The default frmaework used is
+that of <a href="../nonmonotonic_2.html">nonmonotonic logic II</a>
+above.
+
+
+
+<hr>
+<a name="Examples">
+<h4> Examples </h4>
+<ul>
+<li> <h4> Default Reasoning </h4>
+<ul>
+<li> <a href="a1.html">A1</a>
+</ul>
+<li> <h4> Inheritance </h4>
+
+</ul>
+
+
+
+
+
+
+
+<p>
+<hr>
+<a href="mailto:kpurang@cs.umd.edu">kpurang@cs.umd.edu</a>
+</html>

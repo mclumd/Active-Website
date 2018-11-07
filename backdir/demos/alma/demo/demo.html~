@@ -1,0 +1,81 @@
+<html>
+<title>
+Alma demos
+</title>
+
+<body bgcolor="#ffffee" text="#000000" link="#ff0000" vlink="0000ff">
+
+
+<h2> Some Alma examples</h2> 
+<font size=-4 color=red> Under construction </font> 
+<hr>
+<p>
+
+<a href="../alma.html">Alma</a> (and <a
+href="http://www.cs.umd.edu/projects/active/">active logic</a> in
+general)  is a versatile reasoning tool that has
+been applied to many problems. This page illustrates some of these
+applications by means of episodes of reasoning in Alma.
+
+
+<ul>
+<li> <a href="#whattoview">What is there to view.</a>
+<li> <a href="#howtorun">How to view the examples.</a>
+<li> <a href="../../al/applets/timesituated.html"> Time situated reasoning</a>
+<li> <a href="../../al/applets/nonmonotonic_1.html"> Nonmonotonic
+reasoing I</a>
+<li> <a href="../../al/applets/nonmonotonic_2.html"> Nonmonotonic
+reasoing II</a> 
+<li> <a href="../../al/applets/mistakes.html"> Mistakes</a>
+<li> <a href="../../al/applets/lifschitz/lifschitz.html"> Lifschitz benchmarks</a>
+<li> <a href="dialog.html">Dialog management</a>
+</ul>
+
+
+<hr>
+<a name="whattoview">
+
+<h4> What is there to view?</h4> 
+
+It is currently not possible to run Alma across the web. Presenting
+the final state of the KB after the reasoning is not very helpful
+because the reasoning in Alma depends on the state of the KB at each
+time step.
+<p>
+Alma however, can write history files that record every addition and
+deletion to the database at each step. This is what we display
+here. Accompanying the history in each example is an account of the
+events of interest in the reasoning.
+<p>
+The history is presented in an applet that allows one to move through
+the steps and see how the reasoning happened. In this way we preserve
+the dynamic character of reasoning in Alma.
+
+
+
+
+<hr>
+<a name="howtorun">
+
+<h4> How to view the examples</h4> 
+
+The interface is intuitive enough, but a manual is available <a
+href="../Alma/gi/userguide.html">here</a>. 
+<p>
+Some suggestions:
+<ul>
+<li> The applet will load the history file, and stop at the last step. Click on
+|&lt to get to the first step.
+<li> Click on &gt&gt to see the next step.
+<li> There might be some error messages about the scrollbar. These can
+be ignored.
+</ul>
+
+
+
+<hr>
+<br>
+<a href="mailto:kpurang@cs.umd.edu">kpurang@cs.umd.edu</a>
+
+
+</html>

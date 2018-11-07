@@ -1,0 +1,6 @@
+% whenever set_alarm(t) is asserted, the alarm will go off at the set
+% time.
+% version of settable_alrm without / > etc and with lunch
+
+if(and(lunch_at(X), now(X)), lunch).
+

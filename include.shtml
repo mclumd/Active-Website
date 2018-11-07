@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en"style="position: relative;min-height: 100%">
+  <head>
+    <meta charset="utf-8"> 
+       <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Active Logic, Metacognitive Computation, and Mind: University
+of Maryland</title>
+
+  
+  
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+
+  
+  <meta name="author" content="Josiane Alagbe">
+
+  
+  <link rel="stylesheet" href="assets/styles/netscape.css" type="text/css">
+    
+  <style type="text/css">
+ <!--
+   @import url(/assets/styles/explorer.css);
+     -->
+  </style>
+  
+  <script type="text/javascript">
+function gettip(txt)
+{
+tip.innerHTML=txt
+}
+
+function reset()
+{
+tip.innerHTML=""
+}
+function cursor(image)
+{
+trail.innerHTML="<img src='" + image + "' />"
+trail.style.visibility="visible"
+trail.style.position="absolute"
+trail.style.left=event.clientX+10
+trail.style.top=event.clientY
+}
+
+function cursorText(text)
+{
+trail.innerHTML=text
+trail.style.visibility="visible"
+trail.style.position="absolute"
+trail.style.left=event.clientX+10
+trail.style.top=event.clientY
+trail.style.color = "blue"
+}
+function hidecursor()
+{
+trail.style.visibility="hidden"
+}
+
+  </script>
+  <base href="http://yeet.local:8888/lab-website-2018.10.31/">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+     
+
+  
+  </head>
+<body style="margin-bottom: 8rem; color: rgb(0, 0, 0); background-color: rgb(255, 255, 255);" alink="#ffb926" link="#000080" vlink="#390764">
+    
+<nav class="navbar navbar-expand-sm navbar-light sticky-top" style="background-color: #ffcc33">
+ <div class="container">
+     <!--<a class="navbar-brand" href="index.shtml">Active Logic</a>-->
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav">
+      <a class="nav-item nav-link" href="index.shtml">Home</a>
+        <a class="nav-item nav-link" href="research/index.shtml">Research</a>
+        <a class="nav-item nav-link" href="publications/index.shtml">Publications</a>
+        <a class="nav-item nav-link" href="people/index.shtml">People</a>
+        <a class="nav-item nav-link" href="MetaCogSeminar/index.html">Seminars</a>
+        <!--<a class="nav-item nav-link" href="search.shtml">Search</a>-->
+
+    </div>
+  </div>
+     <script>
+//GOOGLE SEARCH
+//Enter domain of site to search.
+var domainroot="cs.umd.edu/active"
+function Gsitesearch(curobj){ curobj.q.value="site:"+domainroot+" "+curobj.qfront.value } 
+</script> 
+    <form class="form-inline my-2 my-lg-0" action="http://www.google.com/search" method="get"role="search" onSubmit="Gsitesearch(this)">
+         <input name="q" type="hidden" />
+      <input class="form-control mr-sm-2" name="qfront" type="search" placeholder="Search" aria-label="Search">
+    </form>
+    </div>
+</nav>
+    
+
+        <div class="container">
+            <div class="pb-2 mt-4 mb-2 border-bottom"><h1 class="display-4" style="font-size: 3rem"><span style="color: #ffcc33;font-weight: bold">A</span>ctive <span style="color: #ffcc33;font-weight: bold">L</span>ogic, <span style="color: #ffcc33;font-weight: bold">Me</span>tacognitive <span style="color: #ffcc33;font-weight: bold">Co</span>mputation, and <span style="color: #ffcc33;font-weight: bold">M</span>ind </h1></div>
+          <!--<div class="row">
+            <div class="col-1" align="left" height="90" nowrap="nowrap" width="90"><img src="images/logo.GIF" alt="ALMECOM Logo" align="UP" height="90" width="90"></div>
+            <div class="col">
+            
+              
+                <div class="row">
+                  <div class="col" align="center" valign="up"> <img src="images/umbanner.gif"></div>
+                </div>
+                <div class="row">
+                  <div class="col" align="center"> <img src="images/banner.gif" alt="Active Logic, Metacognitive Computation, and Mind"></div>
+                </div>
+            </div>
+          </div>-->
+        <!--<div class="row">
+                        <div class="col" align="center" bgcolor="#ffcc33" nowrap="nowrap"> <img src="http://www.cs.umd.edu/assets/images/spacer.gif" height="5" width="8"> <a class="topbar" href="http://www.cs.umd.edu/active" onmouseover="style.color='red'" onmouseout="style.color='black'">Home</a>
+                        <img src="http://www.cs.umd.edu/assets/images/spacer.gif" height="5" width="10"> <span class="topbar"></span> <img src="http://www.cs.umd.edu/assets/images/spacer.gif" height="5" width="10"> <a class="topbar" href="http://www.cs.umd.edu/active/research" onmouseover="style.color='red'" onmouseout="style.color='black'">Research</a>
+                        <img src="http://www.cs.umd.edu/assets/images/spacer.gif" height="5" width="10"> <span class="topbar"></span> <img src="http://www.cs.umd.edu/assets/images/spacer.gif" height="5" width="10"> <a class="topbar" href="http://www.cs.umd.edu/active/publications" onmouseover="style.color='red'" onmouseout="style.color='black'">Publications</a>
+                        <img src="http://www.cs.umd.edu/assets/images/spacer.gif" height="5" width="10"> <span class="topbar"></span> <img src="http://www.cs.umd.edu/assets/images/spacer.gif" height="5" width="10"> <a class="topbar" href="http://www.cs.umd.edu/active/people" onmouseover="style.color='red'" onmouseout="style.color='black'">People</a>
+                        <img src="http://www.cs.umd.edu/assets/images/spacer.gif" height="5" width="10"> <span class="topbar"></span> <img src="http://www.cs.umd.edu/assets/images/spacer.gif" height="5" width="10"> <a class="topbar" href="http://www.cs.umd.edu/active/MetaCogSeminar/index.html" onmouseover="style.color='red'" onmouseout="style.color='black'">Seminars</a>
+                        <img src="http://www.cs.umd.edu/assets/images/spacer.gif" height="5" width="10"> <span class="topbar"></span> <img src="http://www.cs.umd.edu/assets/images/spacer.gif" height="5" width="10"> <a class="topbar" href="http://www.cs.umd.edu/active/search.shtml" onmouseover="style.color='red'" onmouseout="style.color='black'">Search</a>
+                        <img src="http://www.cs.umd.edu/assets/images/spacer.gif" alt="spacer" height="5" width="10"></div>
+                      </div>-->
+           
+  
+
+
+<!-- ============ AFTER THE BANNER  ======================= -->
+
+
+
+
+  
+    <div class="row">
+<!-- ============ LEFT SIDE =============== --> <div class="col-lg-2 col-md-4 d-none d-md-block" align="left" valign="top" width="10%">
+      <p><b>Toward Human-Level Cognitive Adequacy</b> <br>
+Our long-range aim is to design and implement common sense in a
+computer. Click <a href="aims.shtml">here</a>
+for details. <br>
+      </p>
+      
+        <hr/>
+      <p>If you would like to learn more about Active Logic, we suggest
+you start with one of our <a href="primers/index.shtml">primers</a>. <br>
+      <br>
+      </p>
+      </div>
+<!-- ============ END LEFT SIDE =============== --> 
+        <!--<div class="col" bgcolor="#ffffff" valign="top" width="2"><img src="/assets/images/spacer.gif" height="1" width="1"></div>
+      <div class="col" bgcolor="#ffffff" valign="top" width="2"><img src="http://www.cs.umd.edu/active/assets/images/spacer.gif" height="1" width="1"></div>
+      <div class="col" bgcolor="#ffffff" valign="top" width="2"><img src="http://www.cs.umd.edu/active/assets/images/spacer.gif" height="1" width="1"></div>
+      <div class="col" bgcolor="#ffffff" valign="top" width="2"><img src="http://www.cs.umd.edu/active/assets/images/spacer.gif" height="1" width="1"></div>
+      <div class="col" bgcolor="#ffcc33" valign="top" width="0"><img src="http://www.cs.umd.edu/active/assets/images/spacer.gif" height="1" width="1"></div>
+      <div class="col" bgcolor="#ffffff" valign="top" width="2"><img src="http://www.cs.umd.edu/active/assets/images/spacer.gif" height="1" width="1"></div>
+      <div class="col" bgcolor="#ffffff" valign="top" width="2"><img src="http://www.cs.umd.edu/active/assets/images/spacer.gif" height="1" width="1"></div>
+      <div class="col" bgcolor="#ffffff" valign="top" width="6"><img src="http://www.cs.umd.edu/active/assets/images/spacer.gif" height="1" width="1"></div>
+      <div class="col" bgcolor="#ffffff" valign="top" width="2"><img src="http://www.cs.umd.edu/active/assets/images/spacer.gif" height="1" width="1"></div>
+      <div class="col" bgcolor="#ffffff" valign="top" width="2"><img src="http://www.cs.umd.edu/active/assets/images/spacer.gif" height="1" width="1"></div>
+      <div class="col" nowrap="nowrap" valign="top"> <br>
+      </div>-->
+<!-- ============ START MAIN  CONTENT ======================= --> <div class="col" valign="top" width="100%">
+<!-- +++++++++++++++++++ -->
+
+
+
+<!-- +++++++++++++++++++ -->

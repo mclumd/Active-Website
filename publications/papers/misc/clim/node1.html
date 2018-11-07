@@ -1,0 +1,875 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 99.1 release (March 30, 1999)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Contents</TITLE>
+<META NAME="description" CONTENT="Contents">
+<META NAME="keywords" CONTENT="clim">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v99.1 release">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="clim.css">
+
+<LINK REL="next" HREF="node2.html">
+<LINK REL="previous" HREF="clim.html">
+<LINK REL="up" HREF="clim.html">
+<LINK REL="next" HREF="node2.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html466"
+ HREF="node2.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/icons/next_motif.gif"></A> 
+<A NAME="tex2html464"
+ HREF="clim.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/icons/up_motif.gif"></A> 
+<A NAME="tex2html458"
+ HREF="clim.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/icons/previous_motif.gif"></A>   
+<BR>
+<B> Next:</B> <A NAME="tex2html467"
+ HREF="node2.html">Overview and Conventions</A>
+<B> Up:</B> <A NAME="tex2html465"
+ HREF="clim.html">Common Lisp Interface Manager</A>
+<B> Previous:</B> <A NAME="tex2html459"
+ HREF="clim.html">Common Lisp Interface Manager</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<BR>
+
+<H2><A NAME="SECTION01000000000000000000">
+Contents</A>
+</H2>
+<!--Table of Contents-->
+
+<UL>
+<LI><A NAME="tex2html468"
+ HREF="node1.html">Contents</A>
+<LI><A NAME="tex2html469"
+ HREF="node2.html">Overview and Conventions</A>
+<UL>
+<LI><A NAME="tex2html470"
+ HREF="node3.html">Overview of CLIM</A>
+<LI><A NAME="tex2html471"
+ HREF="node4.html">Conventions</A>
+<UL>
+<LI><A NAME="tex2html472"
+ HREF="node5.html">Audience, Goals, and Purpose</A>
+<LI><A NAME="tex2html473"
+ HREF="node6.html">Package Structure</A>
+<LI><A NAME="tex2html474"
+ HREF="node7.html">``Spread'' Point Arguments to Functions </A>
+<LI><A NAME="tex2html475"
+ HREF="node8.html">Immutability of Objects</A>
+<LI><A NAME="tex2html476"
+ HREF="node9.html">Behavior of Interfaces</A>
+<LI><A NAME="tex2html477"
+ HREF="node10.html">Protocol Classes and Predicates</A>
+<LI><A NAME="tex2html478"
+ HREF="node11.html">Specialized Arguments to Generic Functions</A>
+<LI><A NAME="tex2html479"
+ HREF="node12.html">Sheet, Stream, or Medium Arguments to Macros</A>
+<LI><A NAME="tex2html480"
+ HREF="node13.html">Macros that Expand into Calls to Advertised Functions</A>
+<LI><A NAME="tex2html481"
+ HREF="node14.html">Terminology Pertaining to Error Conditions</A>
+</UL>
+</UL>
+<LI><A NAME="tex2html482"
+ HREF="node15.html">Geometry Substrate</A>
+<UL>
+<LI><A NAME="tex2html483"
+ HREF="node16.html">Geometry</A>
+<UL>
+<LI><A NAME="tex2html484"
+ HREF="node17.html">General Regions</A>
+<UL>
+<LI><A NAME="tex2html485"
+ HREF="node18.html">The Region Predicate Protocol</A>
+<LI><A NAME="tex2html486"
+ HREF="node19.html">Region Composition Protocol</A>
+</UL>
+<LI><A NAME="tex2html487"
+ HREF="node20.html">Other Region Types</A>
+<UL>
+<LI><A NAME="tex2html488"
+ HREF="node21.html">Points</A>
+<LI><A NAME="tex2html489"
+ HREF="node23.html">Polygons and Polylines</A>
+<LI><A NAME="tex2html490"
+ HREF="node25.html">Lines</A>
+<LI><A NAME="tex2html491"
+ HREF="node27.html">Rectangles</A>
+<LI><A NAME="tex2html492"
+ HREF="node29.html">Ellipses and Elliptical Arcs</A>
+</UL>
+</UL>
+<LI><A NAME="tex2html493"
+ HREF="node31.html">Bounding Rectangles</A>
+<UL>
+<LI><A NAME="tex2html494"
+ HREF="node32.html">Bounding Rectangles</A>
+<UL>
+<LI><A NAME="tex2html495"
+ HREF="node33.html">The Bounding Rectangle Protocol</A>
+<LI><A NAME="tex2html496"
+ HREF="node34.html">Bounding Rectangle Convenience Functions</A>
+</UL>
+</UL>
+<LI><A NAME="tex2html497"
+ HREF="node35.html">Affine Transformations</A>
+<UL>
+<LI><A NAME="tex2html498"
+ HREF="node36.html">Transformations</A>
+<UL>
+<LI><A NAME="tex2html499"
+ HREF="node37.html">Transformation Conditions</A>
+</UL>
+<LI><A NAME="tex2html500"
+ HREF="node38.html">Transformation Constructors</A>
+<LI><A NAME="tex2html501"
+ HREF="node39.html">The Transformation Protocol</A>
+<UL>
+<LI><A NAME="tex2html502"
+ HREF="node40.html">Transformation Predicates</A>
+<LI><A NAME="tex2html503"
+ HREF="node41.html">Composition of Transformations</A>
+<LI><A NAME="tex2html504"
+ HREF="node42.html">Applying Transformations</A>
+</UL>
+</UL>
+</UL>
+<LI><A NAME="tex2html505"
+ HREF="node43.html">Windowing Substrate</A>
+<UL>
+<LI><A NAME="tex2html506"
+ HREF="node44.html">Overview of Window Facilities</A>
+<UL>
+<LI><A NAME="tex2html507"
+ HREF="node45.html">Introduction</A>
+<LI><A NAME="tex2html508"
+ HREF="node46.html">Properties of Sheets</A>
+<LI><A NAME="tex2html509"
+ HREF="node47.html">Sheet Protocols</A>
+<LI><A NAME="tex2html510"
+ HREF="node48.html">Sample Silica Program</A>
+</UL>
+<LI><A NAME="tex2html511"
+ HREF="node49.html">Properties of Sheets</A>
+<UL>
+<LI><A NAME="tex2html512"
+ HREF="node50.html">Relationships Between Sheets</A>
+<UL>
+<LI><A NAME="tex2html513"
+ HREF="node51.html">Sheet Relationship Functions</A>
+<LI><A NAME="tex2html514"
+ HREF="node52.html">Sheet Genealogy Classes</A>
+</UL>
+<LI><A NAME="tex2html515"
+ HREF="node53.html">Sheet Geometry</A>
+<UL>
+<LI><A NAME="tex2html516"
+ HREF="node54.html">Sheet Geometry Functions</A>
+<LI><A NAME="tex2html517"
+ HREF="node55.html">Sheet Geometry Classes</A>
+</UL>
+<LI><A NAME="tex2html518"
+ HREF="node56.html">Creating Sheets</A>
+</UL>
+<LI><A NAME="tex2html519"
+ HREF="node57.html">Sheet Protocols</A>
+<UL>
+<LI><A NAME="tex2html520"
+ HREF="node58.html">Input Protocol</A>
+<UL>
+<LI><A NAME="tex2html521"
+ HREF="node59.html">Input Protocol Functions</A>
+<LI><A NAME="tex2html522"
+ HREF="node60.html">Input Protocol Classes</A>
+</UL>
+<LI><A NAME="tex2html523"
+ HREF="node61.html">Standard Device Events</A>
+<LI><A NAME="tex2html524"
+ HREF="node62.html">Output Protocol</A>
+<UL>
+<LI><A NAME="tex2html525"
+ HREF="node63.html">Output Properties</A>
+<LI><A NAME="tex2html526"
+ HREF="node64.html">Output Protocol Functions</A>
+<LI><A NAME="tex2html527"
+ HREF="node65.html">Output Protocol Classes</A>
+<LI><A NAME="tex2html528"
+ HREF="node66.html">Associating a Medium with a Sheet</A>
+</UL>
+<LI><A NAME="tex2html529"
+ HREF="node67.html">Repaint Protocol</A>
+<UL>
+<LI><A NAME="tex2html530"
+ HREF="node68.html">Repaint Protocol Functions</A>
+<LI><A NAME="tex2html531"
+ HREF="node69.html">Repaint Protocol Classes</A>
+</UL>
+<LI><A NAME="tex2html532"
+ HREF="node70.html">Sheet Notification Protocol</A>
+<UL>
+<LI><A NAME="tex2html533"
+ HREF="node71.html">Relationship to Window System Change Notifications</A>
+<LI><A NAME="tex2html534"
+ HREF="node72.html">Geometry Notifications</A>
+</UL>
+</UL>
+<LI><A NAME="tex2html535"
+ HREF="node73.html">Ports, Grafts, and Mirrored Sheets</A>
+<UL>
+<LI><A NAME="tex2html536"
+ HREF="node74.html">Introduction</A>
+<LI><A NAME="tex2html537"
+ HREF="node75.html">Ports</A>
+<LI><A NAME="tex2html538"
+ HREF="node76.html">Grafts</A>
+<LI><A NAME="tex2html539"
+ HREF="node77.html">Mirrors and Mirrored Sheets</A>
+<UL>
+<LI><A NAME="tex2html540"
+ HREF="node78.html">Mirror Functions</A>
+<LI><A NAME="tex2html541"
+ HREF="node79.html">Internal Interfaces for Native Coordinates</A>
+</UL>
+<LI><A NAME="tex2html542"
+ HREF="node80.html">Standard Input Contract</A>
+<LI><A NAME="tex2html543"
+ HREF="node81.html">Standard Output</A>
+<LI><A NAME="tex2html544"
+ HREF="node82.html">Standard Windowing</A>
+</UL>
+<LI><A NAME="tex2html545"
+ HREF="node83.html">Non-standard Sheet Types</A>
+<UL>
+<LI><A NAME="tex2html546"
+ HREF="node84.html">Sheet Types and Contracts</A>
+<LI><A NAME="tex2html547"
+ HREF="node85.html">Dynamic Output Contract</A>
+<LI><A NAME="tex2html548"
+ HREF="node86.html">Providing a Display Medium Type</A>
+</UL>
+<LI><A NAME="tex2html549"
+ HREF="node87.html">Input Processing</A>
+<UL>
+<LI><A NAME="tex2html550"
+ HREF="node88.html">Input Contracts</A>
+</UL>
+<LI><A NAME="tex2html551"
+ HREF="node89.html">Other Input Facilities</A>
+<UL>
+<LI><A NAME="tex2html552"
+ HREF="node90.html">Standard Polling Interfaces</A>
+</UL>
+</UL>
+<LI><A NAME="tex2html553"
+ HREF="node91.html">Sheet and Medium Output Facilities</A>
+<UL>
+<LI><A NAME="tex2html554"
+ HREF="node92.html">Drawing Options</A>
+<UL>
+<LI><A NAME="tex2html555"
+ HREF="node93.html">Medium Components</A>
+<LI><A NAME="tex2html556"
+ HREF="node94.html">Drawing Option Binding Forms</A>
+<UL>
+<LI><A NAME="tex2html557"
+ HREF="node95.html">Transformation ``Convenience'' Forms</A>
+<LI><A NAME="tex2html558"
+ HREF="node96.html">Establishing Local Coordinate Systems</A>
+</UL>
+<LI><A NAME="tex2html559"
+ HREF="node97.html">Line Styles</A>
+<UL>
+<LI><A NAME="tex2html560"
+ HREF="node98.html">Line Style Protocol and Line Style Suboptions</A>
+<LI><A NAME="tex2html561"
+ HREF="node99.html">Contrasting Dash Patterns</A>
+</UL>
+</UL>
+<LI><A NAME="tex2html562"
+ HREF="node100.html">Text Styles</A>
+<UL>
+<LI><A NAME="tex2html563"
+ HREF="node101.html">Text Styles</A>
+<UL>
+<LI><A NAME="tex2html564"
+ HREF="node102.html">Text Style Protocol and Text Style Suboptions</A>
+</UL>
+<LI><A NAME="tex2html565"
+ HREF="node103.html">Text Style Binding Forms</A>
+<LI><A NAME="tex2html566"
+ HREF="node104.html">Controlling Text Style Mappings</A>
+</UL>
+<LI><A NAME="tex2html567"
+ HREF="node105.html">Graphics</A>
+<UL>
+<LI><A NAME="tex2html568"
+ HREF="node106.html">Definitions</A>
+<LI><A NAME="tex2html569"
+ HREF="node110.html">Drawing is Approximate</A>
+<LI><A NAME="tex2html570"
+ HREF="node111.html">Rendering Conventions for Geometric Shapes</A>
+<UL>
+<LI><A NAME="tex2html571"
+ HREF="node112.html">Permissible Alternatives During Rendering</A>
+</UL>
+<LI><A NAME="tex2html572"
+ HREF="node113.html">Drawing Functions</A>
+<LI><A NAME="tex2html573"
+ HREF="node114.html">Pixmaps</A>
+<LI><A NAME="tex2html574"
+ HREF="node115.html">Graphics Protocols</A>
+<UL>
+<LI><A NAME="tex2html575"
+ HREF="node116.html">General Behavior of Drawing Functions</A>
+<LI><A NAME="tex2html576"
+ HREF="node117.html">Medium-specific Drawing Functions</A>
+<LI><A NAME="tex2html577"
+ HREF="node118.html">Port-specific Drawing Functions</A>
+</UL>
+</UL>
+<LI><A NAME="tex2html578"
+ HREF="node119.html">Drawing in Color</A>
+<UL>
+<LI><A NAME="tex2html579"
+ HREF="node120.html">The :ink Drawing Option</A>
+<LI><A NAME="tex2html580"
+ HREF="node121.html">Designs</A>
+<LI><A NAME="tex2html581"
+ HREF="node122.html">Color</A>
+<UL>
+<LI><A NAME="tex2html582"
+ HREF="node123.html">Standard Color Names</A>
+<LI><A NAME="tex2html583"
+ HREF="node124.html">Contrasting Colors</A>
+</UL>
+<LI><A NAME="tex2html584"
+ HREF="node125.html">Opacity</A>
+<LI><A NAME="tex2html585"
+ HREF="node126.html">Color Blending</A>
+<LI><A NAME="tex2html586"
+ HREF="node127.html">Indirect Inks</A>
+<LI><A NAME="tex2html587"
+ HREF="node128.html">Flipping Ink</A>
+<LI><A NAME="tex2html588"
+ HREF="node129.html">Examples of Simple Drawing Effects</A>
+</UL>
+<LI><A NAME="tex2html589"
+ HREF="node134.html">Patterned Designs</A>
+<UL>
+<LI><A NAME="tex2html590"
+ HREF="node135.html">The Compositing Protocol</A>
+<LI><A NAME="tex2html591"
+ HREF="node136.html">Patterns and Stencils</A>
+<LI><A NAME="tex2html592"
+ HREF="node137.html">Tiling</A>
+<LI><A NAME="tex2html593"
+ HREF="node138.html">Regions as Designs</A>
+<LI><A NAME="tex2html594"
+ HREF="node139.html">Arbitrary Designs</A>
+<LI><A NAME="tex2html595"
+ HREF="node140.html">Examples of More Complex Drawing Effects</A>
+<LI><A NAME="tex2html596"
+ HREF="node145.html">Design Protocol</A>
+</UL>
+</UL>
+<LI><A NAME="tex2html597"
+ HREF="node146.html">Extended Stream Output Facilities</A>
+<UL>
+<LI><A NAME="tex2html598"
+ HREF="node147.html">Extended Stream Output</A>
+<UL>
+<LI><A NAME="tex2html599"
+ HREF="node148.html">Basic Output Streams</A>
+<LI><A NAME="tex2html600"
+ HREF="node149.html">Extended Output Streams</A>
+<LI><A NAME="tex2html601"
+ HREF="node150.html">The Text Cursor</A>
+<UL>
+<LI><A NAME="tex2html602"
+ HREF="node151.html">Text Cursor Protocol</A>
+<LI><A NAME="tex2html603"
+ HREF="node152.html">Stream Text Cursor Protocol</A>
+</UL>
+<LI><A NAME="tex2html604"
+ HREF="node153.html">Text Protocol</A>
+<UL>
+<LI><A NAME="tex2html605"
+ HREF="node154.html">Mixing Text and Graphics</A>
+<LI><A NAME="tex2html606"
+ HREF="node155.html">Wrapping of Text</A>
+</UL>
+<LI><A NAME="tex2html607"
+ HREF="node156.html">Attracting the User's Attention</A>
+<LI><A NAME="tex2html608"
+ HREF="node157.html">Buffering of Output</A>
+</UL>
+<LI><A NAME="tex2html609"
+ HREF="node158.html">Output Recording</A>
+<UL>
+<LI><A NAME="tex2html610"
+ HREF="node159.html">Output Records</A>
+<UL>
+<LI><A NAME="tex2html611"
+ HREF="node160.html">The Basic Output Record Protocol</A>
+<LI><A NAME="tex2html612"
+ HREF="node161.html">The Output Record ``Database'' Protocol</A>
+<LI><A NAME="tex2html613"
+ HREF="node162.html">Output Record Change Notification Protocol</A>
+</UL>
+<LI><A NAME="tex2html614"
+ HREF="node163.html">Types of Output Records</A>
+<UL>
+<LI><A NAME="tex2html615"
+ HREF="node164.html">Standard Output Record Classes</A>
+<LI><A NAME="tex2html616"
+ HREF="node165.html">Graphics Displayed Output Records</A>
+<LI><A NAME="tex2html617"
+ HREF="node166.html">Text Displayed Output Record</A>
+<LI><A NAME="tex2html618"
+ HREF="node167.html">Top-Level Output Records</A>
+</UL>
+<LI><A NAME="tex2html619"
+ HREF="node168.html">Output Recording Streams</A>
+<UL>
+<LI><A NAME="tex2html620"
+ HREF="node169.html">The Output Recording Stream Protocol</A>
+<LI><A NAME="tex2html621"
+ HREF="node170.html">Graphics Output Recording</A>
+<LI><A NAME="tex2html622"
+ HREF="node171.html">Text Output Recording</A>
+<LI><A NAME="tex2html623"
+ HREF="node172.html">Output Recording Utilities</A>
+</UL>
+</UL>
+<LI><A NAME="tex2html624"
+ HREF="node173.html">Table Formatting</A>
+<UL>
+<LI><A NAME="tex2html625"
+ HREF="node174.html">Overview of Table Formatting Facilities</A>
+<LI><A NAME="tex2html626"
+ HREF="node175.html">Table Formatting Functions</A>
+<LI><A NAME="tex2html627"
+ HREF="node176.html">The Table and Item List Formatting Protocols</A>
+<UL>
+<LI><A NAME="tex2html628"
+ HREF="node177.html">Table Formatting Protocol</A>
+<LI><A NAME="tex2html629"
+ HREF="node178.html">Row and Column Formatting Protocol</A>
+<LI><A NAME="tex2html630"
+ HREF="node179.html">Cell Formatting Protocol</A>
+<LI><A NAME="tex2html631"
+ HREF="node180.html">Item List Formatting Protocol</A>
+</UL>
+</UL>
+<LI><A NAME="tex2html632"
+ HREF="node181.html">Graph Formatting</A>
+<UL>
+<LI><A NAME="tex2html633"
+ HREF="node182.html">Graph Formatting Functions</A>
+<LI><A NAME="tex2html634"
+ HREF="node183.html">The Graph Formatting Protocols</A>
+</UL>
+<LI><A NAME="tex2html635"
+ HREF="node184.html">Bordered Output</A>
+<LI><A NAME="tex2html636"
+ HREF="node185.html">Text Formatting</A>
+<UL>
+<LI><A NAME="tex2html637"
+ HREF="node186.html">Textual List Formatting</A>
+<LI><A NAME="tex2html638"
+ HREF="node187.html">Indented Output</A>
+<LI><A NAME="tex2html639"
+ HREF="node188.html">Filled Output</A>
+</UL>
+<LI><A NAME="tex2html640"
+ HREF="node189.html">Incremental Redisplay</A>
+<UL>
+<LI><A NAME="tex2html641"
+ HREF="node190.html">Examples of Incremental Redisplay</A>
+<LI><A NAME="tex2html642"
+ HREF="node191.html">Standard Programmer Interface</A>
+<LI><A NAME="tex2html643"
+ HREF="node192.html">Incremental Redisplay Protocol</A>
+<LI><A NAME="tex2html644"
+ HREF="node193.html">Incremental Redisplay Stream Protocol</A>
+<LI><A NAME="tex2html645"
+ HREF="node194.html">Random Comments</A>
+</UL>
+</UL>
+<LI><A NAME="tex2html646"
+ HREF="node195.html">Extended Stream Input Facilities</A>
+<UL>
+<LI><A NAME="tex2html647"
+ HREF="node196.html">Extended Stream Input</A>
+<UL>
+<LI><A NAME="tex2html648"
+ HREF="node197.html">Basic Input Streams</A>
+<LI><A NAME="tex2html649"
+ HREF="node198.html">Extended Input Streams</A>
+<UL>
+<LI><A NAME="tex2html650"
+ HREF="node199.html">The Extended Input Stream Protocol</A>
+</UL>
+<LI><A NAME="tex2html651"
+ HREF="node200.html">Gestures and Gesture Names</A>
+<UL>
+<LI><A NAME="tex2html652"
+ HREF="node201.html">Standard Gesture Names</A>
+</UL>
+<LI><A NAME="tex2html653"
+ HREF="node202.html">The Pointer Protocol</A>
+<LI><A NAME="tex2html654"
+ HREF="node203.html">Pointer Tracking</A>
+<LI><A NAME="tex2html655"
+ HREF="node204.html">Gesture Preprocessing</A>
+</UL>
+<LI><A NAME="tex2html656"
+ HREF="node205.html">Presentation Types</A>
+<UL>
+<LI><A NAME="tex2html657"
+ HREF="node206.html">Presentations</A>
+<UL>
+<LI><A NAME="tex2html658"
+ HREF="node207.html">The Presentation Protocol</A>
+</UL>
+<LI><A NAME="tex2html659"
+ HREF="node208.html">Presentation Types</A>
+<UL>
+<LI><A NAME="tex2html660"
+ HREF="node209.html">Defining Presentation Types</A>
+<LI><A NAME="tex2html661"
+ HREF="node210.html">Presentation Type Abbreviations</A>
+<LI><A NAME="tex2html662"
+ HREF="node211.html">Presentation Methods</A>
+<LI><A NAME="tex2html663"
+ HREF="node212.html">Presentation Type Functions</A>
+</UL>
+<LI><A NAME="tex2html664"
+ HREF="node213.html">Typed Output</A>
+<LI><A NAME="tex2html665"
+ HREF="node214.html">Typed Input</A>
+<LI><A NAME="tex2html666"
+ HREF="node215.html">Views</A>
+<LI><A NAME="tex2html667"
+ HREF="node216.html">Presentation Translators</A>
+<UL>
+<LI><A NAME="tex2html668"
+ HREF="node217.html">Defining Presentation Translators</A>
+<LI><A NAME="tex2html669"
+ HREF="node218.html">Presentation Translator Functions</A>
+<LI><A NAME="tex2html670"
+ HREF="node219.html">Finding Applicable Presentations</A>
+<LI><A NAME="tex2html671"
+ HREF="node220.html">Translator Applicability</A>
+</UL>
+<LI><A NAME="tex2html672"
+ HREF="node221.html">Standard Presentation Types</A>
+<UL>
+<LI><A NAME="tex2html673"
+ HREF="node222.html">Basic Presentation Types</A>
+<LI><A NAME="tex2html674"
+ HREF="node223.html">Numeric Presentation Types</A>
+<LI><A NAME="tex2html675"
+ HREF="node224.html">Character and String Presentation Types</A>
+<LI><A NAME="tex2html676"
+ HREF="node225.html">Pathname Presentation Type</A>
+<LI><A NAME="tex2html677"
+ HREF="node226.html">``One-of'' and ``Some-of'' Presentation Types</A>
+<LI><A NAME="tex2html678"
+ HREF="node227.html">Sequence Presentation Types</A>
+<LI><A NAME="tex2html679"
+ HREF="node228.html">``Meta'' Presentation Types</A>
+<LI><A NAME="tex2html680"
+ HREF="node229.html">Compound Presentation Types</A>
+<LI><A NAME="tex2html681"
+ HREF="node230.html">Lisp Expression Presentation Types</A>
+</UL>
+</UL>
+<LI><A NAME="tex2html682"
+ HREF="node231.html">Input Editing and Completion Facilities</A>
+<UL>
+<LI><A NAME="tex2html683"
+ HREF="node232.html">The Input Editor</A>
+<UL>
+<LI><A NAME="tex2html684"
+ HREF="node233.html">The Input Editing Stream Protocol</A>
+<LI><A NAME="tex2html685"
+ HREF="node234.html">Suggestions for Input Editing Commands</A>
+</UL>
+<LI><A NAME="tex2html686"
+ HREF="node235.html">Activation and Blip Gestures</A>
+<LI><A NAME="tex2html687"
+ HREF="node236.html">Signalling Errors Inside present Methods</A>
+<LI><A NAME="tex2html688"
+ HREF="node237.html">Reading and Writing of Tokens</A>
+<LI><A NAME="tex2html689"
+ HREF="node238.html">Completion</A>
+</UL>
+<LI><A NAME="tex2html690"
+ HREF="node239.html">Menu Facilities</A>
+<LI><A NAME="tex2html691"
+ HREF="node240.html">Dialog Facilities</A>
+</UL>
+<LI><A NAME="tex2html692"
+ HREF="node241.html">Building Applications</A>
+<UL>
+<LI><A NAME="tex2html693"
+ HREF="node242.html">Command Processing</A>
+<UL>
+<LI><A NAME="tex2html694"
+ HREF="node243.html">Commands</A>
+<LI><A NAME="tex2html695"
+ HREF="node244.html">Command Tables</A>
+<LI><A NAME="tex2html696"
+ HREF="node245.html">Command Menus</A>
+<LI><A NAME="tex2html697"
+ HREF="node246.html">Keystroke Accelerators</A>
+<LI><A NAME="tex2html698"
+ HREF="node247.html">Presentation Translator Utilities</A>
+<LI><A NAME="tex2html699"
+ HREF="node248.html">The Command Processor</A>
+<UL>
+<LI><A NAME="tex2html700"
+ HREF="node249.html">Command Presentation Types</A>
+</UL>
+</UL>
+<LI><A NAME="tex2html701"
+ HREF="node250.html">Application Frames</A>
+<UL>
+<LI><A NAME="tex2html702"
+ HREF="node251.html">Overview</A>
+<LI><A NAME="tex2html703"
+ HREF="node252.html">Defining and Creating Application Frames</A>
+<LI><A NAME="tex2html704"
+ HREF="node253.html">The Application Frame Protocol</A>
+<UL>
+<LI><A NAME="tex2html705"
+ HREF="node254.html">Interface with Presentation Types</A>
+<LI><A NAME="tex2html706"
+ HREF="node255.html">The Generic Command Loop</A>
+</UL>
+<LI><A NAME="tex2html707"
+ HREF="node256.html">Window Viewport Management</A>
+<LI><A NAME="tex2html708"
+ HREF="node257.html">Frame Managers</A>
+<UL>
+<LI><A NAME="tex2html709"
+ HREF="node258.html">Finding Frame Managers</A>
+<LI><A NAME="tex2html710"
+ HREF="node259.html">Frame Manager Operations</A>
+<LI><A NAME="tex2html711"
+ HREF="node260.html">Frame Manager Settings</A>
+</UL>
+<LI><A NAME="tex2html712"
+ HREF="node261.html">Examples of Applications</A>
+</UL>
+<LI><A NAME="tex2html713"
+ HREF="node262.html">Panes</A>
+<UL>
+<LI><A NAME="tex2html714"
+ HREF="node263.html">Abstract Panes</A>
+<LI><A NAME="tex2html715"
+ HREF="node264.html">Pane Construction and Uses</A>
+<UL>
+<LI><A NAME="tex2html716"
+ HREF="node265.html">Pane Initialization Options</A>
+<LI><A NAME="tex2html717"
+ HREF="node266.html">Pane Queries</A>
+</UL>
+<LI><A NAME="tex2html718"
+ HREF="node267.html">Layout and Layout Panes</A>
+<UL>
+<LI><A NAME="tex2html719"
+ HREF="node268.html">The Basics of the Layout Protocol</A>
+<LI><A NAME="tex2html720"
+ HREF="node269.html">Layout Panes</A>
+<LI><A NAME="tex2html721"
+ HREF="node270.html">Layout Pane Options</A>
+</UL>
+<LI><A NAME="tex2html722"
+ HREF="node271.html">Application Panes</A>
+<UL>
+<LI><A NAME="tex2html723"
+ HREF="node272.html">Making Application Panes</A>
+<LI><A NAME="tex2html724"
+ HREF="node273.html">CLIM Stream Pane Options</A>
+</UL>
+<LI><A NAME="tex2html725"
+ HREF="node274.html">Pane Options</A>
+<LI><A NAME="tex2html726"
+ HREF="node275.html">Abstract Panes</A>
+</UL>
+<LI><A NAME="tex2html727"
+ HREF="node276.html">Gadget Panes</A>
+<UL>
+<LI><A NAME="tex2html728"
+ HREF="node277.html">Overview</A>
+<LI><A NAME="tex2html729"
+ HREF="node278.html">Interacting with Gadget Panes</A>
+<LI><A NAME="tex2html730"
+ HREF="node279.html">Abstract Gadgets</A>
+<UL>
+<LI><A NAME="tex2html731"
+ HREF="node280.html">Implementation Strategy</A>
+</UL>
+<LI><A NAME="tex2html732"
+ HREF="node281.html">Adaptive Gadget Panes</A>
+<UL>
+<LI><A NAME="tex2html733"
+ HREF="node282.html">Overview</A>
+<LI><A NAME="tex2html734"
+ HREF="node283.html">Predefined Gadgets</A>
+</UL>
+</UL>
+<LI><A NAME="tex2html735"
+ HREF="node284.html">Defining New Pane Types</A>
+<UL>
+<LI><A NAME="tex2html736"
+ HREF="node285.html">Defining Leaf Panes</A>
+<LI><A NAME="tex2html737"
+ HREF="node286.html">Defining Composite Panes</A>
+<UL>
+<LI><A NAME="tex2html738"
+ HREF="node287.html">Details of the Layout Protocol</A>
+</UL>
+</UL>
+</UL>
+<LI><A NAME="tex2html739"
+ HREF="node288.html">Appendices</A>
+<UL>
+<LI><A NAME="tex2html740"
+ HREF="node289.html">Glossary</A>
+<LI><A NAME="tex2html741"
+ HREF="node290.html">The CLIM-SYS Package</A>
+<UL>
+<LI><A NAME="tex2html742"
+ HREF="node291.html">Resources</A>
+<LI><A NAME="tex2html743"
+ HREF="node292.html">Multi-processing</A>
+<LI><A NAME="tex2html744"
+ HREF="node293.html">Locks</A>
+</UL>
+<LI><A NAME="tex2html745"
+ HREF="node294.html">Common Lisp Streams</A>
+<UL>
+<LI><A NAME="tex2html746"
+ HREF="node295.html">Stream Classes</A>
+<LI><A NAME="tex2html747"
+ HREF="node296.html">Basic Stream Functions</A>
+<LI><A NAME="tex2html748"
+ HREF="node297.html">Character Input</A>
+<LI><A NAME="tex2html749"
+ HREF="node298.html">Character Output</A>
+<LI><A NAME="tex2html750"
+ HREF="node299.html">Binary Streams</A>
+</UL>
+<LI><A NAME="tex2html751"
+ HREF="node300.html">Encapsulating Streams</A>
+<UL>
+<LI><A NAME="tex2html752"
+ HREF="node301.html">Encapsulating Stream Classes</A>
+<UL>
+<LI><A NAME="tex2html753"
+ HREF="node302.html">Encapsulating Stream Protocol</A>
+<LI><A NAME="tex2html754"
+ HREF="node303.html">The ``Delegation Problem''</A>
+</UL>
+</UL>
+<LI><A NAME="tex2html755"
+ HREF="node304.html">Changes from CLIM 1.0</A>
+</UL></UL>
+<!--End of Table of Contents-->
+<P>
+
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<FONT SIZE="+3"> <B> Acknowledgments</B></FONT>
+<P>
+ 
+<P>
+The process of designing and implementing CLIM and writing the CLIM
+specification has been a long and sometimes bumpy one.  The first thanks have
+to go to the people and organizations who allowed the people working on CLIM
+to continue to do so, despite the obstacles.  In particular, Mark Son-Bell of
+ILA; Bob Laddaga and Saiid Zarrabian at Symbolics (and before or with them,
+Ken Sinclair, Rick Karash, and Mark Graffam); and Jim Vietch and Hanoch Eiron
+of Franz, Inc.  have struggled with various and sometimes conflicting business
+interests through the whole process.
+
+<P>
+The attendees of the CLIM coalition meetings and those who contributed to CLIM
+along the way include all of those listed on the title page, but also include
+Bob Kerns, Chris Richardson, Paul Weineke and JonL White, and Kevin Males.
+Other contributors include Mike McMahon, Paul Robertson, John Hotchkiss, David
+Lowry, Mike Greenwald, Dave Schatsky, and Glenn Adams.
+
+<P>
+Sonya Keene, Ann Hathaway, and Ellen Golden all deserve credit for improving
+the quality of this specification (in part by authoring the original CLIM
+documentation), as does Mark Nahabedian.
+
+<P>
+Kent Pitman provided much useful advice on the mechanics of writing a
+specification, and this document has much improved because of that.
+
+<P>
+Last but not least are the people who have continued to use CLIM for the
+duration of this lengthy process.  The people at BBN (Bruce Roberts and his
+group) have been a continuing source of valuable information and suggestions.
+Also, Markus Fischer of Symbolics GmbH had to deal with more than his fair
+share of problems, the result of using CLIM in novel ways.
+
+<P>
+
+<P>
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html466"
+ HREF="node2.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/icons/next_motif.gif"></A> 
+<A NAME="tex2html464"
+ HREF="clim.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/icons/up_motif.gif"></A> 
+<A NAME="tex2html458"
+ HREF="clim.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/icons/previous_motif.gif"></A>   
+<BR>
+<B> Next:</B> <A NAME="tex2html467"
+ HREF="node2.html">Overview and Conventions</A>
+<B> Up:</B> <A NAME="tex2html465"
+ HREF="clim.html">Common Lisp Interface Manager</A>
+<B> Previous:</B> <A NAME="tex2html459"
+ HREF="clim.html">Common Lisp Interface Manager</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+<I>&</I>
+<BR><I>2001-06-12</I>
+</ADDRESS>
+</BODY>
+</HTML>

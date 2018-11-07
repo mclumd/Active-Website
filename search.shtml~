@@ -1,0 +1,39 @@
+
+<!--#include virtual="include.shtml"-->
+
+
+<table>
+<TR>
+  <TD ALIGN="LEFT" WIDTH="1200" BGCOLOR="#FFCC33"><B><FONT
+   COLOR="#000000" size="+1"> <u>Search in our pages</u></FONT></B></TD>
+</TR>
+
+</table>
+<br> 
+
+<!-- SiteSearch Google -->
+<FORM method=GET action="http://www.google.com/search">
+<TABLE bgcolor="#FFFFFF"><tr><td>
+<A HREF="http://www.google.com/">
+<IMG SRC="http://www.google.com/logos/Logo_40wht.gif" 
+border="0" ALT="Google"></A>
+</td>
+<td>
+<INPUT TYPE=text name=q size=31 maxlength=255 value="">
+<INPUT type=submit name=btnG VALUE="Google Search">
+<font size=-1>
+<input type=hidden name=domains value="http://www.cs.umd.edu/projects/active"><br><input
+type=radio name=sitesearch value=""> WWW <input type=radio
+name=sitesearch value="http://www.cs.umd.edu/projects/active" checked> http://www.cs.umd.edu/projects/active
+<br>
+</font>
+</td></tr></TABLE>
+</FORM>
+<!-- SiteSearch Google -->
+
+
+<!-- ======= END MAIN CONTENT  ============================ -->
+</tr></table>
+
+</body>
+</html>

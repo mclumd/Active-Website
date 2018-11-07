@@ -1,0 +1,154 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 99.1 release (March 30, 1999)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Associating a Medium with a Sheet</TITLE>
+<META NAME="description" CONTENT="Associating a Medium with a Sheet">
+<META NAME="keywords" CONTENT="clim">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v99.1 release">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="clim.css">
+
+<LINK REL="previous" HREF="node65.html">
+<LINK REL="up" HREF="node62.html">
+<LINK REL="next" HREF="node67.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html1669"
+ HREF="node67.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/icons/next_motif.gif"></A> 
+<A NAME="tex2html1665"
+ HREF="node62.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/icons/up_motif.gif"></A> 
+<A NAME="tex2html1661"
+ HREF="node65.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/icons/previous_motif.gif"></A> 
+<A NAME="tex2html1667"
+ HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/icons/contents_motif.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html1670"
+ HREF="node67.html">Repaint Protocol</A>
+<B> Up:</B> <A NAME="tex2html1666"
+ HREF="node62.html">Output Protocol</A>
+<B> Previous:</B> <A NAME="tex2html1662"
+ HREF="node65.html">Output Protocol Classes</A>
+ &nbsp <B>  <A NAME="tex2html1668"
+ HREF="node1.html">Contents</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H2><A NAME="SECTION04334000000000000000">
+Associating a Medium with a Sheet</A>
+</H2>
+
+<P>
+Before a sheet may be used for output, it must be associated with a medium.
+Some sheets are permanently associated with media for output efficiency; for
+example, CLIM window stream sheets have a medium that is permanently allocated
+to the window.
+
+<P>
+However, many kinds of sheets only perform output infrequently, and therefore do
+not need to be associated with a medium except when output is actually required.
+Sheets without a permanently associated medium can be much more lightweight than
+they otherwise would be.  For example, in a program that creates a sheet for the
+purpose of displaying a border for another sheet, the border sheet receives
+output only when the window's shape is changed.
+
+<P>
+To associate a sheet with a medium, the macro with-sheet-medium is used.
+
+<P>
+with-sheet-medium (medium sheet) <TT> &amp;body </TT>body
+
+<P>
+Within the body, the variable <I> medium</I> is bound to the sheet's medium.  If
+the sheet does not have a medium permanently allocated, one will be allocated,
+associated with the sheet for the duration of the body, and deallocated as the
+when the body has been exited.  The values of the last form of the body are
+returned as the values of with-sheet-medium.
+
+<P>
+The <I> medium</I> argument is not evaluated, and must be a symbol that is bound
+to a medium.  <I> body</I> may have zero or more declarations as its first forms.
+
+<P>
+with-sheet-medium-bound (sheet medium) <TT> &amp;body </TT>body
+
+<P>
+with-sheet-medium-bound is used to associate the specific medium
+<I> medium</I> with the sheet <I> sheet</I> for the duration of the body <I> body</I>.
+Typically, a single medium will be allocated an passed to several different
+sheets that can use the same medium.
+
+<P>
+If the sheet already has a medium allocated to it, the new medium will not be
+given to the sheet.  If the value of <I> medium</I> is nil,
+with-sheet-medium-bound is exactly equivalent to with-sheet-medium.
+The values of the last form of the body are returned as the values of
+with-sheet-medium-bound.
+
+<P>
+ 
+<I> body</I> may have zero or more declarations as its first forms.
+
+<P>
+sheet-medium sheet
+
+<P>
+Returns the medium associated with the <I> sheet</I> <I> sheet</I>.  If <I> sheet</I>
+does not have a medium allocated to it, sheet-medium returns nil.
+
+<P>
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html1669"
+ HREF="node67.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/icons/next_motif.gif"></A> 
+<A NAME="tex2html1665"
+ HREF="node62.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/icons/up_motif.gif"></A> 
+<A NAME="tex2html1661"
+ HREF="node65.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/icons/previous_motif.gif"></A> 
+<A NAME="tex2html1667"
+ HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/icons/contents_motif.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html1670"
+ HREF="node67.html">Repaint Protocol</A>
+<B> Up:</B> <A NAME="tex2html1666"
+ HREF="node62.html">Output Protocol</A>
+<B> Previous:</B> <A NAME="tex2html1662"
+ HREF="node65.html">Output Protocol Classes</A>
+ &nbsp <B>  <A NAME="tex2html1668"
+ HREF="node1.html">Contents</A></B> 
+<!--End of Navigation Panel-->
+<ADDRESS>
+<I>&</I>
+<BR><I>2001-06-12</I>
+</ADDRESS>
+</BODY>
+</HTML>

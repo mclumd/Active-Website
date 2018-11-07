@@ -1,0 +1,200 @@
+step(foo)
+step(1)
+add("now(1)", node(12, [now(1)], fc, [], [], 1, 1, [], [], [if]))
+add("contra(X1, X2, X3) & depends_on_default(X1) -f-> depends_on_default(X2) | conclusion(reinstate(X2))", node(11, [not(contra(X5, X4, X6)), not(depends_on_default(X5)), depends_on_default(X4), conclusion(reinstate(X4))], fc, [], [], 1, 1, [], [], [fif]))
+add("contra(X7, X8, X9) & depends_on_default(X8) -f-> depends_on_default(X7) | conclusion(reinstate(X7))", node(10, [not(contra(X10, X11, X12)), not(depends_on_default(X11)), depends_on_default(X10), conclusion(reinstate(X10))], fc, [], [], 1, 1, [], [], [fif]))
+add("eval_bound(\+(deriv_is_defaulty(X13)), [X13]) & deriv_fringe(X14, X13) -f-> conclusion(not(depends_on_default(X14)))", node(9, [not(eval_bound(\+(deriv_is_defaulty(X16)), [X16])), not(deriv_fringe(X15, X16)), conclusion(not(depends_on_default(X15)))], fc, [], [], 1, 1, [], [], [fif]))
+add("eval_bound(deriv_is_defaulty(X17), [X17]) & deriv_fringe(X18, X17) -f-> conclusion(depends_on_default(X18))", node(8, [not(eval_bound(deriv_is_defaulty(X20), [X20])), not(deriv_fringe(X19, X20)), conclusion(depends_on_default(X19))], fc, [], [], 1, 1, [], [], [fif]))
+add("contra(X21, X22, X23) & eval_bound(name_to_deriv_fringe(X22, X24), [X22]) -f-> conclusion(deriv_fringe(X22, X24))", node(7, [not(contra(X27, X25, X28)), not(eval_bound(name_to_deriv_fringe(X25, X26), [X25])), conclusion(deriv_fringe(X25, X26))], fc, [], [], 1, 1, [], [], [fif]))
+add("contra(X29, X30, X31) & eval_bound(name_to_deriv_fringe(X29, X32), [X29]) -f-> conclusion(deriv_fringe(X29, X32))", node(6, [not(contra(X33, X35, X36)), not(eval_bound(name_to_deriv_fringe(X33, X34), [X33])), conclusion(deriv_fringe(X33, X34))], fc, [], [], 1, 1, [], [], [fif]))
+add("eval_bound(distrust_less_preferred(X37), [X37]) & applied_default(X37, X38) -f-> conclusion(X38)", node(5, [not(eval_bound(distrust_less_preferred(X40), [X40])), not(applied_default(X40, X39)), conclusion(X39)], fc, [], [], 1, 1, [], [], [fif]))
+add("eval_bound(verify_applicability(X41), [X41, X42]) & defcon(X41, X42) -f-> conclusion(applied_default(X41, X42))", node(4, [not(eval_bound(verify_applicability(X43), [X43, X44])), not(defcon(X43, X44)), conclusion(applied_default(X43, X44))], fc, [], [], 1, 1, [], [], [fif]))
+add("prefer(pnf(X45), bf(X45))", node(3, [prefer(pnf(X46), bf(X46))], fc, [], [], 1, 1, [], [], [if]))
+add("default(pnf(X47))", node(2, [default(pnf(X48))], fc, [], [], 1, 1, [], [], [if]))
+add("penguin(X49) -f-> conclusion(defcon(pnf(X49), not(flies(X49))))", node(pnf(X50), [not(penguin(X50)), conclusion(defcon(pnf(X50), not(flies(X50))))], fc, [], [], 1, 1, [], [], [fif]))
+add("default(bf(X51))", node(1, [default(bf(X52))], fc, [], [], 1, 1, [], [], [if]))
+add("bird(X53) -f-> conclusion(defcon(bf(X53), flies(X53)))", node(bf(X54), [not(bird(X54)), conclusion(defcon(bf(X54), flies(X54)))], fc, [], [], 1, 1, [], [], [fif]))
+add("penguin(X55) ---> bird(X55)", node(0, [not(penguin(X56)), bird(X56)], fc, [], [], 1, 1, [], [], [if]))
+end
+
+step(2)
+add("now(2)", node(13, [now(2)], fc, [], [], 2, 1, [], [], [if]))
+delete("now(1)", node(12, [now(1)], fc, [], [], 1, 1, [], [], [if]))
+end
+
+step(3)
+add("now(3)", node(14, [now(3)], fc, [], [], 3, 1, [], [], [if]))
+delete("now(2)", node(13, [now(2)], fc, [], [], 2, 1, [], [], [if]))
+end
+
+step(4)
+add("now(4)", node(16, [now(4)], fc, [], [], 4, 1, [], [], [if]))
+add("bird(tweety)", node(15, [bird(tweety)], fc, [], [], 4, 1, [], [], [if]))
+delete("now(3)", node(14, [now(3)], fc, [], [], 3, 1, [], [], [if]))
+end
+
+step(5)
+add("now(5)", node(18, [now(5)], fc, [], [], 5, 1, [], [], [if]))
+add("defcon(bf(tweety), flies(tweety))", node(17, [defcon(bf(tweety), flies(tweety))], fc, [], [], 5, 1, [[bf(X57), 15]], [], [if]))
+delete("now(4)", node(16, [now(4)], fc, [], [], 4, 1, [], [], [if]))
+end
+
+step(6)
+add("now(6)", node(20, [now(6)], fc, [], [], 6, 1, [], [], [if]))
+add("applied_default(bf(tweety), flies(tweety))", node(19, [applied_default(bf(tweety), flies(tweety))], fc, [], [], 6, 1, [[4, 17]], [], [if]))
+delete("now(5)", node(18, [now(5)], fc, [], [], 5, 1, [], [], [if]))
+end
+
+step(7)
+add("now(7)", node(22, [now(7)], fc, [], [], 7, 1, [], [], [if]))
+add("flies(tweety)", node(21, [flies(tweety)], fc, [], [], 7, 1, [[5, 19]], [], [if]))
+delete("now(6)", node(20, [now(6)], fc, [], [], 6, 1, [], [], [if]))
+end
+
+step(8)
+add("now(8)", node(23, [now(8)], fc, [], [], 8, 1, [], [], [if]))
+delete("now(7)", node(22, [now(7)], fc, [], [], 7, 1, [], [], [if]))
+end
+
+step(9)
+add("now(9)", node(24, [now(9)], fc, [], [], 9, 1, [], [], [if]))
+delete("now(8)", node(23, [now(8)], fc, [], [], 8, 1, [], [], [if]))
+end
+
+step(10)
+add("now(10)", node(25, [now(10)], fc, [], [], 10, 1, [], [], [if]))
+delete("now(9)", node(24, [now(9)], fc, [], [], 9, 1, [], [], [if]))
+end
+
+step(11)
+add("now(11)", node(27, [now(11)], fc, [], [], 11, 1, [], [], [if]))
+add("penguin(tweety)", node(26, [penguin(tweety)], fc, [], [], 11, 1, [], [], [if]))
+delete("now(10)", node(25, [now(10)], fc, [], [], 10, 1, [], [], [if]))
+end
+
+step(12)
+add("now(12)", node(30, [now(12)], fc, [], [], 12, 1, [], [], [if]))
+add("defcon(pnf(tweety), not(flies(tweety)))", node(29, [defcon(pnf(tweety), not(flies(tweety)))], fc, [], [], 12, 1, [[pnf(X58), 26]], [], [if]))
+delete("now(11)", node(27, [now(11)], fc, [], [], 11, 1, [], [], [if]))
+end
+
+step(13)
+add("now(13)", node(32, [now(13)], fc, [], [], 13, 1, [], [], [if]))
+add("applied_default(pnf(tweety), not(flies(tweety)))", node(31, [applied_default(pnf(tweety), not(flies(tweety)))], fc, [], [], 13, 1, [[4, 29]], [], [if]))
+delete("now(12)", node(30, [now(12)], fc, [], [], 12, 1, [], [], [if]))
+end
+
+step(14)
+add("now(14)", node(36, [now(14)], fc, [], [], 14, 1, [], [], [if]))
+add("not(flies(tweety))", node(35, [not(flies(tweety))], fc, [], [], 14, 1, [[5, 31]], [], [if]))
+add("distrusted(19, 13)", node(34, [distrusted(19, 13)], fc, [], [], 14, 1, [], [], [if]))
+add("distrusted(21, 13)", node(33, [distrusted(21, 13)], fc, [], [], 14, 1, [[19, 19]], [], [if]))
+delete("now(13)", node(32, [now(13)], fc, [], [], 13, 1, [], [], [if]))
+end
+
+step(15)
+add("now(15)", node(37, [now(15)], fc, [], [], 15, 1, [], [], [if]))
+delete("now(14)", node(36, [now(14)], fc, [], [], 14, 1, [], [], [if]))
+end
+
+step(16)
+add("now(16)", node(38, [now(16)], fc, [], [], 16, 1, [], [], [if]))
+delete("now(15)", node(37, [now(15)], fc, [], [], 15, 1, [], [], [if]))
+end
+
+step(17)
+add("now(17)", node(39, [now(17)], fc, [], [], 17, 1, [], [], [if]))
+delete("now(16)", node(38, [now(16)], fc, [], [], 16, 1, [], [], [if]))
+end
+
+step(18)
+add("flies(tweety)", new_node(40, [flies(tweety)], fc, [], [], 0, 1, [], [], [if]))
+add("now(18)", node(41, [now(18)], fc, [], [], 18, 1, [], [], [if]))
+delete("now(17)", node(39, [now(17)], fc, [], [], 17, 1, [], [], [if]))
+end
+
+step(19)
+add("now(19)", node(45, [now(19)], fc, [], [], 19, 1, [], [], [if]))
+add("contra(40, 35, 18)", node(42, [contra(40, 35, 18)], fc, [], [], 19, 1, [[40, 35]], [], [if]))
+add("distrusted(40, 18)", node(44, [distrusted(40, 18)], fc, [], [], 19, 1, [[35]], [], [if]))
+add("distrusted(35, 18)", node(43, [distrusted(35, 18)], fc, [], [], 19, 1, [[40]], [], [if]))
+delete("now(18)", node(41, [now(18)], fc, [], [], 18, 1, [], [], [if]))
+end
+
+step(20)
+add("now(20)", node(48, [now(20)], fc, [], [], 20, 1, [], [], [if]))
+add("deriv_fringe(35, [[4, 5, 26, pnf(X59)]])", node(47, [deriv_fringe(35, [[4, 5, 26, pnf(X60)]])], fc, [], [], 20, 1, [[7, 42]], [], [if]))
+add("deriv_fringe(40, [[40]])", node(46, [deriv_fringe(40, [[40]])], fc, [], [], 20, 1, [[6, 42]], [], [if]))
+delete("now(19)", node(45, [now(19)], fc, [], [], 19, 1, [], [], [if]))
+end
+
+step(21)
+add("now(21)", node(51, [now(21)], fc, [], [], 21, 1, [], [], [if]))
+add("depends_on_default(35)", node(50, [depends_on_default(35)], fc, [], [], 21, 1, [[8, 47]], [], [if]))
+add("not(depends_on_default(40))", node(49, [not(depends_on_default(40))], fc, [], [], 21, 1, [[9, 46]], [], [if]))
+delete("now(20)", node(48, [now(20)], fc, [], [], 20, 1, [], [], [if]))
+end
+
+step(22)
+add("now(22)", node(54, [now(22)], fc, [], [], 22, 1, [], [], [if]))
+add("flies(tweety)", node(52, [flies(tweety)], fc, [], [], 22, 1, [], [], [if]))
+delete("now(21)", node(51, [now(21)], fc, [], [], 21, 1, [], [], [if]))
+end
+
+step(23)
+add("now(23)", node(55, [now(23)], fc, [], [], 23, 1, [], [], [if]))
+delete("now(22)", node(54, [now(22)], fc, [], [], 22, 1, [], [], [if]))
+end
+
+step(24)
+add("now(24)", node(56, [now(24)], fc, [], [], 24, 1, [], [], [if]))
+delete("now(23)", node(55, [now(23)], fc, [], [], 23, 1, [], [], [if]))
+end
+
+step(25)
+add("not(flies(tweety))", new_node(57, [not(flies(tweety))], fc, [], [], 0, 1, [], [], [if]))
+add("now(25)", node(58, [now(25)], fc, [], [], 25, 1, [], [], [if]))
+delete("now(24)", node(56, [now(24)], fc, [], [], 24, 1, [], [], [if]))
+end
+
+step(26)
+add("now(26)", node(62, [now(26)], fc, [], [], 26, 1, [], [], [if]))
+add("contra(57, 52, 25)", node(59, [contra(57, 52, 25)], fc, [], [], 26, 1, [[57, 52]], [], [if]))
+add("distrusted(57, 25)", node(61, [distrusted(57, 25)], fc, [], [], 26, 1, [[52]], [], [if]))
+add("distrusted(52, 25)", node(60, [distrusted(52, 25)], fc, [], [], 26, 1, [[57]], [], [if]))
+delete("now(25)", node(58, [now(25)], fc, [], [], 25, 1, [], [], [if]))
+end
+
+step(27)
+add("now(27)", node(65, [now(27)], fc, [], [], 27, 1, [], [], [if]))
+add("deriv_fringe(52, [[52]])", node(64, [deriv_fringe(52, [[52]])], fc, [], [], 27, 1, [[7, 59]], [], [if]))
+add("deriv_fringe(57, [[57]])", node(63, [deriv_fringe(57, [[57]])], fc, [], [], 27, 1, [[6, 59]], [], [if]))
+delete("now(26)", node(62, [now(26)], fc, [], [], 26, 1, [], [], [if]))
+end
+
+step(28)
+add("now(28)", node(68, [now(28)], fc, [], [], 28, 1, [], [], [if]))
+add("not(depends_on_default(52))", node(67, [not(depends_on_default(52))], fc, [], [], 28, 1, [[9, 64]], [], [if]))
+add("not(depends_on_default(57))", node(66, [not(depends_on_default(57))], fc, [], [], 28, 1, [[9, 63]], [], [if]))
+delete("now(27)", node(65, [now(27)], fc, [], [], 27, 1, [], [], [if]))
+end
+
+step(29)
+add("now(29)", node(69, [now(29)], fc, [], [], 29, 1, [], [], [if]))
+delete("now(28)", node(68, [now(28)], fc, [], [], 28, 1, [], [], [if]))
+end
+
+step(30)
+add("now(30)", node(70, [now(30)], fc, [], [], 30, 1, [], [], [if]))
+delete("now(29)", node(69, [now(29)], fc, [], [], 29, 1, [], [], [if]))
+end
+
+step(31)
+add("now(31)", node(71, [now(31)], fc, [], [], 31, 1, [], [], [if]))
+delete("now(30)", node(70, [now(30)], fc, [], [], 30, 1, [], [], [if]))
+end
+
+step(32)
+add("now(32)", node(72, [now(32)], fc, [], [], 32, 1, [], [], [if]))
+delete("now(31)", node(71, [now(31)], fc, [], [], 31, 1, [], [], [if]))
+end

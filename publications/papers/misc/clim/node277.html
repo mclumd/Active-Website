@@ -1,0 +1,129 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 99.1 release (March 30, 1999)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Overview</TITLE>
+<META NAME="description" CONTENT="Overview">
+<META NAME="keywords" CONTENT="clim">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v99.1 release">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="clim.css">
+
+<LINK REL="next" HREF="node278.html">
+<LINK REL="previous" HREF="node276.html">
+<LINK REL="up" HREF="node276.html">
+<LINK REL="next" HREF="node278.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html4533"
+ HREF="node278.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/icons/next_motif.gif"></A> 
+<A NAME="tex2html4529"
+ HREF="node276.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/icons/up_motif.gif"></A> 
+<A NAME="tex2html4523"
+ HREF="node276.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/icons/previous_motif.gif"></A> 
+<A NAME="tex2html4531"
+ HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/icons/contents_motif.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html4534"
+ HREF="node278.html">Interacting with Gadget Panes</A>
+<B> Up:</B> <A NAME="tex2html4530"
+ HREF="node276.html">Gadget Panes</A>
+<B> Previous:</B> <A NAME="tex2html4524"
+ HREF="node276.html">Gadget Panes</A>
+ &nbsp <B>  <A NAME="tex2html4532"
+ HREF="node1.html">Contents</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION08410000000000000000">
+Overview</A>
+</H1>
+
+<P>
+ 
+<I> Gadget panes</I><A NAME="37098"></A> are panes that implement such common toolkit components
+as push buttons or scroll bars.  Each gadget pane class has a set of associated
+generic functions that serve the role of ``callbacks'' in ``traditional''
+toolkits.  For example, a push-button has a ``value change'' callback function
+that is invoked when its button is ``pressed''.
+
+<P>
+Moon Doing gadgets as panes seems dangerous, since I thought panes are
+statically laid out but one should be able to draw a knob anywhere in the
+drawing plane and have it immediately start working.  I would have thought of
+gadgets as presentations rather than panes.
+
+<P>
+The gadget pane definitions supplied here are abstract.  That is, the gadget
+definition does not specify the specific user interface of the gadget pane.  In
+other words, it is not defined whether the user clicks on the button with the
+mouse or moves the mouse over the button and presses some key on the keyboard to
+invoke the ``value change'' callback.  Particular toolkit implementations will
+specify the ``look and feel'' of their gadgets.
+
+<P>
+Each of the abstract gadget panes has at least one implementation, written in
+Lisp using the CLIM input/output kernel capabilities.  Its appearance is
+achieved via calls to the CLIM graphics functions, its interactive behavior
+defined in terms of the CLIM input event processing mechanism.  Since these
+gadget implementations are written entirely in terms of CLIM, they are portable
+across all supported CLIM host window systems.  However, since the specific look
+and feel of each such gadget is ``fixed'' in CLIM Lisp code, the gadget
+implementation will look and behave the same in all environments.
+
+<P>
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html4533"
+ HREF="node278.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/icons/next_motif.gif"></A> 
+<A NAME="tex2html4529"
+ HREF="node276.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/icons/up_motif.gif"></A> 
+<A NAME="tex2html4523"
+ HREF="node276.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/icons/previous_motif.gif"></A> 
+<A NAME="tex2html4531"
+ HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/icons/contents_motif.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html4534"
+ HREF="node278.html">Interacting with Gadget Panes</A>
+<B> Up:</B> <A NAME="tex2html4530"
+ HREF="node276.html">Gadget Panes</A>
+<B> Previous:</B> <A NAME="tex2html4524"
+ HREF="node276.html">Gadget Panes</A>
+ &nbsp <B>  <A NAME="tex2html4532"
+ HREF="node1.html">Contents</A></B> 
+<!--End of Navigation Panel-->
+<ADDRESS>
+<I>&</I>
+<BR><I>2001-06-12</I>
+</ADDRESS>
+</BODY>
+</HTML>

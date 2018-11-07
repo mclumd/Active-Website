@@ -1,0 +1,164 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 99.1 release (March 30, 1999)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Protocol Classes and Predicates</TITLE>
+<META NAME="description" CONTENT="Protocol Classes and Predicates">
+<META NAME="keywords" CONTENT="clim">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v99.1 release">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="clim.css">
+
+<LINK REL="next" HREF="node11.html">
+<LINK REL="previous" HREF="node9.html">
+<LINK REL="up" HREF="node4.html">
+<LINK REL="next" HREF="node11.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html882"
+ HREF="node11.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/icons/next_motif.gif"></A> 
+<A NAME="tex2html878"
+ HREF="node4.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/icons/up_motif.gif"></A> 
+<A NAME="tex2html872"
+ HREF="node9.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/icons/previous_motif.gif"></A> 
+<A NAME="tex2html880"
+ HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/icons/contents_motif.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html883"
+ HREF="node11.html">Specialized Arguments to Generic</A>
+<B> Up:</B> <A NAME="tex2html879"
+ HREF="node4.html">Conventions</A>
+<B> Previous:</B> <A NAME="tex2html873"
+ HREF="node9.html">Behavior of Interfaces</A>
+ &nbsp <B>  <A NAME="tex2html881"
+ HREF="node1.html">Contents</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION02260000000000000000">
+Protocol Classes and Predicates</A>
+</H1>
+
+<P>
+CLIM supplies a set of predicates that can be called on an object to determine
+whether or not that object satisfies a certain protocol.  These predicates can
+be implemented in one of two ways.
+
+<P>
+The first way is that a class implementing a particular protocol will inherit
+from a <I> protocol class</I><A NAME="3539"></A> that corresponds to that protocol.  A protocol
+class is an ``abstract'' class with no slots and no methods (except perhaps for
+some default methods), and exists only to indicate that some subclass obeys the
+protocol.  In the case when a class inherits from a protocol class, the
+predicate could be implemented using typep.  All of the CLIM geometry,
+region, sheet, and output record classes use this convention.  For example, the
+presentation protocol class and predicate could be implemented in this way:
+
+<P>
+ 
+<PRE>
+
+(defclass presentation () ())
+
+(defun presentationp (object)
+  (typep object 'presentation))
+</PRE>
+
+<P>
+Note that in some implementations, it may be more efficient not to use
+typep, and instead use a generic function for the predicate.  However,
+simply implementing a method for the predicate that returns <I> true</I> is not
+necessarily enough to assert that a class supports that protocol; the class must
+include the protocol class as a superclass.
+
+<P>
+CLIM always provides at least one ``standard'' instantiable class that
+implements each protocol.
+
+<P>
+The second way is that a class implementing a particular protocol must simply
+implement a method for a predicate generic function that returns <I> true</I> if
+and only if that class supports the protocol (otherwise, it returns
+<I> false</I>).  Most of the CLIM stream classes use this convention.  Protocol
+classes are not used in these cases because, as in the case of some of the
+stream classes, the underlying Lisp implementation may not be arranged so as to
+permit it.  For example, the extended input stream protocol might be implemented
+in this way:
+
+<P>
+ 
+<PRE>
+
+(defgeneric extended-input-stream-p (object))
+
+(defmethod extended-input-stream-p ((object t)) nil)
+
+(defmethod extended-input-stream-p ((object basic-extended-input-protocol)) t)
+
+(defmethod extended-input-stream-p
+           ((encapsulating-stream encapsulating-stream-mixin))
+  (with-slots (stream) encapsulating-stream
+    (extended-input-stream-p stream)))
+</PRE>
+
+<P>
+Whenever a class inherits from a protocol class or returns <I> true</I> from the
+protocol predicate, the class must implement methods for all of the generic
+functions that make up the protocol.
+
+<P>
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html882"
+ HREF="node11.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/icons/next_motif.gif"></A> 
+<A NAME="tex2html878"
+ HREF="node4.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/icons/up_motif.gif"></A> 
+<A NAME="tex2html872"
+ HREF="node9.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/icons/previous_motif.gif"></A> 
+<A NAME="tex2html880"
+ HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/icons/contents_motif.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html883"
+ HREF="node11.html">Specialized Arguments to Generic</A>
+<B> Up:</B> <A NAME="tex2html879"
+ HREF="node4.html">Conventions</A>
+<B> Previous:</B> <A NAME="tex2html873"
+ HREF="node9.html">Behavior of Interfaces</A>
+ &nbsp <B>  <A NAME="tex2html881"
+ HREF="node1.html">Contents</A></B> 
+<!--End of Navigation Panel-->
+<ADDRESS>
+<I>&</I>
+<BR><I>2001-06-12</I>
+</ADDRESS>
+</BODY>
+</HTML>

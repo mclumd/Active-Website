@@ -1,0 +1,35 @@
+<!--#include virtual="../include.shtml"-->
+
+
+<h2>Conversational Adequacy</h2>
+
+<p>One major ongoing application of active logics is that of building a &ldquo;conversationally 
+        adequate&rdquo; dialogue agent (see paper on <a href="http://www.activelogic.org/doc/conversational-adequacy/ver1_ss.html">Conversational 
+        Adequacy</a>&mdash;one can view such an agent as having the ability to learn 
+    in McCarthy&rsquo;s sense of advice-taking, via conversation). </p>
+      <p>We have accomplished the following goals (see <a href="http://www.activelogic.org/publications/papers/etai.ps">research 
+          report</a>):</p>
+      <ol>
+        <li> process a few simple queries via voice input, requiring the use of 
+          negative introspection, in the context of the Rochester TRAINS system 
+          rewritten to employ active logic. 
+        </li><li> handle apparent contradictions as in &ldquo;Send the Boston train to NYC... 
+          [here the system does something]... No, send the Boston train to NYC&rdquo; 
+          where the system has misunderstood the first request and so the user 
+          says &ldquo;no&rdquo; and repeats the same request. This requires the system to 
+          recognize that &ldquo;no&rdquo; refers to the systems response rather than to the 
+          user&rsquo;s first request. </li>
+      </ol>
+      <p>The long-range research plan envisions the following steps:</p>
+      <ol>
+        <li> understand and generate spelling in metadialogue (&ldquo;The word I am 
+          saying is spelled &lsquo;xyz&rsquo;...&rdquo;) 
+        </li><li> definitions and/or definitional queries (&ldquo;What does the word &lsquo;xyz&rsquo; 
+          mean?&rdquo;) 
+        </li><li> more general metadialogue: You said, I said, you meant, I meant, 
+          etc 
+        </li><li> reasoning about the physical and social worlds 
+        </li><li> focus, attention and memory 
+          </li><li> conversational adequacy</li>
+      </ol>
+<!--#include virtual="../footer.shtml"-->

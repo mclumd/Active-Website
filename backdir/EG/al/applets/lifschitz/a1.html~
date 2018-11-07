@@ -1,0 +1,48 @@
+<html>
+<head>
+<title>
+Lifschitz A1
+</title>
+</head>
+
+<body bgcolor="#ffffee" text="#000000" link="#ff0000" vlink="0000ff">
+
+<h3> Lifschitz A1 </h3>
+<p>
+<h4>Description: </h4>
+Assumptions:
+<ul>
+<li> Blocks A and B are heavy
+<li> Heavy blocks are normally located on the table
+<li> A is not on the table
+</ul>
+Conclusions:
+<ul>
+B is on the table.
+</ul>
+
+
+
+<p>
+<a href="a1_applet.html" target="History"> View the history applet</a>
+<br>
+<a href="../../histories/lifschitz/a1.pl"> Alma specification</a>
+<br>
+<a href="../../histories/tweety_2_help.pl"> Prolog helper</a>
+<p>
+<h4>Run: </h4>
+<ul>
+
+
+
+</ul>
+<p>
+<h4>Note:</h4>
+
+
+
+<p>
+<hr>
+<a href="mailto:kpurang@cs.umd.edu">kpurang@cs.umd.edu</a>
+</html>
+

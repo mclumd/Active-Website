@@ -1,0 +1,446 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 99.1 release (March 30, 1999)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Standard Device Events</TITLE>
+<META NAME="description" CONTENT="Standard Device Events">
+<META NAME="keywords" CONTENT="clim">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v99.1 release">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="clim.css">
+
+<LINK REL="next" HREF="node62.html">
+<LINK REL="previous" HREF="node58.html">
+<LINK REL="up" HREF="node57.html">
+<LINK REL="next" HREF="node62.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html1607"
+ HREF="node62.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/icons/next_motif.gif"></A> 
+<A NAME="tex2html1603"
+ HREF="node57.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/icons/up_motif.gif"></A> 
+<A NAME="tex2html1597"
+ HREF="node60.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/icons/previous_motif.gif"></A> 
+<A NAME="tex2html1605"
+ HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/icons/contents_motif.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html1608"
+ HREF="node62.html">Output Protocol</A>
+<B> Up:</B> <A NAME="tex2html1604"
+ HREF="node57.html">Sheet Protocols</A>
+<B> Previous:</B> <A NAME="tex2html1598"
+ HREF="node60.html">Input Protocol Classes</A>
+ &nbsp <B>  <A NAME="tex2html1606"
+ HREF="node1.html">Contents</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION04320000000000000000">
+Standard Device Events</A>
+</H1>
+
+<P>
+An <I> event</I><A NAME="8558"></A> is a CLIM object that represents some sort of user gesture
+(such as moving the pointer or pressing a key on the keyboard) or that
+corresponds to some sort of notification from the display server.  Event objects
+store such things as the sheet associated with the event, the 1#1 and 2#2
+bposition of the pointer within that sheet, the key name or character
+corresponding to a key on the keyboard, and so forth.
+
+<P>
+Figure&nbsp;<A HREF="node61.html#event-hier">8.1</A> shows all the event classes.
+
+<P>
+
+<P></P>
+<DIV ALIGN="CENTER"><A NAME="event-hier"></A><A NAME="8372"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure:</STRONG>
+CLIM event classes.  All classes that appear
+at a given indentation are subclasses of the class that appears above and at a
+lesser indentation.</CAPTION>
+<TR><TD>44#44</TD></TR>
+</TABLE>
+</DIV><P></P>
+
+<P>
+event
+
+<P>
+The protocol class that corresponds to any sort of ``event''.
+an event event
+
+<P>
+All of the event classes are immutable.
+
+<P>
+eventp object
+
+<P>
+Returns <I> true</I> if <I> object</I> is an <I> event</I>, otherwise returns
+<I> false</I>.
+
+<P>
+ 
+:timestamp
+
+<P>
+All subclasses of event must take a :timestamp initarg, which is used
+to specify the timestamp for the event.
+
+<P>
+event-timestamp event
+
+<P>
+Returns an integer that is a monotonically increasing timestamp for the the
+<I> event</I> <I> event</I>.  The timestamp must have at least as many bits of
+precision as a fixnum.
+
+<P>
+event-type event
+
+<P>
+For the <I> event</I> <I> event</I>, returns a keyword with the same name as the
+class name, except stripped of the ``-event'' ending.  For example, the keyword
+:key-press is returned by event-type for an event whose class is
+key-press-event.
+
+<P>
+All event classes must implement methods for event-type and
+event-timestamp.
+
+<P>
+device-event
+:sheet
+:modifier-key-state
+
+<P>
+The class that corresponds to any sort of device event.  This is a subclass of
+event.
+
+<P>
+All subclasses of device-event must take the :sheet and
+:modifier-key-state initargs, which are used to specify the sheet and
+modifier key state components for the event.
+
+<P>
+event-sheet device-event
+
+<P>
+Returns the sheet associated with the event <I> device-event</I>.
+
+<P>
+event-modifier-key-state device-event
+
+<P>
+Returns a value that encodes the state of all the modifier keys on the keyboard.
+This will be a mask consisting of the logior of +shift-key+,
++control-key+, +meta-key+, +super-key+, and +hyper-key+.
+
+<P>
+All device event classes must implement methods for event-sheet and
+event-modifier-key-state.
+
+<P>
+keyboard-event
+:key-name
+
+<P>
+The class that corresponds to any sort of keyboard event.  This is a subclass of
+device-event.
+
+<P>
+All subclasses of keyboard-event must take the :key-name initarg,
+which is used to specify the key name component for the event.
+
+<P>
+keyboard-event-key-name keyboard-event
+
+<P>
+Returns the name of the key that was pressed or released in a keyboard event.
+This will be a symbol whose value is port-specific.  Key names corresponding to
+the set of ``standard'' characters (such as the alphanumerics) will be a symbol
+in the keyword package.
+
+<P>
+keyboard-event-character keyboard-event
+
+<P>
+Returns the character associated with the event <I> keyboard-event</I>, if there
+is any.
+
+<P>
+All keyboard event classes must implement methods for
+keyboard-event-key-name and keyboard-event-character.
+
+<P>
+key-press-event
+key-release-event
+
+<P>
+The classes that correspond to a key press or release event.  This is a subclass
+of keyboard-event.
+
+<P>
+pointer-event
+:pointer
+:button
+:x
+:y
+
+<P>
+The class that corresponds to any sort of pointer event.  This is a subclass of
+device-event.
+
+<P>
+All subclasses of pointer-event must take the :pointer, :button,
+:x, and :y initargs, which are used to specify the pointer object,
+pointer button, and native 1#1 and 2#2 position of the pointer at the time of
+the event.  The sheet's 1#1 and 2#2 positions are derived from the supplied
+native 1#1 and 2#2 positions and the sheet itself.
+
+<P>
+pointer-event-x pointer-event
+pointer-event-y pointer-event
+
+<P>
+Returns the 1#1 and 2#2 position of the pointer at the time the event occurred,
+in the coordinate system of the sheet that received the event.  All pointer
+events must implement a method for these generic functions.
+
+<P>
+pointer-event-native-x pointer-event
+pointer-event-native-y pointer-event
+
+<P>
+Returns the 1#1 and 2#2 position of the pointer at the time the event occurred,
+in the pointer's native coordinate system.  All pointer events must implement a
+method for these generic functions.
+
+<P>
+pointer-event-pointer pointer-event
+
+<P>
+Returns the pointer object to which this event refers.
+
+<P>
+pointer-event-button pointer-event
+
+<P>
+Returns the number of the pointer button that was pressed, which will be
+one of +pointer-left-button+, +pointer-middle-button+, or
++pointer-right-button+.
+
+<P>
+All pointer event classes must implement methods for pointer-event-x,
+pointer-event-y, pointer-event-native-x, pointer-event-native-y,
+pointer-event-pointer, and pointer-event-button.
+
+<P>
+pointer-button-event
+
+<P>
+The class that corresponds to any sort of pointer button event.  This is a
+subclass of pointer-event.
+
+<P>
+pointer-button-press-event
+pointer-button-release-event
+pointer-button-hold-event
+
+<P>
+The classes that correspond to a pointer button press, button release, and
+click-and-hold events.  These are subclasses of pointer-button-event.
+
+<P>
+pointer-motion-event
+
+<P>
+The class that corresponds to any sort of pointer motion event.  This is a
+subclass of pointer-event.
+
+<P>
+pointer-enter-event
+pointer-exit-event
+
+<P>
+The classes that correspond to a pointer enter or exit event.  This is a
+subclass of pointer-motion-event.
+
+<P>
+window-event
+:region
+
+<P>
+The class that corresponds to any sort of windowing event.  This is a subclass
+of device-event.
+
+<P>
+All subclasses of window-event must take a :region initarg, which is
+used to specify the damage region associated with the event.
+
+<P>
+window-event-region window-event
+
+<P>
+Returns the region of the sheet that is affected by a window event.
+
+<P>
+window-event-native-region window-event
+
+<P>
+Returns the region of the sheet in native coordinates.
+
+<P>
+window-event-mirrored-sheet window-event
+
+<P>
+Returns the mirrored sheet that is attached to the mirror on which the event
+occurred.
+
+<P>
+All window event classes must implement methods for window-event-region,
+window-event-native-region, and window-event-mirrored-sheet.
+
+<P>
+window-configuration-event
+
+<P>
+The class that corresponds to a window changing its size or position.  This is
+a subclass of window-event.
+
+<P>
+window-repaint-event
+
+<P>
+The class that corresponds to a request to repaint the window.  This is a
+subclass of window-event.
+
+<P>
+timer-event
+
+<P>
+The class that corresponds to a timeout event.  This is a subclass of
+event.
+
+<P>
+ 
++pointer-left-button+
++pointer-middle-button+
++pointer-right-button+
+
+<P>
+Constants that correspond to the left, middle, and right button on a pointing
+device.  pointer-event-button will returns one of these three values.
+
+<P>
+ 
++shift-key+
++control-key+
++meta-key+
++super-key+
++hyper-key+
+
+<P>
+Constants that correspond to the shift, control, meta, super, and hyper modifier
+keys being held down on the keyboard.  These constants must be powers of 2 so
+that they can be combined with logior and tested with logtest.
+event-modifier-key-state will return some combination of these values.
+
+<P>
+Implementations must support at least shift, control, and meta modifiers.
+Control and meta might correspond to the control and option or command shift
+keys on a Macintosh keyboard, for example.
+
+<P>
+key-modifier-state-match-p button modifier-state <TT> &amp;body </TT>clauses
+
+<P>
+This macro generates code that will check whether the modifier state
+<I> modifier-state</I> and the pointer button <I> button</I> match all of the
+clauses.  <I> clauses</I> are implicitly grouped by and.  Matching a button
+or a modifier means that that the modifier state indicates that the button or
+modifier is pressed.
+
+<P>
+A clause may be one of:
+
+<P>
+
+<UL>
+<LI>A pointer button.  One of :left, :middle or :right.
+
+<P>
+ </LI>
+<LI>A modifier key.  One of :shift, :control, :meta,
+:super or :hyper.
+
+<P>
+ </LI>
+<LI>(and [<I> clause</I>]+)
+
+<P>
+ </LI>
+<LI>(or [<I> clause</I>]+)
+
+<P>
+ </LI>
+<LI>(not <I> clause</I>)</LI>
+</UL>
+
+<P>
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html1607"
+ HREF="node62.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/icons/next_motif.gif"></A> 
+<A NAME="tex2html1603"
+ HREF="node57.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/icons/up_motif.gif"></A> 
+<A NAME="tex2html1597"
+ HREF="node60.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/icons/previous_motif.gif"></A> 
+<A NAME="tex2html1605"
+ HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/icons/contents_motif.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html1608"
+ HREF="node62.html">Output Protocol</A>
+<B> Up:</B> <A NAME="tex2html1604"
+ HREF="node57.html">Sheet Protocols</A>
+<B> Previous:</B> <A NAME="tex2html1598"
+ HREF="node60.html">Input Protocol Classes</A>
+ &nbsp <B>  <A NAME="tex2html1606"
+ HREF="node1.html">Contents</A></B> 
+<!--End of Navigation Panel-->
+<ADDRESS>
+<I>&</I>
+<BR><I>2001-06-12</I>
+</ADDRESS>
+</BODY>
+</HTML>

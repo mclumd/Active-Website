@@ -1,0 +1,866 @@
+.sc
+.th
+.EQ
+delim $$
+.EN
+.ls 1
+.ce 100
+\fBTHING AND THOUGHT\fR
+
+
+Donald Perlis
+
+Computer Science Department
+and
+Institute for Advanced Computer Studies
+University of Maryland
+College Park, MD 20742
+
+and
+
+Computer Science Department
+University of Rochester
+Rochester, NY 14627
+.ce0
+
+
+Self-reference  or  self-applicability  is  an  important  theme  throughout
+Computer Science, from recursive programs to  undecidability  results,  from
+bootstrapping  to  program  semantics.  A relative latecomer to this list is
+Artificial Intelligence, for only recently has self-reference been  seen  as
+an  important  attribute of intelligent systems.  This paper will give a
+bird's-eye (and personal) overview of some
+of the issues surrounding self-reference in AI, especially those related  to
+non-monotonicity, reification, and intentionality.
+.ls 2
+.bp
+\fBO. INTRODUCTION\fR
+.pp
+A thought can be about (other) thoughts. Non-monotonic reasoning (NMR)
+is a hot-bed of examples of this.
+When we use NMR, we employ a knowledge modality. What
+are the objects to which such a modality applies? Some
+say they are abstract propositions, supposedly rather
+ethereal entities like thoughts. Now thoughts are usually
+regarded as taking objects (one thinks about X) and this
+in turn presents
+us with two sets of issues: one the one hand, thoughts themselves
+are often the objects X of (other) thoughts, and as such become
+reified into things (of sorts); and on the other hand, thoughts
+do have objects (of which we say the thoughts are "about"). Both
+of these ideas are problematic, as we shall see.
+.pp
+I find it convenient to think that the former (reification) has taken three
+complementary directions, which I will style as ideal reasoning, pseudo-ideal
+reasoning, and
+situated reasoning.  The first involves traditional concerns with consistent
+formal foundations for deduction in general, including most formal approaches
+to commonsense reasoning, in which a single formal fixed theory is the
+end result.  The second makes small concessions on this framework in order
+to capture some computational power, especially with respect to consistency.
+The third emphasizes the inconsistent and real-time
+nature of reasoning in a complex environment and seeks ways to deal with
+these issues as part of a general "finitary" intelligence mechanism.\**
+.(f
+\**See references by Barwise&Perry, Elgot-Drapkin, (Elgot-)Drapkin&Perlis, Rosenschein&Kaelbling,
+and Suchman.
+.)f
+While I have called these complementary, there is an important
+sense of progression, in which one goes from envisioning reasoning as
+a once-and-for-all affair (ideal), to a matter of some adjustments (pseudo-ideal), 
+and then to embracing change as the very life-blood of reasoning (situated). This
+will become clearer as we proceed. I will present these themes largely with
+illustrations from my own work, simply because I feel much more confident
+in discussing my efforts. But many others have made major strides in these areas,
+and I have tried to indicate this throughout.
+.bp
+.pp
+In all three approaches, the focus has largely emphasized the
+topics of self-reference and reification,
+i.e., the study of mechanisms that explicitly represent as formal
+syntactic objects much of the agent's own behavior.
+This has as its motivation the observation that
+much intelligent behavior seems to involve an ability
+to model ones environment including oneself and ones reasoning,
+and especially to perform introspective reasoning such as judging that one does
+now know a certain fact.  In other words, a principal
+aim is to give the agent reasoned control of its
+own reasoning.
+.pp
+It turns out that there are
+difficulties in formally representing self-reference.  Much
+work has approached this problem in terms of first-order logic
+and the paradoxes of self-reference. In ideal and pseudo-ideal settings,
+consistency
+is a principal concern; in situated settings, concern centers on the ability to correct
+inconsistencies when they are observed. We will begin by presented
+some rather general ideas about self-reference in regard to the beliefs
+or thoughts a reasoner may have.
+.pp
+In section I we present classical reification issues from logic, especially
+some of the famous paradoxes. In section II-IV, we consider related difficulties in commonsense reasoning with respect to ideal, pseudo-ideal, and situated
+reasoning.  Finally, in section V we briefly return to the theme of aboutness.
+
+
+\fBI. REIFICATION: RELATIONS AS OBJECTS\fR
+.pp
+Consider the sentence
+``I WAS WRONG BUT I DIDN'T LIE.''
+In more formal dress, this might be written as
+.sp
+(\*(qex)(Said(I,x) & \(noTrue(x) & \(noKnow(I,\(noTrue(x)))
+.sp
+Here an unstated proposition x has been reified as argument
+to Said and True, and in turn \(noTrue(x) has been reified as
+argument to Know.  Thus nested reifications are a commonplace in natural language,
+although this is not always apparent until formalized.
+.pp
+Now, the syntactic status of these reified arguments has been left
+open. Are they arguments to predicates Said, True, Know, or are the
+latter modal operators applied directly to propositions? In a sense this
+seems a mere quibble, although much has been made of the difference.
+We will return to this later.
+First, we illustrate some standard concerns and uses of reification
+in the following three `problems' from artificial intelligence.
+.sp 2
+Brother Problem (Moore):
+.pp
+Let B be the proposition that I have a brother. Then the following
+represents a sound inference, where we abbreviate Know to K:
+.ce
+B \(-> KB
+.ce
+\(noKB
+.ce
+-------------------------
+.ce
+\(noB
+.pp
+Moore [1983] pointed this out as an example of `autoepistemic' reasoning. Here
+B \(-> KB is taken to be a piece of general information people tend to accept:
+If I have a brother then I will know it.
+But to be applied as shown, also \(noKB must be known or accepted. How
+is this determined -- i.e., how does a reasoner decide that he or she does
+not know whether (or that) he/she has a brother. It cannot be general information,
+since many people DO have brothers. In the example, it is intended that, by some 
+introspective mechanism, a person is able to tell that he or she does not
+have knowledge of a brother, and from this the rest (the conclusion \(noB)
+follows. We will return to this example briefly later.
+.sp2
+Reagan Problem (McCarthy):
+.pp
+McCarthy (private communication) has presented a pair of problems. The first is as follows: How do
+we know that we do not know whether Ronald Reagan is (at this moment) seated
+or standing? Note that this, like the Brother problem, hinges on deciding
+that we do NOT have certain information.
+.sp2
+Gorbachev Problem (McCarthy):
+.pp
+The companion problem to the above: How do we know that Gorbachev does
+not know whether Ronald Reagan is (at this moment) seated
+or standing? This problem is more subtle, for we are to assess not our
+own lack of information, but rather that of someone else.
+.pp
+We shall not dwell on these problems now. Rather they are intended here
+to illustrate the importance of thoughts and sentences as themselves
+being objects of thought. We will briefly reconsider them later.
+.pp
+McCarthy [1979] has emphasized the importance of reification for commonsense
+reasoning. One underlying problem is that when concepts are reified into
+formal objects, certain paradoxical statements may become expressible.
+The desired solution would be to defuse the paradoxes
+while retaining a broadly expressive formalism.
+.pp
+The table below presents a brief overview of a small portion of the
+history of efforts to deal with reification in mathematical logic, along
+with parallel and analogous developments on the study of program semantics).
+The text indicates some of the highlights. We use T in place of True.
+.nf
+.ls 1
+.ce
+		REIFICATION DIFFICULTIES				PROGRAM SEMANTICS
+
+Expressive		\(*a							prog
+power 
+
+
+
+Reification		T\(*a \o'\(->\(<-' \(*a							prog(prog)
+axioms
+
+
+
+Diagonal		L \o'\(->\(<-' \(noT(L)		Russell 1903			paradoxical
+anomalies					Tarski 1936			combinator
+										of Curry
+
+Iteration to		t1, t2, ... 	  L		Gilmore 1974			Scott's fixed
+fixed point		f1, f2, ... L		Kripke 1975			point construction
+with gap			    
+
+
+
+Axiomatize									???
+iterations		\(noT(L)			Feferman 1984			axioms
+in theory			\(noT(\(noL)			Perlis 1985			???
+(incl. gap)		T\(*a \o'\(->\(<-' \(*a*
+.ls2
+.sp
+.fi
+.pp
+What is indicated is that expressiveness can lead (via reification) to paradoxes.
+Gilmore and Kripke found similar promising approaches using iterations based
+on simple non-paradoxical cases, that happily stop short of contradictions (shown
+as L in the table).
+Some of the earliest technical work on reification arose
+in relation to self-reference, especially in
+an effort to come to terms with the Liar paradox (which is a kind
+of reification problem). This was found to have connections with
+many foundational issues, including
+principles of set formation (Russell's paradox) which in turn seem to have
+some bearing on commonsense reasoning.
+.pp
+One way to state the problem is that the formal `Tarskian' schema
+.ce
+T(`\(*a') \o'\(<-\(->' \(*a
+is inconsistent with any reasonably expressive theory. Here `\(*a'
+is a constant (reified name) for the sentence \(*a. We will
+routinely leave quotes off, however.
+A breakthrough occurred in Paul Gilmore's work, which
+was given further impact by Kripke's paper on truth definitions.
+It turns out that Gilmore's work provided a way to turn Kripke's informal (semantic)
+insights into a formal (syntactic) theory of self-referential properties.
+This was noticed independently by Feferman and myself. (Whether a similar
+syntactic approach can be given for program semantics remains open.)
+.pp
+The new approach was to combine ideas of Gilmore [1974] for set
+theory and Kripke [1975] for truth semantics, ending up again with a formal
+schema like Tarski's but modified to look like
+.ce
+T(\(*a) \o'\(<-\(->' \(*a*
+where \(*a* is a simple syntactic variant on \(*a.\**
+.(f
+\**Feferman uses different notation.
+Our papers were submitted almost simultaneously, his in
+March 1982 and mine in February 1982, although Feferman recently sent me
+notes on this written as early as 1976 whereas my own work was begun in 1979.
+.)f
+We showed this allows consistent reification of arbitrary first-order properties
+(i.e., their defining wffs \(*a) into first-order objects `\(*a' so that
+the two can be formally related via the predicate T.
+Moreover, these will have the
+expected behavior except in occasional self-referential cases, where the
+behavior departs only slightly from Tarski's schema.
+.pp
+Without going into formal details, the essence of the *-operator
+is illustrated in the following equivalence:
+.ce
+(...\(noT\(*a...)* \o'\(->\(<-' (...T\(no\(*a...)
+That is, the * has the effect of passing negations signs through
+the T predicate. Then we do not quite get the Tarski schema; there
+are cases, such as the Liar sentence L, in which T(L) is not equivalent
+to L under the *-schema. But these are unusual cases. To see the * in action in
+an ordinary case, consider the successive uses
+of the operator below.
+.sp2
+.ce 100
+T(\(noT(1=2))
+iff
+(\(noT(1=2))*
+iff
+T(\(no1=2)
+iff
+(\(no1=2)*
+iff
+\(no1=2
+.ce 0
+.pp
+We see that the intuitive result, \(no1=2, is arrived at with little
+more effort than one might have used informally. However, with a
+Liar sentence L, one ends up with a slight switch, that prevents
+an outright contradiction. One is able to prove \(noT(L) and also
+\(noT(\(noL), i.e., neither L nor \(noL is true, which has a
+certain satisfying feel: after all, L is a slippery beast when it
+comes to truth.
+.pp
+Does this then leave us in a satisfactory state with regard to
+providing a consistent formalization of commonsense reasoning
+in first-order logic? Unfortunately the answer is no, as we
+now examine.
+.sp
+\fBII. IDEAL APPROACHES (TO KNOWLEDGE)\fR
+.pp
+Studies of ideal reasoning focus on the total set of conclusions
+that a reasoning agent will ultimately derive, given certain information, 
+viewed apart from consideration of the specific situation and processes that may
+generate it.  The idea is that the given
+information and reasoning are adequate if the conclusions are appropriate to
+the problem at hand.  Much work in artificial intelligence falls within this
+area, including much of the work in default reasoning and knowledge
+representation. Key to this approach is the idea of a single fixed theory
+in which the reasoning is to be performed.
+.pp
+If we go beyond truth-value (of a reified sentence), to
+a `belief-value', i.e., conditions under which a sentence \(*a can be
+consistently ascribed as a belief Bel(\(*a) of a reasoning agent, it is surprising that
+rather intuitive axioms for this run into paradox in a classical first-order context.
+If we define knowledge of \(*a, K(\(*a), as T(\(*a)&Bel(\(*a), then under fairly general
+conditions the first-order axiom schema K(\(*a) \(-> \(*a conflicts with the rule to
+infer K(\(*a) from \(*a.
+I have shown that modal logics are on
+no firmer ground than classical first-order ones when equally endowed with
+substitutive self-reference, and also that there still are
+remedies.  One remedy
+allows replacement of the above inference rule with the following: infer K(\(*a) from
+\(*a*. Another draws a distinction between `dynamic' and `static'
+notions of provability and belief, and isolates three classes of autoepistemic
+formulas for further study based on ideas of Moore. 
+.pp
+Let us adopt the following abbreviations for the indicated inference rules:
+.in +5
+
+\fIPosInt\fR: infer K\(*a from \(*a
+
+\fINegInt\fR: infer \(noK\(*a if \(*a is not inferred
+
+\fISCHEMA T\fR: K\(*a \(-> \(*a.
+
+\fIFULLY INTROSPECTIVE\fR: PosInt & NegInt.
+.in -5
+
+Then we have the following `impossibility' results:
+.ls1
+
+Theorem (Montague 1963. The Knower's Paradox): In a standard arithmetical
+setting, schema T is inconsistent with rule PosInt.
+
+Theorem (Thomason 1980. The Believer's Paradox): A predicate Bel
+applying to (suitable) arithmetic and obeying
+.ce
+Bel(\(*a) \(-> Bel(Bel(\(*a))
+.ce
+Bel(Bel(\(*a) \(-> \(*a)
+.ce
+Bel(\(*a) for all valid \(*a
+.ce
+Bel(\(*a\(->\(*b) \(-> (Bel(\(*a)\(->Bel(\(*b))
+also applies to all wffs.
+.ls 2
+.pp
+Discussion: It can be urged that propositions as abstract entities
+avoid the syntactic problems of self-reference that
+are found in a sentential representation of thoughts. For
+instance, the above two theorems are false when applied in a
+direct way to their modal counterparts,
+However, this will not do, since we express thoughts
+by sentences, whether or not the thoughts themselves
+are regarded as sentences. For instance, when we say we can (or can't) prove B, and thus that \(noB (say), we refer
+to syntactic entities, at least as CARRIERS of propositions. For proof
+is a syntactic notion, and also we communicate by means of syntax, with
+substitutional structure. Then we are led to the following negative
+result:
+.sp
+.ls 1
+Theorem (Perlis 1986): Modal versions are also inconsistent if
+referenceable (substitutive).
+.ls 2
+.pp
+Finally we have:
+
+.ls1
+Theorem (Perlis 1987): There is no consistent fully introspective theory
+in a standard arithmetical setting.
+
+Proof sketch: Let BB \o'\(->\(<-' \(noK BB. If |-- BB then also K BB, and also
+\(noK BB. But if |-/- BB then also \(noK BB and so BB, hence K BB.
+.ls 2
+.pp
+Set theories are, of course, the most wildly
+reificational theories around, for they turn virtually everything
+into an object (called a set). In [Perlis 1987a] it is argued that sets
+can play an important role in circumscription's ability to deal in a general
+way with certain aspects of commonsense reasoning. This also can be viewed as
+taking reification another step, since sets allow the expression of (even
+infinitely many) axioms as a single term. I give a single first-order
+axiom for circumscribing in the language of set theory.
+A by-product is that the entire
+circumscription scheme (or second-order axiom) can be made into a defining
+axiom for minimization, which has no effect until it is proven that any
+particular formula is to be minimized. For instance, one can assert as a
+general axiom that Minimized(p) \(-> Circum(p) where Circum is defined by
+a single axiom.
+This opens up the possibility
+circumscribing p can be a decision made by an agent faced with a particular
+problem (i.e., by proving Minimized(p)) rather than a mechanism externally put in place for each use.
+Note that here again reification comes into play, in that p is an object
+term rather than a predicate.
+.pp
+In [Perlis 1988c] is proposed a set theory called $CST sub 2$. This is an
+attempt to combine a theory like that of
+$A$ [Ackermann 1956] (a somewhat traditional hierarchical notion of set built up in stages
+from previously constructed entities) with one allowing self-reference
+along Gilmore-Kripkean ($GK$) lines. One way to think about this is that
+someone (in the role of \fIGK\fR) postulates an abstract entity, and someone else
+(in the role of $A$) shows that it is concretely present. This is indeed a
+familiar form of rational experience, both in scientific investigations and
+also in everyday deliberations. Put differently, \fIGK\fR provides a sort of
+philosophical architecture, and $A$ some constructive engineering techniques, for
+sets. I conjecture that this has close ties to
+commonsense in that we dance a fine line between intensions and extensions
+in our reasoning, as witness the famous \fIde dicto/de re\fR distinction.
+.pp
+Some positive results regarding self-reference in commonsense reasoning,
+especially with regard to the notions of belief and knowledge, have
+been found despite the earlier negative ones. A few of these are given below:
+.ls1
+.sp2
+Theorem (Des Rivieres & Levesque 1985): A first-order language can be suitably restricted
+so as to disallow contradictory wffs in Montague's axiomatization.
+.sp2
+Theorem (Perlis 1985): The \(*a* technique can be used with K (instead of T)
+to defuse contradictions and still allow the full language in a variant
+of Montague's axiomatization.
+.ls2
+
+\fBIII. PSEUDO-IDEAL APPROACHES\fR
+.pp
+One source of the difficulties in the approaches we have been considering is their
+insistence on a single fixed theory whose theorems are to represent
+all the conclusions of a rational (ideal) agent. Another way to
+envision the situation is to consider that as an agent introspects,
+the theory undergoes a change and is no longer the same theory.
+This in fact is a common way of viewing theories designed for non-monotonic
+forms of inference.
+Minsky [1975] was the first to point out the need for a new way
+of thinking about commonsense kinds of inference, and he in fact coined
+the expression `non-monotonic'. Although he regarded this as evidence
+that logical formalisms are inappropriate for commonsense reasoning,
+others have taken it as a challenge to revise or extend existing
+formalisms to incorporate this further kind of reasoning (NMR).
+.pp
+One way to view the new approaches is to say that one
+needs \(noK\(*a, rather than a device such as the *-operator.
+That is, avoiding inconsistency is not the only consideration.
+Now it becomes important to be able to decide unprovability
+(of \(*a, for example, so that \(noK\(*a can be asserted).
+While overall consistency of the reasoning is still one
+desideratum, the focus is on means to test or characterize unprovability.
+Now, to be sure, this involves consistency issues, for the unprovability
+of \(*a is precisely the same thing as the consistency of \(no\(*a
+(with respect to a given theory). But instead of seeking to guarantee
+consistency as before, now the focus is on finding out potential
+consistencies so as to justify a default (NMR) conclusion such as
+\(noK\(*a. Of course, at the same time, one wishes the overall
+reasoning to remain consistent as well. This then is the essence
+of the pseudo-ideal approach. It is pseudo-ideal, rather than ideal,
+because under fairly general circumstances it has been shown that
+consistency-checking (or, equivalently, unprovability-checking)
+is not performable within the very theory under question. 
+This was shown by
+Go\*:del [1931] and Lo\*:b [1955]. (In fact,
+even worse, consistency-checking usually is not even decidable!)
+Thus one cannot hope to determine results such as \(noK\(*a within
+a fixed theory, if K refers to what is established in that same theory.
+We must then move outside the given theory, perhaps extend it somehow.
+This is what the various approaches to NMR do.
+.pp
+Of the major approaches to NMR (Reiter [1980], McDermott
+and Doyle [1980], Moore [1983], and McCarthy [1980]), only McCarthy's -- circumscription --
+provides a fairly general \fImechanism\fR to decide unprovability. That is,
+unlike the others, circumscription is semi-decidable (at least in its proof-theoretic
+forms). Of
+course, by the above, it cannot be complete, for that would violate
+the undecidability constraint; and it cannot be performed within
+a fixed theory, for that would violate the Go\*:del-Lo\*:b result.
+Hence it involves extending a given theory by adjoining new
+axioms; however, it does so in a very general way, which we summarize
+now.
+.pp
+One version of McCarthy's circumscription schema is as follows:
+R[\fBP\fR] is a given set of axioms involving the predicate letters \fBP\fR.
+The idea, roughly, is to minimize the true instances of a supposedly rare property
+P\*\*<0\*>, i.e., to require P\*\*<0\*> to be false whenever possible. Formally
+
+.ce
+R[\fBZ\fR] & (\*(qax)(Z\*\*<0\*>x \(-> P\*\*<0\*>x) & \(noZ\*\*<0\*>y  .\(->.  \(noP\*\*<0\*>y
+
+where the antecedent can be regarded as saying that Z\*\*<0\*> is a possible
+interpretation of P\*\*<0\*>, as far as is known from R[\fBP\fR],  which does
+not introduce any new (rare) P\*\*<0\*>-objects, and such that y is not a 
+Z\*\*<0\*>-object. The conclusion then is that y (in all likelihood) is also
+not a P\*\*<0\*>-object.
+.pp
+In response to the problem of consistency-checking, it is tempting to weaken \(noP\*\*<0\*>  
+to  \(noKP\*\*<0\*>,
+so as to record the unprovability without committing ourselves to the truth
+or falsity of P\*\*<0\*> itself. This was done in [Perlis 1988b], and is called
+autocircumscription.
+We let AUTO[R] be the revised schema:
+
+.ce
+R[\fBZ\fR] & (\*(qax)(Z\*\*<0\*>x \(-> P\*\*<0\*>x) & \(noZ\*\*<0\*>y  .\(->.  \(noK(P\*\*<0\*>y)
+
+Here the conclusion, \(noK(P\*\*<0\*>y), is not a default -- it is a truth about
+the reasoner's set of theorems, namely that P\*\*<0\*>y is not one of those theorems.
+Moreover, consistency is guaranteed under fairly mild conditions.
+.pp
+Thus autocircumscription provides a partial decision procedure for
+consistency. It also can solve the Reagan problem and certain forms
+of the Brother problem. We illustrate with the Reagan problem.
+Let A be the theory:
+.sp
+.ls 1
+.ce 100
+Seated(Bill)
+\(noSeated(Sue)
+Seated(x) \o'\(->\(<-' \(noStanding(x)
+Reagan \(!= Bill
+Reagan \(!= Sue
+.sp
+.ce 0
+Then
+.sp
+.ce
+A + AUTO[A]  |-	\(noK(Seated(Reagan))
+
+.ls 2
+To see this,
+let Z\*\*<0\*>(x) be x=Bill, and Z\*<1\*>(x) be x\(!=Bill.
+Then we easily verify
+A[Z\*\*<0\*>,Z\*<1\*>]
+and
+Z\*\*<0\*>(x)\(->Seated(x).
+Therefore from
+AUTO[A]:  \(noZ\*\*<0\*>(x) \(-> \(noK(Seated(x)),
+we conclude \(noK(Seated(x)).  Similarly we can show
+\(noK(Standing(x)).
+
+
+\fBIV. A SITUATED APPROACH\fR
+.pp
+Pseudo-ideal approaches, especially NMR approaches, acknowledge that
+reasoning is often tentative and changing. This is reflected in their
+two-tiered character, in which a base theory is augmented by a non-monotonic
+part. However, to do justice to this idea, one should envision an endless
+series of theory adjustments. Thus, one conclusion of this survey can be
+summarized as ``one, two ... many theories''. Situated reasoning has
+to do with taking account of the fact that reasoning does not go on
+in a vacuum but rather surrounded by features in space and time.
+.pp
+In a sense then this addresses somewhat more practical issues of
+on-going reasoning in an intelligent agent situated in an active
+environment. Aspects of situated reasoning have been studied by many, 
+including Barwise&Perry [1983], Levesque [1984], Fagin&Halpern [1985], Suchman [1985], and Rosenschein-Kaelbling
+[1987].  This too can involve a kind of self-reference, in that the agent
+is to formulate sentences referring to the agent's own situation within the
+environment, thereby making the agent's on-going reasoning process itself explicitly
+represented in the agent's reasoning.
+This line of research has focussed on the observation that reasoning
+in a complex environment often goes on while the environment is changing.
+Nilsson has used the phrase `computer individual' to describe
+much the same problem. It
+places an unusual set of constraints on the reasoning; in particular,
+it must be
+self-referential in a way somewhat different from that considered in earlier
+sections.
+For example, the reasoning should take into account that \fItime is being used\fR
+by that very act of reasoning. Thus another item must be made explicit,
+namely the on-going time taken as the reasoning proceeds.
+Also, the very real possibility of error must be accounted for, whether
+it is error of observation or otherwise.
+.pp
+This suggests a view of reasoning as always unfinished and tentative and
+taking account of its own progress, in contrast to other approaches in which
+a kind of deductive closure is invoked (whether of full logical inference or
+some weakened form).  One idea here is that concepts often are confused or
+vague, so that the agent must be able to alter them to fit a given
+situation.  Logic is a useful tool for this, both to 
+determine that there is confusion, and to amend it.  However, some special features are
+desirable for such a logic:  it should allow reification so that poor
+concepts can be syntactically identified, and it should proceed in a
+step-like fashion so that its own progress can be modelled internally.
+.pp
+A schematic illustration of this approach is below:
+
+
+.nf
+0		...
+1		...
+2		...
+\ ...		...
+i		...\(*a...
+i+1		...\(*a...\(*a\(->\(*b...
+i+2		...\(*a...\(*a\(->\(*b...\(*b...
+\ ...		...
+.fi
+
+Here each numerical index on the left represents a moment in time,
+and the wffs to the right of an index are the (finitely many)
+beliefs held by the reasoner at that time.
+.pp
+One feature of this is that inconsistencies are now OK. That is,
+in passing from one step (index) to the next, only one level of
+inference is performed, so that an inconsistency will not necessarily
+produce a large number of undesired conclusions, and moreover,
+there is time left in later steps to take corrective action if
+such undesired conclusions to arise. However, a more subtle feature
+is that the time indices themselves are allowed in the agent
+wffs appearing on each line. That is, there is a notion of `Now'
+which changes as the reasoning proceeds.
+.pp
+An example that has motivated some of this work is again the
+Brother problem, which in `step logic' takes roughly the
+following form (simplified for ease of illustration. Here
+step i+1 is of especial interest, since it illustrates the
+conclusion \(noK(i,B), that at time i the agent did not know
+B. In an ordinary (ideal) setting this would be unattainable,
+since there is no available sense there of what is known \fIso far\fR.
+The finitness of each step set of wffs, together with the non-deductively-closed
+notion of K, makes this a simple look-up;
+see Elgot-Drapkin [1988] for details):
+
+.nf
+i		...Now(i)...B\(->K(i-1,B)...
+
+
+i+1		...Now(i+1).....B\(->K(i,B)...\(noK(i,B)...
+
+
+i+2		...Now(i+2)...B\(->K(i+1,B)...\(noK(i,B)...\(noB
+.fi
+
+.pp
+It may be worth mentioning one additional sample problem:
+Three-wise-men problem: this classical problem has served
+as a good test for a number of theoretical efforts in AI.
+Elgot-Drapkin [1988] presents one solution
+in step-logic.
+
+\fBV. SPECULATIONS ON ABOUTNESS\fR
+.pp
+Finally, we return to the `other' theme produced by our questioning
+the nature of thoughts as things, namely, what is it for a thought
+to be \fIabout\fR something?
+That is,
+how is reference possible at all? This is a traditional philosophical problem
+(of intentionality, meaning, or aboutness) which has more recently become
+of interest to researchers in artificial intelligence. In short, how can
+internal symbols (to a reasoning agent) refer to anything outside the agent?
+There are many positions on this. See Dennett [1978], Stich [1984], Churchland
+[1984], and Pylyshyn [1984] for a general
+account of much of the literature. One approach I wish to explore here is
+based on the idea is that a chief
+role of thought is to delineate possible situations distinguished from the
+supposed real situation. On this view, to think about X is to contrast a
+particular representation of X (the presumed actual one) with alternative
+representations (e.g., conjectural or goal representations). Thus there will
+be at least two internal symbolic structures, X and X', where X' is about X
+(or X' is a possible state of X, etc). Since X and X' are both internal to
+the agent, reference (so viewed) avoids some of the traditional difficulties.
+This also bears on the problem of identifying poor or confused concepts
+mentioned above.  Related suggestions have been made in Perlis&Hall [1986], Perlis
+[1986b, 1987b], Rapaport [1988],
+Minsky [1968], Sloman [1986], Steels [1986].
+.pp
+What I have in mind here is that a belief is something
+believed to be \fItrue,\fR and that therefore the concept of a
+representational structure being \fItrue or false\fR is relevant. This
+leads into the second point, for in order to take the stand that a certain
+structure is, say, false, one must distinguish it from what it
+supposedly is about. This is much like saying a word is different from what it stands for,
+and can even be misused. If I mention the dog by the tree and you say
+it isn't a dog but rather a wolf, you have recognized the word `dog' as
+having being misapplied to the creature by the tree, rather than thinking
+some dog by the tree is also a wolf or has been replaced by or changed into a
+wolf.
+.pp
+But why bother to have two notational tokens? An answer
+is to distinguish what is from what
+isn't. For instance, I may change my mind that I have seen a dog, but
+to use this fact (that I have changed my mind), I recall that
+I used `dog' inappropriately, or that I entertained the sentence ``there is
+a dog present''. Quotes (or words as such) allow us to entertain
+possibilities, even ones we think are false. By `quotes' I mean simply
+names; I refer to the capacity for creating structures to manipulate
+vis-a-vis one another. This can apply to images or any other structures.
+But crucial to this is a mechanism for relating name and named, essentially
+a truth-predicate (or reality-predicate): the dog-image is of a dog,
+or `dog' stands for a dog.
+Then we can choose between hedging (maybe that isn't a dog) or going for it
+(that is a dog) where `that' is some other internal entity such as an
+image. The main point though is that not only `that' but also the considered
+reference (dog) is internal to the system, even if it is not quoted.
+To draw out the illustration further, a dog `becomes' (under suitable 
+circumstances) `dog' and then may not be a dog after all. This strange
+statement may seem less so when taken with the further claim that, as far
+as meaning goes, all is imag-inal. As long as thinking works, we use it, but
+possibly there are no `firm' dogs at all. (This is reminiscent of natural
+kinds, which often defy definition.)
+.pp
+How do we avoid the criticism that then we never think about \fIreal\fR things? Well,
+here we can borrow from the adverbial theory of perception, which maintains,
+for instance, that Macbeth was ``perceiving dagger-ly'' in the famous scene
+in which he seems to see a dagger before him. By way of analogy, we may
+think `aboutly', that is, when I think about a dog, I really am thinking
+in an `about dog-ly' fashion, or better put, I `refer dog-ly'.
+That is, I have (at least) a pair of tokens,
+such as `dog' and "`dog'", in my head, that I am using to form hypotheses,
+to reason concerning what is or isn't.
+In effect, when we (say we) think about an external object, we are
+contrasting internal entities, often happily in conjunction with the
+actual presence of corresponding external objects. See Perlis [1987b]
+and Rapaport [1988] for more detail.
+.pp
+Now, whether
+or not tokens \fIare\fR `real' (externally), i.e., whether or not there is
+a (natural) external referent for the internal tokens, becomes contingent,
+much as in the adverbial theory of perception. We may 
+refer `unicorn-ly' and yet have no external referent; the same for a
+dog which may be referred to in error (if there is
+really no dog that is the object of ones thought). This suggests that
+reference is much more an internal phenomenon than has generally been
+acknowledged. However, it is by no means clear that such an account
+can be made to work in a general way, so that much remains to be investigated
+here.
+
+\fBVI. CONCLUSIONS\fR
+.pp
+To return to our overall themes, we have seen that
+thoughts present
+us with two sets of issues: one the one hand, thoughts themselves
+are often the objects X of (other) thoughts, and as such become
+reified into things (of sorts); and on the other hand, thoughts
+do have objects (of which we say the thoughts are "about"). We have seen
+that both of these ideas are problematic. The former is largely a formal
+issue in mathematical logic; the latter is a philosophical and cognitive
+one about the how words have meanings. While final words are not in on either
+of these, it appears that the greater burden now is on the latter problem.
+.bp
+.ls 1
+\fBAcknowledgement\fR
+
+I would like to thank Greg Carlson and Nat Martin for helpful comments.
+
+This research has been supported in part by the
+U.S. Army Research Office (DAAL03-88-K0087), by
+NSF Coordinated Experimental Research grant no. DCR-8320136,
+and by ONR/DARPA research contract no. N00014-82-K-0193.
+
+
+\fBBIBLIOGRAPHY\fR
+
+.np
+Ackermann, W [1956] Zur Axiomatik der Mengenlehre. \fIMath. Annalen\fR, v.
+131, 336-345.
+.np
+Barwise, J. and Perry, J. [1983] \fISituations and Attitudes\fR, MIT Press.
+.np
+Churchland, P. [1984] Matter and Consciousness. MIT Press.
+.np
+Dennett, D. [1978] \fIBrainstorms\fR. Montgomery, VT: Bradford Books.
+.np
+des Rivieres, J. and Levesque, H. [1986] The consistency of syntactical
+treatments of knowledge.  \fIProceedings of the Conference on Theoretical
+Aspects of Reasoning About Knowledge.\fR Monterey, October 1986.
+.np
+Drapkin, J. and Perlis, D. [1986] Step-logics: an alternative approach to limited reasoning,
+\fIProceedings, 7th European Conference on Artificial Intelligence\fR,
+Brighton, England, July 1986.
+.np
+Drapkin, J. and Perlis, D. [1986] A preliminary excursion into step logics,
+\fIProceedings, International Symposium on Methodologies for Intelligent Systems\fR, Knoxville, Tennessee, October 1986.
+.np
+Elgot-Drapkin, J. and Perlis, D. [1988] Reasoning situated  in time,
+submitted to \fIArtificial Intelligence.\fR
+.np
+Elgot-Drapkin, J. [1988] Ph.D. Dissertation, University of Maryland.
+.np
+Fagin, R. and Halpern, J. [1985] Belief, awareness, and limited reasoning: preliminary report. \fIIJCAI 85\fR, 491-501.
+.np
+Feferman, S. [1984] Toward useful type-free theories, I. \fIJ. Symbolic Logic, 49\fR, 75-111.
+.np
+Gilmore,  P.  [1974]  The consistency of partial set theory without extensionality, in T.  Jech, (ed.)  \fIAxiomatic Set Theory\fR, Amer.  Math.  Soc., 147-153.
+.np
+Go\*:del, K. [1931] Uber formal unentscheidbare Satze der Principia Mathematica und verwandter Systeme I, \fIMonatsh. Math. Phys.,\fR 38, pp. 173-198.
+.np
+Kripke, S. [1975] Outline of a theory of truth, \fIJ. Phil., 72\fR, 690-716.
+.np
+Kripke, S. (1979) A puzzle about belief. In: \fIMeaning and Use\fR, ed. A.
+Margalit, pp. 234-283. Holland: Dordrecht.
+.np
+Levesque, H. [1984] A logic of implicit and explicit belief. \fIProc 3rd National Conf. on Artificial Intelligence\fR, 198-202.
+.np
+Lo\*:b, M. [1955] Solution of a problem of Leon Henkin, \fIJournal of Symbolic Logic\fR, 20, pp. 115-118.
+.np
+McCarthy,  J.  [1979] First order theories of individual concepts and propositions, \fIMachine Intelligence 9\fR, 129-147.
+.np
+McCarthy,  J.    [1980]  Circumscription--a  form    of    non-monotonic reasoning,  \fIArtificial Intelligence 13\fR, 27-39.
+.np
+McCarthy, J. [1986] Applications of circumscription to formalizing
+common-sense knowledge. \fIArtificial Intelligence\fR, v. 28, 89-118.
+.np
+McDermott, D. and Doyle, J. [1980] Non-monotonic logic I.  \fIArtificial Intelligence\fR, 13 (1,2), pp. 41-72.
+.np
+Minsky, M. (1968) Matter, mind, 
+and models. In: \fISemantic Information Processing\fR, ed. M. Minsky, pp 425-432. 
+Cambridge: MIT Press.
+.np
+Montague,  R. [1963] Syntactical  treatments  of  modality,  with corollaries on reflexion principles and finite axiomatizability, \fIActa  Philosophica fennica, 16\fR, 153-167.
+.np
+Moore, R. [1983] Semantical considerations on nonmonotonic logic.  \fIIJCAI 83\fR.
+.np
+Perlis, D. [1985] Languages with self-reference I: foundations. \fIArtificial Intelligence
+25\fR, pp. 301-322.
+.np
+Perlis, D.  [1986a] On the consistency of commonsense reasoning,
+\fIComputational Intelligence 2\fR, pp.  180-190. Reprinted in M.  Ginsberg
+(ed.)  \fINon-Monotonic Reasoning\fR, Morgan Kauffman, 1987, pp.  56-66.
+.np
+Perlis, D (1986b) What is and what isn't. Symposium on intentionality, Society for
+Philosophy and Psychology, Johns Hopkins University.
+.np
+Perlis, D. [1987a] Circumscribing with sets, \fIArtificial
+Intelligence 31\fR, pp. 201-211.
+.np
+Perlis, D. [1987b] How can a program mean?
+\fIProceedings, International Joint Conference on Artificial Intelligence,\fR
+August, 1987, Milan, Italy.
+.np
+Perlis, D.  [1988a] Languages with self-reference II:  knowledge, belief, and
+modality, \fIArtificial Intelligence 34\fR, pp.  179-212.
+.np
+Perlis, D. [1988b] Autocircumscription, \fIArtificial Intelligence, 36\fR,
+pp. 223-236.
+.np
+Perlis, D. [1988c] Commonsense set theory. In Meta-Level Architectures and
+Architectures, P. Maes and D. Nardi (eds.) North-Holland.
+.np
+Perlis, D. and Hall, R.  [1986] Intentionality as internality. \fIBehavioral
+and Brain Sciences, 9(1)\fR, pp. 151-152.
+.np
+Pylyshyn, Z. [1984] Computation and Cognition. MIT Press.
+.np
+Rapaport, W. [1988] Syntactic semantics: foundations of computational
+natural-language understanding. In J. Fetzer (ed.) \fIAspects of Artificial
+Intelligence\fR, Kluwer, pp. 81-131.
+.np
+Reiter, R. [1980] A logic for default reasoning. \fIArtificial Intelligence\fR,
+v.13, 81-132.
+.np
+Rosenschein, S. and Kaelbling, L. [1987] The synthesis of digital machines with provable epistemic 
+properties. SRI Tech Report 412.
+.np
+Sloman, A. (1986) Reference without causal links, \fIProceedings, 7th
+ECAI\fR, July 21-25, 1986, Brighton, UK. 369-381.
+.np
+Steels, L. (1986) The explicit representation of meaning. \fIProceedings, Workshop on Meta-Level Architectures and Reflection\fR, Sardinia, October 1986.
+.np
+Stich, S. (1984) \fIFrom folk psychology to cognitive science: the case
+against belief\fR. Cambridge: MIT Press.
+.np
+Suchman, L. [1985] Plans and situated actions, Tech Report ISL-6, Xerox Palo Alto Research Center, February 1985.
+.np
+Tarski,  A. [1936]   Der  Wahrheitsbegriff  in den formalisierten Sprachen, \fIStudia Philos., 1\fR, 261-405.
+.np
+Thomason, R. [1980] A note on syntactical treatments of modality, \fISynthese\fR 44, pp 391-395.
+

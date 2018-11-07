@@ -1,0 +1,121 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 99.1 release (March 30, 1999)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>CLIM Stream Pane Options</TITLE>
+<META NAME="description" CONTENT="CLIM Stream Pane Options">
+<META NAME="keywords" CONTENT="clim">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v99.1 release">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="clim.css">
+
+<LINK REL="previous" HREF="node272.html">
+<LINK REL="up" HREF="node271.html">
+<LINK REL="next" HREF="node274.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html4480"
+ HREF="node274.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/icons/next_motif.gif"></A> 
+<A NAME="tex2html4476"
+ HREF="node271.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/icons/up_motif.gif"></A> 
+<A NAME="tex2html4472"
+ HREF="node272.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/icons/previous_motif.gif"></A> 
+<A NAME="tex2html4478"
+ HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/icons/contents_motif.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html4481"
+ HREF="node274.html">Pane Options</A>
+<B> Up:</B> <A NAME="tex2html4477"
+ HREF="node271.html">Application Panes</A>
+<B> Previous:</B> <A NAME="tex2html4473"
+ HREF="node272.html">Making Application Panes</A>
+ &nbsp <B>  <A NAME="tex2html4479"
+ HREF="node1.html">Contents</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H2><A NAME="SECTION08342000000000000000">
+CLIM Stream Pane Options</A>
+</H2>
+
+<P>
+The following are init options to CLIM stream panes.
+
+<P>
+
+<UL>
+<LI>:display-function specifies a function for CLIM to call to display
+the contents of a CLIM stream pane.  The standard clim-top-level top-level
+function will invoke the pane's display function at the appropriate time (see
+the :display-after-commands option).  The value of this option should be
+either the name of a function to invoke or a cons whose car is the name of a
+function and whose cdr is additional arguments to the function.  The function
+will be invoked on the frame, the pane, and the additional function arguments,
+if any.
+
+<P>
+ </LI>
+<LI>:display-time tells CLIM when to run the display function.  If it is
+t, CLIM will erase the pane's contents and run the display function the
+next time a frame command is executed.  If it is nil, CLIM will only run
+the display function when it is explicitly necessary (when the pane is initially
+exposed, for example).  If it is :command-loop the display will be run
+after any command is executed.</LI>
+</UL>
+
+<P>
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html4480"
+ HREF="node274.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/icons/next_motif.gif"></A> 
+<A NAME="tex2html4476"
+ HREF="node271.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/icons/up_motif.gif"></A> 
+<A NAME="tex2html4472"
+ HREF="node272.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/icons/previous_motif.gif"></A> 
+<A NAME="tex2html4478"
+ HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/icons/contents_motif.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html4481"
+ HREF="node274.html">Pane Options</A>
+<B> Up:</B> <A NAME="tex2html4477"
+ HREF="node271.html">Application Panes</A>
+<B> Previous:</B> <A NAME="tex2html4473"
+ HREF="node272.html">Making Application Panes</A>
+ &nbsp <B>  <A NAME="tex2html4479"
+ HREF="node1.html">Contents</A></B> 
+<!--End of Navigation Panel-->
+<ADDRESS>
+<I>&</I>
+<BR><I>2001-06-12</I>
+</ADDRESS>
+</BODY>
+</HTML>

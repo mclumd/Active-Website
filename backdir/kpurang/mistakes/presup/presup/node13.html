@@ -1,0 +1,109 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!--Converted with LaTeX2HTML 98.1p1 release (March 2nd, 1998)
+originally by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Responding to the mistake</TITLE>
+<META NAME="description" CONTENT="Responding to the mistake">
+<META NAME="keywords" CONTENT="presup">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<LINK REL="STYLESHEET" HREF="presup.css">
+<LINK REL="next" HREF="node14.html">
+<LINK REL="previous" HREF="node12.html">
+<LINK REL="up" HREF="node11.html">
+<LINK REL="next" HREF="node14.html">
+</HEAD>
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html154"
+ HREF="node14.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="http://www.cs.umd.edu/icons/latex2html/icons.gif/next_motif.gif"></A> 
+<A NAME="tex2html152"
+ HREF="node11.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="http://www.cs.umd.edu/icons/latex2html/icons.gif/up_motif.gif"></A> 
+<A NAME="tex2html146"
+ HREF="node12.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="http://www.cs.umd.edu/icons/latex2html/icons.gif/previous_motif.gif"></A>   
+<BR>
+<B> Next:</B> <A NAME="tex2html155"
+ HREF="node14.html">No actions</A>
+<B> Up:</B> <A NAME="tex2html153"
+ HREF="node11.html">Discussion of the solution</A>
+<B> Previous:</B> <A NAME="tex2html147"
+ HREF="node12.html">Detecting and representing the</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H2><A NAME="SECTION00062000000000000000">
+Responding to the mistake</A>
+</H2>
+
+<P>
+In addition to asserting that there has been a contradiction
+(mistake), rule <A HREF="node9.html#contraDetectionRule"><IMG  ALIGN="BOTTOM" BORDER="1" ALT="[*]"
+ SRC="http://www.cs.umd.edu/icons/latex2html/icons.gif/cross_ref_motif.gif"></A> also removes the
+contradictory formulas from the context and asserts that they are
+<I>SUSPECT</I>. The removal of the formulas is the first line of defence:
+since one of the two formulas is false, by removing them, we minimize
+the derivation of false formulas.
+
+<P>
+Resolution of the contradiction is done by rule
+<A HREF="node9.html#contraResolutionRule"><IMG  ALIGN="BOTTOM" BORDER="1" ALT="[*]"
+ SRC="http://www.cs.umd.edu/icons/latex2html/icons.gif/cross_ref_motif.gif"></A>. This uses a preference assertion made in
+the KB to decide which of the contradictands to reinstate to the
+context at the next step. This results in <I>assert</I>(<I>X</I>) formulas being
+added to the next step in preference to <I>presup</I>(<I>X</I>) formulas. This is
+generally a good heuristic since the presuppositions are potential
+presuppositions that have to agree with the context.
+
+<P>
+Once the mistake is resolved, the status of the preferred belief
+reverts to being beleived from being <I>SUSPECT</I> while that of the
+mistaken beleif goes to <I>NULL</I> which indicates that it is
+mistaken. The consequences of the mistaken belief are also changed to
+<I>NULL</I>. 
+
+<P>
+This resolves the problem and the computation can proceed with the
+rest of the utterance being included into the context. Only the
+mistaken presipposition is removed.
+
+<P>
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html154"
+ HREF="node14.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="http://www.cs.umd.edu/icons/latex2html/icons.gif/next_motif.gif"></A> 
+<A NAME="tex2html152"
+ HREF="node11.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="http://www.cs.umd.edu/icons/latex2html/icons.gif/up_motif.gif"></A> 
+<A NAME="tex2html146"
+ HREF="node12.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="http://www.cs.umd.edu/icons/latex2html/icons.gif/previous_motif.gif"></A>   
+<BR>
+<B> Next:</B> <A NAME="tex2html155"
+ HREF="node14.html">No actions</A>
+<B> Up:</B> <A NAME="tex2html153"
+ HREF="node11.html">Discussion of the solution</A>
+<B> Previous:</B> <A NAME="tex2html147"
+ HREF="node12.html">Detecting and representing the</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+<I>K. Purang</I>
+<BR><I>2001-06-16</I>
+</ADDRESS>
+</BODY>
+</HTML>

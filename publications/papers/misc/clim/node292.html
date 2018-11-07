@@ -1,0 +1,167 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 99.1 release (March 30, 1999)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Multi-processing</TITLE>
+<META NAME="description" CONTENT="Multi-processing">
+<META NAME="keywords" CONTENT="clim">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v99.1 release">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="clim.css">
+
+<LINK REL="next" HREF="node293.html">
+<LINK REL="previous" HREF="node291.html">
+<LINK REL="up" HREF="node290.html">
+<LINK REL="next" HREF="node293.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html4727"
+ HREF="node293.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/icons/next_motif.gif"></A> 
+<A NAME="tex2html4723"
+ HREF="node290.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/icons/up_motif.gif"></A> 
+<A NAME="tex2html4717"
+ HREF="node291.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/icons/previous_motif.gif"></A> 
+<A NAME="tex2html4725"
+ HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/icons/contents_motif.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html4728"
+ HREF="node293.html">Locks</A>
+<B> Up:</B> <A NAME="tex2html4724"
+ HREF="node290.html">The CLIM-SYS Package</A>
+<B> Previous:</B> <A NAME="tex2html4718"
+ HREF="node291.html">Resources</A>
+ &nbsp <B>  <A NAME="tex2html4726"
+ HREF="node1.html">Contents</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION09220000000000000000">
+Multi-processing</A>
+</H1>
+
+<P>
+make-process function <TT> &amp;key </TT>name
+
+<P>
+Creates a process named <I> name</I>.  The new process will evaluate the function
+<I> function</I>.  On systems that do not support multi-processing,
+make-process will signal an error.
+
+<P>
+destroy-process process
+
+<P>
+Terminates the process <I> process</I>.  <I> process</I> is an object returned by
+make-process.
+
+<P>
+current-process 
+
+<P>
+Returns the currently running process, which will be the same kind of object as
+would be returned by make-process.
+
+<P>
+all-processes 
+
+<P>
+Returns a sequence of all of the processes.
+
+<P>
+process-wait reason predicate
+
+<P>
+Causes the current process to wait until <I> predicate</I> returns <I> true</I>.
+<I> reason</I> is a ``reason'' for waiting, usually a string.  On systems that do
+not support multi-processing, process-wait will loop until <I> predicate</I>
+returns <I> true</I>.
+
+<P>
+process-wait-with-timeout reason timeout predicate
+
+<P>
+Causes the current process to wait until either <I> predicate</I> returns
+<I> true</I>, or the number of seconds specified by <I> timeout</I> has elapsed.
+<I> reason</I> is a ``reason'' for waiting, usually a string.  On systems that do
+not support multi-processing, process-wait-with-timeout will loop until
+<I> predicate</I> returns <I> true</I> or the timeout has elapsed.
+
+<P>
+process-yield 
+
+<P>
+Allows other processes to run.  On systems that do not support multi-processing,
+this does nothing.
+
+<P>
+process-interrupt process function
+
+<P>
+Interrupts the process <I> process</I> and causes it to evaluate the function
+<I> function</I>.  On systems that do not support multi-processing, this is
+equivalent to funcall'ing <I> function</I>.
+
+<P>
+without-scheduling <TT> &amp;body </TT>body
+
+<P>
+Evaluates <I> body</I> in a context that is guaranteed to be free from
+interruption by other processes.  On systems that do not support
+multi-processing, without-scheduling is equivalent to progn.
+
+<P>
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html4727"
+ HREF="node293.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/icons/next_motif.gif"></A> 
+<A NAME="tex2html4723"
+ HREF="node290.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/icons/up_motif.gif"></A> 
+<A NAME="tex2html4717"
+ HREF="node291.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/icons/previous_motif.gif"></A> 
+<A NAME="tex2html4725"
+ HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/icons/contents_motif.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html4728"
+ HREF="node293.html">Locks</A>
+<B> Up:</B> <A NAME="tex2html4724"
+ HREF="node290.html">The CLIM-SYS Package</A>
+<B> Previous:</B> <A NAME="tex2html4718"
+ HREF="node291.html">Resources</A>
+ &nbsp <B>  <A NAME="tex2html4726"
+ HREF="node1.html">Contents</A></B> 
+<!--End of Navigation Panel-->
+<ADDRESS>
+<I>&</I>
+<BR><I>2001-06-12</I>
+</ADDRESS>
+</BODY>
+</HTML>

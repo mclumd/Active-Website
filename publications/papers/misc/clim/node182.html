@@ -1,0 +1,188 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 99.1 release (March 30, 1999)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Graph Formatting Functions</TITLE>
+<META NAME="description" CONTENT="Graph Formatting Functions">
+<META NAME="keywords" CONTENT="clim">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v99.1 release">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="clim.css">
+
+<LINK REL="next" HREF="node183.html">
+<LINK REL="previous" HREF="node181.html">
+<LINK REL="up" HREF="node181.html">
+<LINK REL="next" HREF="node183.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html3229"
+ HREF="node183.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/icons/next_motif.gif"></A> 
+<A NAME="tex2html3225"
+ HREF="node181.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/icons/up_motif.gif"></A> 
+<A NAME="tex2html3219"
+ HREF="node181.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/icons/previous_motif.gif"></A> 
+<A NAME="tex2html3227"
+ HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/icons/contents_motif.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html3230"
+ HREF="node183.html">The Graph Formatting Protocols</A>
+<B> Up:</B> <A NAME="tex2html3226"
+ HREF="node181.html">Graph Formatting</A>
+<B> Previous:</B> <A NAME="tex2html3220"
+ HREF="node181.html">Graph Formatting</A>
+ &nbsp <B>  <A NAME="tex2html3228"
+ HREF="node1.html">Contents</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION06410000000000000000">
+Graph Formatting Functions</A>
+</H1>
+
+<P>
+format-graph-from-roots root-objects object-printer inferior-producer
+                                  <TT> &amp;key </TT>stream
+                                       orientation cutoff-depth
+                                       merge-duplicates duplicate-key duplicate-test
+                                       generation-separation within-generation-separation
+                                       arc-drawer arc-drawing-options
+                                       graph-type (move-cursor t)
+
+<P>
+Draws a graph whose roots are specified by the sequence <I> root-objects</I>.  The
+nodes of the graph are displayed by calling the function <I> object-printer</I>,
+which takes two arguments, the node to display and a stream.
+<I> inferior-producer</I> is a function of one argument that is called on each
+node to produce a sequence of inferiors (or nil if there are none).  Both
+<I> object-printer</I> and <I> inferior-producer</I> have dynamic extent.
+
+<P>
+The output from graph formatting takes place in a normalized +2#2-downward
+coordinate system.  The graph is placed so that the upper left corner of its
+bounding rectangle is at the current text cursor position of <I> stream</I>.  If
+the boolean <I> move-cursor</I> is <I> true</I> (the default), then the text cursor
+will be moved so that it immediately follows the lower right corner of the
+graph.
+
+<P>
+The returned value is the output record corresponding to the graph.
+
+<P>
+ 
+<I> stream</I> is an output recording stream to which output will be done.  It
+defaults to *standard-output*.
+
+<P>
+ 
+<I> orientation</I> may be either :horizontal (the default) or
+:vertical.  It specifies which way the graph is oriented.  CLIM
+implementations are permitted to extend the values of <I> orientation</I>, for
+example, adding :right or :left to distinguish between left-to-right
+or right-to-left layouts.
+
+<P>
+ 
+<I> cutoff-depth</I> specifies the maximum depth of the graph.  It defaults to
+nil, meaning that there is no cutoff depth.  Otherwise it must be an
+integer, meaning that no nodes deeper than <I> cutoff-depth</I> will be formatted
+or displayed.
+
+<P>
+If the boolean <I> merge-duplicates</I> is <I> true</I>, then duplicate objects in
+the graph will share the same node in the display of the graph.  That is, when
+<I> merge-duplicates</I> is <I> true</I>, the resulting graph will be a tree.  If
+<I> merge-duplicates</I> is <I> false</I> (the default), then duplicate objects
+will be displayed in separate nodes.  <I> duplicate-key</I> is a function of one
+argument that is used to extract the node object component used for duplicate
+comparison; the default is identity.  <I> duplicate-test</I> is a function of
+two arguments that is used to compare two objects to see if they are duplicates;
+the default is eql.  <I> duplicate-key</I> and <I> duplicate-test</I> have
+dynamic extent.
+
+<P>
+ 
+<I> generation-separation</I> is the amount of space to leave between successive
+generations of the graph; the default is 20.  <I> within-generation-separation</I>
+is the amount of space to leave between nodes in the same generation of the
+graph; the default is 10.  <I> generation-separation</I> and
+<I> within-generation-separation</I> are specified in the same way as the
+<I> inter-row-spacing</I> argument to formatting-table.
+
+<P>
+ 
+<I> arc-drawer</I> is a function of seven positional and some unspecified keyword
+arguments that is responsible for drawing the arcs from one node to another; it
+has dynamic extent.  The positional arguments are the stream, the ``from'' node,
+the ``to'' node, the ``from'' 1#1 and 2#2 position, and the ``to'' 1#1 and 2#2
+position.  The keyword arguments are typically line drawing options, such as for
+draw-line*.  If <I> arc-drawer</I> is unsupplied, the default behavior is to
+draw a thin line from the ``from'' node to the ``to'' node using
+draw-line*.
+
+<P>
+ 
+<I> graph-type</I> is a keyword that specifies the type of graph to draw.  CLIM
+implementations must support :tree, :directed-graph (and its synonym
+:digraph), and :directed-acyclic-graph (and its synonym :dag).
+<I> graph-type</I> defaults to :tree when <I> merge-duplicates</I> is
+<I> true</I>, otherwise it defaults to :digraph.  Typically, different graph
+types will use different output record classes and layout engines to lay out the
+graph.  However, it is permissible for all of the required graph types to use
+exactly the same graph layout engine.
+
+<P>
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html3229"
+ HREF="node183.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/icons/next_motif.gif"></A> 
+<A NAME="tex2html3225"
+ HREF="node181.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/icons/up_motif.gif"></A> 
+<A NAME="tex2html3219"
+ HREF="node181.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/icons/previous_motif.gif"></A> 
+<A NAME="tex2html3227"
+ HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/icons/contents_motif.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html3230"
+ HREF="node183.html">The Graph Formatting Protocols</A>
+<B> Up:</B> <A NAME="tex2html3226"
+ HREF="node181.html">Graph Formatting</A>
+<B> Previous:</B> <A NAME="tex2html3220"
+ HREF="node181.html">Graph Formatting</A>
+ &nbsp <B>  <A NAME="tex2html3228"
+ HREF="node1.html">Contents</A></B> 
+<!--End of Navigation Panel-->
+<ADDRESS>
+<I>&</I>
+<BR><I>2001-06-12</I>
+</ADDRESS>
+</BODY>
+</HTML>

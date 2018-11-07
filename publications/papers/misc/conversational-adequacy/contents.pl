@@ -1,0 +1,60 @@
+# LaTeX2HTML 96.1 (Feb 5, 1996)
+# Associate contents original text with physical files.
+
+$key = q/0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0/;
+$toc_section_info{$key} = '0%:%ver1_ss.html%:% <B>Conversational Adequacy: Mistakes are the Essence</B> ' unless ($toc_section_info{$key}); 
+$key = q/0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0/;
+$toc_section_info{$key} = '3%:%node1.html%:%Introduction' unless ($toc_section_info{$key}); 
+$key = q/0 0 0 2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0/;
+$toc_section_info{$key} = '3%:%node2.html%:%What we mean by conversation' unless ($toc_section_info{$key}); 
+$key = q/0 0 0 3 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0/;
+$toc_section_info{$key} = '3%:%node3.html%:%Related work' unless ($toc_section_info{$key}); 
+$key = q/0 0 0 3 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0/;
+$toc_section_info{$key} = '4%:%node4.html%:%Active logic' unless ($toc_section_info{$key}); 
+$key = q/0 0 0 4 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0/;
+$toc_section_info{$key} = '3%:%node11.html%:%Miscommunication Competence and Conversational Adequacy' unless ($toc_section_info{$key}); 
+$key = q/0 0 0 3 2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0/;
+$toc_section_info{$key} = '4%:%node5.html%:%Meta-cognitive and meta-linguistic abilities' unless ($toc_section_info{$key}); 
+$key = q/0 0 0 4 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0/;
+$toc_section_info{$key} = '4%:%node12.html%:%Object language competence' unless ($toc_section_info{$key}); 
+$key = q/0 0 0 5 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0/;
+$toc_section_info{$key} = '3%:%node15.html%:%Extreme examples of conversational adequacy' unless ($toc_section_info{$key}); 
+$key = q/0 0 0 3 3 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0/;
+$toc_section_info{$key} = '4%:%node6.html%:%Strategic Competence' unless ($toc_section_info{$key}); 
+$key = q/0 0 0 4 2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0/;
+$toc_section_info{$key} = '4%:%node13.html%:%Miscommunication competence' unless ($toc_section_info{$key}); 
+$key = q/0 0 0 6 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0/;
+$toc_section_info{$key} = '3%:%node16.html%:%Empirical Tests' unless ($toc_section_info{$key}); 
+$key = q/0 0 0 3 4 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0/;
+$toc_section_info{$key} = '4%:%node7.html%:%McRoy and Hirst: failed expectations' unless ($toc_section_info{$key}); 
+$key = q/0 0 0 4 3 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0/;
+$toc_section_info{$key} = '4%:%node14.html%:%Conversational Adequacy' unless ($toc_section_info{$key}); 
+$key = q/0 0 0 6 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0/;
+$toc_section_info{$key} = '4%:%node17.html%:%A Test of the Importance of Miscommunication Competence' unless ($toc_section_info{$key}); 
+$key = q/0 0 0 7 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0/;
+$toc_section_info{$key} = '3%:%node19.html%:%Turing Test programs' unless ($toc_section_info{$key}); 
+$key = q/0 0 0 3 5 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0/;
+$toc_section_info{$key} = '4%:%node8.html%:%Traum and the TRAINS project: grounding' unless ($toc_section_info{$key}); 
+$key = q/0 0 0 6 2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0/;
+$toc_section_info{$key} = '4%:%node18.html%:%Turing Test Redefined?' unless ($toc_section_info{$key}); 
+$key = q/0 0 0 7 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0/;
+$toc_section_info{$key} = '4%:%node20.html%:%Mystery' unless ($toc_section_info{$key}); 
+$key = q/0 0 0 8 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0/;
+$toc_section_info{$key} = '3%:%node22.html%:%Toward programs that converse!' unless ($toc_section_info{$key}); 
+$key = q/0 0 0 3 6 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0/;
+$toc_section_info{$key} = '4%:%node9.html%:%Miller: terminological change' unless ($toc_section_info{$key}); 
+$key = q/0 0 0 7 2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0/;
+$toc_section_info{$key} = '4%:%node21.html%:%Hex' unless ($toc_section_info{$key}); 
+$key = q/0 0 0 9 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0/;
+$toc_section_info{$key} = '3%:%node23.html%:%Conclusions' unless ($toc_section_info{$key}); 
+$key = q/0 0 0 3 7 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0/;
+$toc_section_info{$key} = '4%:%node10.html%:%Failure of presuppositions and implicatures' unless ($toc_section_info{$key}); 
+$key = q/0 0 0 10 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0/;
+$toc_section_info{$key} = '3%:%node24.html%:%References' unless ($toc_section_info{$key}); 
+$key = q/0 0 0 11 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0/;
+$toc_section_info{$key} = '3%:%node25.html%:%Appendix' unless ($toc_section_info{$key}); 
+$key = q/0 0 0 12 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0/;
+$toc_section_info{$key} = '3%:%node26.html%:%  About this document ... ' unless ($toc_section_info{$key}); 
+
+1;
+

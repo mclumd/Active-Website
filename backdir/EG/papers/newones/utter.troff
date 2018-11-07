@@ -1,0 +1,579 @@
+.sc
+.th
+.EQ
+delim $$
+.EN
+.ls 1
+.lp
+.ce 100
+\fBProving Self-Utterances\fR
+.sp 2
+$\fRMichael~Miller sup a,b~and~~Donald~Perlis sup a,c$
+.sp
+\MX$\fR"" sup a Computer~Science	\MZ"" sup b Systems~Research	\MY"" sup c Institute~for~Advanced$
+\CX\ \ \ \ Department	\CZ\ \ \ \ \ \ Center	\CY\ \ \ Computer Studies
+.sp
+University  of  Maryland
+College Park, Maryland 20742
+(301) 454-2002
+.ce 0
+.sp
+Abstract
+
+We study the \fIKnights and Knaves\fR problem, and find that for a proper
+treatment via theorem-proving, an interaction with natural language
+processing research is helpful.  In particular, we discuss Ohlbach's claim
+that first-order logic is not well suited to handling this problem.  Then
+we provide an interpretation of the problem using indexicals,
+axiomatize it, and prove the desired result. We conclude by 
+suggesting a broader context for dealing with ``self-utterances'' in
+automatic theorem-proving.
+.sp
+descriptors: indexicals, knowledge representation, first-order logic, situated 
+logic, utterances
+.sp
+.ls 2
+\fBI. Introduction\fR
+.pp
+The \fIKnights and Knaves\fR problem [Smullyan 1978] can be stated as follows:  
+An island exists whose only inhabitants are
+knights, knaves, and a princess.  The knights on the island always tell the
+truth, while the knaves always lie.  Some of the knights are poor and
+the rest of them are rich.  The same holds for the knaves.  The 
+princess is looking for a husband who must be a rich knave.
+In uttering one statement, how can a rich knave convince the princess that he is
+indeed a prospective husband for her? \**
+.(f
+\**The intended solution is the statement ``I am a poor knave.'' The reader
+can readily verify that this indeed is a solution. Note the self-referential
+nature of the statement; this feature is a special case of indexicality,
+which we address below. For general treatments of self-reference, see
+[Perlis 1985], where another of Smullyan's puzzles is treated, and [Smith
+1986].
+.)f
+.pp
+[Ohlbach 1985] is devoted to the framing and solution of this problem
+in a formal theorem-proving context using first-order logic (FOL).
+Though trying to write the problem in FOL may not appear to be
+difficult at first, it is shown by Ohlbach not to be entirely elementary.  He examines,
+and finds inadequate,
+two different approaches before he finally settles on a third.
+This final approach,
+though successful in that it gets the desired ``solution'',
+is unsatisfactory. 
+Specifically, Ohlbach uses a truth predicate
+with two arguments, T(x,y), which claims that its first argument x is
+true, but has no clear meaning for its second argument in terms of the original
+problem. Its justification
+is that the predicate allows a theorem-prover to perform
+certain unifications that lead to the intended solution. But it does
+not accomplish the goal of finding a knowledge representation
+faithful to the original problem, as well as having the solution as a logical
+consequence.
+.pp
+Ohlbach's conclusion is that knowledge representation is too hard in
+first-order logic, and too dependent upon tricks.
+We will not dispute that it takes some time to come up with a satisfactory
+representation of the problem, but this is not necessarily the fault of
+first-order logic.  We contend that there is a straightforward treatment
+of the problem that is faithful to its intent
+and that does allow a formal proof of the desired result. However, it requires
+employing concepts into the formalism that are not usually found in the context
+of problem-solving via resolution theorem-provers, namely, ideas from
+natural language processing.  Nevertheless, we are not replacing one trick
+by another, but rather introducing a well-understood and general formalism
+for problems of this sort.
+.pp
+The rest of this paper is organized as follows: section II discusses
+issues of problem representation, especially the role played by the
+pronoun ``I'' in the \fIKnights and Knaves\fR problem. Section III
+reviews general consequences for truth-values of statements
+containing indexicals such as ``I'', and section IV applies this to
+the \fIKnights and Knaves\fR problem. Section V gives our formal
+treatment, including a resolution-refutation proof by answer extraction.
+Section VI compares out solution to Ohlbach's and suggests a broader
+context for dealing with self-utterances in automatic theorem-proving.
+.sp
+\fBII. Problem Representation\fR
+.pp
+Finding a suitable representation for problems in artificial intelligence (AI) is often a difficult 
+task.
+However, the \fIformalism\fR used to represent
+a problem is not necessarily the cause of the difficulty, though we
+grant that sometimes it is. 
+Often it is the problem itself that is resisting representation and, when this occurs, further
+insight into the problem is necessary.
+.pp
+The \fIKnights and Knaves\fR problem is a prime example of this.  Ohlbach's
+interpretation of the problem results in his asking ``Is there a statement x
+that I (being a rich
+knave) can say to convince the princess that I am indeed a rich knave?''
+Formally this might look like (and does in Ohlbach's second treatment):
+.ce
+\fBOHL:\fR   (\*(qeu)[CanSay(I,u) \o'\(->\(<-' T(and(knave(I),rich(I)))]\**
+.(f
+\**Ohlbach's first treatment
+involved the axiom (\*(qeu)[CanSay(I,u) \(-> T(and(knave(I),rich(I)))]
+which (in addition to yielding a trivial and unhelpful answer) does not
+seem to correspond to his English interpretation ``There exists a statement
+which I can say and which implies that I am really a rich knave.'' In fact,
+it seems to us that the goal statement
+.ce
+(\*(qeu)[CanSay(I,u) & (\*(qap)[CanSay(p,u) \(-> T(and(rich(p),knave(p)))]]
+comes much closer to the English.
+.)f
+where T is the predicate meaning True and ``and'' although a function symbol, 
+intuitively takes two statements as arguments and returns another single 
+conjunctive statement.\**
+.(f
+\**Actually, a \fIname\fR of the statement.
+.)f
+.pp
+This interpretation may appear to be reasonable given the English statement
+of the problem.  But as Ohlbach discusses, this
+representation (along with other associated axioms) is \fInot\fR sufficient to 
+derive the intended result.
+.pp
+At least part of the difficulty is not hard to see. The constant ``I'' stands for
+a fixed person (who is a rich knave). 
+The point of the biconditional in \fBOHL\fR, and especially of the right-hand side, is to
+test whether the speaker is a rich knave, based on the ability to
+utter u.  That is, the problem really seems to be asking, ``What statement, when made
+by \fIanyone\fR, will convince the princess that \fIthe person
+making the statement\fR is a rich knave?''
+The first problem with that representation is then the following: ``I'' should
+not be bound to a fixed individual, but should represent any ``man in the
+street'' who might utter u.  We then suggest the alternative version:
+.ce
+\fBG:\fR   (\*(qeu)(\*(qap)[CanSay(p,u) \o'\(<-\(->' T(and(rich(p),knave(p)))]
+.pp
+We claim to have now adequately represented the goal statement\**; 
+.(f
+\**Both \fBG\fR and the second wff in footnote 2 will do equally well. 
+.)f
+but this
+is still not enough. For although this goal statement expresses
+what we want, there are other problems arising from the truth conditions
+of utterances containing the pronoun ``I''.  These will enter into axioms in the problem
+representation, rather than the goal statement.
+.sp
+\fBIII.  Utterance Instances of Statements\fR
+.pp
+This brings us to what we think is the key issue in this puzzle,
+an issue which has broader significance as well. Specifically,
+utterances are instances of statement uses, and these instances,
+in general, have truth-values, rather than the statement in and of itself.
+In particular, terms in a statement may have no definite reference outside
+the context of an utterance. Although this concept is familiar to linguists\**
+.(f
+\**Including those who work in natural language processing; see for instance
+[Allen 1984], [Allen and Perrault 1980], [Harper and Charniak 1986].
+.)f
+and
+philosophers (it is the so-called problem of indexicals which is discussed below) it is worth 
+going into detail in the current paper, since the issue of representing
+knowledge in the \fIKnights and Knaves\fR problem hinges on this very phenomenon.
+.pp
+Typically, we think of a statement as being either true or false.
+This, however, is not always the case.  For example, the statement:
+.ce
+I am a knave
+will have a truth-value dependent upon who the speaker is; and so 
+would be falsely uttered by any knight and truly by any knave.\**
+.(f
+\**Hence, this statement can be uttered by neither knights \fInor\fR knaves, in
+the \fIKnights and Knaves\fR problem!
+.)f
+Thus statements
+that contain indexicals (such as the word ``I'' in the above example) have meanings,
+and hence truth-values, that depend upon context.
+.pp
+Another example is the statement: 
+.ce
+It is raining (here now)
+In this case the utterance may simply be ``It is raining.''  The implication,
+however, is that it is raining at some particular place at some particular
+time.  In our example, the time and place are ``here'' and ``now'' respectively, and so ``here'' and ``now'' are the indexicals that determine the truth or 
+falsity of this statement.
+.pp
+Generally speaking, then, an indexical in an utterance is a sub-expression 
+of that utterance whose meaning is determined (and thus understood) 
+by the context in which the utterance is stated.
+Because of the indeterminacy of truth-values of 
+sentences that contain indexicals, we will refer only to the
+truth-value of utterance-instances of such statements.  An 
+utterance-instance of a statement contains a context in which the statement was (or is)
+made including who the utterer is.
+
+\fBIV. ``Who Am I?''\fR
+.pp
+If we look closely at any of Ohlbach's representations of the \fIKnights and Knaves\fR
+problem, we notice that the constant ``I'' seems to be playing two different
+roles.  In all of his goal statements ``I'' is presumably used as the name of a particular
+person.  For example Ohlbach's second goal statement, \fBOHL\fR,
+illustrates this usage.
+On the other hand, in the intended solution to the problem, the ``u'' of the
+goal statement is bound to \fIanriki\fR:\**
+.(f
+\**Throughout the remainder of this paper we use ``anriki'' as a short-hand
+for:  and(not(rich(I)),knave(I)).
+.)f
+.ce 
+and(not(rich(I)),knave(I))
+where, the same symbol ``I''
+appears as before but now what is of interest is its potential presence within 
+within CanSay(I,anriki),
+i.e., as part of a potential utterance whose
+truth value depends upon who the speaker is. That is, any number of people might utter
+\fIanriki\fR, and its meaning would be different in each case.
+We now have an utterance-instance and need to know who ``I''
+is before assigning a truth-value.  Thus, ``I''  must be viewed as a pronoun
+and not a proper name here.  In particular, the knighthood or ``knavehood''
+of ``I'' determines the truth of \fIanriki\fR.  Of course, in the world
+in question, only knaves (and rich ones at that) could utter \fIanriki\fR. But that is
+the point; the princess must be able to deduce precisely that fact: that
+anyone at all who utters \fIanriki\fR must consequently be a rich knave.
+.pp
+In what follows, we have removed this ambiguity by
+introducing a new predicate (TU) into the language of \fIKnights and
+Knaves\fR.
+TU is used as a 2-place predicate expression with its first
+argument being a person and its second an utterance.  Intuitively, 
+TU(p,u) is true if and only if u is true when uttered by person p. 
+More precisely, we say TU(p,u) is true if and only if the substitution-instance of t resulting from
+replacing all occurrences of ``I'' in u by ``p'' is true.
+Thus the statement:
+.ce
+TU(John,``I am six feet tall'')
+is true if and only if John (the utterer) is indeed six feet tall.\**
+.(f
+\**This is somewhat comparable to the formulation of Barwise and Perry [1983] when
+they speak of an utterance in a ``situation'' concerning ``I'': u[I am six feet tall]e
+is true (where u is the utterance ``I am six feet tall'' and e is a situation
+in which John is present and makes utterance u) iff John is indeed six feet
+tall in situation e.
+.br
+          We use TU as an acronym for ``truly utters''; i.e., TU(p,u) says ``p would
+be telling the truth if p were to utter u.''
+.)f
+.sp
+\fBV. Formalization\fR
+.pp
+We now introduce our notation for representing the problem.  We use a
+first-order theory
+which contains the following:
+.ls 2
+.nf
+.in +5
+I: constant (the word ``I'')
+knave: function letter (knave(x) stands for the term ``x is a knave'')
+rich: function letter 
+knight: function letter
+not: function letter
+and: 2-place function letter
+CanSay: 2-place predicate letter (CanSay(p,u) means ``p can say u'')
+TU: 2-place predicate expression (TU(p,u) means term ``u'' would be
+              true if occurrences of ``I'' in u are replaced by p)
+T: predicate expression  (T(t) means the term t is true)
+.in -5
+.ls 2
+.fi
+.pp
+Given the above notation, we can now present the axioms which will capture the \fIKnights and
+Knaves\fR problem as we see it.  
+For simplicity, we suppose all variables range over
+knights, knaves, the princess, and utterances.\**
+.(f
+\**This follows the convention of Ohlbach. The use of either typed or
+relativized variables would 
+eliminate unusual readings at the expense of more complex formulae.
+.)f
+.pp
+All clauses we require could be derived from only three
+first-order axioms and one schema which are
+sufficient to represent the needed facts about the world in which the knights,
+knaves, and princess live, namely,
+.ls 1
+.sp
+.np
+(\*(qap)(\*(qau){T(knave(p)) \o'\(<-\(->' [CanSay(p,u) \o'\(<-\(->' \(noTU(p,u)]}
+.br
+I.e., u is a knave iff the things t that u can say are precisely those which
+would be false if u uttered them.
+.sp
+.np
+(\*(qay)(\*(qaz)[T(and(y,z)) \o'\(<-\(->' T(y)&T(z)] 
+.br
+This captures the meaning of the function letter `and'. 
+.sp
+.np
+ (\*(qas)[T(s) \o'\(<-\(->' \(noT(not(s))]
+.br
+This axiom captures the meaning of the function letter `not'.
+.sp
+.np
+ (\*(qap)[TU(p,\fIf\fR (I)) \o'\(<-\(->' T(\fIf\fR (I))] 
+.br
+For example, this intuitively corresponds to TU(Bill,rich(I)) \o'\(->\(<-' Rich(Bill), where  \fIf\fR  is ``rich''.\**
+.ls 2
+.(f
+\**Note that this replaces Tarski's Convention \fBT:\fR   T``\(*a''
+\o'\(->\(<-' \(*a, in cases of \(*a having the indexical ``I''.
+.)f
+.pp
+As mentioned, axiom 4 is really a schema,
+and a functional one at that. So ordinary theorem provers 
+would have to be given a mechanism
+to select in some fashion appropriate
+substitution instances. In order to
+avoid this added difficulty (although it should not be computationally
+very expensive in this case) we will continue our analysis in terms of
+a finite axiomatization of this schema, which requires no such mechanism.
+.pp
+The following four axioms recursively establish \fIall\fR possible
+instances of schema 4 in terms of the leftmost function
+symbol occurring in TU's second argument.
+.nf
+.ls 2
+.sp
+$\fR\fBTU\fI sub \fIand\fR$\fB:\fR   (\*(qau)(\*(qav)(\*(qap)[TU(p,and(u,v)) \o'\(<-\(->' {TU(p,u) & TU(p,v)}]
+
+$\fR\fBTU\fI sub \fInot\fR$\fB:\fR   (\*(qau)(\*(qap)[TU(p,not(u)) \o'\(<-\(->' \(noTU(p,u)]
+
+$\fR\fBTU\fI sub \fIrich\fR$\fB:\fR   (\*(qap)[TU(p,rich(I)) \o'\(<-\(->' T(rich(p))]
+
+$\fR\fBTU\fI sub \fIknave\fR$\fB:\fR  (\*(qap)[TU(p,knave(I)) \o'\(<-\(->' T(knave(p))]
+
+.fi
+.pp
+Thus the axioms we employ for the \fIKnights and Knaves\fR problem will
+be (1)-(3) above and the four last ones for TU, for a total of seven
+first-order axioms and no schemata.
+Below we present these axioms in
+clause form, leaving out those clauses that result from our axioms
+that are not necessary to our resolution proof.
+
+\fBKS1:\fR   \(noT(knave(p)) v \(noCanSay(p,u) v \(noTU(p,u)
+
+\fBKS2:\fR   \(noT(knave(p)) v CanSay(p,u) v TU(p,u)
+
+\fBKS3:\fR   T(knave(p)) v \(noCanSay(p,u) v TU(p,u)
+
+
+\fBA1:\fR   \(noT(and(y,z)) v T(y)
+
+\fBA2:\fR   \(noT(and(y,z)) v T(z)
+
+\fBA3:\fR   T(and(y,z)) v \(noT(y) v \(noT(z)
+
+
+\fBN1:\fR   T(s) v T(not(s))
+
+\fBN2:\fR   \(noT(s) v \(noT(not(s))
+
+
+\fBTU1:\fR   TU(p,and(u,v)) v \(noTU(p,u) v \(noTU(p,v) 
+
+\fBTU2:\fR   \(noTU(p,and(u,v)) v TU(p,u)
+
+\fBTU3:\fR   \(noTU(p,and(u,v)) v TU(p,v)
+
+\fBTU4:\fR   TU(p,not(u)) v TU (p,u)
+
+\fBTU5:\fR   \(noTU(p,not(u)) v \(noTU(p,u)
+
+\fBTU6:\fR   TU(p,rich(I)) v \(noT(rich(p))
+
+\fBTU7:\fR   \(noTU(p,rich(I)) v T(rich(p))
+
+\fBTU8:\fR   TU(p,knave(I)) v \(noT(knave(p))
+
+\fBTU9:\fR   \(noTU(p,knave(I))) v T(knave(p))  
+
+.fi
+.pp
+We are now ready for the clauses which represent our goal statement.
+In line with our earlier discussion, we take as our goal statement:
+.ce
+\fBG:\fR   (\*(qeu)(\*(qap)[CanSay(p,u) \o'\(<-\(->' T(and(rich(p),knave(p)))]
+In the clauses that follow, ``g'' is a Skolem function resulting from the 
+elimination of the existential
+quantifier in the negation of \fBG\fR.
+
+\fBG1:\fR   CanSay(g(u),u)) v T(and(rich(g(u)), knave(g(u))))
+
+\fBG2:\fR   \(noCanSay(g(u),u) v \(noT(and(rich(g(u)),knave(g(u))))
+.pp
+Given these clauses 
+we have been able to use resolution to give us the
+desired solution.
+Here we present our resolution proof with answer extraction showing 
+how we come up with a solution to the \fIKnights and Knaves\fR problem.  Axioms will
+be abbreviated using their names from section V.
+Clauses that are the result of a step in the proof are named (R1, R2, F13, etc.)
+so that we may refer to them later in the proof. For the sake of compact
+presentation, we abbreviate `and' as `a', `rich' as `r', `knave' as `k',
+`not' as `n', and `CanSay' as `CS'. We also eliminate certain parentheses
+when there is no ambiguity.  Key substitutions are in braces beside the resultant clause in which they appear.
+.bp
+.nf
+.ls 1
+
+\MX\fBResolvants\ \ \       \   \ \ \ \ \ \MY\ \ Resultant Clause\fR
+.br
+\CXG1vAns(u).&.A1\(->\MZ\ R1:  \CY\ \ CS(gu,u) v T(r(gu)) v Ans(u) 
+.br
+\CXN2 & R1 \(-> \CZ\ R2:   \CY\ \ CS(gu,u) v \(noT(nr(gu)) v Ans(u) 
+.br
+\CXA1 & R2 \(-> \CZ\ R3:   \CY\ \ CS(gu,u) v \(noT(a(nr(gu),z)) v Ans(u)
+.br 
+\CXA3 & R3 \(->\CZ\ R4:   \CY\ \ CS(gu,u) v \(noT(nr(gu)) v \(noT(z) v Ans(u) 
+.br
+\CXTU9 & R4 \(->\CZ\ R5:   \CY\ \ CS(gu,u) v \(noT(nr(gu)) v \(noTU(p,k(I)) v Ans(u)  
+.br
+\CXN1 & R5 \(-> \CZ\ R6:  \CY\ \ CS(gu,u) v T(r(gu)) v \(noTU(p,k(I)) v Ans(u) 
+.br
+\CXTU6 & R6 \(->\CZ\ R7: \CY\ \ CS(gu,u) v TU(gu,r(I)) v \(noTU(p,k(I)) v Ans(u)  
+.br
+\CXTU5 & R7 \(->\CZ\ R8:   \CY\ \ CS(gu,u) v \(noTU(gu,nr(I) v \(noTU(p,k(I)) v Ans(u)  
+.br
+\CXTU3 & R8 \(->\CZ\ R9:  \CY\ \ CS(gu,u) v \(noTU(gu,nr(I) v \(noTU(p,a(u\',k(I))) v Ans(u) 
+.br
+\CXTU2 & R9 \(-> \CZR10:  \CY\ \ CS(gu,u) v \(noTU(gu,a(nr(I),v)) v \(noTU(p,a(u\',k(I))) v Ans(u)
+.br
+\CXR10,Fac \(->\CZF11:  \CY\ \ CS(gu,u) v \(noTU(gu,anriki\**)                       {u\',v,p \(-> nr(I),k(I),gu}
+.(f
+\**Recall that we use \fIanriki\fR as a short-hand notation for and(not(rich(I),knave(I)).
+.)f       
+.br
+\CXKS2 & F11 \(->\CZR12:   \CY\ \ CS(gu,u) v CS(gu,anriki) v \(noT(k(gu)) v Ans(u) 
+.br
+\CXR12,Fac \(-> \CZF13:  \CY\ \ CS(g(anriki),anriki) v \(noT(k(g(anriki))) v \fBAns(anriki)\fR\**   {u \(-> anriki}
+.(f
+\**We will now drop this term from subsequent clauses, as it is not going to change and represents the desired answer.
+.)f
+.br
+\CXG1 & A2 \(-> \CZR14:  \CY\ \ CS(gu,u) v T(k(gu)
+.br
+.br
+\CXF13 & R14 \(-> \CZR15:   \CY\ \ CS(g(anriki),anriki)
+.br
+\CXG2 & R15 \(-> \CZR16:  \CY\(noT(a(r(g(anriki)),k(g(anriki)))
+.br
+\CXA3 & R16 \(-> \CZR17:  \CY\(noT(r(g(anriki))) v \(noT(k(g(anriki))))
+.br
+\CXN1 & R17 \(-> \CZR18:  \CY\ \ T(nr(g(anriki))) v \(noT(k(g(anriki)))
+.br
+\CXKS3 & R18 \(->\CZR19: \CY\(noCS(g(anriki),t) v TU(g(anriki),t) v T(nr(g(anriki)))
+.br
+\CXF13 & R19 \(-> \CZR20:    \CY\ \ TU(g(anriki),anriki) v T(nr(g(anriki)))
+.br
+\CXTU2 & R20 \(-> \CZR21:   \CY\ \ TU(g(anriki),nr(I)) v T(nr(g(anriki)))
+.br	
+\CXTU5 & R21 \(-> \CZR22:   \CY\(noTU(g(anriki),r(I)) v T(nr(g(anriki)))
+.br
+\CXTU6 & R22 \(-> \CZR23:   \CY\(noT(r(g(anriki))) vT(nr(g(anriki)))
+.br
+\CXN1 & R23 \(-> \CZR24:   \CY\ \ T(nr(g(anriki)))
+.br
+\CXR15 & KS1 \(-> \CZR25:  \CY\(noT(k(g(anriki))) v \(noTU(g(anriki),anriki)  
+.br
+\CXTU1 & R25 \(-> \CZR26: \CY\(noT(k(g(anriki))) v \(noTU(g(anriki),k(I)) v \(noTU(g(anriki),nr(I))
+.br 
+\CXTU4 & R26 \(-> \CZR27: \CY\(noT(k(g(anriki))) v \(noTU(g(anriki),k(I)) v TU(g(anriki),r(I)) 
+.br
+\CXTU7 & R27 \(-> \CZR28: \CY\(noT(k(g(anriki))) v \(noTU(g(anriki),k(I)) v T(r(g(anriki)))
+.br
+\CXN2 & R28 \(-> \CZR29: \CY\(noT(k(g(anriki))) v \(noTU(g(anriki),k(I)) v \(noT(nr(g(anriki)))
+.br
+\CXR24 & R29 \(-> \CZR30: \CY\(noT(k(g(anriki))) v \(noTU(g(anriki),k(I)) 
+.br
+\CXTU8 & R30 \(-> \CZR31:  \CY\(noT(k(g(anriki)))  
+.br
+\CXR15 & KS3 \(-> \CZR32:   \CY\ \ T(k(g(anriki))) v TU(g(anriki),anriki) 
+.br
+\CXR31 & R32 \(-> \CZR33:   \CY\ \ TU(g(anriki),anriki) 
+.br
+\CXTU3 & R33 \(-> \CZR34: \CY\ \ TU(g(anriki),k(I)) 
+.br
+\CXTU9 & R34\(-> \CZR35: \CY\ \ T(k(g(anriki)))
+.br
+\CXR31 & R35 \(-> \CZR36:   \CY\ \  [\ \ ]
+.fi
+.ls 2
+
+\fBVI. Discussion\fR
+.pp
+Ohlbach has pointed out an interesting problem in knowledge representation.
+We agree in principle with his conclusion that knowledge representation is
+hard.  In fact, if someone has to invent a new trick each time they
+wish to represent a problem, the task would become hopeless.  Furthermore,
+if the language used by the AI practitioner forced the need for tricks,
+then there would certainly be an argument for selecting another language.
+.pp 
+We feel, however, that neither first-order logic nor automatic theorem-proving imposes any such restriction on the \fIKnights
+and Knaves\fR problem.  The complexity that Ohlbach discovered in trying
+to represent this problem is due to indexicals.  In fact, his second argument
+of the predicate T(x,y) might be dealing with indexical-binding in some way.  We have
+found that a proper treatment of indexical-binding makes for a natural
+and correct (in that a proper solution is found) representation of the \fIKnights and Knaves\fR problem. 
+.pp
+Our solution was longer than Ohlbach's.  His optimized proof had 20
+steps, while ours has 36.  Thus the new issues we have introduced into
+the problem representation have not reduced the complexity; rather they
+have increased it, but not excessively so. Thus the use of indexicals
+seems viable within an automatic theorem-proving context.
+.pp
+Furthermore, we feel that this problem is indicative
+of a whole class of problems that can be handled in a similar fashion,
+i.e., not dependent upon isolated or ad hoc tricks.
+In the \fIKnights and Knaves\fR problem we
+defined TU in terms of the indexical ``I'' only.  This is because ``I'' is the 
+only indexical of importance in this problem.  In broader contexts, however, 
+this would be insufficient and generalizations of TU would be necessary.  Thus, we offer TU as a step toward a uniform solution to the problem of automatic 
+theorem-proving with indexicals.
+It will be interesting to see how well generalizations of TU handle
+other indexicals and other problems.
+.bp
+\fBAcknowledgments\fR
+.br
+.ls 1
+This research has been supported in part by the following institutions:
+
+National Science Foundation Grant #OIR-8500108
+.br
+The U.S. Army Research Office (DAAG29-85-K-0177)
+.br
+The Martin Marietta Corporation
+.sp 2
+We would also like to thank Harold Edmundson, Amy Weinberg, Mike
+Mazurek, Alan Frisch, Terry Gaasterland, Dominic Duggan, Rosalie Hall,
+Andrea Marra, Jack Minker, Jim Hendler, and Annie Gal for their helpful
+observations.
+.sp 2
+.ls 1
+\fBBibliography\fR
+.np
+Allen, J. [1984] Toward a general theory of action and time, \fIArtificial Intelligence\fR, Vol. 23, 123-154.
+.np
+Allen, J. and Perrault, R. [1980] Analyzing intentions in utterances, \fIArtificial Intelligence\fR, Vol. 15, 143-178.
+.np
+Barwise, J. and Perry, J. [1983] \fISituations and Attitudes\fR. MIT Press,
+Cambridge, Massachusetts.
+.np
+Harper, M. and Charniak, E. [1986] Time and tense in English, \fIProceedings
+of the 24th Annual Meeting of the Association for Computational Linguistics\fR, 
+Columbia University, New York, 3-9.
+.np
+Ohlbach, H. J. [1985] Predicate logic hacker tricks, \fIJ. of Automated Reasoning\fR 
+Vol. 1, No. 4, 435-440.
+.np
+Perlis, D. [1985] Languages with self reference I, \fIArtificial
+Intelligence\fR, Vol. 25, 301-322.
+.np
+Smith, B. [1986] Varieties of self-reference. \fIProceedings of the 1986
+Conference on Theoretical Aspects of Reasoning About Knowledge,\fR ed. J. Halpern, Morgan Kaufmann, Los Altos, California.
+.np
+Smullyan, R. [1978] \fIWhat is the Name of this Book?\fR. Prentice-Hall, Englewood 
+Cliffs, New Jersey.
+

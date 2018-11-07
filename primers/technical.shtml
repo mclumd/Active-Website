@@ -1,0 +1,68 @@
+<!--#include virtual="../include.shtml"-->
+
+<h2>Technical Introduction to Active Logic</h2>
+
+        <p>Active Logic is a kind of &ldquo;step logic,&rdquo; which was developed in <a href="http://www.activelogic.org/dissertations/drapkin_thesis.ps.Z">[Elgot-Drapkin, 
+        1988]</a> as formal mechanism for modeling the ongoing process of reasoning. 
+        Unlike traditional logical formalisms, a step-logic does not calculate 
+        a final set of conclusions which can be drawn from an initial set of facts, 
+        but rather monitors the ever-changing set of conclusions as time goes 
+        on. Such logics were introduced in order to achieve a number of related 
+        goals: more realistic representation and reasoning about time; the ability 
+        to reason with and about inconsistency, and the ability to reason about 
+        the reasoning process itself. These goals remain central in work we report 
+        here; in addition we examine issues involving natural language, multi-agent 
+        cooperation and autonomous agency. We start by presenting a fairly abstract 
+        definition of an active logic. Such logic is closely linked to an inference 
+        engine. </p>
+
+      <p>An <b>active logic</b> consists of a formal language (typically first-order) 
+        and inference rules, such that the application of a rule depends not only 
+        on what formulas have (or have not) been proven so far (this is also true 
+        of static logics) but also on what formulas are in the &ldquo;current&rdquo; belief 
+        set. Not every previously proven formula need be current. In general the 
+        current beliefs are only a subset of all formulas proven so far: each 
+        is believed when first proven but some may subsequently have been rejected. 
+      </p>
+      <p>Active Logics all have the following characteristics: </p>
+        <ul>
+        <li>They are situated in time </li>
+      <li>They maintain a history </li>
+      <li>They tolerate contradictions </li>
+      <li>They enable meta-reasoning to be done </li>
+        </ul>
+        
+      <p>Based on the above definition, active logics are a family of inference 
+        engines that incorporate a history of their own reasoning as they run. 
+        Thus at any time <i>t</i>, an active logic has a record of its reasoning 
+        at all times prior to <i>t</i>, and it also knows that the current time 
+        is <i>t</i>. As it continues to reason from time <i>t</i>, that reasoning 
+        is also recorded in the history, marked at time <i>t+1</i> as having occurred 
+        at time <i>t</i>. Thus an active logic records the passage of time in 
+        discrete steps, and the &ldquo;current&rdquo; time slides forward as the system runs. 
+        It is convenient to regard its current inferences as occurring in a working 
+        memory, that is then transferred to the history (or long-term memory) 
+        in the next time-step. Thus, an active logic has time-sensitive inference 
+        rules and consequently time-sensitive inferences. </p>
+
+      <p>In active logics the current time is itself noted in the working memory&mdash;<i>Now(t)</i>&mdash;and 
+        this changes to <i>Now(t+1)</i> one step later. (A time-step should be 
+        thought of as very fast, perhaps 0.1 sec in correspondence with performance 
+        of elementary cognitive tasks by humans). Thus active logics &ldquo;ground&rdquo; 
+        <i>Now</i> in terms of real time-passage during reasoning. </p>
+      <p>These characteristics make active logics suitable for use in various 
+        domains including time situated planning and execution <a href="http://www.activelogic.org/papers/prac7.ps">[Purang, 
+        et. al., 1999]</a>; reasoning about other agents <a href="http://www.activelogic.org/papers/know-ign.ps">[Kraus 
+        and Perlis, 1989]</a>; reasoning about dialog <a href="http://www.activelogic.org/lang/mnm-si.ps.Z">[Perlis, 
+        et. al., 1998</a>; <a href="http://www.activelogic.org/papers/etai.ps">Traum, 
+        et. al., forthcoming]</a>, including updating and using discourse context 
+        <a href="http://www.activelogic.org/papers/lang/ci97.ps.Z">[Gurney, 
+        1997]</a>; and autonomous agency <a href="http://www.activelogic.org/doc/WRAC/sevendays.pdf">[Chong, 
+        et. al., 2001]</a>. </p>
+
+      <p>You may also look at <a href="primers/example_al_1.shtml">examples</a> of Active 
+        Logic inferences.</p>
+
+
+<!-- +++++++++++++++++++ -->
+<!--#include virtual="../footer.shtml"-->

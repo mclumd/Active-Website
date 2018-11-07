@@ -1,0 +1,175 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 99.1 release (March 30, 1999)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Graphics</TITLE>
+<META NAME="description" CONTENT="Graphics">
+<META NAME="keywords" CONTENT="clim">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v99.1 release">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="clim.css">
+
+<LINK REL="next" HREF="node119.html">
+<LINK REL="previous" HREF="node100.html">
+<LINK REL="up" HREF="node91.html">
+<LINK REL="next" HREF="node106.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2188"
+ HREF="node106.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/icons/next_motif.gif"></A> 
+<A NAME="tex2html2184"
+ HREF="node91.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/icons/up_motif.gif"></A> 
+<A NAME="tex2html2178"
+ HREF="node104.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/icons/previous_motif.gif"></A> 
+<A NAME="tex2html2186"
+ HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/icons/contents_motif.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html2189"
+ HREF="node106.html">Definitions</A>
+<B> Up:</B> <A NAME="tex2html2185"
+ HREF="node91.html">Sheet and Medium Output</A>
+<B> Previous:</B> <A NAME="tex2html2179"
+ HREF="node104.html">Controlling Text Style Mappings</A>
+ &nbsp <B>  <A NAME="tex2html2187"
+ HREF="node1.html">Contents</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION05300000000000000000"></A>
+<A NAME="graphics"></A>
+<BR>
+Graphics
+</H1>
+
+<P>
+The CLIM graphic drawing model is an idealized model of graphical pictures.  The
+model provides the language that application programs use to describe the
+intended visual appearance of textual and graphical output.  Usually not all of
+the contents of the screen are described using the graphic drawing model.  For
+example, menus and scroll bars might be described in higher-level terms.
+
+<P>
+An important aspect of the CLIM graphic drawing model is its extreme device
+independence.  The model describes ideal graphical images and ignores
+limitations of actual graphics devices.  One consequence of this is that the
+actual visual appearance of the screen can only be an approximation of the
+appearance specified by the model.  Another consequence of this is that the
+model is highly portable.
+
+<P>
+CLIM separates output into two layers, a text/graphics layer in which one
+specifies the desired visual appearance independent of device resolution and
+characteristics, and a rendering layer in which some approximation of the
+desired visual appearance is created on the device.  Of course application
+programs can inquire about the device resolution and characteristics if they
+wish and modify their desired visual appearance on that basis.  (There is also a
+third layer above these two layers, the adaptive toolkit layer where one
+specifies the desired functionality rather than the desired visual appearance.)
+
+<P>
+SWM There are still no functions to ask about device resolution and
+characteristics.  Also, do we really need to refer to the adaptive toolkit layer
+here?
+
+<P>
+CLIM's drawing functions provide convenient ways to draw several commonly-used
+shapes.
+
+<P>
+The interaction between graphics and output recording will be described in
+Chapter&nbsp;<A HREF="node158.html#output-recording">16</A>.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
+
+<UL>
+<LI><A NAME="tex2html2190"
+ HREF="node106.html">Definitions</A>
+<UL>
+<LI><A NAME="tex2html2191"
+ HREF="node107.html">Drawing plane.</A>
+<LI><A NAME="tex2html2192"
+ HREF="node108.html">Coordinates.</A>
+<LI><A NAME="tex2html2193"
+ HREF="node109.html">Sheets and Mediums.</A>
+</UL>
+<LI><A NAME="tex2html2194"
+ HREF="node110.html">Drawing is Approximate</A>
+<LI><A NAME="tex2html2195"
+ HREF="node111.html">Rendering Conventions for Geometric Shapes</A>
+<UL>
+<LI><A NAME="tex2html2196"
+ HREF="node112.html">Permissible Alternatives During Rendering</A>
+</UL>
+<LI><A NAME="tex2html2197"
+ HREF="node113.html">Drawing Functions</A>
+<LI><A NAME="tex2html2198"
+ HREF="node114.html">Pixmaps</A>
+<LI><A NAME="tex2html2199"
+ HREF="node115.html">Graphics Protocols</A>
+<UL>
+<LI><A NAME="tex2html2200"
+ HREF="node116.html">General Behavior of Drawing Functions</A>
+<LI><A NAME="tex2html2201"
+ HREF="node117.html">Medium-specific Drawing Functions</A>
+<LI><A NAME="tex2html2202"
+ HREF="node118.html">Port-specific Drawing Functions</A>
+</UL></UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2188"
+ HREF="node106.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/icons/next_motif.gif"></A> 
+<A NAME="tex2html2184"
+ HREF="node91.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/icons/up_motif.gif"></A> 
+<A NAME="tex2html2178"
+ HREF="node104.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/icons/previous_motif.gif"></A> 
+<A NAME="tex2html2186"
+ HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/icons/contents_motif.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html2189"
+ HREF="node106.html">Definitions</A>
+<B> Up:</B> <A NAME="tex2html2185"
+ HREF="node91.html">Sheet and Medium Output</A>
+<B> Previous:</B> <A NAME="tex2html2179"
+ HREF="node104.html">Controlling Text Style Mappings</A>
+ &nbsp <B>  <A NAME="tex2html2187"
+ HREF="node1.html">Contents</A></B> 
+<!--End of Navigation Panel-->
+<ADDRESS>
+<I>&</I>
+<BR><I>2001-06-12</I>
+</ADDRESS>
+</BODY>
+</HTML>

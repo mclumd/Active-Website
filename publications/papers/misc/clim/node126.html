@@ -1,0 +1,186 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 99.1 release (March 30, 1999)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Color Blending</TITLE>
+<META NAME="description" CONTENT="Color Blending">
+<META NAME="keywords" CONTENT="clim">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v99.1 release">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="clim.css">
+
+<LINK REL="next" HREF="node127.html">
+<LINK REL="previous" HREF="node125.html">
+<LINK REL="up" HREF="node119.html">
+<LINK REL="next" HREF="node127.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2466"
+ HREF="node127.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/icons/next_motif.gif"></A> 
+<A NAME="tex2html2462"
+ HREF="node119.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/icons/up_motif.gif"></A> 
+<A NAME="tex2html2456"
+ HREF="node125.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/icons/previous_motif.gif"></A> 
+<A NAME="tex2html2464"
+ HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/icons/contents_motif.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html2467"
+ HREF="node127.html">Indirect Inks</A>
+<B> Up:</B> <A NAME="tex2html2463"
+ HREF="node119.html">Drawing in Color</A>
+<B> Previous:</B> <A NAME="tex2html2457"
+ HREF="node125.html">Opacity</A>
+ &nbsp <B>  <A NAME="tex2html2465"
+ HREF="node1.html">Contents</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION05450000000000000000">
+Color Blending</A>
+</H1>
+
+<P>
+Drawing a design that is not completely opaque at all points allows the previous
+contents of the drawing plane to show through.  The simplest case is drawing a
+solid design:  where the design is opaque, it replaces the previous contents of
+the drawing plane; where the design is transparent, it leaves the drawing plane
+unchanged.  In the more general case of drawing a translucent design, the
+resulting color is a blend of the design's color and the previous color of the
+drawing plane.  For purposes of color blending, the drawn design is called the
+foreground and the drawing plane is called the background.
+
+<P>
+The function compose-over performs a similar operation: it combines two
+designs to produce a design, rather than combining a design and the contents of
+the drawing plane to produce the new contents of the drawing plane.  For
+purposes of color blending, the first argument to compose-over is called
+the foreground and the second argument is called the background.  See
+Chapter&nbsp;<A HREF="node134.html#patterns">14</A> for the details of compose-over.
+
+<P>
+Color blending is defined by an ideal function
+
+<!-- MATH
+ ${\cal F}\colon (r_1,g_1,b_1,o_1,r_2,g_2,b_2,o_2)\rightarrow (r_3,g_3,b_3,o_3)$
+ -->
+61#61
+that operates on the color and opacity at a single point.
+
+<!-- MATH
+ $(r_1,g_1,b_1,o_1)$
+ -->
+62#62 are the foreground color and opacity.
+
+<!-- MATH
+ $(r_2,g_2,b_2,o_2)$
+ -->
+63#63 are the background color and opacity.
+
+<!-- MATH
+ $(r_3,g_3,b_3,o_3)$
+ -->
+64#64 are the resulting color and opacity.  The color
+blending function 65#65 is conceptually applied at every point in the
+drawing plane.
+
+<P>
+65#65 performs linear interpolation on all four components:
+<BR><P></P>
+<DIV ALIGN="CENTER">
+
+<!-- MATH
+ \begin{displaymath}
+\begin{array}{rcrcl}
+o_3 & = &        o_1 & + & (1 - o_1) * o_2 \\
+r_3 & = & (o_1 * r_1 & + & (1 - o_1) * o_2 * r_2) / o_3 \\
+g_3 & = & (o_1 * g_1 & + & (1 - o_1) * o_2 * g_2) / o_3 \\
+b_3 & = & (o_1 * b_1 & + & (1 - o_1) * o_2 * b_2) / o_3
+\end{array}
+\end{displaymath}
+ -->
+
+
+66#66
+</DIV>
+<BR CLEAR="ALL">
+<P></P>
+Note that if 67#67 is zero, these equations would divide zero by zero.
+In that case 68#68, 69#69, and 70#70 are defined to be zero.
+
+<P>
+CLIM requires that 65#65 be implemented exactly if 71#71 is zero or one or
+if 72#72 is zero.  If 71#71 is zero, the result is the background.  If 71#71 is
+one or 72#72 is zero, the result is the foreground.  For fractional opacity
+values, an implementation can deviate from the ideal color blending function
+either because the implementation has limited opacity resolution or because the
+implementation can compute a different color blending function much more
+quickly.
+
+<P>
+If a medium's background design is not completely opaque at all points, the
+consequences are unspecified.  Consequently, a drawing plane is always opaque
+and drawing can use simplified color blending that assumes 73#73 and
+74#74.  However, compose-over must handle a non-opaque background
+correctly. 
+
+<P>
+Note that these 75#75 quadruples of real numbers between 0 and 1 are
+mathematical and an implementation need not store information in this form.
+Most implementations are expected to use a different representation.
+
+<P>
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2466"
+ HREF="node127.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/icons/next_motif.gif"></A> 
+<A NAME="tex2html2462"
+ HREF="node119.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/icons/up_motif.gif"></A> 
+<A NAME="tex2html2456"
+ HREF="node125.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/icons/previous_motif.gif"></A> 
+<A NAME="tex2html2464"
+ HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/icons/contents_motif.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html2467"
+ HREF="node127.html">Indirect Inks</A>
+<B> Up:</B> <A NAME="tex2html2463"
+ HREF="node119.html">Drawing in Color</A>
+<B> Previous:</B> <A NAME="tex2html2457"
+ HREF="node125.html">Opacity</A>
+ &nbsp <B>  <A NAME="tex2html2465"
+ HREF="node1.html">Contents</A></B> 
+<!--End of Navigation Panel-->
+<ADDRESS>
+<I>&</I>
+<BR><I>2001-06-12</I>
+</ADDRESS>
+</BODY>
+</HTML>

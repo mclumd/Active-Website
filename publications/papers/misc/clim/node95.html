@@ -1,0 +1,178 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 99.1 release (March 30, 1999)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Transformation ``Convenience'' Forms</TITLE>
+<META NAME="description" CONTENT="Transformation ``Convenience'' Forms">
+<META NAME="keywords" CONTENT="clim">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v99.1 release">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="clim.css">
+
+<LINK REL="next" HREF="node96.html">
+<LINK REL="previous" HREF="node94.html">
+<LINK REL="up" HREF="node94.html">
+<LINK REL="next" HREF="node96.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2071"
+ HREF="node96.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/icons/next_motif.gif"></A> 
+<A NAME="tex2html2067"
+ HREF="node94.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/icons/up_motif.gif"></A> 
+<A NAME="tex2html2061"
+ HREF="node94.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/icons/previous_motif.gif"></A> 
+<A NAME="tex2html2069"
+ HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/icons/contents_motif.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html2072"
+ HREF="node96.html">Establishing Local Coordinate Systems</A>
+<B> Up:</B> <A NAME="tex2html2068"
+ HREF="node94.html">Drawing Option Binding Forms</A>
+<B> Previous:</B> <A NAME="tex2html2062"
+ HREF="node94.html">Drawing Option Binding Forms</A>
+ &nbsp <B>  <A NAME="tex2html2070"
+ HREF="node1.html">Contents</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H2><A NAME="SECTION05121000000000000000">
+Transformation ``Convenience'' Forms</A>
+</H2>
+
+<P>
+The following three functions are no different than using
+with-drawing-options with the :transformation keyword argument
+supplied.  However, they are sufficiently useful that they are provided as a
+convenience to programmers.
+
+<P>
+In order to preserve referential transparency, these three forms apply the
+translation, rotation, or scaling transformation first, then the rest of the
+transformation from (medium-transformation <I> medium</I>).  That is, the
+following two forms would return the same transformation (assuming that the
+medium's transformation in the second example is the identity transformation):
+
+<P>
+ 
+<PRE>
+
+(compose-transformations
+  (make-translation-transformation dx dy)
+  (make-rotation-transformation angle))
+
+(with-translation (medium dx dy)
+  (with-rotation (medium angle)
+    (medium-transformation medium)))
+</PRE>
+
+<P>
+with-translation (medium dx dy) <TT> &amp;body </TT>body
+
+<P>
+Establishes a translation on the <I> medium</I> designated by <I> medium</I> that
+translates by <I> dx</I> in the 1#1 direction and <I> dy</I> in the 2#2 direction,
+and then executes <I> body</I> with that transformation in effect.
+
+<P>
+ 
+<I> dx</I> and <I> dy</I> are as for make-translation-transformation.
+
+<P>
+The <I> medium</I> argument is not evaluated, and must be a symbol that is bound
+to a sheet or medium.  If <I> medium</I> is t, *standard-output* is
+used.  <I> body</I> may have zero or more declarations as its first forms.
+
+<P>
+with-scaling (medium sx <TT> &amp;optional </TT>sy origin) <TT> &amp;body </TT>body
+
+<P>
+Establishes a scaling transformation on the <I> medium</I> designated by
+<I> medium</I> that scales by <I> sx</I> in the 1#1 direction and <I> sy</I> in the
+2#2 direction, and then executes <I> body</I> with that transformation in effect.
+If <I> sy</I> is not supplied, it defaults to <I> sx</I>.  If <I> origin</I> is
+supplied, the scaling is about that point; if it is not supplied, it defaults to
+31#31.
+
+<P>
+ 
+<I> sx</I> and <I> sy</I> are as for make-scaling-transformation.
+
+<P>
+The <I> medium</I> argument is not evaluated, and must be a symbol that is bound
+to a sheet or medium.  If <I> medium</I> is t, *standard-output* is
+used.  <I> body</I> may have zero or more declarations as its first forms.
+
+<P>
+with-rotation (medium angle <TT> &amp;optional </TT>origin) <TT> &amp;body </TT>body
+
+<P>
+Establishes a rotation on the <I> medium</I> designated by <I> medium</I> that
+rotates by <I> angle</I>, and then executes <I> body</I> with that transformation in
+effect.  If <I> origin</I> is supplied, the rotation is about that point; if it is
+not supplied, it defaults to 31#31.
+
+<P>
+ 
+<I> angle</I> and <I> origin</I> are as for make-rotation-transformation.
+
+<P>
+The <I> medium</I> argument is not evaluated, and must be a symbol that is bound
+to a sheet or medium.  If <I> medium</I> is t, *standard-output* is
+used.  <I> body</I> may have zero or more declarations as its first forms.
+
+<P>
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2071"
+ HREF="node96.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/icons/next_motif.gif"></A> 
+<A NAME="tex2html2067"
+ HREF="node94.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/icons/up_motif.gif"></A> 
+<A NAME="tex2html2061"
+ HREF="node94.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/icons/previous_motif.gif"></A> 
+<A NAME="tex2html2069"
+ HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/icons/contents_motif.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html2072"
+ HREF="node96.html">Establishing Local Coordinate Systems</A>
+<B> Up:</B> <A NAME="tex2html2068"
+ HREF="node94.html">Drawing Option Binding Forms</A>
+<B> Previous:</B> <A NAME="tex2html2062"
+ HREF="node94.html">Drawing Option Binding Forms</A>
+ &nbsp <B>  <A NAME="tex2html2070"
+ HREF="node1.html">Contents</A></B> 
+<!--End of Navigation Panel-->
+<ADDRESS>
+<I>&</I>
+<BR><I>2001-06-12</I>
+</ADDRESS>
+</BODY>
+</HTML>

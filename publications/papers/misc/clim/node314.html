@@ -1,0 +1,190 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 99.1 release (March 30, 1999)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Output Recording</TITLE>
+<META NAME="description" CONTENT="Output Recording">
+<META NAME="keywords" CONTENT="clim">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v99.1 release">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="clim.css">
+
+<LINK REL="next" HREF="node315.html">
+<LINK REL="previous" HREF="node313.html">
+<LINK REL="up" HREF="node304.html">
+<LINK REL="next" HREF="node315.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html5012"
+ HREF="node315.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/icons/next_motif.gif"></A> 
+<A NAME="tex2html5008"
+ HREF="node304.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/icons/up_motif.gif"></A> 
+<A NAME="tex2html5002"
+ HREF="node313.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/icons/previous_motif.gif"></A> 
+<A NAME="tex2html5010"
+ HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/icons/contents_motif.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html5013"
+ HREF="node315.html">Table Formatting</A>
+<B> Up:</B> <A NAME="tex2html5009"
+ HREF="node304.html">Changes from CLIM 1.0</A>
+<B> Previous:</B> <A NAME="tex2html5003"
+ HREF="node313.html">Extended Stream Output</A>
+ &nbsp <B>  <A NAME="tex2html5011"
+ HREF="node1.html">Contents</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H4><A NAME="SECTION095000100000000000000">
+Output Recording</A>
+</H4>
+
+<P>
+
+<UL>
+<LI>The three protocol classes output-record, output-record-element,
+and displayed-output-record-element have been replaced by the two classes
+output-record and displayed-output-record.  The predicates for the
+classes have been similarly changed.
+
+<P>
+ </LI>
+<LI>The function output-record-set-position* has been replaced by
+(setf&nbsp;output-record-position*) to be consistent with Common Lisp
+conventions.  A compatibility function will be provided.
+
+<P>
+ </LI>
+<LI>The functions output-record-start-position*,
+output-record-set-start-position*, output-record-end-position*,
+output-record-set-end-position* have been replaced by
+output-record-start-cursor-position*, (setf&nbsp;output-record-start-cursor-position*),
+output-record-end-cursor-position*, (setf&nbsp;output-record-end-cursor-position*) to
+better reflect their functionality.  Compatibility functions will be provided.
+
+<P>
+ </LI>
+<LI>replay-1 has been renamed to replay-output-record.
+
+<P>
+ </LI>
+<LI>output-record-elements and output-record-element-count have been
+renamed to output-record-children and output-record-count, since we
+have flushed the term ``element''.  Compatibility functions will be provided.
+
+<P>
+ </LI>
+<LI>add-output-record-element and delete-output-record-element have
+been renamed to add-output-record and delete-output-record, and the
+argument order has been changed.  Compatibility functions will be provided.
+
+<P>
+ </LI>
+<LI>map-over-output-record-elements-containing-point* and
+map-over-output-record-elements-overlapping-region have been renamed to
+map-over-output-records-containing-point* and
+map-over-output-records-overlapping-region.  Compatibility functions will
+be provided.
+
+<P>
+ </LI>
+<LI>linear-output-record and coordinate-sorted-set-output-record
+have been renamed to standard-sequence-output-record and
+standard-tree-output-record.
+
+<P>
+ </LI>
+<LI>stream-draw-p and stream-record-p and their setf functions
+have been renamed to stream-drawing-p and stream-recording-p to better
+reflect their functionality.  Compatibility functions will be provided.
+
+<P>
+ </LI>
+<LI>output-recording-stream-output-record,
+output-recording-stream-current-output-record-stack, and
+output-recording-stream-text-output-record have been renamed to
+stream-output-history, stream-current-output-record, and
+stream-text-output-record.  Compatibility functions will be provided.
+
+<P>
+ </LI>
+<LI>add-output-record has been renamed to stream-add-output-record.
+Because of the change to add-output-record-element above, no compatibility
+function can be provided.
+
+<P>
+ </LI>
+<LI>close-current-text-output-record has been renamed to
+stream-close-text-output-record.  A compatibility function will be
+provided.
+
+<P>
+ </LI>
+<LI>add-string-output-to-output-record and
+add-character-output-to-output-record have been renamed to
+stream-add-string-output and stream-add-character-output.
+Compatibility functions will be provided.
+
+<P>
+ </LI>
+<LI>with-output-recording-options has had its <I> draw-p</I> and
+<I> record-p</I> keyword arguments changed to <I> draw</I> and <I> record</I> to
+conform to Common Lisp naming conventions.  Compability code will be provided.</LI>
+</UL>
+
+<P>
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html5012"
+ HREF="node315.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/icons/next_motif.gif"></A> 
+<A NAME="tex2html5008"
+ HREF="node304.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/icons/up_motif.gif"></A> 
+<A NAME="tex2html5002"
+ HREF="node313.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/icons/previous_motif.gif"></A> 
+<A NAME="tex2html5010"
+ HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/icons/contents_motif.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html5013"
+ HREF="node315.html">Table Formatting</A>
+<B> Up:</B> <A NAME="tex2html5009"
+ HREF="node304.html">Changes from CLIM 1.0</A>
+<B> Previous:</B> <A NAME="tex2html5003"
+ HREF="node313.html">Extended Stream Output</A>
+ &nbsp <B>  <A NAME="tex2html5011"
+ HREF="node1.html">Contents</A></B> 
+<!--End of Navigation Panel-->
+<ADDRESS>
+<I>&</I>
+<BR><I>2001-06-12</I>
+</ADDRESS>
+</BODY>
+</HTML>

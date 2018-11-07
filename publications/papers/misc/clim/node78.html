@@ -1,0 +1,108 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 99.1 release (March 30, 1999)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Mirror Functions</TITLE>
+<META NAME="description" CONTENT="Mirror Functions">
+<META NAME="keywords" CONTENT="clim">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v99.1 release">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="clim.css">
+
+<LINK REL="next" HREF="node79.html">
+<LINK REL="previous" HREF="node77.html">
+<LINK REL="up" HREF="node77.html">
+<LINK REL="next" HREF="node79.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html1822"
+ HREF="node79.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/icons/next_motif.gif"></A> 
+<A NAME="tex2html1818"
+ HREF="node77.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/icons/up_motif.gif"></A> 
+<A NAME="tex2html1812"
+ HREF="node77.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/icons/previous_motif.gif"></A> 
+<A NAME="tex2html1820"
+ HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/icons/contents_motif.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html1823"
+ HREF="node79.html">Internal Interfaces for Native</A>
+<B> Up:</B> <A NAME="tex2html1819"
+ HREF="node77.html">Mirrors and Mirrored Sheets</A>
+<B> Previous:</B> <A NAME="tex2html1813"
+ HREF="node77.html">Mirrors and Mirrored Sheets</A>
+ &nbsp <B>  <A NAME="tex2html1821"
+ HREF="node1.html">Contents</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H2><A NAME="SECTION04441000000000000000">
+Mirror Functions</A>
+</H2>
+
+<P>
+sheet-direct-mirror sheet
+
+<P>
+Returns the mirror of the <I> sheet</I> <I> sheet</I>.  If the sheet is not
+mirrored (or does not currently have a mirror), sheet-mirror returns
+nil.
+
+<P>
+sheet-mirrored-ancestor sheet
+
+<P>
+Returns the nearest mirrored ancestor of the <I> sheet</I> <I> sheet</I>.
+
+<P>
+sheet-mirror sheet
+
+<P>
+Returns the mirror of the <I> sheet</I> <I> sheet</I>.  If the sheet is not itself
+mirrored, sheet-mirror returns the direct mirror of its nearest mirrored
+ancestor.  sheet-mirror could be implemented as:
+
+<P>
+ 
+<PRE>
+
+(defun sheet-mirror (sheet)
+  (sheet-direct-mirror (sheet-mirrored-ancestor sheet)))
+</PRE>
+
+<P>
+realize-mirror port mirrored-sheet
+
+<P>
+Creates a mirror for the <I> sheet</I> <I> mirrored-sheet</I> on the <I> port</I>
+<I> port</I>, if it does not already have one.  The returned value is the sheet's
+mirror.
+
+<P>
+<BR><HR>
+<ADDRESS>
+<I>&</I>
+<BR><I>2001-06-12</I>
+</ADDRESS>
+</BODY>
+</HTML>

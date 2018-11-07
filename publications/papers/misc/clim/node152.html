@@ -1,0 +1,133 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 99.1 release (March 30, 1999)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Stream Text Cursor Protocol</TITLE>
+<META NAME="description" CONTENT="Stream Text Cursor Protocol">
+<META NAME="keywords" CONTENT="clim">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v99.1 release">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="clim.css">
+
+<LINK REL="previous" HREF="node151.html">
+<LINK REL="up" HREF="node150.html">
+<LINK REL="next" HREF="node153.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2845"
+ HREF="node153.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/icons/next_motif.gif"></A> 
+<A NAME="tex2html2841"
+ HREF="node150.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/icons/up_motif.gif"></A> 
+<A NAME="tex2html2837"
+ HREF="node151.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/icons/previous_motif.gif"></A> 
+<A NAME="tex2html2843"
+ HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/icons/contents_motif.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html2846"
+ HREF="node153.html">Text Protocol</A>
+<B> Up:</B> <A NAME="tex2html2842"
+ HREF="node150.html">The Text Cursor</A>
+<B> Previous:</B> <A NAME="tex2html2838"
+ HREF="node151.html">Text Cursor Protocol</A>
+ &nbsp <B>  <A NAME="tex2html2844"
+ HREF="node1.html">Contents</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H2><A NAME="SECTION06132000000000000000">
+Stream Text Cursor Protocol</A>
+</H2>
+
+<P>
+The following generic functions comprise the stream text cursor protocol.  Any
+extended output stream class must implement methods for these generic functions.
+
+<P>
+stream-text-cursor stream
+(setf stream-text-cursor) cursor stream
+
+<P>
+Returns (or sets) the text cursor object for the stream <I> stream</I>.
+
+<P>
+stream-cursor-position* stream
+
+<P>
+Returns the current text cursor position for the <I> extended output stream</I>
+<I> stream</I> as two integer values, the 1#1 and 2#2 positions.
+
+<P>
+ 
+(setf stream-cursor-position*) x y stream
+
+<P>
+Sets the text cursor position of the <I> extended output stream</I> <I> stream</I>
+to <I> x</I> and <I> y</I>.  <I> x</I> and <I> y</I> are in device units, and must be
+integers.
+
+<P>
+stream-increment-cursor-position* stream dx dy
+
+<P>
+Moves the text cursor position of the <I> extended output stream</I> <I> stream</I>
+relatively, adding <I> dx</I> to the 1#1 coordinate and <I> dy</I> to the 2#2
+coordinate.  Either of <I> dx</I> or <I> dy</I> may be nil, meaning the the 1#1
+or 2#2 cursor position will be unaffected.  Otherwise, <I> dx</I> and <I> dy</I>
+must be integers.
+
+<P>
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2845"
+ HREF="node153.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/icons/next_motif.gif"></A> 
+<A NAME="tex2html2841"
+ HREF="node150.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/icons/up_motif.gif"></A> 
+<A NAME="tex2html2837"
+ HREF="node151.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/icons/previous_motif.gif"></A> 
+<A NAME="tex2html2843"
+ HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/icons/contents_motif.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html2846"
+ HREF="node153.html">Text Protocol</A>
+<B> Up:</B> <A NAME="tex2html2842"
+ HREF="node150.html">The Text Cursor</A>
+<B> Previous:</B> <A NAME="tex2html2838"
+ HREF="node151.html">Text Cursor Protocol</A>
+ &nbsp <B>  <A NAME="tex2html2844"
+ HREF="node1.html">Contents</A></B> 
+<!--End of Navigation Panel-->
+<ADDRESS>
+<I>&</I>
+<BR><I>2001-06-12</I>
+</ADDRESS>
+</BODY>
+</HTML>

@@ -1,0 +1,20 @@
+<html>
+<head>
+<title>One</title>
+</head>
+
+<body>
+<script language="JavaScript" type="text/javascript">
+
+<!--
+document.write("<h1>Hello, world!</h1>");
+document.writeln("Location " + window.location);
+document.writeln("<p>");
+window.history.go(-2);
+document.writeln("History " + window.history);
+document.writeln("<p>");
+// file:/fs/disco/kpurang/langs/javascript/one.html -->
+
+</script>
+</body>
+</html>

@@ -1,0 +1,68 @@
+step(foo)
+step(1)
+add("now(1)", node(14, [now(1)], fc, [], [], 1, 1, [], [], [if]))
+add("contra(X1, X2, X3) & depends_on_default(X1) -f-> depends_on_default(X2) | conclusion(reinstate(X2))", node(13, [not(contra(X5, X4, X6)), not(depends_on_default(X5)), depends_on_default(X4), conclusion(reinstate(X4))], fc, [], [], 1, 1, [[observ]], [], [fif]))
+add("contra(X7, X8, X9) & depends_on_default(X8) -f-> depends_on_default(X7) | conclusion(reinstate(X7))", node(12, [not(contra(X10, X11, X12)), not(depends_on_default(X11)), depends_on_default(X10), conclusion(reinstate(X10))], fc, [], [], 1, 1, [[observ]], [], [fif]))
+add("eval_bound(\+(deriv_is_defaulty(X13)), [X13]) & deriv_fringe(X14, X13) -f-> conclusion(not(depends_on_default(X14)))", node(11, [not(eval_bound(\+(deriv_is_defaulty(X16)), [X16])), not(deriv_fringe(X15, X16)), conclusion(not(depends_on_default(X15)))], fc, [], [], 1, 1, [[observ]], [], [fif]))
+add("eval_bound(deriv_is_defaulty(X17), [X17]) & deriv_fringe(X18, X17) -f-> conclusion(depends_on_default(X18))", node(10, [not(eval_bound(deriv_is_defaulty(X20), [X20])), not(deriv_fringe(X19, X20)), conclusion(depends_on_default(X19))], fc, [], [], 1, 1, [[observ]], [], [fif]))
+add("contra(X21, X22, X23) & eval_bound(name_to_deriv_fringe(X22, X24), [X22]) -f-> conclusion(deriv_fringe(X22, X24))", node(9, [not(contra(X27, X25, X28)), not(eval_bound(name_to_deriv_fringe(X25, X26), [X25])), conclusion(deriv_fringe(X25, X26))], fc, [], [], 1, 1, [[observ]], [], [fif]))
+add("contra(X29, X30, X31) & eval_bound(name_to_deriv_fringe(X29, X32), [X29]) -f-> conclusion(deriv_fringe(X29, X32))", node(8, [not(contra(X33, X35, X36)), not(eval_bound(name_to_deriv_fringe(X33, X34), [X33])), conclusion(deriv_fringe(X33, X34))], fc, [], [], 1, 1, [[observ]], [], [fif]))
+add("eval_bound(distrust_less_preferred(X37), [X37]) & applied_default(X37, X38) -f-> conclusion(X38)", node(7, [not(eval_bound(distrust_less_preferred(X40), [X40])), not(applied_default(X40, X39)), conclusion(X39)], fc, [], [], 1, 1, [[observ]], [], [fif]))
+add("eval_bound(verify_applicability(X41, X42), [X41, X42]) & defcon(X41, X42) -f-> conclusion(applied_default(X41, X42))", node(6, [not(eval_bound(verify_applicability(X43, X44), [X43, X44])), not(defcon(X43, X44)), conclusion(applied_default(X43, X44))], fc, [], [], 1, 1, [[observ]], [], [fif]))
+add("not(onTable(a))", node(5, [not(onTable(a))], fc, [], [], 1, 1, [[observ]], [], [if]))
+add("default(heavyOnTable(X45))", node(4, [default(heavyOnTable(X46))], fc, [], [], 1, 1, [[observ]], [], [if]))
+add("heavy(X47) & block(X47) -f-> conclusion(defcon(heavyOnTable(X47), onTable(X47)))", node(heavyOnTable(X48), [not(heavy(X48)), not(block(X48)), conclusion(defcon(heavyOnTable(X48), onTable(X48)))], fc, [], [], 1, 1, [[observ]], [], [fif]))
+add("block(b)", node(3, [block(b)], fc, [], [], 1, 1, [[observ]], [], [if]))
+add("heavy(b)", node(2, [heavy(b)], fc, [], [], 1, 1, [[observ]], [], [if]))
+add("block(a)", node(1, [block(a)], fc, [], [], 1, 1, [[observ]], [], [if]))
+add("heavy(a)", node(0, [heavy(a)], fc, [], [], 1, 1, [[observ]], [], [if]))
+end
+
+step(2)
+add("now(2)", node(19, [now(2)], fc, [], [], 2, 1, [], [], [if]))
+add("defcon(heavyOnTable(b), onTable(b))", node(17, [defcon(heavyOnTable(b), onTable(b))], fc, [], [], 2, 1, [[heavyOnTable(X49), 2, 3]], [], [if]))
+add("defcon(heavyOnTable(a), onTable(a))", node(15, [defcon(heavyOnTable(a), onTable(a))], fc, [], [], 2, 1, [[heavyOnTable(X50), 0, 1]], [], [if]))
+delete("now(1)", node(14, [now(1)], fc, [], [], 1, 1, [], [], [if]))
+end
+
+step(3)
+add("now(3)", node(21, [now(3)], fc, [], [], 3, 1, [], [], [if]))
+add("applied_default(heavyOnTable(b), onTable(b))", node(20, [applied_default(heavyOnTable(b), onTable(b))], fc, [], [], 3, 1, [[6, 17]], [], [if]))
+delete("now(2)", node(19, [now(2)], fc, [], [], 2, 1, [], [], [if]))
+end
+
+step(4)
+add("now(4)", node(23, [now(4)], fc, [], [], 4, 1, [], [], [if]))
+add("onTable(b)", node(22, [onTable(b)], fc, [], [], 4, 1, [[7, 20]], [], [if]))
+delete("now(3)", node(21, [now(3)], fc, [], [], 3, 1, [], [], [if]))
+end
+
+step(5)
+add("now(5)", node(24, [now(5)], fc, [], [], 5, 1, [], [], [if]))
+delete("now(4)", node(23, [now(4)], fc, [], [], 4, 1, [], [], [if]))
+end
+
+step(6)
+add("now(6)", node(25, [now(6)], fc, [], [], 6, 1, [], [], [if]))
+delete("now(5)", node(24, [now(5)], fc, [], [], 5, 1, [], [], [if]))
+end
+
+step(7)
+add("now(7)", node(26, [now(7)], fc, [], [], 7, 1, [], [], [if]))
+delete("now(6)", node(25, [now(6)], fc, [], [], 6, 1, [], [], [if]))
+end
+
+step(8)
+add("now(8)", node(27, [now(8)], fc, [], [], 8, 1, [], [], [if]))
+delete("now(7)", node(26, [now(7)], fc, [], [], 7, 1, [], [], [if]))
+end
+
+step(9)
+add("now(9)", node(28, [now(9)], fc, [], [], 9, 1, [], [], [if]))
+delete("now(8)", node(27, [now(8)], fc, [], [], 8, 1, [], [], [if]))
+end
+
+step(10)
+add("now(10)", node(29, [now(10)], fc, [], [], 10, 1, [], [], [if]))
+delete("now(9)", node(28, [now(9)], fc, [], [], 9, 1, [], [], [if]))
+end

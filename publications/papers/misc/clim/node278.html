@@ -1,0 +1,151 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 99.1 release (March 30, 1999)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Interacting with Gadget Panes</TITLE>
+<META NAME="description" CONTENT="Interacting with Gadget Panes">
+<META NAME="keywords" CONTENT="clim">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v99.1 release">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="clim.css">
+
+<LINK REL="next" HREF="node279.html">
+<LINK REL="previous" HREF="node277.html">
+<LINK REL="up" HREF="node276.html">
+<LINK REL="next" HREF="node279.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html4545"
+ HREF="node279.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/icons/next_motif.gif"></A> 
+<A NAME="tex2html4541"
+ HREF="node276.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/icons/up_motif.gif"></A> 
+<A NAME="tex2html4535"
+ HREF="node277.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/icons/previous_motif.gif"></A> 
+<A NAME="tex2html4543"
+ HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/icons/contents_motif.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html4546"
+ HREF="node279.html">Abstract Gadgets</A>
+<B> Up:</B> <A NAME="tex2html4542"
+ HREF="node276.html">Gadget Panes</A>
+<B> Previous:</B> <A NAME="tex2html4536"
+ HREF="node277.html">Overview</A>
+ &nbsp <B>  <A NAME="tex2html4544"
+ HREF="node1.html">Contents</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION08420000000000000000">
+Interacting with Gadget Panes</A>
+</H1>
+
+<P>
+Every gadget has a <I> client</I><A NAME="37100"></A>.  The client is specified at gadget
+creation.  The client is made aware of all important user interactions with the
+gadget via the callback mechanism.   Each callback generic function is invoked
+on both the gadget pane and its client.  Typically, a gadget pane's client will
+be an application frame or a composite pane.
+
+<P>
+As an example, the argument list for value-change-callback looks like
+<I> (gadget-pane client gadget-id value)</I>.  Assuming that programmer had
+defined an application frame called button-test that had a
+clim-stream-pane in its slot output-pane, he could write the following
+method:
+
+<P>
+ 
+<PRE>
+
+(defmethod value-change-callback
+           ((button push-button) (client button-test) gadget-id value) 
+  (declare (ignore value))
+  (with-slots (output-pane) client
+    (format output-pane "A button was pressed.")))
+</PRE>
+
+<P>
+One problem with this particular example is that it differentiates on the gadget
+class, not the gadget instance.  That is, the same method will run for every
+push-button that has this frame as its client.  To help sort out the various
+gadgets, each gadget pane has a <I> gadget id</I><A NAME="37103"></A> that can be initialized at
+gadget creation.  The value of this gadget id is passed as the third argument to
+each callback generic function.  In this case, if we had two buttons, we might
+have installed start and stop as the respective gadget ids.  We could
+then refine the above as:
+
+<P>
+ 
+<PRE>
+
+(defmethod value-change-callback
+           ((button push-button) (client button-test) (gadget-id (eql 'start)) value)
+  (declare (ignore value))
+  (start-test client))
+
+(defmethod value-change-callback
+           ((button push-button) (client button-test) (gadget-id (eql 'stop)) value)
+  (declare (ignore value))
+  (stop-test client))
+</PRE>
+
+<P>
+This scheme takes advantage of the multi-method facility in CLOS and frees the
+programmer from having to subclass each gadget type before using it.
+
+<P>
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html4545"
+ HREF="node279.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/icons/next_motif.gif"></A> 
+<A NAME="tex2html4541"
+ HREF="node276.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/icons/up_motif.gif"></A> 
+<A NAME="tex2html4535"
+ HREF="node277.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/icons/previous_motif.gif"></A> 
+<A NAME="tex2html4543"
+ HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/icons/contents_motif.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html4546"
+ HREF="node279.html">Abstract Gadgets</A>
+<B> Up:</B> <A NAME="tex2html4542"
+ HREF="node276.html">Gadget Panes</A>
+<B> Previous:</B> <A NAME="tex2html4536"
+ HREF="node277.html">Overview</A>
+ &nbsp <B>  <A NAME="tex2html4544"
+ HREF="node1.html">Contents</A></B> 
+<!--End of Navigation Panel-->
+<ADDRESS>
+<I>&</I>
+<BR><I>2001-06-12</I>
+</ADDRESS>
+</BODY>
+</HTML>

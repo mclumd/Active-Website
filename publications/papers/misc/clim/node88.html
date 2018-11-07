@@ -1,0 +1,164 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 99.1 release (March 30, 1999)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Input Contracts</TITLE>
+<META NAME="description" CONTENT="Input Contracts">
+<META NAME="keywords" CONTENT="clim">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v99.1 release">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="clim.css">
+
+<LINK REL="previous" HREF="node87.html">
+<LINK REL="up" HREF="node87.html">
+<LINK REL="next" HREF="node89.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html1938"
+ HREF="node89.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/icons/next_motif.gif"></A> 
+<A NAME="tex2html1934"
+ HREF="node87.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/icons/up_motif.gif"></A> 
+<A NAME="tex2html1930"
+ HREF="node87.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/icons/previous_motif.gif"></A> 
+<A NAME="tex2html1936"
+ HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/icons/contents_motif.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html1939"
+ HREF="node89.html">Other Input Facilities</A>
+<B> Up:</B> <A NAME="tex2html1935"
+ HREF="node87.html">Input Processing</A>
+<B> Previous:</B> <A NAME="tex2html1931"
+ HREF="node87.html">Input Processing</A>
+ &nbsp <B>  <A NAME="tex2html1937"
+ HREF="node1.html">Contents</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION04610000000000000000">
+Input Contracts</A>
+</H1>
+
+<P>
+Standard event delivery is implemented by the standard-input-contract
+class.  This input contract type provides methods for the appropriate generic
+functions of the Event Distribution protocol that invoke queue-event on the
+recipient sheet and the event.  Clients can pass in an event queue when a
+standard input contract is initialized or change the queue associated with the
+sheet later.
+
+<P>
+This input contract type provides event delivery methods that converts
+the port-specific event keywords into the standard event representation and
+then invokes queue-event on the recipient sheet and the event.
+
+<P>
+standard-input-contract
+
+<P>
+In addition to the standard input contract, two other contracts are provided:
+mute-input-contract and invoking-input-contract.  In addition, the
+bursting-input-queuer mixin is provided as a convenient addition to the
+protocol implemented by invoking-input-contract.
+
+<P>
+mute-input-contract
+
+<P>
+This class supports sheets that do not wish to receive input.
+
+<P>
+invoking-input-contract
+
+<P>
+The invoking-input-contract is different from the standard input contract
+in at least two significant ways.  First, it converts the host-specific event
+into a set of keyword arguments and invokes handle-input on the recipient
+sheet and these arguments (as opposed to queuing a structured event).  And
+second, the client is expected to do its input handling synchronously within the
+port's event handling process.  (In single process environments, the difference
+is that the input is done during queue-input, rather than at a some other place
+in the application input loop).
+
+<P>
+queue-input client <TT> &amp;key </TT>type sheet state x y time <TT> &amp;allow-other-keys </TT> 
+
+<P>
+This function is invoked by the invoking input contract.  <I> client</I> is
+typically the recipient sheet itself, since the creator of the sheet will have
+additional super classes added to the sheet's sheet class.
+
+<P>
+bursting-input-queuer
+
+<P>
+This class provides standard methods for queue-input.  The method for
+queue-input provided by input handler examines the <I> type</I> and
+dispatches to one of the event handling function described below.
+
+<P>
+enter-region client <TT> &amp;key  &amp;allow-other-keys </TT>
+exit-region client <TT> &amp;key  &amp;allow-other-keys </TT>
+
+<P>
+These generic functions are invoked by deliver-event when the cursor enters or
+exits an active region
+
+<P>
+SWM What is deliver-event?  Why do these allow other keywords?
+
+<P>
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html1938"
+ HREF="node89.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/icons/next_motif.gif"></A> 
+<A NAME="tex2html1934"
+ HREF="node87.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/icons/up_motif.gif"></A> 
+<A NAME="tex2html1930"
+ HREF="node87.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/icons/previous_motif.gif"></A> 
+<A NAME="tex2html1936"
+ HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/icons/contents_motif.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html1939"
+ HREF="node89.html">Other Input Facilities</A>
+<B> Up:</B> <A NAME="tex2html1935"
+ HREF="node87.html">Input Processing</A>
+<B> Previous:</B> <A NAME="tex2html1931"
+ HREF="node87.html">Input Processing</A>
+ &nbsp <B>  <A NAME="tex2html1937"
+ HREF="node1.html">Contents</A></B> 
+<!--End of Navigation Panel-->
+<ADDRESS>
+<I>&</I>
+<BR><I>2001-06-12</I>
+</ADDRESS>
+</BODY>
+</HTML>

@@ -1,0 +1,639 @@
+<!--#include virtual="../include.shtml"-->
+<ul><h4>2011</h4>
+	<li><a href="http://www.cs.umd.edu/~shomir/swilson_cicling11.pdf">In search of the use-mention distinction and its impact on language processing tasks.</a>    Shomir Wilson. To appear in the International Journal of Computational Linguistics and Applications.</li>
+</ul>
+<ul><h4>2010</h4>
+<li><a href="http://www.cs.umd.edu/projects/active/publications/papers/MetaBookchapt1.pdf>The Metareasoning:An Introduction. Michael Cox and Anita Raja. In Cox, M., Raja, A. 
+	(Ed.), Metareasoning: Thinking about Thinking. MIT Press, MA, USA, 2010.</li>	
+<li><em style="font-style: normal"><a>Postulates for Revising BDI 
+	Structures. </a></em>J. Grant, S. Kraus, D. Perlis, M. Wooldridge.
+<!-- % DOI: 10.1007/s11229-010-9735-1 -->
+	Synthese, to appear, 2010.</li>
+	<li><a href="http://www.cs.umd.edu/~perlis/pubs/bicaijmc.pdf">To BICA and 
+	beyond: How biology and anomalies together contribute to flexible cognition</a>. 
+	D. Perlis. International Journal of Machine Consciousness, Vol. 2, No. 2, 
+	2010. [based on a 2008 talk whose ppt slides are available among the 2008 
+	publications]</li>
+	<li>The Metacognitive Loop and Reasoning about Anomalies. Matthew Schmill, 
+	Michael Anderson, Scott Fults, Darsana Josyula, Tim Oates, Donald Perlis, 
+	Hamid Haidarian Shahri, Shomir Wilson, Dean Wright. In Cox, M., Raja, A. 
+	(Ed.), Metareasoning: Thinking about Thinking. MIT Press, MA, USA, 2010.</li><li>
+	<a href="http://www.cs.umd.edu/projects/active/publications/papers/Commonsense8.pdf">
+	The Metacognitive Loop: An Architecture for Building Robust Intelligent 
+	Systems</a>. Hamid Haidarian, Wikum Dinalankara, Scott Fults, Shomir Wilson, 
+	Don Perlis, Matt Schmill, Tim Oates, Darsana Josyula, Michael Anderson. 
+	Proceedings of the AAAI Fall Symposium on Commonsense Knowledge (AAAI/CSKí10), 
+	Arlington, VA, USA, November 11-13, 2010.<li>
+	<a href="http://www.cs.umd.edu/~darsana/papers/josyulaAAAI10MRSS.pdf">
+	Metacognition for Detecting and Resolving Conflicts in Operational Policies</a>. 
+	D. Josyula, B. Donahue, M. McCaslin, M. Snowden, M. Anderson, M.<br>
+	Schmill, T. Oates and D. Perlis, Proceedings of the Workshop on 
+	Metacognition for Robust Social Systems at the 24th AAAI Conference on 
+	Artificial Intelligence (AAAIí10), Atlanta, Georgia, USA, July 11-15, 2010.<li><a href="http://www.agcognition.org/papers/anderson_bbs_2010.pdf">
+	Neural reuse: A fundamental organizational principle of the brain.</a> 
+	Michael L. Anderson. Behavioral and Brain Sciences, 33(3), in press.<li>
+	<a href="http://www.agcognition.org/papers/anderson_et_al_2010.pdf">
+	Investigating functional cooperation in the human brain using simple 
+	graph-theoretic methods</a>. Michael L. Anderson, Joan Brumbaugh and Aysu 
+	Suben. In: W. Chaovalitwongse, P. Pardalos and P. Xanthopoulos, eds. 
+	Computational Neuroscience, Springer, 2010, pages 31-42.<li>
+	<a href="http://www.agcognition.org/papers/cogsci-mvpa.pdf">A critique of 
+	multi-voxel pattern analysis</a>. Michael L. Anderson and Tim Oates. 
+	Proceedings of the 32nd Annual Conference of the Cognitive Science Society, 
+	2010.<li>
+	<a href="http://www.agcognition.org/papers/manderson_02-06.pdf">The origins 
+	of collective overvaluation: Irrational exuberance emerges from simple, 
+	honest and rational individual behavior</a>. Michael L. Anderson and C. 
+	Athena Aktipis. Proceedings of the 32nd Annual Conference of the Cognitive 
+	Science Society, 2010.<li>
+	<a href="http://www.cs.umd.edu/~hamid/publications/ISEM10.pdf">Foundations 
+	of Data Interoperability on the Web: A Web Science Perspective</a>. Hamid 
+	Haidarian. Proceedings of the 6th International Conference on Semantic 
+	Systems (I-Semanticsí10), Graz, Austria, September 1-3, 2010.<li>
+	<a href="http://www.cs.umd.edu/~hamid/publications/AAAI10.pdf">Semantic 
+	Search in Linked Data: Opportunities and Challenges</a>. Hamid Haidarian. 
+	Proceedings of the 24th AAAI Conference on Artificial Intelligence 
+	(AAAIí10), Atlanta, Georgia, USA, July 11-15, 2010.<li>
+	Vagueness and Scales. Scott Fults. Chapter in Vagueness and Language Use, 
+	Paul Égré and Nathan Klinedinst (Eds.) to appear, Palgrave Macmillan.<li><a href="http://www.cs.umd.edu/~shomir/swilson_naacl10.pdf">
+	Distinguishing Use and Mention in Natural Language. Shomir Wilson.</a>
+	Proceedings of the NAACL HLT Student Research Workshop, pp. 29-33. Los 
+	Angeles, CA: Association for Computational Linguistics. 2010.<li>
+	Ontologies for Metacognitive Monitoring and Repair of Dialog. Aparna 
+	Subramanian and Tim Oates. Proceedings of the 4th Language and Technology 
+	Conference, Poznan, Poland, November 6-8, 2009.<li>
+	Ontologies for Monitoring and Repairing Human-Computer Dialogs. Aparna 
+	Subramanian, Tim Oates, and Scott Fults. To appear in Papers from the 6th 
+	IEEE International Conference on Natural Language Processing and Knowledge 
+	Engineering, Beijing, China, Aug 21- 23, 2010.<h4>2009</h4>
+	<li><a href="http://www.agcognition.org/papers/affordances_JMB.pdf">
+	Affordances and intentionality: Reply to Roberts</a>. Michael L. Anderson 
+	and Tony Chemero. Journal of Mind and Behavior, 30(4), 2009.<li>What puts 
+	the &quot;meta&quot; in metacognition? Michael L. Anderson and Don Perlis. Behavioral 
+	and Brain Sciences, 32(2):138-139, 2009.<li>
+	<a href="http://www.ejop.org/archives/2009/11/what_mindedness.html">What 
+	mindedness is</a>. Michael L. Anderson. Europe's Journal of Psychology, 
+	November, 2009.<li>
+	<a href="http://www.cs.umd.edu/~darsana/papers/josyulanabic09.pdf">Modeling 
+	Emotions for Choosing Between Deliberation and Action</a>. Darsana P. 
+	Josyula, Franklin C. Hughes, Harish Vadali and Bette J. Donahue. In 
+	Proceedings of the IEEE World Congress on Nature and Biologically Inspired 
+	Computing (NABIC'09), 2009.<li>
+	<a href="http://www.cs.umd.edu/~darsana/papers/josyulainc09.pdf">Modeling 
+	Metacognition for learning in Artificial Systems</a>. Darsana P. Josyula, 
+	Harish Vadali, Bette J. Donahue and Franklin C. Hughes. In Proceedings of 
+	the International Symposium on Innovations in Computing (INC'09), 2009.</li>
+	<li><a href="http://www.cs.umd.edu/~darsana/papers/SASO-09.pdf">
+	Metacognition for Self-Regulated Learning in a Dynamic Environment</a>. 
+	Darsana P. Josyula, Franklin C. Hughes, Harish Vadali, Bette J. Donahue, 
+	Fassil Molla, Michelle Snowden, Jalissa Miles, Ahmed Kamara and Chinomnso 
+	Maduka. In 2009 SASO Workshop on Metareasoning in Self-Adaptive Systems at 
+	the Third IEEE International Conference on Self-Adaptive and Self-Organizing 
+	Systems (SASO'09), 2009.<h4>2008</h4></li>
+	<li><a href="http://www.agcognition.org/papers/ANZ.pdf">Brain network 
+	analysis of seizure evolution.</a> Wanpracha A. Chaovalitwongse, Wichai 
+	Suharitdamrong, Chang-Chia Liu and Michael L. Anderson. Ann. Zool. Fennici, 
+	45(5): 402-14, 2008.</li>
+	<li><a href="http://www.agcognition.org/papers/anderson_ConnSci.pdf">
+	Circuit sharing and the implementation of intelligent systems.</a> 
+	Michael L. Anderson. Connection Science, 20(4): 239-51, 2008.</li>
+	<li><a href="http://www.agcognition.org/papers/CH021.pdf">On the grounds 
+	of x-grounded cognition.</a> Michael L. Anderson. In: P. Calvo and T. 
+	Gomila, eds. The Elsevier Handbook of Cognitive Science: An Embodied 
+	Approach, pp. 423-35, 2008.</li>
+	<li><a href="http://www.agcognition.org/papers/anderson-aij-2008.pdf">
+	Active logic semantics for a single agent in a static world.</a> Michael 
+	L. Anderson, Walid Gomaa, John Grant and Don Perlis. Artificial Intelligence 
+	172: 1045-63, 2008.</li>
+	<li><a href="http://www.agcognition.org/papers/CNA.pdf">Content and 
+	action: The guidance theory of representation.</a> Michael L. Anderson, 
+	Gregg Rosenberg. In: D. Smith (ed) Evolutionary Biology and the Central 
+	Problems of Cognitive Science, a special issue of Journal of Mind and 
+	Behavior, 29(1-2): 55-86, 2008.</li>
+	<li><a href="http://www.agcognition.org/papers/AIMag2008.pdf">A self-help 
+	guide for autonomous systems.</a> Michael L. Anderson, Scott Fults, 
+	Darsana P. Josyula, Tim Oates, Don Perlis, Matt D. Schmill, Shomir Wilson 
+	and Dean Wright. AI Magazine, 29(2): 67-76, 2008.</li>
+	<li><a href="http://www.cs.umd.edu/~perlis/pubs/nometainme.doc">There's 
+	No ``Me'' in ``Meta'' - or Is There?</a> D. Perlis. Keynote address, 
+	Metareasoning: Thinking about Thinking Workshop, AAAI Annual Conference, 
+	Chicago 2008. (To appear as book chapter.)</li>
+	<li><a href="http://www.cs.umd.edu/~perlis/pubs/bicaijmc.pdf">To BICA and 
+	beyond: How biology and anomalies together contribute to flexible cognition.</a> 
+	D. Perlis. Keynote address, AAAI 08 Fall Symposium on Biologically Inspired 
+	Cognitive Architectures, Washington DC, 2008. [<a href="http://www.cs.umd.edu/users/perlis/pubs/bica.ppt">Presentation 
+	Slides</a>] [the paper citation is available among the 2010 publications]</li>
+	<li>
+	<a href="http://www.aaai.org/Papers/Workshops/2008/WS-08-07/WS08-07-026.pdf">The role of metacognition in robust AI systems</a>. Matt Schmill, Tim Oates, 
+	Michael L. Anderson, Darsana Josyula, Don Perlis, Shomir Wilson, and Scott 
+	Fults. In Papers from the Workshop on Metareasoning at the Twenty-Third AAAI 
+	Conference on Artificial Intelligence, 2008.</li>
+	<li><a href="http://www.cs.umd.edu/projects/active/publications/papers/SS05Haidarian-ShahriH.pdf">Grounding the Foundations of Ontology Mapping on the Neglected 
+	Interoperability Ambition.</a> Hamid Haidarian Shahri, James Hendler, Donald 
+	Perlis. Proceedings of the AAAI Spring Symposium on Semantic Scientific 
+	Knowledge Integration (AAAI/SSKIí08), Stanford University, CA, USA, March 
+	26-28, 2008. </li>
+	<li><a href="http://www.cs.umd.edu/projects/active/publications/papers/IAAI2Haidarian-ShahriH.pdf">Finding Ontological Correspondences for a Domain-Independent Natural 
+	Language Dialog Agent.</a>Hamid Haidarian Shahri, Donald Perlis. Proceedings of 
+	the 20th AAAI Innovative Applications of Artificial Intelligence Conference 
+	(AAAI/IAAIí08), Chicago, USA, July 13-17, 2008.</li>
+	<li>
+	<a href="http://www.agcognition.org/papers/anderson_cognitio_2006.pdf">
+	Evolution, embodiment and the nature of the mind.</a> Michael L. 
+	Anderson. In: B. Hardy-Vallee &amp; N. Payette, eds. Beyond the brain: embodied, 
+	situated &amp; distributed cognition. (Cambridge: Cambridge Scholar's Press), 
+	pages 15-28, 2008.</li>
+	<h4>2007</h4>
+	<li><i><a href="http://www.agcognition.org/papers/Neuroscientist_2007.pdf">
+	Evolution of cognitive function via redeployment of brain areas.</a></i> 
+	Michael L. Anderson. The Neuroscientist, 13(1): 13-21, 2007.</li>
+	<li><i><a href="http://www.cs.umd.edu/~perlis/pubs/mrabs-talk.ppt">
+	Ontologies for Reasoning about Failures in AI Systems.</a></i> M. Anderson, 
+	S. Fults, D. Josyula T. Oates, D. Perlis, M. Schmill, and S. Wilson. 
+	Proceedings, First International Workshop on Metareasoning in Agent-Based 
+	Systems, Hawaii, 2007.</li>
+	<li><i><a href="http://www.agcognition.org/papers/Phil_psyc_2007.pdf">The 
+	massive redeployment hypothesis and the functional topography of the brain.</a></i> 
+	Michael L. Anderson. Philosophical Psychology, 21(2): 143-174, 2007.</li>
+	<li><i><a href="http://www.agcognition.org/papers/anderson-oates-meta.pdf">A 
+	review of recent research in reasoning and metareasoning.</a></i> Michael L. 
+	Anderson, Tim Oates. AI Magazine, 28(1): 7-16, 2007.</li>
+	<li><i>
+	<a href="http://www.agcognition.org/papers/anderson_synthese_2007.pdf">
+	Massive redeployment, exaptation, and the functional integration of 
+	cognitive operations.</a></i> Michael L. Anderson. Synthese, 159(3): 
+	329-345, 2007.</li>
+	<li><a href="http://www.cs.umd.edu/~darsana/papers/josyulaltc07.pdf">Application of MCL in a dialog agent.</a> Darsana Josyula, Scott Fults, 
+	Michael L. Anderson, Shomir Wilson, and Don Perlis. In Papers from the Third 
+	Language and Technology Conference, 2007.</li>
+	<li>Toward domain-neutral human-level metacognition. Michael L. Anderson, 
+	Matt Schmill, Tim Oates, Don Perlis, Darsana Josyula, Dean Wright, and 
+	Shomir Wilson. In Papers from the 2007 AAAI Spring Symposium on Logical 
+	Formalizations of Commonsense Reasoning, 2007.</li>
+	<li><a href="http://www.cs.umd.edu/~anderson/papers/bes_ec.pdf"><i>How to 
+	study the mind: An introduction to embodied cognition.</i></a> Michael L. 
+	Anderson. In F.Santoianni and C. Sabatano, eds. Brain Development in 
+	Learning Environments: Embodied and Perceptual Advancements, Cambridge 
+	Scholars Press, pages 65-82, 2007.<h4>2006</h4></li>
+	<li>
+	<a href="http://www.cs.umd.edu/projects/active/publications/papers/ipmufr.ppt">
+	<i>ReGiKAT: (Meta-)Reason-Guided Knowledge Acquisition and
+                  Transfer --or Why Deep Blue can't play checkers, and
+                  why today's smart systems aren't smart.</i></a> Mike Anderson and Tim Oates and Don Perlis.  Proceedings of the 11th International Conference on
+  Information Processing and Management of Uncertainty in
+  Knowledge-Based Systems, Paris.  2006. </li>
+	<li>
+	<a href="http://www.cs.umd.edu/projects/active/publications/papers/JETAI_final.pdf">
+	<i>The metacognitive loop I: Enhancing reinforcement learning with metacognitive monitoring and control for improved perturbation tolerance.</i></a> Michael L. Anderson and Tim Oates and Waiyian Chong and Don Perlis.  Journal of Experimental and Theoretical Artificial Intelligence.  2006.  18.  3.  387-411.<li>
+	<a href="http://www.cs.umd.edu/projects/active/publications/papers/misc/papers/bigphi.pdf">
+	<i>Theory and application of self-reference: logic and beyond.</i></a> Don 
+	Perlis. Chapter in Self Reference, T. Bolander, V. Hendricks, S.A. Pedersen 
+	(eds.) Center for Study of Language and Information (CSLI, Stanford), 2006.<li>
+	<i><a href="http://www.cs.umd.edu/~perlis/pubs/assc-10.pdf">Self-based 
+	theories of consciousness.</a></i> D. Perlis. Annual meeting of ASSC, Oxford 
+	University, 2006.<li><i>
+	<a href="http://www.agcognition.org/papers/SRAD_2003.pdf">Cognitive science 
+	and epistemic openness.</a></i> Michael L. Anderson. Phenomenology and the 
+	Cognitive Sciences, 5(2): 125-154, 2006.<h4>2005</h4></li>
+	<li><a href="http://www.cs.umd.edu/~darsana/papers/darsanadissertation.pdf">
+	<i>A Unified Theory of Acting and Agency for a Universal Interfacing Agent.</i></a> Darsana  P. Josyula.  Department of Computer Science, University of Maryland.  2005.  College Park.
+	</li>
+	<li><a href="http://www.cs.umd.edu/~darsana/papers/SS605JosyulaD.pdf">Metacognition for Dropping and Reconsidering Intentions.</a> Darsana P. Josyula and Michael L. Anderson and Don
+Perlis.  Papers from the 2005 AAAI Spring Symposium on Metacognition in
+Computation.  62-67.  2005. </li>
+	<li><a href="http://www.cs.umd.edu/~darsana/papers/ltc05.pdf">Designing a Universal Interfacing Agent.</a> Darsana P. Josyula and Michael L. Anderson and Don
+Perlis.  Proceedings of the Second Language and Technology Conference (L&TC-05).  377-381.  2005.
+	</li>
+	<li>
+	<a href="http://logcom.oupjournals.org/cgi/content/abstract/15/1/21?ijkey=01seTUWa5vvtU&keytype=ref">
+	<i>Logic, self-awareness and self-improvement: The metacognitive loop and the problem of brittleness.</i></a> Michael L. Anderson and Donald R. Perlis.  Journal of Logic and Computation.  .  15.  1.  2005.
+	</li>
+	<li><a href="http://www.cs.umd.edu/~anderson/papers/SSC.pdf"><i>The roots of self-awareness.</i></a> Michael L. Anderson and Don Perlis.  Phenomenology and the Cognitive Sciences.  .  4.  3.  2005.
+	</li>
+	<li>
+	<a href="http://www.cs.umd.edu/projects/metalanguage/results/wintertext05.pdf">
+	<i>Metalanguage for dialog management.</i></a> Michael L. Anderson and Bryant Lee.  16th Annual Winter Conference on Discourse, Text and Cognition.  2005.  
+	</li>
+	<li><a href="http://www.cs.umd.edu/~anderson/papers/THS_2005.pdf"><i>Representation, evolution and embodiment.</i></a> Evolutionary Biology and the Central Problems of Cognitive Science.  Michael L. Anderson.  David Smith.  .  2005.  Special Issue of Theoria et Historia Scientarum.
+	</li>
+	<li><a href="http://www.cs.umd.edu/~anderson/papers/CS2005.pdf"><i>On the 
+	reasoning of real-word agents: Toward a semantics for active logic.</i></a> Michael L. Anderson and Walid Gomaa and John Grant and Don Perlis.  Proceedings of the 7th Annual Symposium on the Logical Formalization of Commonsense Reasoning, Dresden University Technical Report (ISSN 1430-211X).  2005.
+	</li>
+	<li><i>
+	<a href="http://www.aaai.org/Press/Reports/Symposia/Spring/ss-05-04.html">
+	Metacognition in Computation: Papers from the 2005 AAAI Spring Symposium.</a></i> 
+	Michael L. Anderson and Tim Oates, eds. (Menlo Park, CA: AAAI Press, 2005).</li>
+	<li>
+	<a href="http://www.cs.umd.edu/projects/active/publications/papers/finalrevised.pdf">
+	<i>A Logic-Based Model of Intention Formation and Action for Multi-Agent Subcontracting.</i></a> John Grant and Sarit Kraus and Don Perlis.  AIJ.  2005.  163.  163-201.<h4>2004</h4>
+	<li><a href="http://www.cs.umd.edu/~anderson/papers/ijcarfinal.pdf"><i>
+	Active Logic for more effective human-computer interaction and other 
+	commonsense applications.</i></a> Michael L. Anderson and Darsana Josyula and Don Perlis and Khemdut Purang.  Proceedings of the Workshop for Empirically Successful First-Order Reasoning, Inte\
+rnational Joint Conference on Automated Reasoning.  2004.  . </li>
+	<li><a href="http://www.cs.umd.edu/~anderson/papers/aaai\_metrics\_04.pdf">
+	<i>Specification of a test environment and performance measures for perturbation-tolerant cognitive agents.</i></a> Michael L. Anderson.  Proceedings of the AAAI Workshop on Intelligent Agent Architectures.  2004.
+	</li>
+	<li><a href="http://www.cs.umd.edu/~darsana/papers/aaai404JosyulaD.pdf"><i>
+	Domain-Independent Reason-Enhanced Controller for Task-ORiented systems - DIRECTOR.</i></a> Darsana P. Josyula and Michael L. Anderson and Don Perlis.  Proceedings of the National Conference on Artificial Intelligence (AAAI-04).  .  2004.
+	</li>
+	<li><a href="http://www.cs.umd.edu/~anderson/papers/CNA_cogsci04.pdf"><i>A brief introduction to the guidance theory of representation.</i></a> Gregg Rosenberg and Michael L. Anderson.  Proceedings of the 26th Annual Conference of the Cognitive Science Society.  2004.  .  
+	</li>
+	<li><a href="http://www.cs.umd.edu/~anderson/papers/aaai_metrics_04.pdf"><i>Specification of a test environment and performance measures for perturbation-tolerant cognitive agents.</i></a> Michael L. Anderson.  Proceedings of the AAAI Workshop on Intelligent Agent Architectures.  2004.
+	</li>
+	<li>
+	<a href="http://www.cs.umd.edu/projects/metalanguage/results/corpus_cogsci04.pdf">
+	<i>Empirical results for the use of meta-language in dialog management.</i></a> Michael L. Anderson and 
+Bryant Lee.  Proceedings of the 26th Annual Conference of the Cognitive Science Society.  2004.  
+	</li>
+	<li>
+	<a href="http://www.cs.umd.edu/projects/metalanguage/results/std04_final.pdf">
+	<i>On the frequency and types of meta-language in conversation: a preliminary report.</i></a> Michael L. Anderson and Andrew Fister and 
+Bryant Lee and Danny Wang.  14th Annual Conference of the Society for Text and Discourse.  2004.  
+</li>
+	<h4>2003</h4>
+	<li>
+	<a href="http://www.cs.umd.edu/projects/active/publications/papers/NCIpaper.pdf">
+	<i>RGL study in a hybrid real-time system.</i></a> Ken Hennacy and Nikhil Swamy and Don Perlis.  Proceedings of IASTED NCI 2003, Cancun, Mexico.  2003.
+	</li>
+	<li><a href="http://www.cs.umd.edu/~anderson/papers/UMBC.ppt"><i>How bodies matter to minds.</i></a> Michael L. Anderson.  Invited talk UMBC.  2003.
+	</li>
+	<li><a href="http://www.cs.umd.edu/~anderson/papers/alfred.pdf"><i>Towards domain-independent, task-oriented, conversational adequacy.</i></a> Darsana Josyula and Michael L. Anderson and Don Perlis.  Proceedings of the Eighteenth international Joint Conference on Artificial Intelligence (IJCAI-03).  1637-8.  2003.  .
+	</li>
+	<li><a href="http://www.cs.umd.edu/~anderson/papers/ksu_2003.pdf"><i>What mindedness is.</i></a> Michael L. Anderson.  Brain Power: Intelligence, Emotion, Cultural Fantasy Conference.  2003.  Kansas State University.  
+	</li>
+	<li><a href="http://www.cs.umd.edu/~anderson/papers/miis.pdf"><i>Talking to Computers.</i></a> Michael L. Anderson and Darsana Josyula and Don Perlis.  Proceedings of the Workshop on Mixed Initiative Intelligent Systems, IJCAI-03.  2003.  .
+	</li>
+	<li><a href="http://www.cs.umd.edu/~anderson/papers/Evans.pdf"><i>Evans' Varieties 
+	of Reference and the anchoring problem.</i></a> Michael L. Anderson.  Robotics and Autonomous Systems.  189--92.  43.  1-2.  2003.  
+	</li>
+	<li><a href="http://dx.doi.org/10.1016/S0004-3702(03)00054-7"><i>Embodied Cognition: A Field Guide.</i></a> Michael L. Anderson.  Artificial Intelligence.  91--130.  149.  1.  2003.  
+	</li>
+	<li><a href="http://dx.doi.org/10.1016/S0004-3702(03)00056-0"><i>Representations, Symbols and Embodiment.</i></a> Michael L. Anderson.  Artificial Intelligence.  151--6.  149.  1.  2003.  
+	</li>
+	<li><a href="http://www.ling.ed.ac.uk/~jim/BBSNEURO/anderson.html"><i>Pre-lingusitic agents will form only ego-centric predicates.</i></a> Michael L. Anderson and Tim Oates.  Behavioral and Brain Sciences.  284-5.  26.  3.  2003.  
+</li>
+	<h4>2002</h4>
+	<li>
+	<a href="http://www.cs.umd.edu/projects/active/publications/papers/misc/WRAC/sevendays.pdf">
+	<i>Seven Days in the Life of a Robotic Agent.</i></a> Waiyian Chong and Michael O'Donovan-Anderson and Yoshi Okamoto and Don Perlis.  Proceedings, GSFC/JPL Workshop on Radical Agent Concepts.  2002.  NASA Goddard Space Flight Center, Greenbelt, MD, USA.
+	</li>
+	<li><a href="http://www.cs.umd.edu/~anderson/papers/ConvAdeq.ppt"><i>Metareasoning for Conversational Adequacy.</i></a> Michael L. Anderson.  Invited talk DFKI.  2002.
+	</li>
+	<li><a href="http://www.cs.umd.edu/~mikeoda/papers/Tucson.ppt"><i>Understanding Bodily Knowledge.</i></a> Michael O'Donovan-Anderson.  Tucson 2002: Towards a Science of Consciousness.  2002.  
+	</li>
+	<li><a href="http://www.cs.umd.edu/~anderson/papers/gcai2002.pdf"><i>
+	Time-situated Agency: Active Logic and intention formation.</i></a> Michael L. Anderson and Darsana Josyula and Yoshi Okamoto and Don Perlis. 
+	Workshop on Cognitive Agents, 25th German Conference on Artificial Intelligence.  2002.  .
+	</li>
+	<li><a href="http://www.cs.umd.edu/~anderson/papers/umd_ed02.pdf"><i>The 
+	Use-Mention Distinction and its importance to HCI.</i></a> Michael L. Anderson and Yoshi Okamoto and Darsana Josyula and Don Perlis.  Proceedings of the Sixth Workshop on the Semantics and Pragmatics of Dialog.  2002.  .
+	</li>
+	<li><a href="http://www.cs.umd.edu/~anderson/papers/ecs.pdf"><i>Symbol Systems.</i></a> Encyclopedia of Cognitive Science.  Michael L. Anderson and Donald R. Perlis.  L. Nadel and D. Chalmers and P. Culicover and B. French and R. Goldstone.  .  2002.  Macmillan Publishers, London.
+	</li>
+	<li><a href="http://www.cs.umd.edu/~anderson/papers/MIS2002.pdf"><i>ALII: An information integration environment based on the active logic framework.</i></a> A. A. Barfourosh and H.R Motharynezhad and M. O'Donovan-Anderson and D. Perlis.  Third International Conference on Management Information Systems.  2002.  .  
+</li>
+	<h4>2001</h4>
+	<li>
+	<a href="http://www.cs.umd.edu/projects/active/publications/papers/misc/MAnderson01.pdf">
+	<i>Handling Uncertainty with Active Logic.</i></a> Manjit Bhatia and Paul Chi and Waiyian Chong and Darsana P. Josyula and Michael O'Donovan-Anderson and Yoshi Okamoto and Don Perlis and K. Purang.  Proceedings, AAAI Fall Symposium on Uncertainty in Computation.  .  2001.  
+</li>
+	<h4>2000</h4>
+	<li>The role(s) of belief in AI. D. Perlis. Logic-based AI.  2000.  14.  J. Minker.
+	</li>
+	<li>
+	<a href="http://www.cs.umd.edu/projects/active/publications/papers/JCS2000.pdf">
+	<i>What does it take to refer?.</i></a> Don Perlis.  Journal of Consciousness Studies.  2000.
+	</li>
+	<li><a href="http://www.cs.umd.edu/~anderson/papers/apa2000.pdf"><i>Merleau-Ponty and the fourth dogma of empiricism.</i></a> Michael O'Donovan-Anderson.  APA Eastern Division, Society for Realist/Anti-Realist Discussion.  2000.
+	</li>
+	<li><a href="http://www.cs.umd.edu/~anderson/papers/Lakoff2.pdf"><i>Review 
+	of Philosophy in the Flesh.</i></a> Michael O'Donovan-Anderson.  Review of Metaphysics.  .  June.  .  2000.  
+</li>
+	<h4>1999</h4>
+	<li>
+	<a href="http://www.cs.umd.edu/projects/active/publications/papers/mixinit.pdf">
+	<i>Mixed Initiative Dialogue and Intelligence via Active Logic,.</i></a> C. Andersen and D. Traum and K. Purang and D. Purushothaman and D. Perlis.  1999.  Proceedings of the AAAI'99 Workshop on Mixed-Initiative Intelligence.
+	</li>
+	<li>
+	<a href="http://www.cs.umd.edu/projects/active/publications/papers/psych9.pdf">
+	<i>Modeling time and meta-reasoning in dialogue via active logic.</i></a> D. Perlis and K. Purang and D. Purushothaman and C. Andersen and D. Traum.  1999.  Working notes of AAAI Fall Symposium on Psychological Models of Communication.
+	</li>
+	<li>
+	<a href="http://www.cs.umd.edu/projects/active/publications/papers/prac7.pdf">
+	<i>Practical Reasoning and Plan Execution with Active Logic.</i></a> K. Purang and D. Purushothaman and D. Traum and C. Andersen and D. Traum and D. Perlis.  1999.  Proceedings of the IJCAI'99 Workshop on Practical Reasoning and Rationality.
+	</li>
+	<li>
+	<a href="http://www.cs.umd.edu/projects/active/publications/papers/survey_paper.pdf">
+	<i>Active Logics: A Unified Formal Approach to Episodic Reasoning..</i></a> J. Elgot-Drapkin and S. Kraus and M. Miller and M. Nirkhe and D. Perlis.  University of Maryland.  1999.  CS-TR-3680 and UMIACS-TR-99-65.
+	</li>
+	<li>
+	<a href="http://www.cs.umd.edu/projects/active/publications/papers/etai.pdf">
+	<i>Representations of Dialogue State for Domain and Task Independent Meta-dialogue.</i></a> David R. Traum and Carl F. Andersen and Waiyian Chong and Darsana Josyula and Yoshi Okamoto and Khemdut Purang and Michael O'Donovan-Anderson and Don Perlis.  Electronic Transactions on Artificial Intelligence.  1999.  3.  125-152.
+	</li>
+	<li><a href="http://www.cs.umd.edu/~anderson/papers/Nozick.pdf"><i>Review of Socratic Puzzles 
+	by Robert Nozick.</i></a> Michael O'Donovan-Anderson.  Review of Metaphysics.  .  June.  .  1999.  
+</li>
+	<h4>1998</h4>
+	<li>
+	<a href="http://www.cs.umd.edu/projects/active/publications/papers/misc/papers/lang/mnm-si.pdf">
+	<i>Conversational Adequacy: Mistakes are the essense.</i></a> D. Perlis and K. Purang and C. Andersen.  International Journal of Human Computer Studies.  1998.  
+</li>
+	<h4>1997</h4>
+	<li>Toward automated expert reasoning and expert-novice communication. M. Miller and D. Perlis.  Expertise in Context: Human and Machine.  K. Ford and P. Feltovitch and R. Hoffman.  MIT Press.  1997.
+	</li>
+	<li>How to (plan to) meet a deadline between now and then. M. Nirkhe and S. Kraus and M. Miller and D. Perlis.  Journal of Logic and Computation.  1997.  7.  1.  109--156.
+	</li>
+	<li>Sources of, and Exploiting, Inconsistency: Preliminary Report. D. Perlis.  Journal of APPLIED NON-CLASSICAL LOGICS.  1997.  7.
+	</li>
+	<li>
+	<a href="http://www.cs.umd.edu/projects/active/publications/papers/jlc.pdf">
+	<i>How to plan to meet a deadline between now and then.</i></a> M. Nirkhe and M. Miller and S. Kraus and D. Perlis.  Journal of Logic and Computation.  1997.
+	</li>
+	<li>
+	<a href="http://www.cs.umd.edu/projects/active/publications/papers/misc/papers/lang/ci97.pdf">
+	<i>Interpreting Presuppositions Using Active Logic: From Contexts to Utterances.</i></a> J. Gurney and D. Perlis and K. Purang.  Computational Intelligence.  1997.
+	</li>
+	<li>
+	<a href="http://www.cs.umd.edu/projects/active/publications/papers/consciousness.may.00.pdf">
+	<i>Consciousness as Self-function.</i></a> Don Perlis.  Journal of Consciousness Studies.  1997.
+	</li>
+	<li><a href="http://www.cs.umd.edu/~anderson/CCinfo.htm"><i>Content and Comportment: On Embodiment and the Epistemic Availability of the World.</i></a> Lanham, MD.  Michael O'Donovan-Anderson.  Rowman and Littlefield.  1997.  
+</li>
+	<h4>1996</h4>
+	<li>
+	<a href="http://www.cs.umd.edu/projects/active/publications/papers/lang/implic.pdf">
+	<i>Active Logic Applied to Cancellation of Gricean Implicature.</i></a> D. Perlis and J. Gurney and K. Purang.  1996.  AAAI.  Working notes, AAAI 96 Spring Symposium on Computational Implicature.
+	</li>
+	<li>Nine sources of inconsistency in commonsense reasoning. Donald Perlis.  1996 Workshop on Commonsense Reasoning.  Stanford.  1996.
+	</li>
+	<li>Sources of, and exploiting, inconsistency: preliminary report. Donald Perlis.  1996 Workshop on Commonsense Reasoning.  Stanford.  Also to appear in Journal of APPLIED NON-CLASSICAL LOGICS 7:1 + 7:2 (1997).  1996.
+	</li>
+	<li>
+	<a href="http://www.cs.umd.edu/projects/active/publications/papers/lang/implic.pdf">
+	<i>Active Logic Applied to Cancellation of Gricean Implicature.</i></a> D. Perlis and J. Gurney and K. Purang.  1996.  AAAI 96 Spring Symposium on Computational Implicature.
+	</li>
+	<li>
+	<a href="http://www.cs.umd.edu/projects/active/publications/papers/lang/ci96.pdf">
+	<i>Updating Discourse Context with Active Logic.</i></a> J. Gurney and D. Perlis and K. Purang.  University of Maryland.  1996.  CS-TR-3681.
+	</li>
+	<li>
+	<a href="http://www.cs.umd.edu/projects/active/publications/papers/lang/mnm.pdf">
+	<i>Conversational Adequacy: Mistakes are the Essense.</i></a> D. Perlis and K. Purang.  1996.  AAAI 96 Workshop on Detecting, Repairing, and Preventing Human-Machine Miscommunication.
+	</li>
+	<li>
+	<a href="http://www.cs.umd.edu/projects/active/publications/papers/denials_final4.pdf">
+	<i>Defaults Denied.</i></a> M. Miller and D. Perlis and K. Purang.  University of Maryland.  1996.  CS-TR-3680.
+	</li>
+	<li>
+	<a href="http://www.cs.umd.edu/projects/active/publications/papers/inconsis.pdf">
+	<i>Sources of, and exploiting, inconsistency: preliminary report.</i></a> D. Perlis.  University of Maryland College Park.  1996.  ---.
+	</li>
+	<li><a href="http://www.cs.umd.edu/~anderson/papers/wittrous.pdf"><i>Wittgenstein and Rousseau on the Context of Justification.</i></a> Michael O'Donovan-Anderson.  Philosophy and Social Criticism.  75--92.  22.  3.  1996.  
+	</li>
+	<li><a href="http://www.cs.umd.edu/~anderson/ISinfo.htm"><i>The Incorporated Self: Interdisciplinary Perspectives on Embodiment.</i></a> Lanham, MD.  Michael O'Donovan-Anderson.  Rowman and Littlefield.  1996.  
+</li>
+	<h4>1995</h4>
+	<li>Automated inference in active logicsM. Miller and D. Perlis.  Journal of Applied Non-Classical Logics.  to appear.  1995.
+	</li>
+	<li>Thinking takes time: A modal active-logic for reasoning in time. M. Nirkhe and S. Kraus and D. Perlis.  1995.  Proceedings of BISFAI-95.  Israel.
+	</li>
+	<li>
+	<a href="http://www.cs.umd.edu/projects/active/publications/papers/ijcai95.pdf">
+	<i>Active Logic and Heim's Rule for Updating Discourse Context.</i></a> J. Gurney and D. Perlis and K. Purang.  1995.  IJCAI 95 Workshop on Context in Natural Language.
+	</li>
+	<li><a href="http://www.cs.umd.edu/~anderson/papers/Conser.pdf"><i>Review of God 
+	and the Natural World: Religion and Science in Antebellum America by Walter 
+	H. Conser, Jr..</i></a> Michael O'Donovan-Anderson.  The Journal of the History of Medicine.  .  June.  .  1995.  
+</li>
+	<h4>1994</h4>
+	<li>Logic for a LifetimePerlis, D..  University of Maryland.  CS-TR-3278.  1994.
+	</li>
+	<li>
+	<a href="http://www.cs.umd.edu/projects/active/publications/papers/CS-TR-3324.pdf">
+	<i>An Error-Theory of Consciousness.</i></a> D. Perlis.  University of Maryland.  1994.  CS-TR-3324.
+	</li>
+	<li>
+	<a href="http://www.cs.umd.edu/projects/active/publications/papers/CS-TR-3279.pdf">
+	<i>Calibrating, Counting, Grounding, Grouping.</i></a> J. Elgot-Drapkin and D. Gordon and S. Kraus and M. Miller and M. Nirkhe and D. Perlis.  University of Maryland.  1994.  CS-TR-3279.
+	</li>
+	<li>
+	<a href="http://www.cs.umd.edu/projects/active/publications/papers/CS-TR-3249.pdf">
+	<i>Thinking takes time: A modal active-logic for reasoning in time.</i></a> M. Nirkhe and S. Kraus and D. Perlis.  University of Maryland.  1994.  CS-TR-3249, UMIACS-TR-94-63.
+	</li>
+	<li>
+	<a href="http://www.cs.umd.edu/projects/active/publications/papers/CS-TR-3232.pdf">
+	<i>Consciousness and complexity: the cognitive quest.</i></a> D. Perlis.  University of Maryland.  1994.  CS-TR-3232.  March.
+	</li>
+	<li>
+	<a href="http://www.cs.umd.edu/projects/active/publications/papers/CS-TR-3278.pdf">
+	<i>Logic for a lifetime.</i></a> Donald Perlis.  University of Maryland.  CS-TR-3278 and UMIACS-TR-94-62.  1994.
+	</li>
+	<li>
+	<a href="http://www.cs.umd.edu/projects/active/publications/papers/foot-II.pdf">
+	<i>Putting One's Foot in One's Head -- Part II: How.</i></a> D. Perlis.  From Thinking Machines to Virtual Persons: Essays on the intentionality of computers.  Eric Dietrich.  Academic Press.  1994.
+	</li>
+	<li><a href="http://www.cs.umd.edu/~anderson/papers/Weiner.pdf"><i>Review of Genius 
+	and Talent by David A. Weiner.</i></a> Michael O'Donovan-Anderson.  The Philosopher.  .  April.  .  1994.  
+</li>
+	<h4>1993</h4>
+	<li>Competitive Learning and Competitive Activation in Cortical Map FormationFrank McFadden.  1993.  College Park, Maryland.  University of Maryland.  (Directed by H.~Szu and D.~Perlis.).
+	</li>
+	<li>Situated Reasoning Within Tight Deadlines and Realistic Space and Computation BoundsM. Nirkhe, S. Kraus and D. Perlis.  Common Sense 93.  1993.  Austin, Texas.
+	</li>
+	<li>
+	<a href="http://www.cs.umd.edu/projects/active/publications/papers/vacuum.pdf">
+	<i>Vacuum Logic.</i></a> J. Elgot-Drapkin and S. Kraus and M. Miller and M. Nirkhe and D. Perlis .  Notes of the AAAI Fall Symposium on Instantiating Real-World Agents.  1993.
+	</li>
+	<li>
+	<a href="http://www.cs.umd.edu/projects/active/publications/papers/CS-TR-3244.pdf">
+	<i>Presentations and this and that: logic in action.</i></a> M. Miller and D. Perlis.  Proceedings of the 15th Annual Conference of the Cognitive Science Society.  Boulder, Colorado.  1993.
+	</li>
+	<li>
+	<a href="http://www.cs.umd.edu/projects/active/publications/papers/CS-TR-3280.pdf">
+	<i>What experts deny, novices must understand.</i></a> M. Miller and D. Perlis .  3rd International Workshop on Human and Machine Cognition.  Seaside, Florida.  1993.
+	</li>
+	<li>
+	<a href="http://www.cs.umd.edu/projects/active/publications/papers/commonsense93.pdf">
+	<i>Situated Reasoning Within Tight Deadlines and Realistic Space and Computation Bounds.</i></a> M. Nirkhe, S. Kraus and D. Perlis.  Common Sense 93.  Austin, Texas.  1993.
+	</li>
+	<li>
+	<a href="http://www.cs.umd.edu/projects/active/publications/papers/flairs93.pdf">
+	<i>Reasoning About Change in a Changing World.</i></a> M. Nirkhe and D. Perlis and S. Kraus.  Proceedings of FLAIRS-93.  1993.
+	</li>
+	<li><a href="http://www.cs.umd.edu/~anderson/papers/Hunter.pdf"><i>Review of Wittgenstein on 
+	Words as Instruments by J.F.M. Hunter.</i></a> Michael O'Donovan-Anderson.  The Philosopher.  .  April.  .  1993.  
+</li>
+	<h4>1991</h4>
+	<li>Typicality Constants and Range Defaults: Some Pros and Cons of a Cognitive Model of Default ReasoningMiller, M. and Perlis, D..  Proceedings of the 1991 SIGART International Symposium on Methodologies for Intelligent Systems.  1991 .
+	</li>
+	<li>
+	<a href="http://www.cs.umd.edu/projects/active/publications/papers/foot-I.pdf">
+	<i>Putting One's Foot in One's Head---Part I: Why.</i></a> D. Perlis. 1991. 
+	25. 435--455. Special issue on Artificial Intelligence and Cognitive Science.
+	</li>
+	<li>
+	<a href="http://www.cs.umd.edu/projects/active/publications/papers/phil.ai.chapter.pdf">
+	<i>Memory, reason, and time: the step-logic approach.</i></a> Philosophy and AI: Essays at the Interface.  J. Elgot-Drapkin and M. Miller and D. Perlis.  R. Cummins and J. Pollock.  1991.  MIT Press.
+	</li>
+	<li>
+	<a href="http://www.cs.umd.edu/projects/active/publications/papers/scope.pdf">
+	<i>Nonmonotonicity and the scope of reasoning.</i></a> Etherington, D. and Kraus, S. and Perlis, D..  Artificial Intelligence.  52.  221--261.  1991.
+	</li>
+	<li>
+	<a href="http://www.cs.umd.edu/projects/active/publications/papers/reas-ign.pdf">
+	<i>Reasoning about Ignorance: A Note on the Bush-Gorbachev Problem.</i></a> S. Kraus and D. Perlis and J. Horty.  Fundamenta Informaticae Journal.  special issue on Logic for A.I..  15(3,4).  325-332.  1991.
+	</li>
+	<li>
+	<a href="http://www.cs.umd.edu/projects/active/publications/papers/ismis91.pdf">
+	<i>Fully Deadline-Coupled Planning: One Step at a time.</i></a> M. Nirkhe and S. Kraus and D. Perlis.  1991.  Proceedings of the Sixth International Symposium on Methodologies for Intelligent Systems.  Charlotte, NC.
+	</li>
+	<li>
+	<a href="http://www.cs.umd.edu/projects/active/publications/papers/stop.pdf">
+	<i>Stop the World! -- I Want to Think!.</i></a> Perlis, D. and Elgot-Drapkin, J. and Miller, M..  International J. of Intelligent Systems.  6.  443-456.  Special issue on temporal reasoning.  1991.  
+</li>
+	<h4>1990</h4>
+	<li>Planning and acting in deadline situationsKraus, S. and Nirkhe, M. and Perlis, D..  1990 .  Presented at the AAAI-90 Workshop on Planning in Complex Domains.
+	</li>
+	<li>Reasoning Situated in Time I: Basic ConceptsJ. Elgot-Drapkin and D. Perlis.  Journal of Experimental and Theoretical Artificial Intelligence.  1990.  2.  1.  75--98.
+	</li>
+	<li>Limited Scope and Circumscriptive Reasoning. Etherington, D., Kraus, S. and Perlis, D..  Advances in Human and Machine Cognition, Volume 1, The Frame Problem in Artificial Intelligence.  JAI Press.  1990.  To appear.
+	</li>
+	<li>Nonmonotonicity and the Scope of Reasoning: Preliminary ReportEtherington, D. and Kraus, S. and Perlis, D..  Proceedings of the 8th National Conference on Artificial Intelligence.  AAAI.  1990.  Boston, MA.  600--607.
+	</li>
+	<li>Fully Deadline-Coupled Real-time PlanningS. Kraus and M. Nirkhe and P. Perlis.  1990.  To appear in the proceedings of 1990 DARPA workshopon Innovative Approaches to Planning, Scheduling and Control.
+	</li>
+	<li>
+	<a href="http://www.cs.umd.edu/projects/active/publications/papers/misc/papers/int-def.pdf">
+	<i>Intentionality and defaults.</i></a> D. Perlis.  International J. of Expert Systems.  345--354.  3.  1990.  Special issue on the Frame Problem, K. Ford and
+                  P. Hayes (eds). Reprinted as a chapter in
+                  Advances in Human 
+                  and Machine Cognition, vol.~1: the Frame Problem in
+                  Artificial Intelligence, K.~Ford and P.~Hayes
+                  (eds.), JAI Press, 1991. </li>
+	<li>
+	<a href="http://www.cs.umd.edu/projects/active/publications/papers/jetai.pdf">
+	<i>Reasoning Situated in Time I: Basic Concepts.</i></a> J. Elgot-Drapkin and D. Perlis.  Journal of Experimental and Theoretical Artificial Intelligence.  1990.  2.  1.  75--98.
+	</li>
+	<li>
+	<a href="http://www.cs.umd.edu/projects/active/publications/papers/darpa90.pdf">
+	<i>Deadline-Coupled Real-time Planning.</i></a> S. Kraus and M. Nirkhe and D. Perlis.  1990.  100--108.  Proceedings of 1990 DARPA workshop on Innovative Approaches to Planning, Scheduling and Control.  San Diego, CA.
+	</li>
+	<li>
+	<a href="http://www.cs.umd.edu/projects/active/publications/papers/aaai90.pdf">
+	<i>Planning and Acting in Deadline Situations.</i></a> S. Kraus and M. Nirkhe and D. Perlis.  1990.  Proceedings of AAAI-90 Workshop on Planning in Complex Domains.  
+</li>
+	<h4>1989</h4>
+	<li>Some Brief Essays on MindPerlis, D..  Department of Computer Science, University of Rochester.  1989 .  302.
+	</li>
+	<li>
+	<a href="http://www.cs.umd.edu/projects/active/publications/papers/know-ign.pdf">
+	<i>Assessing Others' Knowledge and Ignorance..</i></a> Sarit Kraus and Don Perlis.  220 - 225.  Proceedings of the 4th International Symposium on Methodologies for Intelligent Systems..  1989.  
+</li>
+	<h4>1988</h4>
+	<li>Names and Non-monotonicityKraus, S. and Perlis, D..  Department of Computer Science, University of Maryland.  1988 .  UMIACS TR-88-84 and CS-TR-2140.
+	</li>
+	<li>Uniform accountability for multiple modes of reasoningD. Perlis and L. Kanal.  International Journal of Approximate Reasoning.  1988.  2.  special issue on Uncertainty in Artificial Intelligence.  233--246.
+	</li>
+	<li>
+	<a href="http://www.cs.umd.edu/projects/active/publications/papers/misc/papers/88/sref-II.pdf">
+	<i>Languages with Self Reference II: Knowledge, Belief, and Modality.</i></a> D. Perlis. 
+	Artificial Intelligence. 1988. 34. 179--212. Reprinted as a chapter in Reflexivity: A
+                  Source-Book in Self-Reference,
+                  S. J. Bartlett (ed.), North-Holland, 1992. </li>
+	<li>
+	<a href="http://www.cs.umd.edu/projects/active/publications/papers/misc/papers/88/cst.pdf">
+	<i>Commonsense set theory.</i></a> D. Perlis.  Meta-Level Architectures and Reflection.  1988.  P. Maes and D. Nardi.  North Holland.
+	</li>
+	<li>
+	<a href="http://www.cs.umd.edu/projects/active/publications/papers/misc/papers/88/auto.pdf">
+	<i>Autocircumscription.</i></a> Perlis, D..  Artificial Intelligence.  1988.  36.  223--236.  
+</li>
+	<h4>1987</h4>
+	<li>Proving Facts about I. Miller, M. and Perlis, D..  Proceedings of the 10th Int'l Joint Conference on Artificial Intelligence.  1987 .  499--501.
+	</li>
+	<li>
+	<a href="http://www.cs.umd.edu/projects/active/publications/papers/misc/papers/87/circset.pdf">
+	<i>Circumscribing with Sets.</i></a> D. Perlis.  Artificial Intelligence.  1987.  31.  201--211.
+	</li>
+	<li>
+	<a href="http://www.cs.umd.edu/projects/active/publications/papers/misc/papers/87/how.pdf">
+	<i>How Can a Program Mean?.</i></a> D. Perlis.  Proceedings of the 10th Int'l Joint Conference on Artificial Intelligence.  1987.  163--166.
+	</li>
+	<li>
+	<a href="http://www.cs.umd.edu/projects/active/publications/papers/misc/papers/87/2frames.pdf">
+	<i>The Two Frame Problems.</i></a> J. Elgot-Drapkin and M. Miller and D. Perlis.  Proceedings of the 1987 Workshop on The Frame Problem.  1987.  F. M. Brown.  Morgan Kaufmann.  Lawrence, Kansas.  23--28.
+	</li>
+	<li>
+	<a href="http://www.cs.umd.edu/projects/active/publications/papers/misc/papers/87/island.pdf">
+	<i>Life on a Desert Island: Ongoing Work on Real-time Reasoning.</i></a> J. Elgot-Drapkin and M. Miller and D. Perlis.  Proceedings of the 1987 Workshop on The Frame Problem.  Lawrence, Kansas.  349--357.  F. M. Brown.  Morgan Kaufmann.  1987.
+	</li>
+	<li>
+	<a href="http://www.cs.umd.edu/projects/active/publications/papers/misc/papers/87/utter.pdf">
+	<i>Proving self-utterances.</i></a> Miller, M. and Perlis, D..  Journal of Automated Reasoning.  1987.  3.  329--338.  
+</li>
+	<h4>1986</h4>
+	<li>Intentionality and internalityPerlis, D. and Hall, R..  Behavioral and Brain Sciences.  1986 .  9.  1.  151--152.
+	</li>
+	<li>
+	<a href="http://techreports.isr.umd.edu/TechReports/ISR/1986/TR_86-21/TR_86-21.phtml">
+	<i>A Memory Model for Real-time Commonsense Reasoning.</i></a> J. Drapkin and M. Miller and D. Perlis.  Systems Research Center, University of Maryland.  1986.  College Park, Maryland.  TR-86-21.
+	</li>
+	<li>Analytic completeness in ${S}{L}_0$J. Drapkin and D. Perlis.  Department of Computer Science, University of Maryland.  1986.  College Park, Maryland.  TR-1682.
+	</li>
+	<li>
+	<a href="http://www.cs.umd.edu/projects/active/publications/papers/misc/papers/86/excursion.pdf">
+	<i>A Preliminary Excursion into Step-logics.</i></a> J. Drapkin and D. Perlis.  Proceedings SIGART International Symposium on Methodologies for Intelligent Systems.  ACM.  1986.  Knoxville, Tennessee.  262--269.
+	</li>
+	<li>
+	<a href="http://www.cs.umd.edu/projects/active/publications/papers/misc/papers/wiwi.pdf">
+	<i>What is and what isn't.</i></a> Perlis, D..  12th Annual Meeting, Society for Philosophy and Psychology.  Johns Hopkins University.  1986.
+	</li>
+	<li>
+	<a href="http://www.cs.umd.edu/projects/active/publications/papers/misc/papers/86/occr.pdf">
+	<i>On the Consistency of Commonsense Reasoning.</i></a> D. Perlis.  Computational Intelligence.  1986.  2.  180--190.
+	</li>
+	<li>
+	<a href="http://www.cs.umd.edu/projects/active/publications/papers/misc/papers/86/cba.pdf">
+	<i>On Default Handling: Consistency Before and After.</i></a> J. Drapkin and M. Miller and D. Perlis.  Systems Research Center, University of Maryland.  1986.  College Park, Maryland.  TR-86-20.
+	</li>
+	<li>
+	<a href="http://www.cs.umd.edu/projects/active/publications/papers/misc/papers/86/alternative.pdf">
+	<i>Step-logics: An Alternative Approach to Limited Reasoning.</i></a> J. Drapkin and D. Perlis.  Proceedings of the European Conf. on Artificial Intelligence.  1986.  Brighton, England.  160--163.
+	</li>
+	<li>
+	<a href="http://www.cs.umd.edu/projects/active/publications/papers/misc/papers/86/completecirc.pdf">
+	<i>Completeness Results for Circumscription.</i></a> D. Perlis and J. Minker.  Artificial Intelligence.  1986.  28.  1.  29--42.  
+</li>
+	<h4>1985</h4>
+	<li>
+	<a href="http://techreports.isr.umd.edu/TechReports/ISR/1985/TR_85-34/TR_85-34.phtml">
+	<i>A Commentary on the Literature of Self-Reference.</i></a> Perlis, D. and Miller, M..  Department of Computer Science, University of Maryland.  1985 .  TR-85-34.
+	</li>
+	<li>
+	<a href="http://techreports.isr.umd.edu/TechReports/ISR/1985/TR_85-35/TR_85-35.phtml">
+	<i>Real-time default reasoning, relevance, and memory models.</i></a> J. Drapkin and M. Miller and D. Perlis.  Systems Research Center, University of Maryland.  1985.  College Park, Maryland.  TR-85-35.
+	</li>
+	<li>
+	<a href="http://www.cs.umd.edu/projects/active/publications/papers/misc/papers/85/sref-I.pdf">
+	<i>Languages with Self Reference I: Foundations.</i></a> D. Perlis. 
+	Artificial Intelligence. 1985. 25. 301--322. Reprinted as a chapter in Reflexivity: A
+                  Source-Book in Self-Reference,
+                  S. J. Bartlett (ed.), North-Holland, 1992. </li>
+	<li>
+	<a href="http://www.cs.umd.edu/projects/active/publications/papers/misc/papers/85/comprotcirc.pdf">
+	<i>Computing Protected Circumscription.</i></a> J. Minker and D. Perlis.  Journal of Logic Programming.  1985.  4.  235--249.  
+</li>
+	<h4>1984</h4>
+	<li><a href="http://prism.cs.umd.edu/papers/perlis/comprotcirc.html"><i>Applications of protected circumscription.</i></a> J. Minker and Donald Perlis.  Proc. 7th Conf. on Automated Deduction.  Springer.  414--425.  1984.
+	</li>
+	<li>
+	<a href="http://www.cs.umd.edu/projects/active/publications/papers/misc/papers/84/nmreal.pdf">
+	<i>Non-monotonicity and Real-time Reasoning.</i></a> D. Perlis.  Proceedings of the 1984 Nonmonotonic Reasoning Workshop.  AAAI.  1984.  OCT.  New Paltz, NY.  
+</li>
+	<h4>1981</h4>
+	<li>Language, Computation, and Reality. D. Perlis.  1981 .  Rochester, NY.  Department of Computer Science, University of Rochester.
+	</li></ul></tr></table>
+
+</body>
+</html>
+

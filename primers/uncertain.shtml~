@@ -1,0 +1,250 @@
+<!--#include virtual="include.shtml"-->
+
+
+
+<table>
+<TR>
+  <TD ALIGN="LEFT" WIDTH="1200" BGCOLOR="#FFCC33"><B><FONT
+   COLOR="#000000" size="+1"> <u>Introduction to Active Logic and Uncertainty </u></FONT></B></TD>
+</TR>
+</table>
+
+<br>
+<table>
+<tr>
+<td> 
+      <p>It is easy to produce examples of applications that would benefit from 
+        the addition of a reasoning component; from a system which could appropriately 
+        adjust conditions on a manufacturing line to maintain quality, to one 
+        which could help travelers make sensible vacation plans, what is desired 
+        is a combination of the benefits of a human expert, able to apply knowledge 
+        and experience to novel situations, and a computer, able to do this more 
+        quickly, for more users, with less expense than the expert. However, the 
+        real world is dynamic, complex, and not completely knowable. Its state 
+        changes constantly and sometimes even drastically, complete modeling of 
+        even its most narrow aspects is often computationally intractable, and 
+        new things are always being discovered. Thus, any model of the world, 
+        if it is to remain accurate<a href="#1">[1]</a>, must itself be capable 
+        of dynamic responses to the world; further, because no model is complete, 
+        any use to which the model is put (e.g. to serve as the basis for predictions, 
+        or for the derivation of facts not currently represented in the model) 
+        will produce uncertain results. Changes in, and discoveries about the 
+        world will require not just revision of the model, but may require reconsideration 
+        of any predictions, conclusions or generalizations in which the revised 
+        beliefs played a role; such changes may even require alterations in the 
+        methods or rules by which these derivations were generated. </p>
+
+      <p>Responses to these issues fall into roughly two categories: those that 
+        favor work with simplified models (e.g. microworlds, or formal domains 
+        like mathematics), and those who favor work with simplified reasoners 
+        (e.g. heuristics, or subsumption-architecture based robotics). Each approach 
+        has advantages; the former can allow the application of rigorous, certain, 
+        and theoretically justifiable methods; the latter can perform in real 
+        (or realistic) environments. Of course, it will always be true that both 
+        approaches are required, and preferences for one over the other will generally 
+        be relative to the problem domain, but the division roughly corresponds 
+        to one between formal and implementational research into machine reasoning. 
+        This division is itself not completely firm: there are implementational 
+        studies based on (formal or informal) theories (e.g., CYC, SOAR, OSCAR) 
+        [Lenat and Guha, 1990; Lenat et. al., 1990], and there are theories framed 
+        with attention toward implementation (e.g., predicate circumscription). 
+        Formal/theoretical work tends to focus on very narrow problems (and even 
+        on very special cases of very narrow problems) while trying to get them 
+        "right" in a very strict sense. In contrast, implementational work tends 
+        to aim at fairly broad ranges of behavior, with the focus less on getting 
+        it "right" than with getting it to "work" within some acceptable range 
+        of performance. It is sometimes urged that this gap is intrinsic to the 
+        topic: intelligence is not a unitary thing for which there will be a single 
+        theory, but rather a "society" of sub intelligences---some algorithmic and 
+        strictly rule-governed, others heuristic and inexact, still others based 
+        on reactivity and pattern-recognition---whose overall behavior cannot be 
+        reduced to useful characterizing and predictive principles. </p>
+      <p>Active Logic is a formal architecture that is more closely tied to implementational 
+        constraints than is usual for formalisms, and which has been used to solve 
+        a number of commonsense problems in a unified manner. In particular, Active 
+        Logic seeks to apply theoretically justifiable, principled (logic-based) 
+        methods of reasoning to dynamic, uncertain---and to this extent real-world---contexts. 
+        [<a href="http://www.cs.umd.edu/projects/active/papers/dissertations/drapkin_thesis.ps.Z">Elgot- 
+        Drapkin, 1988</a>; <a href="http://www.cs.umd.edu/projects/active/papers/survey_paper.ps">Elgot-Drapkin, 
+        et. al., 1988</a>, <a href="http://www.cs.umd.edu/projects/active/papers/jetai.ps">Elgot-Drapkin 
+        and Perlis, 1990</a>, <a href="http://www.cs.umd.edu/projects/active/doc/MAnderson01.pdf">Bhatia, 
+        et. al. 2001</a>] Instead of aiming at optimal solutions to isolated, 
+        well-specified and temporally narrow problems, active logic was developed 
+        to permit satisfying solutions to under-specified and temporally extended 
+        problems, much closer to real-world needs. </p>
+      <p>In order to bridge this gap, however, we need to be aware of the challenges 
+        that face a logic-based formalism if it is to be applied to real-world 
+        contexts; we need to know, that is, how the problem of uncertainty will 
+        express itself. Two aspects of the problem of uncertainty in logic are 
+        worth mentioning in particular: the <b>consistency check problem</b>, 
+        and the <b>swamping problem</b>. </p>
+
+      <p>One obvious way to deal with uncertainty and incomplete knowledge is 
+        to make assumptions: in the absence of opposing evidence, assume such 
+        and such, e.g. if it is a bird, assume it can fly. This is sometimes called 
+        default reasoning. However, the situation is not so straightforward, because 
+        (assuming that we want to maintain a consistent knowledge base) we will 
+        need to check to see if the default assumption is in fact consistent with 
+        our current knowledge state. This means not only must its negation not 
+        appear in our belief set, but---and here's the rub---that negation must not 
+        be logically entailed by those beliefs. But there is no general procedure 
+        for determining whether a given belief is consistent with any given set 
+        of beliefs; more generally, there is no procedure to determine whether 
+        any given set of beliefs is itself consistent. This is the <b>consistency 
+        check problem</b>. This problem has two consequences which are worth stating 
+        more explicitly: (1) For any sufficiently complex knowledge base which 
+        was not produced by logical rules from a database known to be consistent, 
+        and/or to which non- entailed facts are to be added, it will not be possible 
+        to know whether it is consistent, nor to use principled methods to maintain 
+        consistency. Contradictions are in this sense practically inevitable. 
+        (2) It is not possible to know, for any given proposition, whether that 
+        proposition is derivable from current knowledge. But traditional approaches 
+        to common sense reasoning operate on a broad sense of "know" or "believes", 
+        such that it can be said that an agent knows what is currently in its 
+        belief set, as well as anything derivable from that set. But since it 
+        is not possible to predict (or to know) what an agent does, or does not 
+        "know" on the basis of current beliefs, one must wait until processing 
+        is complete (until one has produced the set of all derivable theorems) 
+        to discover what the agent knows. Not only is this not cognitively plausible, 
+        but under conditions of uncertainty, in which formulas are periodically 
+        added to and removed from the knowledge base, there can never be a time 
+        when processing is complete. </p>
+      <p>This brings us to the <b>swamping problem</b>. In addition to the obvious 
+        reasons for wanting to maintain consistency (if we are to query our knowledge 
+        base, we would generally prefer to get an answer, and not an answer and 
+        its negation), there is another, more theoretical reason: from a contradiction, 
+        everything follows. More technically, given a contradiction, all well 
+        formed formulas (wff's) are entailed as theorems. This is the swamping 
+        problem, for it means that a knowledge base that contains a contradiction 
+        will eventually contain all possible propositions. This would seem to 
+        hamper its usefulness as a knowledge base, not to mention occupy a good 
+        deal of memory. However, it is worth noting that this is a practical problem 
+        only in so far as it is imagined that our interest is exclusively in the 
+        end- state of the reasoning system, for all implementations of standard 
+        logic draw conclusions in steps, and it may be some time before any given 
+        knowledge base is effectively swamped; time enough to detect and address 
+        the problem. What is wanted, then, for real-world applications, is a model 
+        of logical reasoning that can: </p>
+      <p>(1) continue to reason in the presence of contradictions (since they 
+        are inevitable)</p>
+      <p> (2) be able to detect contradictions, curtail nonsensical inferences, 
+        and initiate repairs </p>
+
+      <p>(3) shift the evaluative focus from some final future state of knowledge, 
+        to the current contents of the knowledge base. </p>
+      <p>Active Logic is designed to meet these desiderata. </p>
+      <p>Motivated in part by the thought that human reasoning takes place step-wise, 
+        in time---and that this feature supports human mental flexibility---Active 
+        Logic works by combining inference rules with a constantly evolving measure 
+        of time (a "Now") that can itself be referenced in those rules. As an 
+        example, from <i>Now (t)</i>---the time is now "t"---one infers <i>Now (t+1)</i>, 
+        for the fact of an inference implies that time (at least one 'time-step') 
+        has passed. All the inference rules in Active Logic work temporally in 
+        this way: at each time-step all possible one step inferences are made, 
+        and only propositions derived at time t are available for inferences at 
+        time <i>t+1</i>. There are special persistence rules so that every theorem 
+        a present at time <i>t</i> implies itself at time <i>t+1</i>; likewise 
+        there are special rules so that if the knowledge base contains both a 
+        theorem <i>a</i> and its negation <i>--a</i>, these theorems and their 
+        consequences are "distrusted" so they are neither carried forward themselves 
+        nor used in further inference.<a href="#2">[2]</a> </p>
+
+      <p>From these features come others, most notably: </p>
+      <p>- A given knowledge base is only considered to be in an inconsistent 
+        state if it contains a theorem and its negation. </p>
+      <p>- Contradictory information can be detected and used to curtail nonsensical 
+        inferences as well as to initiate repairs. This removes the swamping problem 
+        as an issue. </p>
+      <p>- Because contradiction handling takes place in the same context as all 
+        reasoning, all the information in the knowledge base can be brought to 
+        bear on the process of resolving a contradiction. </p>
+      <p>- The consistency check required by default reasoning can be characterized 
+        in terms of lookups to see whether one has information (directly) contrary 
+        to the default. </p>
+      <p>- Ignorance-assessment amounts a lookup, at time t, of what was known 
+        prior to t. </p>
+
+      <p>- Reasoning can be kept current, i.e., inferences can be triggered to 
+        occur when they should, and this is done declaratively, so that is also 
+        under control of (easily modifiable) inferences. </p>
+      <p>- At any given time, propositions can be added or removed from the knowledge 
+        base without requiring a (in any case practically impossible) consistency 
+        check. </p>
+      <p>- The fact that the reasoning process explicitly takes place in time 
+        offers a natural framework for reasoning in time-sensitive contexts (as 
+        many industrial applications will be); for instance, the fact that the 
+        reasoning takes time can itself be a reason for preferring non-optimal 
+        (but easily computable) solutions; likewise, strategies for reasoning 
+        or acting can be changed as deadlines approach in light of those approaching 
+        deadlines. To put it more generally: reasoning in time is a natural way 
+        to implement reasoning about time. </p>
+      <p>-------------------------------------------------------------------------------- 
+      </p>
+      <p><a name =" 1"></a>[1] Or become accurate: for any model will contain mistakes. </p>
+      <p><a name =" 2"></a>[2] However, they are maintained in the knowledge base 
+        so that, although they cannot be used to reason with, they can be reasoned 
+        about. For details on the mechanisms involved here see the more <a href="technical.html">technical 
+        introduction</a>. </p>
+
+<!-- +++++++++++++++++++ -->
+
+
+
+
+
+
+
+
+<!-- +++++++++++++++++++ -->
+</td>
+</tr>    
+      
+</table>
+</td>
+<!-- ======= END MAIN CONTENT  ============================ -->
+</tr></table>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,48 @@
+<html>
+<head>
+<title>
+Nonmonotonic reasoning I
+</title>
+</head>
+
+<body bgcolor="#ffffee" text="#000000" link="#ff0000" vlink="0000ff">
+
+<h3>Nonmonotonic reasoning I </h3>
+
+There are several ways one could exhibit nonmonotonic reasoning
+behavior in Alma. This is one of the simplest ways. We just take
+defaults to be like implications and apply without consideration for
+other defaults. If there is a conflict though, Alma eventually derives
+a contradiction which is then resolved using a preference relation
+between the defaults. If there is no preference, neither contradictand
+is reinstated and Alma is uncertain about the fact in question.
+<br>
+This is rather simplistic and there are obvious deficiencies. See <a
+href="nonmonotonic_2.html> Nonmonotonic reasoning II</a> for a more
+sophisticated approach.
+
+
+<ul>
+<li>
+The <a href=tweety_1_1.html> Tweety I</a> example is the usual
+non-flying bird example. In this case, we are first told that Tweety
+is a bird, then that it is a penguin.
+
+<li>
+The <a href=tweety_1_2.html> Tweety II</a> example is a slight
+variation on the previous one. Here the first thing we are told is
+that Tweety is a penguin. However, we can still infer that it is a
+bird because all penguins are birds.
+
+</ul>
+
+
+
+
+
+
+
+<p>
+<hr>
+<a href="mailto:kpurang@cs.umd.edu">kpurang@cs.umd.edu</a>
+</html>

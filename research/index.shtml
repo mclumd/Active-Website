@@ -1,0 +1,89 @@
+
+<!--#include virtual="../include.shtml"-->
+
+<h2>Research</h2>
+<ul>
+<li>
+<a href="http://www.cs.umd.edu/active/research/writeups/ALFREDDoc.pdf">
+ Alfred
+</a>
+
+
+
+</li><li>
+<a href="research/planning.html">
+ Real-time planning with deadlines
+</a>
+
+
+</li><li>
+<a href="research/misid.html">
+ Noting and resolving misidentification errors
+</a>
+
+
+</li><li>
+<a href="research/contra.html">
+ Noting and resolving contradictions
+</a>
+
+
+</li><li>
+<a href="research/presup/presup.html">
+ Presuppositions in natural language
+</a>
+
+
+</li><li>
+<a href="research/intage.html">
+ Agents with commonsense
+</a>
+
+
+        </li><li> <a href="research/conv.shtml"> Conversational Adequacy</a> 
+         
+
+</li><li>
+ 
+Learning new words and new meanings for old words
+ 
+
+
+</li><li>
+ 
+Metacognitive control of robotic learning
+ 
+
+
+</li><li>
+ 
+Instructable window-management and automated programming
+ 
+
+</li><li>
+ 
+Identification of metalinguistic aspects in NL corpora
+
+
+</li><li>
+ 
+Reasoning about others&rsquo; reasoning
+ 
+
+
+</li><li>
+ 
+Explaining past behavior
+ 
+
+</li><li>
+ 
+Changing one&rsquo;s mind
+
+
+</li><li>
+ 
+Taking advice
+ 
+</ul>
+<!--#include virtual="../footer.shtml"-->

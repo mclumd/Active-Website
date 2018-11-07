@@ -1,0 +1,348 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 99.1 release (March 30, 1999)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>The Application Frame Protocol</TITLE>
+<META NAME="description" CONTENT="The Application Frame Protocol">
+<META NAME="keywords" CONTENT="clim">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v99.1 release">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="clim.css">
+
+<LINK REL="next" HREF="node256.html">
+<LINK REL="previous" HREF="node252.html">
+<LINK REL="up" HREF="node250.html">
+<LINK REL="next" HREF="node254.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html4227"
+ HREF="node254.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/icons/next_motif.gif"></A> 
+<A NAME="tex2html4223"
+ HREF="node250.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/icons/up_motif.gif"></A> 
+<A NAME="tex2html4217"
+ HREF="node252.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/icons/previous_motif.gif"></A> 
+<A NAME="tex2html4225"
+ HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/icons/contents_motif.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html4228"
+ HREF="node254.html">Interface with Presentation Types</A>
+<B> Up:</B> <A NAME="tex2html4224"
+ HREF="node250.html">Application Frames</A>
+<B> Previous:</B> <A NAME="tex2html4218"
+ HREF="node252.html">Defining and Creating Application</A>
+ &nbsp <B>  <A NAME="tex2html4226"
+ HREF="node1.html">Contents</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION08230000000000000000">
+The Application Frame Protocol</A>
+</H1>
+
+<P>
+The generic functions described in this section describe the application frame
+protocol.  All classes that inherit from application-frame must inherit or
+implement methods for all of these functions.
+
+<P>
+frame-name frame
+
+<P>
+Returns the name of the <I> frame</I> <I> frame</I>, which is a symbol.
+
+<P>
+ 
+(setf frame-name) new-name frame
+
+<P>
+Sets the name of the <I> frame</I> <I> frame</I> to <I> new-name</I>, which must be a
+symbol.
+
+<P>
+frame-pretty-name frame
+
+<P>
+Returns the ``pretty name'' of the <I> frame</I> <I> frame</I>, which is a string.
+
+<P>
+ 
+(setf frame-pretty-name) new-name frame
+
+<P>
+Sets the pretty name of the <I> frame</I> <I> frame</I> to <I> new-name</I>, which
+must be a string.
+
+<P>
+frame-command-table frame
+
+<P>
+Returns the command table for the <I> frame</I> <I> frame</I>.
+
+<P>
+ 
+(setf frame-command-table) command-table frame
+
+<P>
+Sets the command table for the <I> frame</I> <I> frame</I> to <I> command-table</I>.
+Changing the frame's command table will redisplay the command menus (or menu
+bar) as needed.  <I> command-table</I> is a <I> command table designator</I>.
+
+<P>
+frame-standard-output frame
+
+<P>
+Returns the stream that will be used for *standard-output* for the
+<I> frame</I> <I> frame</I>.  The default method (on standard-application-frame)
+returns the first pane of type :application that is exposed in the current
+layout; if there is no such :application pane, it returns the first pane of
+type :interactor that is exposed in the current layout.
+
+<P>
+frame-standard-input frame
+
+<P>
+Returns the stream that will be used for *standard-input* for the
+<I> frame</I> <I> frame</I>.  The default method (on standard-application-frame)
+returns the first pane of type :interactor that is exposed in the current
+layout; if there is no :interactor pane, the value returned by
+frame-standard-output is used.
+
+<P>
+frame-query-io frame
+
+<P>
+Returns the stream that will be used for *query-io* for the <I> frame</I>
+<I> frame</I>.  The default method (on standard-application-frame) returns
+the value returned by frame-standard-input; if that is nil, it returns
+the value returned by frame-standard-output.
+
+<P>
+frame-error-output frame
+
+<P>
+Returns the stream that will be used for *error-output* for the
+<I> frame</I> <I> frame</I>.  The default method (on standard-application-frame)
+returns the same value as frame-standard-output.
+
+<P>
+SWM How can the above four functions find a meaningful pane given the
+Silica model of describing frame panes?
+
+<P>
+ 
+*pointer-documentation-output*
+
+<P>
+This will be bound either to nil or to a stream to which pointer
+documentation should be written.
+
+<P>
+frame-pointer-documentation-output frame
+
+<P>
+Returns the stream that will be used for *pointer-documentation-output*
+for the <I> frame</I> <I> frame</I>.  If this returns nil, no pointer
+documentation will be generated for this frame.
+
+<P>
+frame-top-level-sheet frame
+
+<P>
+Returns the sheet that is the top-level sheet for the <I> frame</I> <I> frame</I>.
+This is the sheet that has as descendents all of the panes of <I> frame</I>.
+
+<P>
+frame-panes frame
+
+<P>
+Returns a list of all of the <I> frame</I> <I> frame</I>'s named panes.  This
+includes panes in the current layout, and panes in other layouts as well.
+This function returns objects that reveal CLIM's internal state;
+do not modify those objects. 
+<P>
+frame-current-panes frame
+
+<P>
+Returns a list of those named panes in the <I> frame</I> <I> frame</I>'s current
+layout.
+This function returns objects that reveal CLIM's internal state;
+do not modify those objects. 
+<P>
+get-frame-pane frame pane-name
+
+<P>
+Returns the named pane in the <I> frame</I> <I> frame</I> whose name is
+<I> pane-name</I>.
+
+<P>
+frame-current-layout frame
+
+<P>
+Returns the current layout for the <I> frame</I> <I> frame</I>.  The layout is
+named by a symbol.
+
+<P>
+ 
+(setf frame-current-layout) new-layout frame
+
+<P>
+Sets the layout of the <I> frame</I> <I> frame</I> to be the new layout specified
+by <I> new-layout</I>.  <I> new-layout</I> must be a symbol that names one of the
+possible layouts.
+
+<P>
+Changing the layout of the frame must recompute what panes are used for the
+bindings of the standard stream variables (such as *standard-input*).  Some
+implementations of CLIM may cause the application to ``throw'' all the way back
+to run-frame-top-level in order to do this.  After the new layout has been
+made computed, the contents of each of the panes must be displayed to the degree
+necessary to ensure that all output is visible.
+
+<P>
+layout-frame-panes frame top-level-sheet
+
+<P>
+Lays out all of the panes in the <I> frame</I> <I> frame</I> using the sheet
+<I> top-level-sheet</I> as the parent sheet of the frame's panes.  The panes are
+layed out according to the layout specified by frame-current-layout.
+
+<P>
+frame-exit
+
+<P>
+The restart that is invoked when frame-exit is called.
+
+<P>
+frame-exit frame
+
+<P>
+Exits from the <I> frame</I> <I> frame</I>.  The default method (on
+standard-application-frame) invokes the frame-exit restart.
+
+<P>
+panes-need-redisplay frame
+pane-needs-redisplay frame pane
+
+<P>
+panes-need-redisplay causes all of the panes in the <I> frame</I>
+<I> frame</I> to be redisplayed the next time around the command loop.
+pane-needs-redisplay causes only <I> pane</I> within <I> frame</I> to be
+redisplayed the next time around the command loop; in this case, <I> pane</I> is
+either a pane or the name of a named pane.
+
+<P>
+redisplay-frame-panes frame <TT> &amp;key </TT>force-p
+
+<P>
+redisplay-frame-panes causes all of the panes in the <I> frame</I>
+<I> frame</I> to be redisplayed immediately by calling redisplay-frame-pane
+on each of the panes in <I> frame</I> that are visible in the current layout.
+When the boolean <I> force-p</I> is <I> true</I>, the maximum level of redisplay is
+forced.
+
+<P>
+redisplay-frame-pane frame pane <TT> &amp;key </TT>force-p
+
+<P>
+Causes the pane <I> pane</I> within the <I> frame</I> <I> frame</I> to be redisplayed
+immediately.  <I> pane</I> is either a pane or the name of a named pane.  When the
+boolean <I> force-p</I> is <I> true</I>, the maximum level of redisplay is forced.
+
+<P>
+frame-replay frame stream <TT> &amp;optional </TT>region 
+
+<P>
+Replays the contents of <I> stream</I> in the <I> frame</I> <I> frame</I> within the
+region specified by the region <I> region</I>, which defaults to viewport of
+<I> stream</I>.
+
+<P>
+redisplay-frame-command-menu frame
+
+<P>
+When a command table gets modified (by adding or removing a command, or adding
+or removing a menu item, or by enabling or disabling a command), the command
+menus for application frames may need to be redisplayed.
+redisplay-frame-command-menu is responsible for doing this.
+
+<P>
+notify-user frame format-string <TT> &amp;rest </TT>format-args
+
+<P>
+Notifies the user of some event on behalf of the <I> frame</I> <I> frame</I>.
+<I> format-string</I> and <I> format-args</I> are arguments allowable by
+format.
+
+<P>
+This function is intended to provide a look and feel independent way for
+applications to communicate messages to the user.  For example, a frame manager
+might provide a top-level message window or a message window for each frame, or
+might pop up an alert box.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
+
+<UL>
+<LI><A NAME="tex2html4229"
+ HREF="node254.html">Interface with Presentation Types</A>
+<LI><A NAME="tex2html4230"
+ HREF="node255.html">The Generic Command Loop</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html4227"
+ HREF="node254.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/icons/next_motif.gif"></A> 
+<A NAME="tex2html4223"
+ HREF="node250.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/icons/up_motif.gif"></A> 
+<A NAME="tex2html4217"
+ HREF="node252.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/icons/previous_motif.gif"></A> 
+<A NAME="tex2html4225"
+ HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/icons/contents_motif.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html4228"
+ HREF="node254.html">Interface with Presentation Types</A>
+<B> Up:</B> <A NAME="tex2html4224"
+ HREF="node250.html">Application Frames</A>
+<B> Previous:</B> <A NAME="tex2html4218"
+ HREF="node252.html">Defining and Creating Application</A>
+ &nbsp <B>  <A NAME="tex2html4226"
+ HREF="node1.html">Contents</A></B> 
+<!--End of Navigation Panel-->
+<ADDRESS>
+<I>&</I>
+<BR><I>2001-06-12</I>
+</ADDRESS>
+</BODY>
+</HTML>

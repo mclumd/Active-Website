@@ -1,0 +1,2126 @@
+
+    %%%%% MAKE A COPY OF THIS AS A WWW/USERS/PERLIS FILE %%%%%
+
+
+\magnification=\magstep1
+% fonts
+%\font\rm=cmr10 scaled\magstep1
+%\font\sl=cmsl10 scaled\magstep1
+%\font\bf=cmbx10 scaled\magstep1
+\font\ss=cmss10
+%generate today's date
+%
+\def\today{\ifcase\month\or
+ January\or February\or March\or April\or May\or June\or
+ July\or August\or September\or October\or November\or December\fi
+ \space\number\day, \number\year}
+% the opposite of \nopagenumbers
+\def\pagenumbers{\footline={\hss\sl --\folio -- \hss}}
+%
+% prevent bad page breaks
+\raggedbottom\leftskip=.3 true in\rightskip=.3 true in\raggedright
+\def\backup{\hskip -.5 true in}
+%
+% registers used and associated macros
+%
+\newcount\papno\papno=0 %set up paper number counter
+ \def\paper{\advance\papno by 1\smallbreak
+  \item{\number\papno .\ }}
+\newcount\subsecnumber\subsecnumber=0 %set up subsection numbering
+ \def\subsec#1\par{\medbreak\advance\subsecnumber by 1
+  \noindent\backup{\ss #1}\par\nobreak\papno=0}
+\newcount\subsubsecnumber\subsubsecnumber=0
+ \def\subsubsec#1\par{\medbreak\advance\subsubsecnumber by 1
+  \noindent\backup{\sl #1}\par\nobreak\papno=0}
+
+\newcount\secnumber\secnumber=0 %set up section number counter
+ \def\sec#1\par{\bigskip\filbreak\advance\secnumber by 1
+  \subsecnumber=0\papno=0\subsubsecnumber=0
+   \noindent\backup{\bf\uppercase\expandafter{\romannumeral\secnumber}.\ #1}
+    \par\medbreak\nobreak}
+
+% backpointers to papers from conference and tech reports sections
+%name results for later reference
+\global\def\BNAME#1
+ {\expandafter\expandafter\edef\csname#1\endcsname{\number\papno}}
+\def\BCITE#1{(subsumed in book chapter research publication
+	\expandafter\csname#1\endcsname \ above)}
+\global\def\JNAME#1
+ {\expandafter\expandafter\edef\csname#1\endcsname{\number\papno}}
+\def\JCITE#1{(subsumed in journal publication
+	\expandafter\csname#1\endcsname \ above)}
+%
+% indented paragraph with left justified hanging tag (similar to .ip)
+%   necessary since \hang will right justify the tag
+%
+% parameter 1 is the tag, either a single token or a group
+% parameter 2 is the <dimen> of the offset
+%
+\def\inpar#1 #2 {\par\smallskip\hangindent=#2\noindent\rlap{#1}\hskip#2}
+%
+% expar (left extended paragraph)
+%   set up a  paragraph such that the first line is not indented
+%   and all other are
+%
+\def\expar{\smallskip\par\hang\noindent}
+% the 'ole bottle of white-out
+\overfullrule=0pt
+%
+%  Beginning of text
+%
+\rm\pagenumbers
+\centerline{{\sl CURRICULUM VITAE}}
+\centerline{\today}
+\bigskip
+\sec Personal Information
+
+\bigskip
+\halign{#\hfil&\qquad #\hfil\cr
+  Donald~R.~Perlis\cr
+  Professor\cr
+  Computer Science Department and\cr
+  Institute for Advanced Computer Studies\cr
+  University of Maryland&~~~~~~~~~~~~~~~~~6907 Wells Parkway\cr
+  College Park MD 20742&~~~~~~~~~~~~~~~~~University Park MD 20782\cr
+  Office phone: (301) 405-2685&~~~~~~~~~~~~~~~~~Home phone: (301) 699-6207\cr
+  Email: perlis@cs.umd.edu\cr
+  Fax: (301) 405-6707\cr
+  Url: www.cs.umd.edu/users/perlis\cr}
+  
+
+\bigskip
+\subsec Education
+\halign{#\hfil&\quad #\hfil&\hfil\quad #\quad\hfil&#\hfil\cr
+\cr
+  B.S.&Purdue University&1966&Mathematics\cr
+\cr
+  Ph.D.&New York University&1972&Mathematics (Advisor: Martin Davis)\cr
+\cr
+  Ph.D.&University of Rochester&1981&Computer Science (Advisor: James Allen)\cr}
+
+\bigskip
+\subsec University Experience
+\medskip
+\inpar {1997-} {.75in}
+Professor, Computer Science Department, Univ.~of Maryland
+\inpar {1988-1997} {.75in}
+Associate Professor, Computer Science Department, Univ.~of Maryland
+\inpar {1991-92} {.75in}
+Visiting Associate Professor, Math.~Sciences Dept., Univ.~of Akron
+\inpar {1988-89} {.75in}
+Visiting Associate Professor, Computer Science Dept., Univ.~of Rochester
+\inpar {1982-1988} {.75in}
+Assistant Professor, Computer Science Department, Univ.~of Maryland
+\inpar {1981-1982} {.75in}
+Visiting Assistant Professor, Computer Science Dept., Univ.~of Delaware
+\inpar {1980-1981} {.75in}
+Research Assistant, Computer Science Department, Univ.~of Rochester
+\inpar {1978-1980} {.75in}
+Teaching Assistant, Computer Science Department, Univ.~of Rochester
+\inpar {1977-1978} {.75in}
+Assistant Professor with tenure, Mathematics Dept., U.~of Puerto Rico
+\inpar {1972-1977} {.75in}
+Assistant Professor, Mathematics Department, Univ.~of Puerto Rico
+
+\sec Research, Scholarly and Creative Activities
+
+\subsec Books Authored
+
+\paper
+{\sl Elementos  del  c\'alculo integral y diferencial},
+(with R.~Wilson), a calculus textbook in Spanish,
+Compa\~nia Editorial Continental, Mexico, 1979. 191 pages.
+ISBN-968-26-0075-8.
+
+%\subsec Books and Monographs in Preparation
+
+%\paper
+%Logic for a Lifetime: the hungry robot, and other roles of formalism
+%in artificial intelligence
+
+%\paper
+%Integrative Mathematics
+
+
+\subsec Chapters in Refereed Books
+
+\paper
+On the consistency of commonsense reasoning. 
+{\sl Readings in Non-Monotonic Reasoning}, edited
+by M.~Ginsberg. Morgan Kaufmann, 1987, pp.~56--66
+(reprinted from journal paper 9 below).
+
+\paper\BNAME{CST}
+Commonsense set theory.
+{\sl Meta-level Architectures and Reflection}, edited
+by P.~Maes and D.~Nardi. North-Holland, 1988, pp.~87--98.
+
+\paper\BNAME{META}
+An overview of meta in logic.
+Invited survey article, in
+{\sl Meta-level Architectures and Reflection}, edited
+by P.~Maes and D.~Nardi. North-Holland, 1988, pp.~37--49.
+
+\paper
+Thing and thought.
+Invited chapter, 
+{\sl Knowledge Representation and Defeasible Reasoning},
+edited by H.~Kyburg, R.~Loui, and G.~Carlson.
+Kluwer, 1990, pp.~99--117.
+
+\paper
+Memory, reason, and time: the step-logic approach.
+(With J.~Elgot-Drapkin and M.~Miller.)
+Invited chapter, {\sl Philosophy and AI: Essays at the Interface},
+edited by R.~Cummins and J.~Pollock, MIT Press, 1991.
+
+\paper
+Limited scope and circumscriptive reasoning.
+(With D.~Etherington and S.~ Kraus.)
+Invited chapter,
+{\sl Advances in Human and Machine Cognition,
+vol.~1: the Frame Problem in Artificial Intelligence},
+K.~Ford and P.~Hayes (eds.), JAI Press, 1991
+(reprinted from journal paper 18 below).
+
+\paper
+Intentionality and defaults.
+Invited chapter,
+{\sl Advances in Human and Machine Cognition,
+vol.~1: the Frame Problem in Artificial Intelligence},
+K.~Ford and P.~Hayes (eds.), JAI Press, 1991
+(reprinted from journal paper 19 below).
+
+\paper
+Languages with self-reference I: Foundations. Invited
+chapter,
+{\sl Reflexivity: A Source-Book in Self-Reference},
+S. J. Bartlett (ed.), North-Holland, 1992
+(reprinted from journal paper 6 below).
+
+\paper
+Languages with self-reference II: Knowledge, belief,
+and modality. Invited chapter,
+{\sl Reflexivity: A Source-Book in Self-Reference},
+S. J. Bartlett (ed.), North-Holland, 1992
+(reprinted from journal paper 12 below).
+
+\paper
+Metalanguages, reflection principles and self-reference.
+(With V.S. Subrahmanian.)
+Invited chapter,
+{\sl Handbook of Logic in Artificial Intelligence and Logic
+Programming, vol.~2: Deduction Methodologies}, D. Gabbay, C.J. Hogger,
+and J.A. Robinson (eds.), Oxford University Press, 1994.
+
+\paper
+Putting one's foot in one's head---Part II: How.
+Invited chapter, 
+{\sl From Thinking Machines to Virtual Persons:
+Essays on the Intentionality of Computers},
+E.~Dietrich (ed.), Academic Press, 1994.
+
+\paper
+Explicitly biased generalization.
+(With D.~Gordon.) Invited chapter,
+{\sl Goal-Driven Learning}, A.~Ram and D.~Leake (eds.),
+MIT Press, 1995
+(reprinted from journal paper 16 below).
+
+\paper
+%What experts deny, novices must understand.
+Toward Automated Expert Reasoning and Expert-Novice Communication.  (With
+M. Miller.)  Invited chapter, {\sl Expertise in
+Context: Human and Machine}, K. Ford, P. Feltovich, and R. Hoffman
+(eds). MIT Press, 1997.
+
+\paper
+The role(s) of belief in AI.  Chapter 14 in
+J. Minker (ed.) {\sl Logic-based AI}, Kluwer. 2000.
+
+\paper
+Theory and application of self-reference: logic and beyond.
+To appear as chapter in book, publ Center for Study of Language and
+Information (CSLI, Stanford).
+
+%\subsubsec ~~Submitted for Publication
+
+\subsec Articles in Refereed Encyclopedia
+
+\paper
+Circumscription.
+{\sl The Encyclopedia of Artificial Intelligence}, edited
+by S.~Shapiro. Wiley, 1987, pp.~100--103. Updated for 2nd edition, 1991.
+
+\paper
+Nonmonotonic reasoning.
+{\sl The Encyclopedia of Artificial Intelligence}, edited
+by S.~Shapiro. Wiley, 1987, pp.~849--853. Updated for 2nd edition,
+1991.
+
+\paper Symbol Systems. Michael L. Anderson and Don
+Perlis.  {\sl Encyclopedia of Cognitive Science}, 2002.
+
+\subsec Special Issue of Journal Edited
+
+\paper
+Context: Theory and Practice. A collection of eight refereed, previously
+unpublished papers by various authors, edited and
+with an introduction by D.~Perlis. Special issue of {\sl Fundamenta
+Informaticae}, vol.~23, pp.~145--396, 1995.
+
+\subsec Articles in Refereed Journals
+
+\paper
+An extension of Ackermann's set theory.
+{\sl Journal of Symbolic Logic}, 
+vol.~37, 1972, pp.~703--704.
+
+\paper
+Group algebras and model theory.
+{\sl Illinois Journal of Mathematics}, 
+vol.~20, 1976, pp.~298--305.
+
+\paper
+An application of compiler simulation at the source language level.
+{\sl The Computer Journal}, 
+vol.~19, 1976, p.~90.
+
+\paper
+Utility functions, public goods, and income redistribution.
+(With A.~Mann.)
+{\sl Public Finance Quarterly}, 
+vol.~5, 1977, pp.~9--22.
+
+\paper
+A re-evaluation of story grammars.
+(With A.~Frisch.)
+{\sl Cognitive Science},
+vol.~5, 1981, pp.~79--86.
+
+\paper\JNAME{AIJ-I}
+Languages with self-reference I: foundations.
+{\sl Artificial Intelligence},
+vol.~25, 1985, pp.~301--322.
+(Reviewed in {\sl Computing Reviews}, May 1986, pp.~266--267.
+Listed in D.~Bobrow's 1993 compilation
+of the most frequently-cited papers in {\sl Artificial Intelligence}
+from 1970 to 1991. Central result was later selected for use in KIF:
+Knowledge Interchange Format, a document of the Interlingua Working
+Group of the ARPA Knowledge Sharing Effort, printed as a report of
+the Logic Group, CS Dept, Stanford University).
+
+\paper\JNAME{JLP}
+Computing protected circumscription.
+(With J.~Minker.)
+{\sl Journal of Logic Programming}, vol.~4, 1985, pp.~235--249.
+
+\paper\JNAME{AIJ-M}
+Completeness results for circumscription.
+(With J.~Minker.)
+{\sl Artificial Intelligence}, vol.~28, 1986, pp.~29--42.
+
+\paper\JNAME{OCCR}
+On the consistency of commonsense reasoning.
+{\sl Computational Intelligence},
+vol.~2, 1986, pp.~180--190.
+
+\paper
+Circumscribing with sets.
+{\sl Artificial Intelligence},
+vol.~31, 1987, pp.~201--211.
+
+\paper
+Proving self-utterances.
+(With M.~Miller.)
+{\sl Journal of Automated Reasoning}, 
+vol.~3, 1987, pp.~329--338.
+
+\paper\JNAME{AIJ-II}
+Languages with self-reference II: knowledge, belief, and modality.
+{\sl Artificial Intelligence},
+vol.~34, 1988, pp.~179--212.
+
+\paper
+Autocircumscription.
+{\sl Artificial Intelligence},
+vol.~36, 1988, pp.~223--236.
+
+\paper
+Uniform accountability for multiple modes of reasoning.
+(With L.~Kanal.)
+{\sl International Journal of Approximate Reasoning},
+special issue on Uncertainty in Artificial Intelligence. T.~Levitt (ed.),
+vol.~2, 1988, pp.~233--246.
+
+\paper
+Truth and meaning.
+{\sl Artificial Intelligence},
+vol.~39, 1989, pp.~245--250.
+
+\paper
+Explicitly biased generalization.
+(With D.~Gordon.)
+{\sl Computational Intelligence},
+vol.~5, 1989, pp.~67--81.
+
+\paper
+Reasoning situated in time I: basic concepts.
+(With J.~Elgot-Drapkin.)
+{\sl J. of Experimental and Theoretical Artificial Intelligence},
+vol.~2, 1990, pp.~75--98.
+
+\paper
+Limited scope and circumscriptive reasoning.
+(With D.~Etherington and S.~ Kraus.)
+{\sl International J. of Expert Systems},
+special issue on the Frame Problem, Part A.
+K.~Ford and P.~Hayes (eds.),
+vol.~3, 1990, pp.~207--217.
+
+\paper
+Intentionality and defaults.
+{\sl International J. of Expert Systems},
+special issue on the Frame Problem, Part B.
+K.~Ford and P.~Hayes (eds.), 
+vol.~3, 1990, pp.~345--354.
+
+\paper
+Stop the world---I want to think.
+(With J.~Elgot-Drapkin and M.~Miller.)
+Invited paper, {\sl International J. of Intelligent Systems},
+special issue on Temporal Reasoning, K.~Ford and F.~Anger (eds.),
+vol.~6, 1991, pp. 443--456.
+
+\paper
+Nonmonotonicity and the scope of reasoning.
+(With D.~Etherington and S.~Kraus.)
+{\sl Artificial Intelligence},
+vol.~52, 1991, pp.~221--261.
+
+\paper
+Putting one's foot in one's head---Part I: Why.
+{\sl No\^{u}s},
+special issue on Artificial Intelligence and Cognitive Science,
+W.~Rapaport (ed.), vol.~25, 1991, pp.~435--455.
+
+\paper
+Reasoning about ignorance: A note on the Bush--Gorbachev problem.
+(With J.~Horty and S.~Kraus.)
+{\sl Fundamenta Informaticae},
+special issue on Logic for Artificial Intelligence,
+Z.~Ras (ed.), vol.~15, 1991, pp.~325--332.
+
+\paper
+Logic and artificial intelligence: a new synthesis?
+{\sl Fundamenta Informaticae},
+special issue on Algebraic Methods in Logic and their Computer Science
+Applications, C.~Rauszer (ed.), vol.~18, 1993, pp.~297--305.
+
+\paper
+Consciousness and complexity: the cognitive quest. Invited paper,
+{\sl Annals of Mathematics and Artificial Intelligence}, special issue in
+honor of Jack Minker, vol.~14, 1995, pp.~309--321.
+
+\paper
+Automated inference in active logics.
+(With M. Miller.) Invited paper, special issue of {\sl Journal
+of Applied Non-Classical Logics}, vol.~6, 1996, pp.~9--27.
+
+\paper
+How to (plan to) meet a deadline between {\sl now} and {\sl then}.
+(With S.~Kraus, M.~Miller and M.~Nirkhe.) {\sl J.~of Logic and Computation},
+1997, vol.~7.
+
+\paper
+Sources of, and exploiting, inconsistency: preliminary report.
+Special issue of {\sl Journal of Applied Non-Classical Logics}, 1997.
+(Invited reprint of conference paper 38 below.)
+
+\paper
+Interpreting presuppositions using active logic: from contexts to
+utterances.
+(With J.~Gurney and K.~Purang.) {\sl Computational Intelligence}.
+1997, vol.~13, pp.~391--413.
+
+\paper
+Consciousness as self-function. Invited paper for special issue
+of {\sl Journal of Consciousness Studies}. 1997, vol. 4, pp.~509-25.
+
+\paper
+Conversational Adequacy: Mistakes are the essence.
+{\sl International Journal of Human Computer Studies}. 1998, vol. 48.
+(With K. Purang and C. Andersen.)
+
+\paper
+Representations of dialogue state for domain and task independent
+meta-dialogue. 
+{\sl Electronic
+Transactions in Artificial Intelligence}. (With C. Andersen, W. Chong,
+D. Josyula, M. O'Donovan-Anderson, K. Purang, and D. Traum.)
+1999, Vol. 3, Section D, pp 125--152.
+http://www.ida.liu.se/ext/epa/ej/etai/1999/D/index.html
+
+\paper
+What does it take to refer?
+{\sl J. of Consciousness Studies}. 2000, vol.~7, pp.~67--9.
+
+\paper
+A logic for characterizing multiple bounded agents.
+(With S. Kraus and J. Grant.) {\sl Autonomous Agents and
+Multi-Agent Systems}. 2000, vol.~3, pp.~351--387.
+
+\paper
+The roots of self-awareness.
+(With Michael Anderson.)  To appear, {\sl Phenomenology and the Cognitive
+Sciences}.
+
+\paper
+A logic-based model of intention formation and action for multi-agent
+subcontracting.
+(With John Grant and Sarit Kraus.) To appear, {\sl Artificial Intelligence}.
+
+\paper
+Logic, self-awareness and self-improvement: the metacognitive loop and
+the problem of brittleness.
+(With Michael Anderson.) To appear, {\sl Journal of Logic and Computation}.
+
+
+%\subsubsec ~~Submitted for Publication
+
+%\paper
+%Defaults denied. (With M. Miller and K.~Purang.)  Submitted to {\sl Artificial
+%Intelligence}.
+
+%\subsubsec ~~In Preparation
+
+%\paper
+%Active logics: A Unified Formal Approach to Episodic Reasoning. (With J.~Elgot-Drapkin, S.~Kraus, M.~Miller, and M.~Nirkhe.)
+%
+%\paper
+%Logic for a lifetime.
+
+%\paper
+%Self-computing: a general theory of intelligence and mind. To
+%be submitted, {\sl Behavioral and Brain Sciences}.
+
+%\paper
+%Rapid semantic shift.
+%(With M. Miller.) To be submitted, {\sl Cognitive Science}.
+
+%\paper
+%Putnam's Theorem and the intentionality machine.
+
+%\paper
+%Cognitive adequacy.
+
+\subsec Presentations at Refereed Conferences
+
+\paper
+Applications  of  protected  circumscription.
+(With J.~Minker.)
+{\sl Proceedings, Seventh Conference on Automated Deduction, May 1984},
+Lecture Notes in Computer Science, Springer-Verlag, 1984.
+
+\paper
+Protected circumscription.
+(With  J.~Minker.)
+{\sl Proceedings, Workshop on Non-Monotonic Reasoning},
+New Paltz, October 1984.
+
+\paper
+Non-monotonicity and real-time reasoning.
+{\sl Proceedings, Workshop on Non-Monotonic Reasoning}, 
+New Paltz, October 1984.
+
+\paper
+Circumscription: completeness, computation, and commonsense.
+(With J.~Minker.)
+{\sl Workshop on Logic and Computer Science},
+
+Lexington, Kentucky, June 1985.
+
+\paper
+What is and what isn't.
+Invited paper,
+{\sl 12th Annual Meeting, Society for Philosophy and Psychology},
+Johns Hopkins, June, 1986.
+
+\paper
+Step-logics: an alternative approach to limited reasoning.
+(With J.~Drapkin.)
+{\sl Proceedings, 7th European Conference on Artificial Intelligence},
+Brighton, England, July 1986.
+
+\paper
+Self-reference, knowledge, belief, and modality.
+{\sl Proceedings, AAAI-86},
+Philadelphia; nominated for Publisher's Prize
+\JCITE{AIJ-II}.
+
+\paper
+A parallel self-modifying default reasoning system.
+(With J.~Minker and K.~Subramanian.)
+{\sl Proceedings, AAAI-86},
+Philadelphia.
+
+\paper
+A preliminary excursion into step-logics.
+(With J.~Drapkin.)
+{\sl Proceedings, Intl Symp on Methodologies for Intelligent Systems},
+October 1986, Knoxville, Tennessee.
+
+\paper
+Commonsense set theory.
+{\sl Proceedings, Workshop on Meta-level Architectures and Reflection},
+October 1986, Sardinia
+\BCITE{CST}.
+
+\paper
+An overview of meta in logic.
+{\sl Proceedings, Workshop on Meta-level Architectures and Reflection},
+October 1986, Sardinia
+\BCITE{META}.
+
+\paper
+The two frame problems.
+(With J.~Elgot-Drapkin and M.~Miller.)
+{\sl Proceedings, Workshop on the Frame Problem},
+April 1987, Lawrence, Kansas.
+
+\paper
+Life on a desert island.
+(With J.~Elgot-Drapkin and M.~Miller.)
+{\sl Proceedings, Workshop on the Frame Problem},
+April 1987, Lawrence, Kansas.
+
+\paper
+How can a program mean?
+{\sl Proceedings, International Joint Conference on Artificial Intelligence,}
+August, 1987, Milan, Italy.
+
+\paper
+Proving facts about `I'.
+(With M.~Miller.)
+{\sl Proceedings, International Joint Conference on Artificial Intelligence,}
+August, 1987, Milan, Italy.
+
+\paper
+Circumscription as introspection.
+{\sl Proceedings, Second Intl Symp on Methodologies for Intelligent Systems}.
+October, 1987, Charlotte, North Carolina.
+
+\paper
+Thing and thought.
+Invited paper,
+Annual conference of the
+{\sl International Society for Exact Philosophy},
+on Natural Philosophy and Artificial Intelligence: Logic and Language,
+June, 1988, Rochester, NY.
+
+\paper
+Limited scope and circumscriptive reasoning.
+(With D.~Etherington and S.~Kraus.)
+{\sl First International Workshop on Human and Machine
+Cognition},
+May, 1989, Pensacola, Florida.
+
+\paper
+Intentionality and defaults.
+Invited paper,
+{\sl First International Workshop on Human and Machine
+Cognition},
+May, 1989, Pensacola, Florida.
+
+\paper
+Assessing others' knowledge and ignorance.
+(With S.~Kraus.)
+{\sl Proceedings, Fourth
+Intl Symp on Methodologies for Intelligent Systems}.
+
+\paper
+Nonmonotonicity and the scope of reasoning: preliminary report.
+(With D.~Etherington and S.~Kraus.)
+{\sl Proceedings, AAAI-90}, pp.~600--607.
+
+\paper
+Planning and acting in deadline situations.
+(With M.~Nirkhe and S.~Kraus.)
+{\sl AAAI-90 Workshop on Automated Planning for Complex Domains.}
+
+\paper
+Deadline-coupled real-time planning.
+(With S.~Kraus and M.~Nirkhe.)
+{\sl Proceedings, DARPA Workshop on Innovative Approaches to Planning,
+Scheduling, and Control}, 1990.
+
+\paper
+Fully deadline-coupled planning: one step at a time.
+(With M.~Nirkhe and S.~Kraus.)
+{\sl Proceedings, sixth
+Intl Symp on Methodologies for Intelligent Systems},
+Charlotte, NC, 1991.
+
+\paper
+Typicality constants and range defaults: the pros
+and cons of a cognitive model of default reasoning.
+(With M.~Miller.)
+{\sl Proceedings, Sixth
+Intl Symp on Methodologies for Intelligent Systems},
+Charlotte, NC, 1991.
+
+\paper
+Logic and AI: a new synthesis? Invited
+as a main speaker, Stefan Banach International Mathematical
+Center, {\sl Semester on Algebraic Methods in Logic and Their
+Computer Science Applications,} November 1991, Warsaw, Poland.
+
+\paper
+Memory, mind, and models of self. One-hour invited
+lecture, {\sl Canadian Society for Computational Studies of
+Intelligence}, presented at AI-92 conference, May 1992, Vancouver.
+
+\paper
+Situated reasoning within tight deadlines and realistic space and
+computation bounds. 
+(With M.~Nirkhe and S.~Kraus.)
+{\sl Second Symposium on Logical Formalizations of Commonsense Reasoning},
+1993. Also presented at the Workshop on Spatial and Temporal
+Reasoning, IJCAI-93.
+
+\paper
+Reasoning about change in a changing world.
+(With M.~Nirkhe and S.~Kraus.)
+{\sl Proceedings of the Florida AI Research Symposium---FLAIRS-93},
+Fort Lauderdale, 1993.
+
+\paper
+Presentations and this and that: logic in action.
+(With M. Miller.) Cog-Sci-93. Boulder, Colorado, 747-752. Also
+appeared as a AAAI Symposium workshop paper, Raleigh, 1993.
+
+\paper
+Vacuum logic.
+(With J. Elgot-Drapkin, S. Kraus, M. Miller, M. Nirkhe.)
+AAAI Fall Symposium on Instantiating Real-World Agents.
+Raleigh, October 1993.
+
+\paper
+What experts deny, novices must understand.
+(With M. Miller.) {\sl Third International Workshop on 
+Human \& Machine Cognition}, 1993, Seaside, Florida.
+
+\paper
+Recognition of object functionality in goal-directed robotics.
+(With E.~Rivlin and A.~Rosenfeld.)  Workshop on Reasoning About Function,
+AAAI-93, Washington, DC.
+
+\paper
+An error-theory of consciousness. {\sl Toward a scientific basis for
+consciousness}, conference held in Tucson, 1994.
+
+\paper
+Calibrating, counting, grounding, grouping.
+(With J. Elgot-Drapkin, D. Gordon, S. Kraus, M. Miller, M.
+Nirkhe.) AAAI Fall Symposium on Control of the Physical World 
+by Intelligent Agents. New Orleans, November 1994.
+
+\paper
+Thinking takes time: A modal active-logic for reasoning {\sl in} time.
+(With M.~Nirkhe and S.~Kraus.) BISFAI-95 (Bar Ilan
+Symposium on Foundations of Artificial Intelligence).
+
+\paper
+Active logic and Heim's rules for updating discourse context.
+(With J.~Gurney and K.~Purang.) IJCAI-95 Workshop on
+context in natural language processing. Montreal, 1995.
+
+\paper
+Sources of, and exploiting, inconsistency: preliminary report.
+Common Sense 96 (Third Symposium on Logical Formalizations of
+Commonsense Reasoning) Stanford, January 6-8, 1996.
+
+\paper
+Active Logic Applied to Cancellation of Gricean Implicature.
+(With J.~Gurney and K.~Purang.) AAAI Spring Symposium on
+Computational Implicature. Stanford, March 25-27, 1996.
+
+\paper
+Conversational Adequacy: Mistakes are the Essence.  (With K.~Purang.)
+AAAI Workshop on Detecting, Repairing, and Preventing Human-machine
+Miscommunication, Portland, Oregon, August 1996.
+
+\paper
+The WHs of NCC.  Annual Meeting of the Association for the Scientific
+Study of Consciousness. Bremen, Germany, June, 1998.
+
+\paper
+Consciousness, Self, and Meaning.
+Annual Meeting of the Association for the Scientific
+Study of Consciousness. London, Ontario, June, 1999.
+
+\paper
+Modeling Time and Meta-Reasoning in Dialogue Via Active Logic.
+(With K. Purang, D. Purushothaman, C. Andersen, D. Traum.)
+1999 AAAI Fall Symposium, Psychological Models of Communication in
+Collaborative Systems (full paper).
+
+\paper
+Mixed Initiative Dialogue and Intelligence via Active Logic.
+(With C. Andersen, D. Traum, K. Purang, D. Purushothaman.)
+AAAI 99 Workshop on Mixed-Initiative Intelligence.
+
+\paper
+Practical Reasoning and Plan Execution with Active Logic.
+(With K. Purang, D. Purushothaman,  D. Traum, C. Andersen.)
+1999 IJCAI Workshop on Practical Reasoning and Rationality.
+
+\paper
+Seven Days in the Life of a Robotic Agent. {With Waiyian Chong, Michael
+O'Donovan-Anderson, and Yoshi Okamoto.)
+GSFC/JPL Workshop on Radical Agent Concepts. 2001. NASA Goddard Space
+Flight Center, Greenbelt, MD, USA. 
+
+\paper
+Handling Uncertainty with Active Logic. (With Manjit Bhatia, Paul Chi,
+Waiyian Chong, Darsana P. Josyula, Michael O'Donovan-Anderson, Yoshi
+Okamoto, and K. Purang.) Proceedings, AAAI Fall Symposium on
+Uncertainty in Computation. 2001.
+
+\paper
+An information integration environment based on the active logic 
+framework. (With A A Barfourosh, H R Mothary Nezhad, M O'Donovan-
+Anderson.)  MIS 2002.
+
+\paper
+A Logic-Based Model of Intentions for Multi-Agent Subcontracting.
+AAAI-2002 (26\% acceptance rate this year.) (With John
+Grant and Sarit Kraus.)
+
+\paper
+Time-Situated Agency: Active Logic and Intention Formation.
+Cognitive Agents Workshop, 2002.  With M. Anderson,
+D. Josyula, and Y. Okamoto.)
+
+\paper
+The Use-Mention Distinction and its importance to {H}{C}{I}. (With Michael
+L. Anderson and Yoshi Okamoto.) Proceedings of
+the Sixth Workshop on the Semantics and Pragmatics of
+Dialog. 2002.
+
+\paper
+Towards domain-independent, task-oriented, conversational
+adequacy. (With Darsana Josyula and Michael Anderson.) IJCAI-2003,
+Intelligent Systems Demonstration, Acapulco Mexico.
+
+\paper
+Talking to computers. (With Darsana Josyula and Michael Anderson.)
+IJCAI-2003, Proceedings of the Workshop on Mixed Initiative
+Intelligent Systems Acapulco Mexico.
+
+\paper
+RGL Study In A Hybrid Real-Time System. (With K. Hennacy and N. Swamy.)
+IASTED NCI, 2003, Cancun Mexico.
+
+\paper
+Active Logic for more effective human-computer interaction and other
+commonsense applications. 
+(With Michael L. Anderson, Darsana Josyula, Khemdut Purang.)
+International Joint Conference on Automated Reasoning,
+Workshop on Empirically Successful First Order Reasoning, Ireland, 2004. 
+
+
+%\subsubsec ~~Submitted for Publication
+
+%\paper
+%Logic for a lifetime: preliminary report. Submitted to IJCAI-95.
+
+%\subsec ~~In Preparation
+
+\subsec Reports
+
+\paper
+Ackermann's set theory and related topics.
+New York University (Ph.D. thesis), 1971.
+
+\paper
+Distance  spaces  and natural convexity.
+(With D.~Hajek and R.~Wilson.)
+Technical Report, National University of Mexico, 1978
+
+\paper
+A heuristic calculation of the utility of income.
+(With L.~Delsanto.)
+University of Puerto Rico, 1978.
+
+\paper
+Physical theory and the divisibility of space and time.
+(With R.~Sarraga.)
+University of Puerto Rico, 1978.
+
+\paper
+Truth and syntax.
+Technical Report, Computer Science Department,
+University of Rochester, 1979. (Revised as Truth, syntax, and reason,
+June and August, 1980.)
+
+\paper
+Language, computation, and reality.
+Technical Report, Computer Science
+Department, University of Rochester (Ph.D. Thesis) 1981.
+
+\paper
+A Tarskian truth definition.
+Manuscript, 1982.
+
+\paper
+Truth as normal-order principle.
+Manuscript, 1982.
+
+\paper
+A magical inference number.
+Manuscript, 1983.
+
+\paper
+True beliefs.
+Computer Science Department Technical Report, University of Maryland, 1984.
+\JCITE{AIJ-I}
+
+\paper
+Completeness results for circumscription.
+(With J.~Minker.)
+Computer Science Department Technical Report, University of Maryland, 1985.
+\JCITE{AIJ-M}
+
+\paper
+On the consistency of commonsense reasoning.
+Computer Science Department Technical Report,
+University of Maryland, 1985.
+
+\paper
+Real-time default reasoning, relevance, and memory models.
+(With J.~Drapkin and M.~Miller.)
+Systems Research Center Technical Report,
+University of Maryland, 1985.
+
+\paper
+A commentary on the literature of self-reference.
+(With M.~Miller.)
+Systems Research Center Technical Report,
+University of Maryland, 1985.
+
+\paper
+Default handling: consistency before and after.
+(With J.~Drapkin and M.~Miller.)
+Systems Research Center Technical Report,
+University of Maryland, 1985.
+
+\paper
+A memory model for real-time commonsense reasoning.
+(With J.~Drapkin and M.~Miller.)
+Systems Research Center Technical Report,
+University of Maryland, 1986.
+
+\paper
+Analytic completeness in $SL_0$.
+(With J.~Drapkin.)
+Comp. Sci. Technical Report,
+University of Maryland, 1986.
+
+\paper
+Languages with self-reference II: knowledge, belief, and modality.
+Institute for Advanced Computer Studies TR-87-13,
+Computer Science Dept CS-TR-1815,
+University of Maryland, 1987
+\JCITE{AIJ-II}.
+
+\paper
+Autocircumscription.
+Institute for Advanced Computer Studies TR-88-28,
+Computer Science Dept CS-TR-2014,
+University of Maryland, 1988.
+
+\paper
+Reasoning situated in time I: basic concepts.
+(With J.~Elgot-Drapkin.)
+Institute for Advanced Computer Studies TR-88-29,
+Computer Science Dept CS-TR-2016,
+University of Maryland, 1988.
+
+\paper
+Names and non-monotonicity.
+(With S.~Kraus.)
+Institute for Advanced Computer Studies TR-88-84,
+Computer Science Dept CS-TR-2140,
+University of Maryland, 1988.
+
+\paper
+Some brief essays on mind.
+Technical Report 302,
+Computer Science Department,
+University of Rochester, 1989
+
+\paper
+Stop the world---I want to think.
+(With J.~Elgot-Drapkin and M.~Miller.)
+Institute for Advanced Computer Studies TR-90-26,
+Computer Science Dept CS-TR-2415,
+University of Maryland, 1990.
+
+\paper
+Nonmonotonicity and the scope of reasoning.
+(With D.~Etherington and S.~Kraus.)
+Institute for Advanced Computer Studies TR-90-56,
+Computer Science Dept CS-TR-2457,
+University of Maryland, 1990.
+
+\paper
+Putting one's foot in one's head---Parts I and II.
+Institute for Advanced Computer Studies TR-91-58,
+Computer Science Dept CS-TR-2659,
+University of Maryland, 1991.
+
+\paper
+Consciousness and complexity: the cognitive quest.
+CS-TR-3232, UMIACS-TR-94-25
+March 1994.
+
+\paper
+Presentations and this and that: logic in action.
+(With M. Miller.)
+CS-TR-3244, UMIACS-TR-94-36
+March 1994.
+
+\paper
+Thinking takes time: A modal active-logic for reasoning {\sl in} time.
+(With M.~Nirkhe and S.~Kraus.) 
+CS-TR-3249, UMIACS-TR-94-39
+March 1994.
+
+\paper
+Logic for a lifetime.
+CS-TR-3278, UMIACS-TR-94-62
+May 1994.
+
+\paper
+Calibrating, counting, grounding, grouping.
+(with J. Elgot-Drapkin, D. Gordon, S. Kraus, M. Miller, and M.
+Nirkhe.)
+CS-TR-3279, UMIACS-TR-94-63
+May 1994.
+
+\paper
+What experts deny, novices must understand.
+(With M. Miller.)
+CS-TR-3280, UMIACS-TR-94-64
+May 1994.
+
+\paper
+An error-theory of consciousness.
+CS-TR-3324, UMIACS-TR-94-91
+July 1994.
+
+\paper
+Conversational Adequacy: Mistakes are the Essence.
+(With K. Purang.)
+CS-TR-3654, UMIACS-TR-96-41
+June 1996.
+
+\paper
+Active Logic Applied to Cancellation of Gricean Implicature.
+(With J. Gurney and K. Purang.)
+CS-TR-3655, UMIACS-TR-96-42
+June 1996.
+
+\paper
+Active Logic and Heim's Rules for Updating Discourse Context.
+(With J. Gurney and K. Purang.)
+CS-TR-3656, UMIACS-TR-96-43
+June 1996.
+
+\paper
+Active logics: A unified formal approach to episodic
+reasoning. (With Jennifer Elgot-Drapkin, Sarit Kraus, Michael Miller,
+Madhura Nirkhe.) CS-TR-4072. October 1999.
+
+\subsec Book Reviews, Other Articles, and Notes
+
+\paper
+Whose category error?  (peer commentary)
+{\sl Behavioral and Brain Sciences},
+vol.~6, 4, 1983, pp.~606--607.
+
+\paper
+Belief  level  way  stations.  (peer commentary)
+{\sl Behavioral and Brain Sciences},
+vol.~7, 4, 1984, pp.~639--640.
+
+\paper
+Intentionality as internality. (peer commentary)
+(With R.~Hall.)
+{\sl Behavioral and Brain Sciences},
+vol.~9, 1, 1986, pp.~151--152.
+
+\paper
+Discussion of Cheeseman's ``An inquiry into computer
+understanding.'' (With L.~Kanal.)
+{\sl Computational Intelligence},
+vol.~4, 1, 1988, pp.~87--89.
+
+\paper
+The emperor's old hat. (peer commentary) 
+{\sl Behavioral and Brain Sciences}, vol.~13, 4, 1990, pp.~680--681
+
+
+\subsec Talks, Abstracts, and other Professional Papers Presented
+
+\subsubsec ~~Invited lectures at refereed conferences
+
+\expar
+Memory, mind, and models of self. Invited one-hour lecture, Canadian
+AI Conference, Vancouver, May 1992.
+
+\expar
+Putnam's Theorem and the intentionality machine. Invited one-hour
+lecture, Society for Machines and Mentality, Washington D.C., December
+1992. 
+
+
+\subsubsec ~~~Invited talks, general
+
+%\expar
+%A survey of mathematical logic. Univ.~of Puerto Rico, 1973
+
+%\expar
+%Transfinite arithmetic. Univ.~of Puerto Rico, 1974
+
+%\expar
+%Formal theories. CURCAM, Sto. Domingo, 1977
+
+%\expar
+%Self-reference and robotics. Naval Research Laboratory, 1983
+
+%\expar
+%Panel on Artificial Intelligence, ACM Chapter, Univ.~of Md., 1983
+
+%\expar
+%Overview of artificial intelligence. Education seminar, Univ.~of Md., 1983
+
+\expar
+Semantics of circumscription. Stanford University, May 1984
+
+\expar
+A magical inference number. National Bureau of Standards, June 1984
+
+\expar
+A direct manipulation language. IBM Thomas Watson Laboratory, July 1984
+
+\expar
+Topics in circumscription. University of Sussex, Jan. 1985
+
+\expar
+Topics in circumscription. University of Edinburgh, Jan. 1985
+
+\expar
+Logic of belief. Louisiana State University, Aug. 1985
+
+\expar
+Logic of belief. Univ.~of Toronto, Dec. 1985
+
+\expar
+Logic of belief. University of Rochester, Dec. 1985
+
+\expar
+Panel on Machine Learning, ACM Chapter, Univ.~of Md., Feb. 1986
+
+\expar
+A theory of absolute universes. Univ.~of Tennessee, May, 1986
+
+\expar
+An overview of meta in logic. Sardinia, Oct. 1986
+
+\expar
+Knowledge representation. Smithsonian Institution, July 1987
+
+\expar
+Self reference and artificial intelligence. Naval Research Laboratory, May 
+1988
+
+\expar
+Thing and thought. SUNY at Buffalo, Nov. 1988
+
+\expar
+Self reference and artificial intelligence. Univ.~of Akron, Nov. 1988
+
+\expar
+Meaners. ATT Bell Labs, Mar. 1989
+
+\expar
+Russell's paradox is alive and well.
+Univ.~of Akron, Mar. 1989
+
+\expar
+Intentionality. Univ.~of Pittsburgh, Mar. 1989
+
+\expar
+Issues in circumscription. Univ.~of Pittsburgh, Mar. 1989
+
+\expar
+The four references. SUNY at Buffalo, Mar. 1989
+
+\expar
+Scope and nonmonotonicity. Stanford Univ., Aug. 1990
+
+\expar
+Planning and perception. SRI International, Aug 1990
+
+\expar
+Intentionality. Xerox PARC, Aug 1990
+
+\expar
+Logic and artificial intelligence: a new synthesis? Univ.~of Akron,
+Nov 1991
+
+\expar
+Logic and artificial intelligence: a new synthesis? Banach Center,
+Warsaw, Poland, Nov 1991
+
+\expar
+Memory, mind, and models of self. Invited one-hour lecture, Canadian
+AI Conference, Vancouver, May 1992.
+
+\expar
+Putnam's Theorem and the intentionality machine. Invited one-hour
+lecture, Society for Machines and Mentality, Washington D.C., December
+1992. 
+
+\expar
+Logic, robots, and minds.
+Computer Engineering Seminar Series,
+Purdue University, March 1994.
+
+\expar
+Logic for a lifetime.
+Computer Science Colloquium Series,
+Harvard University, March 1995.
+
+\expar
+Testable aspects of a self-theory of mind and brain.
+Cognitive Neuroscience Section,
+National Institutes of Health, November 1996.
+
+\expar
+Logic for a Lifetime.
+Technische Universitat, Darstadt, Germany, June 1998.
+
+\expar
+Logic for a Lifetime.
+University of New Mexico, July 2000.
+
+\expar
+Theory and Application of Self-reference.
+PHILOG Conference, Denmark, October 2002.
+
+\expar
+The Metacognitive Loop.
+CS and Electrical Computer Engineering Colloquium
+University of Wyoming, August 2004
+
+\expar
+The Metacognitive Loop.
+Institute for Cognitive Science Colloquium
+University of Colorado, August 2004
+
+
+\subsubsec ~~Unrefereed Conference Papers
+
+\paper
+A quick version of G\"{o}del's theorem.
+AMS Meeting, New York, abstracted in
+{\sl AMS Notices}, 
+Feb. 1972.
+
+\paper
+Topics in the semantics of circumscription.
+{\sl Week on Logic and Artificial Intelligence},
+University of Maryland, October 1984.
+
+\paper
+Issues in commonsense reasoning.
+{\sl Proceedings, Technical Symposium on Intelligent Systems}, 
+(invited paper), ACM, June 1985.
+
+\paper
+Heidegger and artificial zoology.
+(With A.~Kyburg.)
+Annual conference of the {\sl Society for Philosophy
+and Psychology}, 
+April, 1989, Tucson, Arizona.
+
+\paper
+Virtual symposium on virtual mind.
+(With P.~Hayes, S.~Harnad, and N.~Block.)
+{\sl Minds and Machines}, vol.~2, pp.~217-238, 1992.
+
+\eject
+
+\subsec Grants
+
+%\expar
+%Martin Marietta Corporation, grant for summer Research Assistant, 1984.
+%\expar
+%National Science Foundation, (with Edmundson, Mills, Minker, and Smith), 
+%\$10,695, 1984-1985.
+\expar
+Univ.~of Md. Foundation (from Martin Marietta Corp.), \$24,000, 1985.
+\expar
+Army Research Office, (with J.~Minker), \$100,600, 
+1985-1986. %DAAG29-85-K-0177
+\expar
+Army Research Office, (with J.~Minker), \$110,460, 
+1986-1987. %DAAG29-85-K-0177
+\expar
+Army Research Office, (with J.~Minker), \$121,100,
+1987-1988. %DAAG29-85-K-0177
+\expar
+Army Research Office, (with J.~Minker), \$138,554,
+1988-1989. %DAAL03-88-K0087
+\expar
+Army Research Office, (with J.~Minker), \$147,890,
+1989-1990. %DAAL03-88-K0087
+\expar
+Army Research Office, (with J.~Minker), \$158,484,
+1990-1991. %DAAL03-88-K0087
+\expar
+National Science Foundation, (with J.~Horty), \$42,032,
+1990-1991. %IRI-8907122
+\expar
+National Science Foundation, (with J.~Horty), \$19,501,
+1991. %supplement to IRI-8907122
+\expar
+Army Research Office, \$50,000, 1994-1995. %DAAH0494G0238
+\expar
+National Science Foundation (with S.~Kraus), \$200,000,
+1994-1997. %IRI-9311988
+\expar
+Army Research Office (AASERT), \$70,000,
+1995-1997. %DAAH049510274
+\expar
+National Science Foundation (equipment supplement), \$12,070.80, 1995.
+\expar
+Army Research Office, \$123,235, 1995-1997. %DAAH049510628 
+\expar
+National Science Foundation (postdoctoral associate supplement), \$27,750,
+ 1996-1997.
+\expar
+National Science Foundation (with S.~Kraus and M.~Morreau), \$100,000,
+1997-1999.
+\expar
+Air Force Office of Scientific Research, \$490,960, 1999-2002.
+\expar
+Office of Naval Research and AFOSR, \$299,331, 2000-2003.
+\expar
+Office of Naval Research, \$300,00, 2002-2005.
+\expar
+Air Force Office of Scientific Research, \$520,000, 2002-2005.
+\expar
+Honda Research Institute, \$25,000, 2003-2004 (gift).
+\expar
+Honda Research Institute, \$105,653, 2004-2005.
+
+
+
+\eject
+\subsec Awards and Honors
+
+\expar
+Woodrow Wilson Foundation Fellowship, 1966
+\expar
+National Science Foundation Fellowship, 1966-69
+\expar
+General Research Board Summer Award, Univ.~of Maryland, 1983
+\expar
+University of Maryland Institute for Advanced Computer Studies,
+research appointment, 1986-1992, 1993-2007.
+\expar
+Invited by Canadian Society for Computational Studies of
+Intelligence, to give one-hour
+lecture at the Canadian Artificial Intelligence conference, 
+May 1992, Vancouver.
+\expar
+Invited by Society for Machines and Mentality, to give one-hour 
+lecture at annual conference, December 1992, Washington D.C.
+\expar
+Journal paper 6 (above) listed in D.~Bobrow's 1993 compilation of the
+most frequently-cited papers in {\sl Artificial Intelligence} from
+1970 to 1991.)
+
+\subsec Reviewing Activities for Journals and Other Scholarly
+Institutions (last five years)
+
+%\medskip
+
+%I have served as referee or reviewer for the following scholarly
+%publications, conferences, and institutions:
+
+%\medskip
+
+%\inpar {1984} {.75in}
+%Reviewer, NSF Proposals.
+
+%\inpar {1985} {.75in}
+%Referee, IJCAI papers.
+
+%\inpar {1985} {.75in}
+%Referee, 
+%{\sl Wiley Encyclopedia of Artificial Intelligence}.
+
+%%\inpar {1985} {.75in}
+%Referee,
+%{\sl J. Phil. Logic}.
+
+%\inpar {1985} {.75in}
+%Referee, 
+%{\sl Artificial Intelligence}.
+
+%\inpar {1985} {.75in}
+%Reviewer, NSF Proposal.
+
+%\inpar {1986} {.75in}
+%Referee,
+%{\sl J. of Philosophical Logic}.
+
+%\inpar {1986} {.75in}
+%Referee,
+%{\sl Computational Intelligence}.
+
+%\inpar 1986 .75in
+%Reviewer, NSF Proposal.
+
+%\inpar 1986 .75in
+%Referee, 
+%{\sl Artificial Intelligence}.
+
+%\inpar {1987} {.75in}
+%Referee, IJCAI papers.
+
+%\inpar {1987} {.75in}
+%Referee,
+%{\sl Computational Intelligence}.
+
+%\inpar {1987} {.75in}
+%Reviewer of
+%{\sl Logical Foundations of AI}
+%by  M.~Genesereth and N.~Nilsson.
+
+%\inpar 1987 .75in
+%Referee, 
+%{\sl Artificial Intelligence}.
+
+%\inpar 1987 .75in
+%Referee, 
+%{\sl International J. of Intelligent Systems}.
+
+%\inpar 1987 .75in
+%Referee, 
+%{\sl J. of Systems and Software}.
+
+%\inpar 1988 .75in
+%Referee, 
+%{\sl Artificial Intelligence}.
+
+%\inpar 1988 .75in
+%Reviewer, NSF Proposals.
+
+%\inpar 1988 .75in
+%Reviewer, ARO Proposals.
+
+%\inpar 1988 .75in
+%Referee,
+%{\sl IEEE Transactions on Systems, Man, and Cybernetics}.
+
+%\inpar 1988 .75in
+%Referee,
+%{\sl Computational Linguistics}.
+
+%\inpar 1988 .75in
+%Reviewer of book manuscript for MIT Press.
+
+%\inpar 1988 .75in
+%Referee,
+%{\sl J. of Experimental and Theoretical Artificial Intelligence}.
+
+%\inpar 1989 .75in
+%Reviewer, ARO Proposal.
+
+%\inpar 1989 .75in
+%Referee,
+%{\sl Computational Linguistics}.
+
+%\inpar 1989 .75in
+%Referee,
+%{\sl International J. of Intelligent Systems}.
+
+%\inpar 1989 .75in
+%Reviewer, NSF Proposal.
+
+%\inpar 1989 .75in
+%Referee,
+%{\sl Journal of Symbolic Computation}.
+
+%\inpar 1989 .75in
+%Tenure Review Committee for Penn. State Univ.~assistant professor.
+
+%\inpar 1990 .75in
+%Third Year Review Committee for New York Univ.~assistant professor.
+
+%\inpar 1990 .75in
+%Referee, ISMIS papers.
+
+%\inpar 1990 .75in
+%Referee, NACLP papers.
+
+%\inpar 1990 .75in
+%Referee,
+%{\sl Journal of the Association for Computing Machinery}.
+
+%\inpar 1991 .75in
+%Referee, IJCAI-91 papers.
+
+%\inpar 1991 .75in
+%Referee, AAAI-91 papers.
+
+%\inpar 1991 .75in
+%Referee, ISMIS-91 papers.
+
+%\inpar 1991 .75in
+%Reviewer, NSF proposals.
+
+%\inpar 1991 .75in
+%Referee,
+%{\sl Journal of the Association for Computing Machinery}.
+
+%\inpar 1992 .75in
+%Referee,
+%{\sl Journal of the Association for Computing Machinery}.
+
+%\inpar 1992 .75in
+%Referee,
+%{\sl Artificial Intelligence}.
+
+%\inpar 1992 .75in
+%Referee,
+%{\sl Computational Intelligence}.
+
+%\inpar 1992 .75in
+%Referee, ISMIS-93 papers
+
+%\inpar 1993 .75in
+%Referee, IJCAI-93 papers.
+
+%\inpar 1993 .75in
+%Referee, BISFAI-93 papers.
+
+%\inpar 1994 .75in
+%Referee, TIME-94 papers.
+
+%\inpar 1994 .75in
+%Referee,
+%{\sl Journal of the Association for Computing Machinery}.
+
+%\inpar 1994 .75in
+%Referee,
+%{\sl Computational Intelligence}.
+
+%\inpar 1994 .75in
+%Referee,
+%{\sl Journal of Artificial Intelligence Research}.
+
+%\inpar 1994 .75in
+%Reviewer, ARO proposal.
+
+%\inpar 1995 .75in
+%Referee, TIME-95 papers.
+
+%\inpar 1995 .75in
+%Referee,
+%{\sl Computational Intelligence}.
+
+%\inpar 1995 .75in
+%Referee,
+%{\sl Journal of Artificial Intelligence Research}.
+
+%\inpar 1995 .75in
+%Referee, {\sl J. of Experimental and Theoretical Artificial
+%Intelligence}.
+
+%\inpar 1995 .75in
+%Referee, TIME-96 papers.
+
+%\inpar 1996 .75in
+%Reviewer, ARO proposals.
+
+%\inpar 1996 .75in
+%Reviewer,
+%{\sl MIT Press}.
+
+%\expar International Joint Conferences on Artificial Intelligence (IJCAI)
+%\expar American Association for Artificial Intelligence (AAAI)
+%\expar International Symposium on Methodologies for Intelligent Systems (ISMIS)
+\expar National Science Foundation
+\expar Army Research Office
+%\expar {\sl Journal of the Association for Computing Machinery}
+\expar {\sl Artificial Intelligence Journal}
+\expar {\sl Computational Intelligence}
+\expar {\sl Journal of Artificial Intelligence Research}
+\expar {\sl Journal of Experimental and Theoretical Artificial Intelligence}
+\expar {\sl MIT Press}
+\expar {\sl AAAI-04}
+
+%\eject
+\sec Teaching and Advising
+
+\subsec Courses Taught (last five years)
+
+{\obeylines\parindent=0pt
+%Spring 1983
+%\quad CMSC 250: Introduction to Discrete Structures, 155 students
+%\quad CMSC 828B: Knowledge Representation, 11 students
+%\smallskip
+%Fall 1983
+%\quad CMSC 450: Elementary Logic and Algorithms, 117 students (2 secs.)
+%\smallskip
+%Spring 1984
+%\quad CMSC 250: Introduction to Discrete Structures, 146 students
+%\quad CMSC 828B: Functional Semantics, 17 students
+%\smallskip
+%Fall 1984
+%\quad CMSC 450: Elementary Logic and Algorithms, 95 students (2 secs.)
+%\smallskip
+%Spring 1985
+%\quad CMSC 250: Introduction to Discrete Structures, 95 students
+%\quad CMSC 828B: Robots, Cognition, and Logic, 24 students
+%\smallskip
+%Fall 1985
+%\quad CMSC 620: Problem Solving Methods in Artificial Intelligence, 55 students
+%\quad CMSC 828E: Parallelism, Beliefs, and Default Reasoning, 20 students
+%\smallskip
+%Spring 1986
+%\quad CMSC 620: Problem Solving Methods in Artificial Intelligence, 49 students
+%\smallskip
+%Fall 1986
+%\quad no teaching duties: full-time research
+%Spring 1987
+%\quad CMSC 250: Introduction to Discrete Structures, 37 students
+%\smallskip
+%Fall 1987
+%\quad CMSC 450: Elementary Logic and Algorithms, 41 students
+%\smallskip
+%Spring 1988
+%\quad CMSC 452: Elementary Theory of Computation, 65 students
+%\smallskip
+%Fall 1988
+%\quad no teaching duties: sabbatical leave
+%\smallskip
+%Spring 1989
+%\quad no teaching duties: sabbatical leave
+%\smallskip
+%Fall 1989
+%\quad CMSC 452: Elementary Theory of Computation, 39 students
+%\quad CMSC 828P: Advanced Introduction to Cognitive Science, 10 students%
+%%%\smallskip
+%Spring 1990
+%\quad no teaching duties: full-time research
+%\smallskip
+%Fall 1990
+%\quad no teaching duties: full-time research
+%\smallskip
+%Spring 1991
+%\quad CMSC 150: Introduction to Discrete Structures, 85 students
+%\quad CMSC 280: Computer Science II, 40 students
+%\smallskip
+%Fall 1991
+%\quad on leave of absence, University of Akron
+%Spring 1992
+%\quad on leave of absence, University of Akron
+%\smallskip
+%Fall 1992
+%\quad no teaching duties: full-time research
+%\smallskip
+%Spring 1993
+%\quad CMSC 150: Introduction to Discrete Structures, 152 students (2 sections)
+%\quad CMSC 450: Logic for Computer Science, 27 students
+%\smallskip
+%Fall 1993
+%\quad no teaching duties: full-time research
+%\smallskip
+%Spring 1994
+%\quad CMSC 150: Introduction to Discrete Structures, 31 students
+%\quad CMSC 828P: Advanced Introduction to Cognitive Science, 7 students
+%\smallskip
+%Fall 1994
+%\quad CMSC 105: Pascal Programming, 32 students
+%\smallskip
+%Spring 1995
+%\quad CMSC 450: Logic for Computer Science, 30 students
+%\smallskip
+%Fall 1995
+%\quad CMSC 105: Pascal Programming, 35 students
+%\smallskip
+%Spring 1996
+%\quad CMSC 721: Nonmonotonic Reasoning, 6 students
+%\smallskip
+%Fall 1996
+%\quad UNIV 128A: Origins, 200 students
+%\smallskip
+%Spring 1997 (planned)
+%\quad CMSC 421: Introduction to Artificial Intelligence
+
+% \smallskip
+% 1992-93
+% \quad CMSC 150: Introduction to Discrete Structures, 152 students (2 sections)
+% \quad CMSC 450: Logic for Computer Science, 27 students
+% \smallskip
+% 1993-94
+% \quad CMSC 150: Introduction to Discrete Structures, 31 students
+% \quad CMSC 828P: Advanced Introduction to Cognitive Science, 7 students
+% \smallskip
+% 1994-95
+% \quad CMSC 105: Pascal Programming, 32 students
+% \quad CMSC 450: Logic for Computer Science, 30 students
+% \smallskip
+% 1995-96
+% \quad CMSC 105: Pascal Programming, 35 students
+% \quad CMSC 721: Nonmonotonic Reasoning, 6 students
+% \smallskip
+% 1996-97
+% \quad UNIV 128A: Origins, 200 students (and 25-student recitation section)
+% \quad CMSC 421: Introduction to Artificial Intelligence (40 students)
+% \smallskip
+% 1997-98
+% \quad CMSC 421: Introduction to Artificial Intelligence (51 students)
+% \quad CMSC 150: Introduction to Discrete Structures (105 students)
+
+\smallskip
+1998-99
+\quad CMSC 251: Introduction to Algorithms (2 sections, $\sim 55$ students each)
+\smallskip
+1999-00
+\quad CMSC 251: Introduction to Algorithms (2 sections, $\sim 55$ students each)
+\smallskip
+2000-01
+\quad CMSC 251: Introduction to Algorithms (2 sections, $\sim 50$ students each)
+\smallskip
+2001-02
+\quad GEMS 496 and 497: Gemstone Seminar (8 students; with B. Dorr)
+\quad CMSC 297: Honors Seminar (11 students; with B. Dorr, W. Gasarch)
+\quad CMSC 251: Introduction to Algorithms (2 sections, $\sim 90$ students each)
+\smallskip
+2002-2003
+\quad GEMS 296 and 297: Gemstone Seminar (9 students)
+\quad CMSC 351: Introduction to Algorithms (2 sections, $\sim 80$ students each)
+\smallskip
+2003-2004
+\quad GEMS 396 and 397: Gemstone Seminar (8 students)
+\quad CMSC 297: Honors Seminar (11 students; with B. Dorr, W. Gasarch)
+\quad CMSC 351: Introduction to Algorithms (2 sections, $\sim 80$ students each)
+\quad CMSC 838: How to do research (with B. Dorr, W. Gasarch)
+\smallskip
+2004-2005
+\quad GEMS 496: Gemstone Seminar (8 students)
+\quad CMSC 838: How to do research (with B. Dorr, W. Gasarch)
+\smallskip
+2005-2006
+\quad CMSC 351: Introduction to Algorithms (2 sections)
+\quad GEMS 497: Gemstone Seminar (8 students)
+\quad CMSC 838: How to do research (with C. Kruskal, W. Gasarch)
+}
+
+%\eject
+\subsec Curriculum, Notes, and Other Contributions to Teaching
+
+\paper
+Algebraic topology:  an introduction to modern analytic structures with
+mention of physical applications, 
+Lecture  notes,  University  of  Puerto
+Rico, 1977.
+
+\paper
+{\sl Lecture notes in logic} 
+(with P.~Steitz, M.~Miller, and C.~Laskowski), 1995.
+
+\paper
+Development of graduate course CMSC 721 (Nonmonotonic Reasoning),
+with Jack Minker, Jeff Horty, VS Subrahmanian, and Michael Morreau.
+
+
+\subsec Advising
+
+\bigskip
+
+\subsubsec ~~Other Than Research Direction
+
+\medskip
+\noindent Approximately 5 undergraduate and 3 graduate students
+are advised each year.
+
+During 1999-2000, jointly with Bob Anderson in the UMCP Physics Dept,
+I advised Dan Giambalvo on an honors project in quantum
+computing.  I subsequently
+advised Pete Schwartz on an honors project in reasoning with
+contradictory information.
+
+
+\bigskip
+
+\subsubsec ~~Research Direction
+
+\bigskip
+\noindent
+UMCP Summer Research Opportunity Program mentor for Yolanda
+Pena-Vargas, 1995.
+
+\medskip
+%{\obeylines\parindent=0pt
+\noindent
+{\sl Master's}
+\smallskip
+\noindent
+Dumar Villa 1977, James Abello 1978, Ruben Pereira 1978, Krishnan Subramanian 1986 (with J.~Minker),
+Diana Gordon 1986,
+Hachidai Ito 1987,
+Tom Melton 1988,
+Sanjoy Paul 1988,
+Will Sterbenz 1989 (with D.~Kueker),
+Michael Miller 1989,
+Michael Harris 1991 (with S.~Kraus)
+%}
+
+%\eject
+
+{\obeylines\parindent=0pt
+\medskip
+{\sl Doctoral}
+\smallskip
+Jennifer Elgot-Drapkin 1988
+~~~{\sl Step-logic: Reasoning situated in time.}
+~~~Assistant Professor, Arizona State University, Tempe AZ (1988-97)
+\smallskip
+Diana Gordon 1990 
+~~~{\sl Active bias adjustment for incremental, supervised concept learning.}
+~~~Associate Professor, University of Wyoming.
+\smallskip
+Michael Miller 1993
+~~~{\sl A view of one's past and other aspects of reasoned change in belief.}
+~~~Computer Scientist, Aether Systems, Inc.
+\smallskip
+Frank McFadden 1993 (with J.~Reggia and H.~Szu)
+~~~{\sl Competitive learning and competitive activation in cortical map formation.}
+~~~Computer Scientist, General Dynamics
+\smallskip
+Madhura Nirkhe 1994 (with J.~JaJa)
+~~~{\sl Time-situated reasoning within tight deadlines and realistic
+~~~space and computation bounds.}
+~~~Computer Scientist, Microsoft Corporation
+\smallskip
+Khemdut Purang 2001
+~~~{\sl Systems that detect and repair their own mistakes.}
+~~~Computer Scientist, Sony Corporation.
+\eject
+{\sl Current Doctoral: }
+\bigskip
+
+
+Darsana P. Josyula (candidacy in 2003; PhD expected in Spring 2005)
+\medskip
+Waiyian Chong (candidacy in 2003; PhD expected in Spring 2005)
+
+}
+
+\bigskip
+\bigskip
+%\eject
+{\obeylines\parindent=0pt
+{\sl Faculty Research Associates}
+\bigskip
+Dr.~Sarit Kraus 1988-90
+~~~Professor, Bar Ilan University, Israel
+~~~Recipient of Computers and Thought Award, 1995.
+~~~Elected Fellow of AAAI, 2002.
+\medskip
+Dr.~Elizabeth Klipple 1995-97
+~~~Army Research Laboratory
+\medskip
+Dr.~David Traum 1996-2000
+~~~Institute for Creative Technologies, University of Southern California
+\medskip
+Dr.~Michael Anderson 2001-
+\medskip
+Dr.~Ken Hennacy 2003-
+}
+
+
+\sec Service
+
+\subsec Professional
+
+\inpar {1984} {.75in}
+A non-monotonic reasoning bibliography,
+{\sl Proceedings, Workshop on Non-monotonic Reasoning}, 
+AAAI, New Paltz, 1984.
+
+\inpar {1984-5} {.75in}
+Co-organizer, Week on Logic and Artificial Intelligence, October 1984, as
+part of special year in Logic and Theoretical Computer Science.
+
+\inpar {1989-90} {.75in}
+Co-organizer, Annual Meeting of the Society for Philosophy and Psychology.
+
+\inpar {1990} {.75in}
+Program Committee, Fifth International Symposium on Methodologies for
+Intelligent Systems.
+
+\inpar {1990-} {.75in}
+Organizer, {\sl Society for Philosophy and Psychology} Electronic Mailing List.
+
+\inpar {1990-} {.75in}
+Editorial Board, {\sl Journal of Logic and Computation}.
+
+\inpar {1991-} {.75in}
+Editorial Board, {\sl Computational Intelligence}.
+
+\inpar {1991-} {.75in}
+Editorial Board, {\sl Fundamenta Informaticae}.
+
+\inpar {1997-} {.75in}
+Editorial Board (de facto member) and Book Review Editor,
+{\sl Artificial Intelligence}.
+
+\inpar {1991} {.75in}
+Program Committee, Sixth International Symposium on Methodologies for
+Intelligent Systems.
+
+\inpar {1991} {.75in}
+Program Committee, National Conference on Artificial Intelligence (AAAI-1991).
+
+\inpar {1993} {.75in}
+Program Committee, BISFAI-93 (Third Bar-Ilan Symposium on Foundations of AI).
+
+\inpar {1993} {.75in}
+Participant in external review of Artificial Intelligence Program,
+University of Georgia.
+
+\inpar {1993-94} {.75in}
+Program Committee, TIME-94 (Workshop on temporal representation and
+reasoning, to be held in conjunction with the 1994 Florida Artificial
+Intelligence Research Symposium.
+
+\inpar {1993-94} {.75in}
+Program Committee (Workshop Program Chair), 1994 National Conference
+on Artificial Intelligence (AAAI-94), Seattle.
+
+\inpar {1994-95} {.75in}
+Program Committee, Workshop on Rational Agency: Concepts, Theories,
+Models, and Applications. AAAI Fall Symposium Series. MIT, 1995.
+
+\inpar {1994-95} {.75in}
+Program Committee, TIME-95.
+
+\inpar {1995} {.75in}
+Participant in Army Research Office/TRADOC Spoken Human-Machine
+Dialogue Workshop, North Carolina, May 1995.
+
+\inpar {1995-96} {.75in}
+Program Committee, TIME-96.
+
+\inpar {1995-98} {.75in}
+Executive Committee, Society for Philosophy and Psychology.
+%\eject
+
+\inpar {2000} {.75in}
+NSF Review Panel.
+
+\inpar {2003-04} {.75in}
+Program Committee, DARPA Workshop on Self-Aware Systems.
+
+\inpar {2004} {.75in}
+Program Committee, 
+National Conference on Artificial Intelligence (AAAI-04)
+
+\inpar {2005} {.75in}
+Program Committee, Nineteenth International Joint Conference on
+Artificial Intelligence
+
+\inpar {2005} {.75in}
+Program Committee, CommonSense 2005, the Seventh Symposium on Logical
+Formalizations of Commonsense Reasoning
+
+\inpar {2005} {.75in}
+Program Committee, First International Workshop on Formal Models of
+Resource Bounded Agents
+
+\subsec University
+
+\subsubsec ~~Departmental
+
+\inpar {1982-} {.75in}
+Member, Information Processing Field Committee.
+\inpar {1982-90} {.75in}
+Member, Theory Field Committee.
+\inpar {1982-84} {.75in}
+Organizer, weekly AI discussion group (with Nau and Weiser)
+\inpar {1983} {.75in}
+Colloquium Host for Pat Hayes.
+\inpar {1983} {.75in}
+Theory Representative, August Comprehensive Exam Committee.
+\inpar {1983-4} {.75in}
+Member, Committee to revise the Comprehensive Exam Structure.
+\inpar {1983-4} {.75in}
+Organizer, Bi-Weekly Discussion Group on Artificial Intelligence.
+\inpar {1985} {.75in}
+Member, Committee to revise 200-level courses.
+\inpar {1985} {.75in}
+Member, Committee on Technical Reports.
+\inpar {1985} {.75in}
+Theory Representative, January Comprehensive Exam Committee.
+\inpar {1986} {.75in}
+Colloquium Host for Hector Levesque.
+\inpar {1986} {.75in}
+Member, Ad Hoc Committee to organize Faculty Retreat.
+\inpar {1986-8} {.75in}
+Organizer, Departmental Weekly On-Line Bulletin of Events.
+\inpar {1986-7} {.75in}
+Chair, AI Field Subcommittee.
+\inpar {1987} {.75in}
+Colloquium Host for Drew McDermott.
+\inpar {1987-8} {.75in}
+Chair, Committee for High School Day '88.
+\inpar {1987-8} {.75in}
+Liaison for Mathematics, Linguistics, Philosophy, and Cognitive Studies.
+\inpar {1989-90} {.75in}
+IP Comprehensive Examination Coordinator.
+\inpar {1989-90} {.75in}
+Chair, IP Field Committee.
+\inpar {1989-90} {.75in}
+Faculty advisor of student ACM chapter.
+\inpar {1990-91} {.75in}
+Member, New Building Committee.
+\inpar {1990-91} {.75in}
+Chair, Ad Hoc Committee to Re-evaluate the Comprehensive Exam Structure
+\inpar {1992} {.75in}
+Committee on Professional Master's Degree.
+\inpar {1992} {.75in}
+AI Comprehensive Examination Coordinator.
+\inpar {1993-95} {.75in}
+Graduate Studies Committee, advisor on minority students
+\inpar {1993-94} {.75in}
+Dept Representative, College Diversity Committee
+\inpar {1994-95} {.75in}
+Dept Retention/Graduation Coordinator, Office of Academic Affairs
+\inpar {1994-95} {.75in}
+Ad Hoc Committee on Instructor Tenure Criteria
+\inpar {1995-96} {.75in}
+Graduate Admissions Committee
+\inpar {1995} {.75in}
+Ad Hoc Committee on Communication Skills
+\inpar{1995-96} {.75in}
+Chair, AI Field Committee
+\inpar{1995-96} {.75in}
+Member, Academic Evaluation Committee
+\inpar{1995-97} {.75in}
+Chair, Colloquium Series
+\inpar{1997-98} {.75in}
+General Editor, CSD Annual Report
+\inpar {2000-01} {.75in}
+Chair, AI Field Committee.
+\inpar {2000-} {.75in}
+Co-Chair, Honors Program
+\inpar {2000-} {.75in}
+Senate Representative
+\inpar {2002} {.75in}
+Ad Hoc Committee on Publicity
+\inpar {2003-} {.75in}
+Create/maintain web page for CS Undergraduate Research
+\inpar {2004} {.75in}
+Graduate Admissions Committee
+\inpar {2004} {.75in}
+Teaching Evaluation Committee
+\inpar {2004-7} {.75in}
+Chair, AI Field Committee
+
+\subsubsec ~~College
+
+\inpar {1983-4} {.75in}
+Member, organizing committee for the special year in Logic and Theoretical
+Computer Science, Mathematics Department.
+\inpar {1984-8} {.75in}
+Co-organizer, Joint Robot Project, with Departments of Computer Science,
+Electrical Engineering, Mechanical Engineering, and the Center for
+Automation Research.
+\inpar {1986} {.75in}
+Member, Ad Hoc Hearing Board on Academic Dishonesty.
+\inpar {1989-} {.75in}
+Member, Committee for Cognitive Studies
+\inpar {1992-3} {.75in}
+Member, College Space Committee
+\inpar {1993-4} {.75in}
+Demo organizer, AI Day (UMIACS, CSD, CFAR)
+\inpar {1995-} {.75in}
+Co-organizer, Logic and AI Seminar (UMIACS)
+\inpar {2003-4} {.75in}
+Ad Hoc Committee on Electronic FAR (Faculty Activity Report)
+
+\subsubsec ~~Campus and University
+
+\inpar {1983} {.75in}
+Department Representative, United Way Campaign
+\inpar {1984-5} {.75in}
+Co-organizer, Study Group on Cognitive Science.
+\inpar {1986-7} {.75in}
+Equal Employment Opportunity Officer, UMIACS.
+\inpar {1988} {.75in}
+Member, Minority Recruiting Committee, UMIACS.
+\inpar {1990-97} {.75in}
+Co-organizer, UMCP Cognitive Science Electronic Mailing List.
+\inpar {1990-91} {.75in}
+Department Representative, Faculty Senate
+\inpar {1990} {.75in}
+Department Liaison and Steering Committee, Neuroscience Center
+\inpar {1993} {.75in}
+Participant in external review of UMCP Philosophy Department
+\inpar {1993-6} {.75in}
+Member, General Research Board Committee
+\inpar {1997} {.75in}
+Participant in external review of UMCP Linguistics Department
+\inpar {1999-} {.75in}
+Gemstone mentor
+\inpar {2003-} {.75in}
+Member, UMCP Graduate Council
+\inpar {2004-} {.75in}
+Member, PCC for Graduate Council
+\inpar {2004-} {.75in}
+Member, NACS Curriculum Committee
+
+\subsec External
+
+\inpar {1995} {.75in}
+Member of College Park Ad Hoc Working Group for Town-Center and
+Metro Planning
+
+\inpar {1995-6} {.75in}
+Planning and execution of seminars for high school seniors at Prince
+William County Schools, especially with regard to computer science and
+cognitive science, and also in debate competitions.
+
+\inpar {1997} {.75in}
+Mentor for Westinghouse Competition project by Mr.~Jason Ernst of
+Montgomery Blair High School. His project was awarded a semifinalist
+position nationwide, one of 300 such out of over 1500 projects entered.
+
+\inpar {2000} {.75in}
+Science Fair Judge, University Park Elementary School.
+
+\inpar {2003-} {.75in}
+Assistant Scoutmaster, Boy Scout Troop 214.
+\bye
+

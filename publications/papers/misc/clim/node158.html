@@ -1,0 +1,193 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 99.1 release (March 30, 1999)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Output Recording</TITLE>
+<META NAME="description" CONTENT="Output Recording">
+<META NAME="keywords" CONTENT="clim">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v99.1 release">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="clim.css">
+
+<LINK REL="next" HREF="node173.html">
+<LINK REL="previous" HREF="node147.html">
+<LINK REL="up" HREF="node146.html">
+<LINK REL="next" HREF="node159.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2915"
+ HREF="node159.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/icons/next_motif.gif"></A> 
+<A NAME="tex2html2911"
+ HREF="node146.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/icons/up_motif.gif"></A> 
+<A NAME="tex2html2905"
+ HREF="node157.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/icons/previous_motif.gif"></A> 
+<A NAME="tex2html2913"
+ HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/icons/contents_motif.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html2916"
+ HREF="node159.html">Output Records</A>
+<B> Up:</B> <A NAME="tex2html2912"
+ HREF="node146.html">Extended Stream Output Facilities</A>
+<B> Previous:</B> <A NAME="tex2html2906"
+ HREF="node157.html">Buffering of Output</A>
+ &nbsp <B>  <A NAME="tex2html2914"
+ HREF="node1.html">Contents</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION06200000000000000000"></A>
+<A NAME="output-recording"></A>
+<BR>
+Output Recording
+</H1>
+
+<P>
+CLIM provides a mechanism whereby output (textual and graphical) may be captured
+into an <I> output history</I><A NAME="17828"></A> for later replay on the same stream.  This
+mechanism serves as the basis for many other tools, such as the formatted output
+and presentation mechanisms described elsewhere.
+
+<P>
+The output recording facility is layered on top of the graphics and text output
+protocols.  It works by intercepting the operations in the graphics and text
+output protocols, and saving information about these operations in objects
+called <I> output records</I><A NAME="17830"></A>.  In general, an output record is a kind of
+display list, that is, a collection of instructions for drawing something on a
+stream.  Some output records may have <I> children</I><A NAME="17832"></A>, that is, a collection
+of inferior output records.  Other output records, which are called
+<I> displayed output records</I><A NAME="17834"></A>, correspond directly to displayed information
+on the stream, and do not have children.
+
+<P>
+If you think of output records being arranged in a tree, output records are the
+non-leaf nodes of the tree, for example, the top-level output history of an
+output recording stream.  Displayed output records are all of the leaf nodes in
+the tree, for example, displayed text and graphics records.
+
+<P>
+Displayed output records must record the state of the supplied drawing options
+at the instant the output record is created, as follows.  The ink supplied by
+the programmer must be captured without resolving indirect inks; this is so that
+a user can later change the default foreground and background ink of the medium
+and have that change affect the already-created output records during replay.
+The specified ``user'' transformation (composed with the medium transformation),
+clipping region, and line style must be captured in the output record;
+subsequent replaying of the record under a new user transformation, clipping
+region, or line style will not affect the replayed output.  CLIM implementation
+are permitted to capture the text style either fully merged against the medium's
+default, or not; in the former case, subsequent changes to the medium's default
+text style will not affect replaying the record, but in the latter case changing
+the default text style will affect replaying.
+
+<P>
+A CLIM stream that supports output recording has an output history object, which
+is a special kind of output record that supports some other operations.  CLIM
+defines a standard set of output history implementations and a standard set of
+output record types.
+
+<P>
+The output recording mechanism is defined so as to permit application specific
+or host window system specific implementations of the various recording
+protocols.  CLIM implementations should provide several types of standard output
+records with different characteristics for search, storage, and retrieval.  Two
+examples are ``sequence'' output records (which store elements in a sequence,
+and whose insertion and retrieval complexity is O(n)) and ``tree'' output
+records (which store elements in some sort of tree based on the location of the
+element, and whose insertion and retrieval complexity is O(n&nbsp;log&nbsp;n)).
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
+
+<UL>
+<LI><A NAME="tex2html2917"
+ HREF="node159.html">Output Records</A>
+<UL>
+<LI><A NAME="tex2html2918"
+ HREF="node160.html">The Basic Output Record Protocol</A>
+<LI><A NAME="tex2html2919"
+ HREF="node161.html">The Output Record ``Database'' Protocol</A>
+<LI><A NAME="tex2html2920"
+ HREF="node162.html">Output Record Change Notification Protocol</A>
+</UL>
+<LI><A NAME="tex2html2921"
+ HREF="node163.html">Types of Output Records</A>
+<UL>
+<LI><A NAME="tex2html2922"
+ HREF="node164.html">Standard Output Record Classes</A>
+<LI><A NAME="tex2html2923"
+ HREF="node165.html">Graphics Displayed Output Records</A>
+<LI><A NAME="tex2html2924"
+ HREF="node166.html">Text Displayed Output Record</A>
+<LI><A NAME="tex2html2925"
+ HREF="node167.html">Top-Level Output Records</A>
+</UL>
+<LI><A NAME="tex2html2926"
+ HREF="node168.html">Output Recording Streams</A>
+<UL>
+<LI><A NAME="tex2html2927"
+ HREF="node169.html">The Output Recording Stream Protocol</A>
+<LI><A NAME="tex2html2928"
+ HREF="node170.html">Graphics Output Recording</A>
+<LI><A NAME="tex2html2929"
+ HREF="node171.html">Text Output Recording</A>
+<LI><A NAME="tex2html2930"
+ HREF="node172.html">Output Recording Utilities</A>
+</UL></UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2915"
+ HREF="node159.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/icons/next_motif.gif"></A> 
+<A NAME="tex2html2911"
+ HREF="node146.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/icons/up_motif.gif"></A> 
+<A NAME="tex2html2905"
+ HREF="node157.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/icons/previous_motif.gif"></A> 
+<A NAME="tex2html2913"
+ HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/icons/contents_motif.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html2916"
+ HREF="node159.html">Output Records</A>
+<B> Up:</B> <A NAME="tex2html2912"
+ HREF="node146.html">Extended Stream Output Facilities</A>
+<B> Previous:</B> <A NAME="tex2html2906"
+ HREF="node157.html">Buffering of Output</A>
+ &nbsp <B>  <A NAME="tex2html2914"
+ HREF="node1.html">Contents</A></B> 
+<!--End of Navigation Panel-->
+<ADDRESS>
+<I>&</I>
+<BR><I>2001-06-12</I>
+</ADDRESS>
+</BODY>
+</HTML>

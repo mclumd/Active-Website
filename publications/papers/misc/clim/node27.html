@@ -1,0 +1,164 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 99.1 release (March 30, 1999)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Rectangles</TITLE>
+<META NAME="description" CONTENT="Rectangles">
+<META NAME="keywords" CONTENT="clim">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v99.1 release">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="clim.css">
+
+<LINK REL="next" HREF="node29.html">
+<LINK REL="previous" HREF="node25.html">
+<LINK REL="up" HREF="node20.html">
+<LINK REL="next" HREF="node28.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html1130"
+ HREF="node28.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/icons/next_motif.gif"></A> 
+<A NAME="tex2html1126"
+ HREF="node20.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/icons/up_motif.gif"></A> 
+<A NAME="tex2html1120"
+ HREF="node26.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/icons/previous_motif.gif"></A> 
+<A NAME="tex2html1128"
+ HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/icons/contents_motif.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html1131"
+ HREF="node28.html">The Rectangle Protocol</A>
+<B> Up:</B> <A NAME="tex2html1127"
+ HREF="node20.html">Other Region Types</A>
+<B> Previous:</B> <A NAME="tex2html1121"
+ HREF="node26.html">The Line Protocol</A>
+ &nbsp <B>  <A NAME="tex2html1129"
+ HREF="node1.html">Contents</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H2><A NAME="SECTION03124000000000000000"></A> 
+<A NAME="rect"></A>
+<BR>
+Rectangles
+</H2>
+
+<P>
+Rectangles whose edges are parallel to the coordinate axes are a special case of
+polygon that can be specified completely by four real numbers
+(<I> x1</I>,<I> y1</I>,<I> x2</I>,<I> y2</I>).  They are <I> not</I> closed under general
+affine transformations (although they are closed under rectilinear
+transformations).
+
+<P>
+rectangle
+
+<P>
+The protocol class that corresponds to a mathematical rectangle, that is,
+rectangular polygons whose sides are parallel to the coordinate axes.  This is a
+subclass of polygon.
+a rectangle rectangle
+
+<P>
+rectanglep object
+
+<P>
+Returns <I> true</I> if <I> object</I> is a <I> rectangle</I>, otherwise returns
+<I> false</I>.
+
+<P>
+standard-rectangle
+
+<P>
+An instantiable class that implements an axis-aligned rectangle.  This is a
+subclass of rectangle.  This is the class that make-rectangle and
+make-rectangle* instantiate.
+Members of this class are immutable. 
+<P>
+make-rectangle  point1 point2
+make-rectangle* x1 y1 x2 y2
+
+<P>
+Returns an object of class standard-rectangle whose edges are parallel to
+the coordinate axes.  One corner is at the <I> point</I> <I> point1</I> (or the
+position (<I> x1</I>,<I> y1</I>)) and the opposite corner is at the <I> point</I>
+<I> point2</I> (or the position (<I> x2</I>,<I> y2</I>)).  There are no ordering
+constraints among <I> point1</I> and <I> point2</I> (or <I> x1</I> and <I> x2</I>, and
+<I> y1</I> and <I> y2</I>).
+
+<P>
+Most CLIM implementations will choose to represent rectangles in the most
+efficient way, such as by storing the coordinates of two opposing corners of the
+rectangle.  Because this representation is not sufficient to represent the
+result of arbitrary transformations of arbitrary rectangles, CLIM is allowed to
+return a polygon as the result of such a transformation.  (The most general
+class of transformations that is guaranteed to always turn a rectangle into
+another rectangle is the class of transformations that satisfy
+rectilinear-transformation-p.)
+
+<P>
+This function is permitted to capture its mutable inputs; the
+consequences of modifying those objects are unspecified. 
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
+
+<UL>
+<LI><A NAME="tex2html1132"
+ HREF="node28.html">The Rectangle Protocol</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html1130"
+ HREF="node28.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/icons/next_motif.gif"></A> 
+<A NAME="tex2html1126"
+ HREF="node20.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/icons/up_motif.gif"></A> 
+<A NAME="tex2html1120"
+ HREF="node26.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/icons/previous_motif.gif"></A> 
+<A NAME="tex2html1128"
+ HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/icons/contents_motif.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html1131"
+ HREF="node28.html">The Rectangle Protocol</A>
+<B> Up:</B> <A NAME="tex2html1127"
+ HREF="node20.html">Other Region Types</A>
+<B> Previous:</B> <A NAME="tex2html1121"
+ HREF="node26.html">The Line Protocol</A>
+ &nbsp <B>  <A NAME="tex2html1129"
+ HREF="node1.html">Contents</A></B> 
+<!--End of Navigation Panel-->
+<ADDRESS>
+<I>&</I>
+<BR><I>2001-06-12</I>
+</ADDRESS>
+</BODY>
+</HTML>

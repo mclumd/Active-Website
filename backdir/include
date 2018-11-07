@@ -1,0 +1,41 @@
+From bplecs@cs.umd.edu Sat Sep  6 20:59:32 2003
+Date: Sat, 6 Sep 2003 20:19:33 -0400 (EDT)
+From: Brad Plecs <bplecs@cs.umd.edu>
+To: Don Perlis <perlis@cs.umd.edu>
+Cc: staff <staff@cs.umd.edu>
+Subject: Re: html question
+
+
+> I've been looking thru some html tutorials to find the answer to a
+> question, but no avail.  Here is the question:  is there a way to
+> "include" one html file in another?  That is, I want to have dozens of web
+> pages with different info, but ALL with the exact SAME info at the
+> top and left side.  THe trouble is that then if I ever want to CHANGE
+> to top or side I have to repeat the same edit on each of the dozens of
+> files.
+
+You want a server-side include.  
+
+Rename the file in which you want to include the common data as
+"page.shtml" instead of just "page.html".  The server only knows to
+interpret the include commands for .shtml files.
+
+Inside page.shtml, include the subfile like so: 
+
+	<!--#include virtual="subfile.html"-->
+
+...and that should do what you want. 
+
+You can see an example in most of the departmental webpages; I just looked at
+the class webpage,
+
+	/fs/www/class/index.shtml
+
+for this one. 
+
+Let us know if you need additional help, 
+BP 
+
+
+-- 
+bplecs@cs.umd.edu

@@ -1,0 +1,115 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 99.1 release (March 30, 1999)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Input Editing and Completion Facilities</TITLE>
+<META NAME="description" CONTENT="Input Editing and Completion Facilities">
+<META NAME="keywords" CONTENT="clim">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v99.1 release">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="clim.css">
+
+<LINK REL="next" HREF="node321.html">
+<LINK REL="previous" HREF="node319.html">
+<LINK REL="up" HREF="node304.html">
+<LINK REL="next" HREF="node321.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html5084"
+ HREF="node321.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/icons/next_motif.gif"></A> 
+<A NAME="tex2html5080"
+ HREF="node304.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/icons/up_motif.gif"></A> 
+<A NAME="tex2html5074"
+ HREF="node319.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/icons/previous_motif.gif"></A> 
+<A NAME="tex2html5082"
+ HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/icons/contents_motif.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html5085"
+ HREF="node321.html">Menus</A>
+<B> Up:</B> <A NAME="tex2html5081"
+ HREF="node304.html">Changes from CLIM 1.0</A>
+<B> Previous:</B> <A NAME="tex2html5075"
+ HREF="node319.html">Presentation Types</A>
+ &nbsp <B>  <A NAME="tex2html5083"
+ HREF="node1.html">Contents</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H4><A NAME="SECTION095000160000000000000">
+Input Editing and Completion Facilities</A>
+</H4>
+
+<P>
+
+<UL>
+<LI>*activation-characters*, *standard-activation-characters*,
+with-activation-characters, and activation-character-p have been
+renamed to *activation-gestures*, *standard-activation-gestures*,
+with-activation-gestures, and activation-gesture-p.  Compatibility
+functions will remain for with-activation-characters and
+activation-character-p, but since the variables were not previously
+documented, no compatibility will be provided for them.
+
+<P>
+ </LI>
+<LI>*blip-characters*, with-blip-characters, and
+blip-character-p have been renamed to *blip-gestures*,
+with-blip-gestures, and blip-gesture-p.  Compatibility functions will
+remain for with-blip-characters and blip-character-p, but since
+*blip-characters* was not previously documented, no compatibility will be
+provided.
+
+<P>
+ </LI>
+<LI>*abort-characters* has been renamed to *abort-gestures*.
+
+<P>
+ </LI>
+<LI>*completion-characters*, *help-characters*, and
+*possibilities-characters* have been renamed to *completion-gestures*,
+*help-gestures*, and *possibilities-gestures*.
+
+<P>
+ </LI>
+<LI>Input editing streams no longer use the interactive stream class.
+Instead, interactive streams are defined to be any stream that can potentially
+support input editing, and the class input-editing-stream now refers to
+input editor streams.
+
+<P>
+ </LI>
+<LI>input-editor-buffer, input-position, insertion-pointer, and
+rescanning-p have been renamed to stream-input-buffer,
+stream-scan-pointer, stream-insertion-pointer, and
+stream-rescanning-p.  Compatibility functions will be provided.</LI>
+</UL>
+
+<P>
+<BR><HR>
+<ADDRESS>
+<I>&</I>
+<BR><I>2001-06-12</I>
+</ADDRESS>
+</BODY>
+</HTML>

@@ -1,0 +1,6 @@
+echo $1
+cat $1 | \
+sed  -e s/"<BODY .*"/" "/g \
+| cat > foo ;\
+mv foo $1
+

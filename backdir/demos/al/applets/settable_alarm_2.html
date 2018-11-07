@@ -1,0 +1,42 @@
+<html>
+<head>
+<title>
+Settable alarm II  example
+</title>
+</head>
+
+<body bgcolor="#ffffee" text="#000000" link="#ff0000" vlink="0000ff">
+
+<h3>Settable alarm II example </h3>
+<p>
+<h4>Description: </h4>
+The objective is similar to that of settable alarm I, but we specify
+it differently. This time we say: if lunch is at T, then add a formula
+that will assert lunch whenever it is T. THe difference here is that
+the now has a constant argument so that we do not instantiate several
+copies of the formula as in settable alarm I.
+
+<p>
+<a href="settable_alarm_2_applet.html" target="History"> View the history applet</a>
+<br>
+<a href="../histories/settable_alarm_2.pl"> Alma specification</a>
+<p>
+<h4>Run: </h4>
+<ul>
+<li> Initially nothing happens since the antecedent of the formula is
+lunch_at(X) and Alma does not know that.
+<li> At step 4 we assert that lunch is at 12.
+<li> This results, at step 6, in an assertion that whenever it is 12,
+then we should assert that it is lunch time.
+<li> Nothing happens until time 12.
+<li> At time 13, lunch appears in the KB.
+</ul>
+<p>
+<h4>Note:</h4>
+Compare with Settable alarm I.
+
+<p>
+<hr>
+<a href="mailto:kpurang@cs.umd.edu">kpurang@cs.umd.edu</a>
+</html>
+

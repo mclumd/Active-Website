@@ -1,0 +1,20 @@
+<!--#include virtual="../include.shtml"-->
+<h2>Misidentification Errors</h2>
+<p>An example of a misidentification error is recognizing an object (e.g., an
+enemy plane in restricted airspace) and drawing various inferences
+about it (it is going too fast to force down, it must be shot down)
+and then discovering it is not an enemy plane after all, and that the
+belief that it must be shot down should be rejected, whereas the belief
+that it is going too fast to force down should not be rejected (it
+still is violating restricted airspace and if it cannot be forced down
+    then it still must be dealt with somehow but not fired upon).</p>
+<p>
+We have found automated solutions to problems of this sort using active
+logics, where there is no &ldquo;canned&rdquo; solution as to what to do when a
+plane is first misidentified, conclusions are drawn, then the error is
+found. We have general inference rules that make use of the history
+and also of the <i>Now</i> predicate, that allow the system to figure out on
+its own what past conclusions it should reject and which to keep, on
+    the basis of its knowledge about the world. </p>
+<!-- +++++++++++++++++++ -->
+<!--#include virtual="../footer.shtml"-->

@@ -1,0 +1,252 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 99.1 release (March 30, 1999)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Output Properties</TITLE>
+<META NAME="description" CONTENT="Output Properties">
+<META NAME="keywords" CONTENT="clim">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v99.1 release">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="clim.css">
+
+<LINK REL="next" HREF="node64.html">
+<LINK REL="previous" HREF="node62.html">
+<LINK REL="up" HREF="node62.html">
+<LINK REL="next" HREF="node64.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html1635"
+ HREF="node64.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/icons/next_motif.gif"></A> 
+<A NAME="tex2html1631"
+ HREF="node62.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/icons/up_motif.gif"></A> 
+<A NAME="tex2html1625"
+ HREF="node62.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/icons/previous_motif.gif"></A> 
+<A NAME="tex2html1633"
+ HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/icons/contents_motif.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html1636"
+ HREF="node64.html">Output Protocol Functions</A>
+<B> Up:</B> <A NAME="tex2html1632"
+ HREF="node62.html">Output Protocol</A>
+<B> Previous:</B> <A NAME="tex2html1626"
+ HREF="node62.html">Output Protocol</A>
+ &nbsp <B>  <A NAME="tex2html1634"
+ HREF="node1.html">Contents</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H2><A NAME="SECTION04331000000000000000">
+Output Properties</A>
+</H2>
+
+<P>
+Each sheet retains some output state that logically describes how output is to
+be rendered on its window.  Such information as the foreground and background
+ink, line thickness, and transformation to be used during drawing are provided
+by this state.  This state may be stored in a <I> medium</I><A NAME="8577"></A> associated with
+the sheet itself, be derived from a parent, or may have some global default,
+depending on the sheet itself.
+
+<P>
+If a sheet is mute for output, it is an error to set any of these values.
+
+<P>
+medium
+
+<P>
+The protocol class that corresponds to the output state for some kind of sheet.
+There is no single advertised standard medium class.
+a medium medium
+
+<P>
+mediump object
+
+<P>
+Returns <I> true</I> if <I> object</I> is a <I> medium</I>, otherwise returns
+<I> false</I>.
+
+<P>
+The following generic functions comprise the basic medium protocol.  All mediums
+must implement methods for these generic functions.  Often, a sheet class that
+supports the output protocol will implement a ``trampoline'' method that passes
+the operation on to sheet-medium of the sheet.
+
+<P>
+medium-foreground medium
+(setf medium-foreground) design medium
+
+<P>
+Returns (and, with setf, sets) the current foreground ink for the
+<I> medium</I> <I> medium</I>. This is described in detail in
+Chapter&nbsp;<A HREF="node92.html#drawing-options">10</A>.
+
+<P>
+medium-background medium
+(setf medium-background) design medium
+
+<P>
+Returns (and, with setf, sets) the current background ink for the
+<I> medium</I> <I> medium</I>.  This is described in detail in
+Chapter&nbsp;<A HREF="node92.html#drawing-options">10</A>.
+
+<P>
+medium-ink medium
+(setf medium-ink) design medium
+
+<P>
+Returns (and, with setf, sets) the current drawing ink for the
+<I> medium</I> <I> medium</I>.  This is described in detail in
+Chapter&nbsp;<A HREF="node92.html#drawing-options">10</A>.
+
+<P>
+medium-transformation medium
+(setf medium-transformation) transformation medium
+
+<P>
+Returns (and, with setf, sets) the ``user'' transformation that converts
+the coordinates presented to the drawing functions by the programmer to the
+<I> medium</I> <I> medium</I>'s coordinate system. By default, it is the identity
+transformation.  This is described in detail in Chapter&nbsp;<A HREF="node92.html#drawing-options">10</A>.
+
+<P>
+medium-clipping-region medium
+(setf medium-clipping-region) region medium
+
+<P>
+Returns (and, with setf, sets) the clipping region that encloses all output
+performed on the <I> medium</I> <I> medium</I>.  It is returned and set in user
+coordinates.  That is, to convert the user clipping region to medium
+coordinates, it must be transformed by the value of medium-transformation.
+For example, the values returned by
+
+<P>
+ 
+<PRE>
+
+(let (cr1 cr2)
+  ;; Ensure that the sheet's clipping region and transformation will be reset:
+  (with-drawing-options (sheet :transformation +identity-transformation+
+                               :clipping-region +everywhere+)
+    (setf (medium-clipping-region sheet) (make-rectangle* 0 0 10 10))
+    (setf (medium-transformation sheet) (clim:make-scaling-transformation 2 2))
+    (setf cr1 (medium-clipping-region sheet))
+    (setf (medium-clipping-region sheet) (make-rectangle* 0 0 10 10))
+    (setf (medium-transformation sheet) +identity-transformation+)
+    (setf cr2 (medium-clipping-region sheet))
+    (values cr1 cr2)))
+</PRE>
+
+<P>
+are two rectangles.  The first one has edges of (0,0,5,5), while the second one
+has edges of (0,0,20,20).
+
+<P>
+By default, the user clipping region is the value of +everywhere+.
+
+<P>
+SWM What are ``user coordinates''?  We need to define all of the
+coordinate systems in one place: device, window, stream, etc.
+
+<P>
+medium-line-style medium
+(setf medium-line-style) line-style medium
+
+<P>
+Returns (and, with setf, sets) the current line style for the <I> medium</I>
+<I> medium</I>.  This is described in detail in Chapter&nbsp;<A HREF="node92.html#drawing-options">10</A> and
+Section&nbsp;<A HREF="node97.html#line-styles">10.3</A>.
+
+<P>
+medium-text-style medium
+(setf medium-text-style) text-style medium
+
+<P>
+Returns (and, with setf, sets) the current text style for the <I> medium</I>
+<I> medium</I> of any textual output that may be displayed on the window.  This is
+described in detail in Chapter&nbsp;<A HREF="node92.html#drawing-options">10</A>.
+
+<P>
+medium-default-text-style medium
+(setf medium-default-text-style) text-style medium
+
+<P>
+Returns (and, with setf, sets) the default text style for output on the
+<I> medium</I> <I> medium</I>.  This is described in detail in
+Chapter&nbsp;<A HREF="node92.html#drawing-options">10</A>.
+
+<P>
+medium-merged-text-style medium
+
+<P>
+Returns the actual text style used in rendering text on the <I> medium</I>
+<I> medium</I>.  It returns the result of
+
+<P>
+ 
+<PRE>
+ 
+(merge-text-styles (medium-text-style medium)
+                   (medium-default-text-style medium))
+</PRE>
+
+<P>
+Thus, those components of the current text style that are not nil will
+replace the defaults from medium's default text style.  Unlike the preceding
+text style function, medium-merged-text-style is read-only.
+
+<P>
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html1635"
+ HREF="node64.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/icons/next_motif.gif"></A> 
+<A NAME="tex2html1631"
+ HREF="node62.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/icons/up_motif.gif"></A> 
+<A NAME="tex2html1625"
+ HREF="node62.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/icons/previous_motif.gif"></A> 
+<A NAME="tex2html1633"
+ HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/icons/contents_motif.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html1636"
+ HREF="node64.html">Output Protocol Functions</A>
+<B> Up:</B> <A NAME="tex2html1632"
+ HREF="node62.html">Output Protocol</A>
+<B> Previous:</B> <A NAME="tex2html1626"
+ HREF="node62.html">Output Protocol</A>
+ &nbsp <B>  <A NAME="tex2html1634"
+ HREF="node1.html">Contents</A></B> 
+<!--End of Navigation Panel-->
+<ADDRESS>
+<I>&</I>
+<BR><I>2001-06-12</I>
+</ADDRESS>
+</BODY>
+</HTML>

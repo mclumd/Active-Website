@@ -1,0 +1,137 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 99.1 release (March 30, 1999)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>The Polygon and Polyline Protocol</TITLE>
+<META NAME="description" CONTENT="The Polygon and Polyline Protocol">
+<META NAME="keywords" CONTENT="clim">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v99.1 release">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="clim.css">
+
+<LINK REL="previous" HREF="node23.html">
+<LINK REL="up" HREF="node23.html">
+<LINK REL="next" HREF="node25.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html1095"
+ HREF="node25.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/icons/next_motif.gif"></A> 
+<A NAME="tex2html1091"
+ HREF="node23.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/icons/up_motif.gif"></A> 
+<A NAME="tex2html1087"
+ HREF="node23.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/icons/previous_motif.gif"></A> 
+<A NAME="tex2html1093"
+ HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/icons/contents_motif.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html1096"
+ HREF="node25.html">Lines</A>
+<B> Up:</B> <A NAME="tex2html1092"
+ HREF="node23.html">Polygons and Polylines</A>
+<B> Previous:</B> <A NAME="tex2html1088"
+ HREF="node23.html">Polygons and Polylines</A>
+ &nbsp <B>  <A NAME="tex2html1094"
+ HREF="node1.html">Contents</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H3><A NAME="SECTION03122100000000000000">
+The Polygon and Polyline Protocol</A>
+</H3>
+
+<P>
+The following generic functions comprise the polygon and polyline protocol.  All
+classes that are subclasses of either polygon or polyline must
+implement methods for these generic functions.  Some of the functions below take
+an argument named <I> polygon-or-polyline</I>; this argument may be either a
+<I> polygon</I> or a <I> polyline</I>.
+
+<P>
+polygon-points polygon-or-polyline
+
+<P>
+Returns a sequence of points that specify the segments in <I> polygon-or-polyline</I>.
+This function returns objects that reveal CLIM's internal state;
+do not modify those objects. 
+<P>
+map-over-polygon-coordinates function polygon-or-polyline
+
+<P>
+Applies <I> function</I> to all of the coordinates of the vertices of
+<I> polygon-or-polyline</I>.  <I> function</I> is a function of two arguments, the
+1#1 and 2#2 coordinates of the vertex; it has dynamic extent.
+
+<P>
+map-over-polygon-segments function polygon-or-polyline
+
+<P>
+Applies <I> function</I> to the segments that compose <I> polygon-or-polyline</I>.
+<I> function</I> is a function of four arguments, the 1#1 and 2#2 coordinates of
+the start of the segment, and the 1#1 and 2#2 coordinates of the end of the
+segment; it has dynamic extent.  When map-over-polygon-segments is called
+on a closed polyline, it will call <I> function</I> on the segment that connects
+the last point back to the first point.
+
+<P>
+polyline-closed polyline
+
+<P>
+Returns <I> true</I> if the polyline <I> polyline</I> is closed, otherwise returns
+<I> false</I>.  This function need be implemented only for <I> polylines</I>, not
+for <I> polygons</I>.
+
+<P>
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html1095"
+ HREF="node25.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/icons/next_motif.gif"></A> 
+<A NAME="tex2html1091"
+ HREF="node23.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/icons/up_motif.gif"></A> 
+<A NAME="tex2html1087"
+ HREF="node23.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/icons/previous_motif.gif"></A> 
+<A NAME="tex2html1093"
+ HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/icons/contents_motif.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html1096"
+ HREF="node25.html">Lines</A>
+<B> Up:</B> <A NAME="tex2html1092"
+ HREF="node23.html">Polygons and Polylines</A>
+<B> Previous:</B> <A NAME="tex2html1088"
+ HREF="node23.html">Polygons and Polylines</A>
+ &nbsp <B>  <A NAME="tex2html1094"
+ HREF="node1.html">Contents</A></B> 
+<!--End of Navigation Panel-->
+<ADDRESS>
+<I>&</I>
+<BR><I>2001-06-12</I>
+</ADDRESS>
+</BODY>
+</HTML>

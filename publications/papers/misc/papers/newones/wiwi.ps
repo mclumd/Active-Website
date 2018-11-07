@@ -1,0 +1,1336 @@
+%!PS-Adobe-3.0
+%%BoundingBox: 24 24 588 768
+%%Title: Enscript Output
+%%For: K. Purang
+%%Creator: GNU enscript 1.6.1
+%%CreationDate: Wed Jan 17 11:31:39 2001
+%%Orientation: Portrait
+%%Pages: (atend)
+%%DocumentMedia: Letter 612 792 0 () ()
+%%DocumentNeededResources: (atend)
+%%EndComments
+%%BeginProlog
+%%BeginResource: procset Enscript-Prolog 1.6 1
+%
+% Procedures.
+%
+
+/_S {	% save current state
+  /_s save def
+} def
+/_R {	% restore from saved state
+  _s restore
+} def
+
+/S {	% showpage protecting gstate
+  gsave
+  showpage
+  grestore
+} bind def
+
+/MF {	% fontname newfontname -> -	make a new encoded font
+  /newfontname exch def
+  /fontname exch def
+
+  /fontdict fontname findfont def
+  /newfont fontdict maxlength dict def
+
+  fontdict {
+    exch
+    dup /FID eq {
+      % skip FID pair
+      pop pop
+    } {
+      % copy to the new font dictionary
+      exch newfont 3 1 roll put
+    } ifelse
+  } forall
+
+  newfont /FontName newfontname put
+
+  % insert only valid encoding vectors
+  encoding_vector length 256 eq {
+    newfont /Encoding encoding_vector put
+  } if
+
+  newfontname newfont definefont pop
+} def
+
+/SF { % fontname width height -> -	set a new font
+  /height exch def
+  /width exch def
+
+  findfont
+  [width 0 0 height 0 0] makefont setfont
+} def
+
+/SUF { % fontname width height -> -	set a new user font
+  /height exch def
+  /width exch def
+
+  /F-gs-user-font MF
+  /F-gs-user-font width height SF
+} def
+
+/M {moveto} bind def
+/s {show} bind def
+
+/Box {	% x y w h -> -			define box path
+  /d_h exch def /d_w exch def /d_y exch def /d_x exch def
+  d_x d_y  moveto
+  d_w 0 rlineto
+  0 d_h rlineto
+  d_w neg 0 rlineto
+  closepath
+} def
+
+/bgs {	% x y height blskip gray str -> -	show string with bg color
+  /str exch def
+  /gray exch def
+  /blskip exch def
+  /height exch def
+  /y exch def
+  /x exch def
+
+  gsave
+    x y blskip sub str stringwidth pop height Box
+    gray setgray
+    fill
+  grestore
+  x y M str s
+} def
+
+% Highlight bars.
+/highlight_bars {	% nlines lineheight output_y_margin gray -> -
+  gsave
+    setgray
+    /ymarg exch def
+    /lineheight exch def
+    /nlines exch def
+
+    % This 2 is just a magic number to sync highlight lines to text.
+    0 d_header_y ymarg sub 2 sub translate
+
+    /cw d_output_w cols div def
+    /nrows d_output_h ymarg 2 mul sub lineheight div cvi def
+
+    % for each column
+    0 1 cols 1 sub {
+      cw mul /xp exch def
+
+      % for each rows
+      0 1 nrows 1 sub {
+        /rn exch def
+        rn lineheight mul neg /yp exch def
+        rn nlines idiv 2 mod 0 eq {
+	  % Draw highlight bar.  4 is just a magic indentation.
+	  xp 4 add yp cw 8 sub lineheight neg Box fill
+	} if
+      } for
+    } for
+
+  grestore
+} def
+
+% Line highlight bar.
+/line_highlight {	% x y width height gray -> -
+  gsave
+    /gray exch def
+    Box gray setgray fill
+  grestore
+} def
+
+% Column separator lines.
+/column_lines {
+  gsave
+    .1 setlinewidth
+    0 d_footer_h translate
+    /cw d_output_w cols div def
+    1 1 cols 1 sub {
+      cw mul 0 moveto
+      0 d_output_h rlineto stroke
+    } for
+  grestore
+} def
+
+% Column borders.
+/column_borders {
+  gsave
+    .1 setlinewidth
+    0 d_footer_h moveto
+    0 d_output_h rlineto
+    d_output_w 0 rlineto
+    0 d_output_h neg rlineto
+    closepath stroke
+  grestore
+} def
+
+% Do the actual underlay drawing
+/draw_underlay {
+  ul_style 0 eq {
+    ul_str true charpath stroke
+  } {
+    ul_str show
+  } ifelse
+} def
+
+% Underlay
+/underlay {	% - -> -
+  gsave
+    0 d_page_h translate
+    d_page_h neg d_page_w atan rotate
+
+    ul_gray setgray
+    ul_font setfont
+    /dw d_page_h dup mul d_page_w dup mul add sqrt def
+    ul_str stringwidth pop dw exch sub 2 div ul_h_ptsize -2 div moveto
+    draw_underlay
+  grestore
+} def
+
+/user_underlay {	% - -> -
+  gsave
+    ul_x ul_y translate
+    ul_angle rotate
+    ul_gray setgray
+    ul_font setfont
+    0 0 ul_h_ptsize 2 div sub moveto
+    draw_underlay
+  grestore
+} def
+
+% Page prefeed
+/page_prefeed {		% bool -> -
+  statusdict /prefeed known {
+    statusdict exch /prefeed exch put
+  } {
+    pop
+  } ifelse
+} def
+
+% Wrapped line markers
+/wrapped_line_mark {	% x y charwith charheight type -> -
+  /type exch def
+  /h exch def
+  /w exch def
+  /y exch def
+  /x exch def
+
+  type 2 eq {
+    % Black boxes (like TeX does)
+    gsave
+      0 setlinewidth
+      x w 4 div add y M
+      0 h rlineto w 2 div 0 rlineto 0 h neg rlineto
+      closepath fill
+    grestore
+  } {
+    type 3 eq {
+      % Small arrows
+      gsave
+        .2 setlinewidth
+        x w 2 div add y h 2 div add M
+        w 4 div 0 rlineto
+        x w 4 div add y lineto stroke
+
+        x w 4 div add w 8 div add y h 4 div add M
+        x w 4 div add y lineto
+	w 4 div h 8 div rlineto stroke
+      grestore
+    } {
+      % do nothing
+    } ifelse
+  } ifelse
+} def
+
+% EPSF import.
+
+/BeginEPSF {
+  /b4_Inc_state save def    		% Save state for cleanup
+  /dict_count countdictstack def	% Count objects on dict stack
+  /op_count count 1 sub def		% Count objects on operand stack
+  userdict begin
+  /showpage { } def
+  0 setgray 0 setlinecap
+  1 setlinewidth 0 setlinejoin
+  10 setmiterlimit [ ] 0 setdash newpath
+  /languagelevel where {
+    pop languagelevel
+    1 ne {
+      false setstrokeadjust false setoverprint
+    } if
+  } if
+} bind def
+
+/EndEPSF {
+  count op_count sub { pos } repeat	% Clean up stacks
+  countdictstack dict_count sub { end } repeat
+  b4_Inc_state restore
+} bind def
+
+% Check PostScript language level.
+/languagelevel where {
+  pop /gs_languagelevel languagelevel def
+} {
+  /gs_languagelevel 1 def
+} ifelse
+%%EndResource
+%%BeginResource: procset Enscript-Encoding-88591 1.6 1
+/encoding_vector [
+/.notdef      	/.notdef      	/.notdef      	/.notdef      	
+/.notdef      	/.notdef      	/.notdef      	/.notdef      	
+/.notdef      	/.notdef      	/.notdef      	/.notdef      	
+/.notdef      	/.notdef      	/.notdef      	/.notdef      	
+/.notdef      	/.notdef      	/.notdef      	/.notdef      	
+/.notdef      	/.notdef      	/.notdef      	/.notdef      	
+/.notdef      	/.notdef      	/.notdef      	/.notdef      	
+/.notdef      	/.notdef      	/.notdef      	/.notdef      	
+/space        	/exclam       	/quotedbl     	/numbersign   	
+/dollar       	/percent      	/ampersand    	/quoteright   	
+/parenleft    	/parenright   	/asterisk     	/plus         	
+/comma        	/hyphen       	/period       	/slash        	
+/zero         	/one          	/two          	/three        	
+/four         	/five         	/six          	/seven        	
+/eight        	/nine         	/colon        	/semicolon    	
+/less         	/equal        	/greater      	/question     	
+/at           	/A            	/B            	/C            	
+/D            	/E            	/F            	/G            	
+/H            	/I            	/J            	/K            	
+/L            	/M            	/N            	/O            	
+/P            	/Q            	/R            	/S            	
+/T            	/U            	/V            	/W            	
+/X            	/Y            	/Z            	/bracketleft  	
+/backslash    	/bracketright 	/asciicircum  	/underscore   	
+/quoteleft    	/a            	/b            	/c            	
+/d            	/e            	/f            	/g            	
+/h            	/i            	/j            	/k            	
+/l            	/m            	/n            	/o            	
+/p            	/q            	/r            	/s            	
+/t            	/u            	/v            	/w            	
+/x            	/y            	/z            	/braceleft    	
+/bar          	/braceright   	/tilde        	/.notdef      	
+/.notdef      	/.notdef      	/.notdef      	/.notdef      	
+/.notdef      	/.notdef      	/.notdef      	/.notdef      	
+/.notdef      	/.notdef      	/.notdef      	/.notdef      	
+/.notdef      	/.notdef      	/.notdef      	/.notdef      	
+/.notdef      	/.notdef      	/.notdef      	/.notdef      	
+/.notdef      	/.notdef      	/.notdef      	/.notdef      	
+/.notdef      	/.notdef      	/.notdef      	/.notdef      	
+/.notdef      	/.notdef      	/.notdef      	/.notdef      	
+/space        	/exclamdown   	/cent         	/sterling     	
+/currency     	/yen          	/brokenbar    	/section      	
+/dieresis     	/copyright    	/ordfeminine  	/guillemotleft	
+/logicalnot   	/hyphen       	/registered   	/macron       	
+/degree       	/plusminus    	/twosuperior  	/threesuperior	
+/acute        	/mu           	/paragraph    	/bullet       	
+/cedilla      	/onesuperior  	/ordmasculine 	/guillemotright	
+/onequarter   	/onehalf      	/threequarters	/questiondown 	
+/Agrave       	/Aacute       	/Acircumflex  	/Atilde       	
+/Adieresis    	/Aring        	/AE           	/Ccedilla     	
+/Egrave       	/Eacute       	/Ecircumflex  	/Edieresis    	
+/Igrave       	/Iacute       	/Icircumflex  	/Idieresis    	
+/Eth          	/Ntilde       	/Ograve       	/Oacute       	
+/Ocircumflex  	/Otilde       	/Odieresis    	/multiply     	
+/Oslash       	/Ugrave       	/Uacute       	/Ucircumflex  	
+/Udieresis    	/Yacute       	/Thorn        	/germandbls   	
+/agrave       	/aacute       	/acircumflex  	/atilde       	
+/adieresis    	/aring        	/ae           	/ccedilla     	
+/egrave       	/eacute       	/ecircumflex  	/edieresis    	
+/igrave       	/iacute       	/icircumflex  	/idieresis    	
+/eth          	/ntilde       	/ograve       	/oacute       	
+/ocircumflex  	/otilde       	/odieresis    	/divide       	
+/oslash       	/ugrave       	/uacute       	/ucircumflex  	
+/udieresis    	/yacute       	/thorn        	/ydieresis    	
+] def
+%%EndResource
+%%EndProlog
+%%BeginSetup
+%%IncludeResource: font Courier-Bold
+%%IncludeResource: font Courier
+/HFpt_w 10 def
+/HFpt_h 10 def
+/Courier-Bold /HF-gs-font MF
+/HF /HF-gs-font findfont [HFpt_w 0 0 HFpt_h 0 0] makefont def
+/Courier /F-gs-font MF
+/F-gs-font 10 10 SF
+/#copies 1 def
+% Pagedevice definitions:
+gs_languagelevel 1 gt {
+  <<
+    /PageSize [612 792] 
+  >> setpagedevice
+} if
+%%BeginResource: procset Enscript-Header-simple 1.6 1
+
+/do_header {	% print default simple header
+  gsave
+    d_header_x d_header_y HFpt_h 3 div add translate
+
+    HF setfont
+    user_header_p {
+      5 0 moveto user_header_left_str show
+
+      d_header_w user_header_center_str stringwidth pop sub 2 div
+      0 moveto user_header_center_str show
+
+      d_header_w user_header_right_str stringwidth pop sub 5 sub
+      0 moveto user_header_right_str show
+    } {
+      5 0 moveto fname show
+      45 0 rmoveto fmodstr show
+      45 0 rmoveto pagenumstr show
+    } ifelse
+
+  grestore
+} def
+%%EndResource
+/d_page_w 564 def
+/d_page_h 744 def
+/d_header_x 0 def
+/d_header_y 729 def
+/d_header_w 564 def
+/d_header_h 15 def
+/d_footer_x 0 def
+/d_footer_y 0 def
+/d_footer_w 564 def
+/d_footer_h 0 def
+/d_output_w 564 def
+/d_output_h 729 def
+/cols 1 def
+%%EndSetup
+%%Page: (1) 1
+%%BeginPageSetup
+_S
+24 24 translate
+/pagenum 1 def
+/fname (wiwi.troff) def
+/fdir () def
+/ftail (wiwi.troff) def
+% User defined strings:
+/fmodstr (Fri May 05 18:04:27 1995) def
+/pagenumstr (1) def
+/user_header_p false def
+%%EndPageSetup
+do_header
+5 716 M
+(.sc) s
+5 705 M
+(.th) s
+5 694 M
+(.EQ) s
+5 683 M
+(delim $$) s
+5 672 M
+(.EN) s
+5 661 M
+(.ls 1) s
+5 650 M
+(.lp) s
+5 639 M
+(.ce 100) s
+5 628 M
+(\\fBWhat Is and What Isn't\\fR) s
+5 617 M
+(.sp) s
+5 606 M
+(Talk presented to the ) s
+5 595 M
+(Society for Philosophy and Psychology) s
+5 584 M
+(Johns Hopkins University) s
+5 573 M
+(June, 1986) s
+5 562 M
+(.sp 2) s
+5 551 M
+(Donald Perlis) s
+5 540 M
+(.sp) s
+5 529 M
+(University  of  Maryland) s
+5 518 M
+(Department of Computer Science) s
+5 507 M
+(College Park, Maryland 20742) s
+5 496 M
+(perlis@maryland.arpa) s
+5 485 M
+(\(301\) 454-7931) s
+5 474 M
+(.sp) s
+5 463 M
+(\(rough draft\)) s
+5 452 M
+(.ce 0) s
+5 441 M
+(.sp 2) s
+5 430 M
+(.pp) s
+5 419 M
+(I think it was Daniel Dennett who said recently that as far as he could tell, all AI-ers) s
+5 408 M
+(are really philosophers. So perhaps I'm not totally out of place here. Still,) s
+5 397 M
+(my lack of training in philosophy and psychology will undoubtedly) s
+5 386 M
+(show throughout my talk. Therefore I apologize in advance for failing to) s
+5 375 M
+(credit those) s
+5 364 M
+(who may have already stated and/or refuted what I am going to say.) s
+5 353 M
+(.pp) s
+5 342 M
+(However, the question still remains, am I or am I not a philosopher? The) s
+5 331 M
+(answer is immaterial here; what is important is that we can ask it, and that) s
+5 320 M
+(asking it is the key to sorting out various meanings of ``philosopher''.) s
+5 309 M
+(This ability is, I claim, key to the phenomenon of meaning, of symbolizing,) s
+5 298 M
+(of intentionality. We can use a word, and can then say of it \(the word\)) s
+5 287 M
+(that we have used it in such-and-such a way. Moreover, this has relevance) s
+5 276 M
+(not only for words: we can \\fIthink\\fR a thought \(or see an image\) and also) s
+5 265 M
+(recognize that it is \(or may be\) different from what we first took it to) s
+5 254 M
+(represent. This ability to \\fIreflect\\fR on our own representations, to) s
+5 243 M
+(put them in quotes, so to speak, and separate them from their usage, is) s
+5 232 M
+(I think a fundamental one for any form of thought.) s
+5 221 M
+(.pp) s
+5 210 M
+(My talk is about aboutness, which I take to be central to the issue of) s
+5 199 M
+(intentionality. That is, if a system employs symbols, in what sense are) s
+5 188 M
+(they symbolic, of \\fIwhat\\fR are they symbolic, and in what sense is it the) s
+5 177 M
+(\\fIsystem\\fR that makes them symbolic? ) s
+5 166 M
+(.pp) s
+5 155 M
+(My seemingly mundane answer is that a symbol is) s
+5 144 M
+(something used \(by the system\) to stand for something else, i.e., that) s
+5 133 M
+(the system itself has \\fIboth\\fR symbol and symboled at hand. Thus a bowl) s
+5 122 M
+(and `bowl' are related; my saying so attests to my having two modes) s
+5 111 M
+(for `bowl', the use and mention modes. If I have only one mode,) s
+5 100 M
+(then I do not relate the word and the \(supposed\) object. But note that even) s
+5 89 M
+(if I do relate them with two modes, I do not thereby actually have a bowl in my head, or) s
+5 78 M
+(even necessarily in my hand. That is, we are reduced to dealing with symbols) s
+5 67 M
+(and their meanings, whatever they are, as expressions or other internal) s
+5 56 M
+(forms. We categorize things: this is a that, yet `this' and `that' are) s
+5 45 M
+(expressions; we never get to the outer `thing in itself'.) s
+5 34 M
+(.pp) s
+5 23 M
+(Why then bother to have two notational tokens,) s
+5 12 M
+(bowl and `bowl' at all? Well, one reason is to distinguish what is from what) s
+_R
+S
+%%Page: (2) 2
+%%BeginPageSetup
+_S
+24 24 translate
+/pagenum 2 def
+/fname (wiwi.troff) def
+/fdir () def
+/ftail (wiwi.troff) def
+% User defined strings:
+/fmodstr (Fri May 05 18:04:27 1995) def
+/pagenumstr (2) def
+/user_header_p false def
+%%EndPageSetup
+do_header
+5 716 M
+(isn't. For instance, I may change my mind that I have seen a bowl, but) s
+5 705 M
+(to use this fact \(that I have changed my mind\), I recall that) s
+5 694 M
+(I used `bowl' inappropriately, or that I entertained the sentence ``there is) s
+5 683 M
+(a bowl present''. Quotes \(or words as such\) allow us to entertain) s
+5 672 M
+(possibilities, even ones we think are false. By `quotes' I mean simply) s
+5 661 M
+(names; I refer to the capacity for creating structures to manipulate) s
+5 650 M
+(vis-a-vis one another. This can apply to images or any other structures.) s
+5 639 M
+(But crucial to it is a mechanism for relating name and named, essentially) s
+5 628 M
+(a truth-predicate \(or reality-predicate\): the cat-image is of a cat, ) s
+5 617 M
+(or `cat' stands for a cat.) s
+5 606 M
+(Then we can choose between hedging \(maybe that isn't a cat\) or going for it) s
+5 595 M
+(\(that is a cat\) where `that' is some other internal entity such as an) s
+5 584 M
+(image. The main point though is that not only `that' but also the considered) s
+5 573 M
+(reference \(cat\) is internal to the system, even if it is not quoted.) s
+5 562 M
+(To draw out the illustration further, a cup `becomes' \(under suitable ) s
+5 551 M
+(circumstances\) `cup' and then may not be a cup after all. This strange) s
+5 540 M
+(statement may seem less so when taken with the further claim that, as far) s
+5 529 M
+(as meaning goes, all is imag-inal. As long as thinking works, we use it, but) s
+5 518 M
+(possibly there are no `firm' cups at all. This is reminiscent of natural) s
+5 507 M
+(kinds, which often defy definition.) s
+5 496 M
+(.pp) s
+5 485 M
+(How avoid the criticism that then we never think about \\fIreal\\fR things? Well,) s
+5 474 M
+(here we can borrow from the adverbial theory of perception. We ) s
+5 463 M
+(think ``aboutly'', that is, when I think about a cow, I really am thinking) s
+5 452 M
+(in an ``about cowly'' fashion, that is, I have \(at least\) a pair of tokens,) s
+5 441 M
+(such as cow and `cow', in my head, that I am using to form hypotheses,) s
+5 430 M
+(reason concerning what is or isn't. Notice that this implicitly forces an) s
+5 419 M
+(external reality on us at least in terms of a natural explanation of what it) s
+5 408 M
+(means for such token-hypotheses to be or not to be the case: ) s
+5 397 M
+(the ``about-cowly'' thinker may \\fItake\\fR her tokens to be real. Now, whether) s
+5 386 M
+(or not they \\fIare\\fR real \(externally\), i.e., whether or not there is) s
+5 375 M
+(a \(natural\) external referent for the internal tokens, becomes contingent,) s
+5 364 M
+(much as in the adverbial theory of perception. We may ) s
+5 353 M
+(think ''about-unicornly'' and yet have no external referent; the same for a) s
+5 342 M
+(cow which may be though of in mistake mode, in contingent-yes mode, or in) s
+5 331 M
+(contingent-no mode \(the latter for ruminating, no pun intended\).) s
+5 320 M
+(.pp) s
+5 309 M
+(Of course, for `real' or `true' to have any behavioral significance, they) s
+5 298 M
+(must bear some relation to behavior, even if only to mental behavior such as) s
+5 287 M
+(expected perceptions following certain perceived actions \(e.g., playing) s
+5 276 M
+(ping-pong in a dream\). But someone, X, could presumably do nothing but dream) s
+5 265 M
+(and have thereby a rich mental life. Could we reasonably say X dreams) s
+5 254 M
+(\\fIof\\fR anything? Only if we can establish \(in principle\) a map between ) s
+5 243 M
+(\(suitable aspects of\) X and ourselves such that if we were to converse we) s
+5 232 M
+(would be able to agree on a large portion, or so that a translation map) s
+5 221 M
+(would connect beliefs of ours to X's and vice versa. The `suitable) s
+5 210 M
+(aspects' referred to are simply any structures at all in X and in us. We can) s
+5 199 M
+(suppose a language of thought \\fIa la\\fR Fodor, if this includes mental) s
+5 188 M
+(images and any other mental entities that may be present for the individuals) s
+5 177 M
+(in question. Such a map ought to be) s
+5 166 M
+(nearly unique on portions of our beliefs: a \\fIpartial rough isomorphism\\fR. If this is) s
+5 155 M
+(possible, then Nagel's bat might enjoy human sympathy after all. \(Note that) s
+5 144 M
+(Londres might map to `a large pretty city in England, called Londres by some) s
+5 133 M
+(of my friends', so that this is not at all a simple map.\) However, I) s
+5 122 M
+(conjecture that at least certain structures will admit fairly easily) s
+5 111 M
+(pinned-down correspondences between X and us: the voluntary-effector) s
+5 100 M
+(structures.  \(I will at random interchange `us', `system', `cat',) s
+5 89 M
+(etc., in referring to a supposed intentional agent.\)) s
+5 78 M
+(.pp) s
+5 67 M
+(Now, is this the issue in intentionality? I think so,) s
+5 56 M
+(and occasionally others seem to as well, though most accounts I have seen veer quickly) s
+5 45 M
+(away from it, focussing more on establishing \\fIexternal\\fR ties to symbols,) s
+5 34 M
+(e.g., Loewer. What I propose is to make this the central theme, and let the) s
+5 23 M
+(external ties slip a bit, as less of a problem for rendering intelligible) s
+5 12 M
+(the nature of mental events. Stich is a notable exception.) s
+_R
+S
+%%Page: (3) 3
+%%BeginPageSetup
+_S
+24 24 translate
+/pagenum 3 def
+/fname (wiwi.troff) def
+/fdir () def
+/ftail (wiwi.troff) def
+% User defined strings:
+/fmodstr (Fri May 05 18:04:27 1995) def
+/pagenumstr (3) def
+/user_header_p false def
+%%EndPageSetup
+do_header
+5 716 M
+(.pp) s
+5 705 M
+(Lebowitz states a familiar theme, that despite claims of Sayre to the) s
+5 694 M
+(contrary, a formal symbol manipulator can be semantical if it has a rich) s
+5 683 M
+(enough symbol structure. Sayre responds that it is still merely formal,) s
+5 672 M
+(and so has no outer meaning, no tie to the world. [As will appear below, I agree with Stich,) s
+5 661 M
+( who argues that there) s
+5 650 M
+(may be no firm tie to the world \(of interest for intentionality\). Perhaps outer) s
+5 639 M
+(meanings can be narrowed in on \(but not fully fixed\), yet intentional states) s
+5 628 M
+(seem not to depend on this \(e.g., we can dream, or think `about' abstract) s
+5 617 M
+(math, tho Stich may not agree that this has precise meaning\).]) s
+5 606 M
+(Lebowitz has the rejoinder to Sayre that after all, what else do our own brains have?) s
+5 595 M
+(This is on the right track, as far as it goes, but it doesn't sufficiently) s
+5 584 M
+(distinguish us from, say, a spring that vibrates `til it settles down, or a) s
+5 573 M
+(program that simulates a spring, or even a means-ends analyzing program) s
+5 562 M
+(or virtually any other AI program of today. Like Dennett's intentional) s
+5 551 M
+(stance, this seems to say too little: can't we do more than merely \\fIsay\\fR) s
+5 540 M
+(that a system exhibits behavior we wish to call `intentional'?) s
+5 529 M
+(.pp) s
+5 518 M
+(However, we have more than complex collections of) s
+5 507 M
+(symbols; we have \\fIspecial\\fR collections of symbols. Namely, we have) s
+5 496 M
+(quotation: we can distinguish `cat' from a cat. ) s
+5 485 M
+(Typical AI systems today) s
+5 474 M
+(do not do so; they cannot be confused about what they `mean' because they) s
+5 463 M
+(don't mean anything at all to themselves. They cannot compare their use of) s
+5 452 M
+(a symbol and some other entity that it is supposed to refer to, because they) s
+5 441 M
+(do not use symbols \\fIto refer.\\fR Even though they may have rules) s
+5 430 M
+(associating `cat' and `feline pet' \(and many more complex ones\), they still) s
+5 419 M
+(do not have a rule that accounts for `cat' being used to refer to a feline) s
+5 408 M
+(pet. There are cats and feline pets, or expressions `cat' and `feline pet',) s
+5 397 M
+(as you like, but not the relation between use and mention. There is only one) s
+5 386 M
+(level of symbolism, which is to say, no symbolism at all. In particular,) s
+5 375 M
+(there is no facility to state something like ``the thing you called a `cat') s
+5 364 M
+(is really a dog'', and even less to revise word use on such a basis.) s
+5 353 M
+(But a \(formal\) system that does have a) s
+5 342 M
+(quotation mechanism could ask itself whether, say, the thing it called a `cat' ) s
+5 331 M
+(is really a cat or a dog. ) s
+5 320 M
+(.pp) s
+5 309 M
+(Note again the oddity that what at first was) s
+5 298 M
+(simply taken as a cat without question, is now instead reduced to \(or quoted) s
+5 287 M
+(into\) a `cat' or a `cat-image' or simply `that thing I had in mind', and) s
+5 276 M
+(then inspected critically. We may then conjure up a supposed real cat) s
+5 265 M
+(concept C to which we compare the former \(C itself being simply another) s
+5 254 M
+(internal form\), or momentarily surrender by deciding we aren't sure what we) s
+5 243 M
+(are talking about, whether there is a cogent notion of cat at all. But it) s
+5 232 M
+(all stays \\fIde dicto\\fR. Roughly, essentially all aspects of the reasoning) s
+5 221 M
+(should be quotable, nameable, manipulable, copyable; this will come up again.) s
+5 210 M
+([This may) s
+5 199 M
+(have metaphysical overtones, suggesting that the idea that reality is made) s
+5 188 M
+(up of things and categories is not quite right, even though we find it very) s
+5 177 M
+(useful to think that way most of the time. Such a view might lead to the) s
+5 166 M
+(conclusion that natural kinds are our inventions, and perhaps also that) s
+5 155 M
+(things are not properly thought of as wholly separate entities apart from) s
+5 144 M
+(their relations to other `things'. Bohm, Buchler, etc.] ) s
+5 133 M
+(We abstract further and further in an attempt to separate word and object, to) s
+5 122 M
+(divorce meanings from particular words; yet words \(and other internal forms\)) s
+5 111 M
+(are all we have to do this with. We tell ourselves something is `in the) s
+5 100 M
+(head' when we quote it. But this means we form \\fIthat\\fR in the head,) s
+5 89 M
+(awaiting the possibility of further quotation. Our saying it is in the head) s
+5 78 M
+(means we have put a token for our head \(as an internal form\) into our head.) s
+5 67 M
+(.pp) s
+5 56 M
+(The image version can make use of concepts from computer vision that is) s
+5 45 M
+(terminologically suggestive; we refer to segmentation of an image into) s
+5 34 M
+(its `things', e.g., lines, blobs, and so on.  We suppose these to be taken) s
+5 23 M
+(as entities in the world, and then upon `re-segmentation' they are instead) s
+5 12 M
+(viewed as just that \(the result of segmentation done by our mental apparatus,) s
+_R
+S
+%%Page: (4) 4
+%%BeginPageSetup
+_S
+24 24 translate
+/pagenum 4 def
+/fname (wiwi.troff) def
+/fdir () def
+/ftail (wiwi.troff) def
+% User defined strings:
+/fmodstr (Fri May 05 18:04:27 1995) def
+/pagenumstr (4) def
+/user_header_p false def
+%%EndPageSetup
+do_header
+5 716 M
+(as opposed to things in the world\).) s
+5 705 M
+(Then we start to question the relation between what we \(think we\) see and) s
+5 694 M
+(what is `out there'. What initially \\fIis\\fR a cat for the system now is) s
+5 683 M
+(seen as a thing taken \(categorized--pardon the pun\) as a cat, i.e., related) s
+5 672 M
+(to the word `cat' but not identified with it. But of course, the word `cat') s
+5 661 M
+(also is the result of segmentation, we never get outside. We are theory) s
+5 650 M
+(builders, we attempt to model our world, and recognize that is what we are) s
+5 639 M
+(trying to do. So we need to remind ourselves to take it with a grain of salt.) s
+5 628 M
+(Quotation is a grain-of-salt device. But since that too is internal, then) s
+5 617 M
+(when we say a supposed reality is after all not necessarily \\fIthe\\fR) s
+5 606 M
+(reality, we are again just contrasting two theories, for all we have of the) s
+5 595 M
+(outer reality is another form, e.g., `the outer reality'.) s
+5 584 M
+(.pp) s
+5 573 M
+(The tie between mental events and external events is important and complex.) s
+5 562 M
+(But it is different from what makes mental events intentional/meaningful.) s
+5 551 M
+(Stich \(I think\) argues that there may be no firm tie at all. We will return) s
+5 540 M
+(to this.) s
+5 529 M
+(.pp) s
+5 518 M
+(How broad might such a quotational theory be? I suggest it might account) s
+5 507 M
+(for a variety of things, including the notion of \(intentional\) identity,) s
+5 496 M
+(or self. Namely, the system will behave in a unique way when it assigns) s
+5 485 M
+(quotes to its own reasoning. That is, we first have a system that can assign) s
+5 474 M
+(a name to more or less any aspect of its mental sphere. But if it does so) s
+5 463 M
+(to its immediate reasoning, it will cause that very reasoning to shift away) s
+5 452 M
+(and out of range. In effect, it bumps into itself when it employs naming) s
+5 441 M
+(mechanisms to itself, unlike what happens when it does the same for \(its) s
+5 430 M
+(internal correlates of\) other systems.) s
+5 419 M
+(.pp) s
+5 408 M
+(But why bother? How will quotation help in the understanding and design) s
+5 397 M
+(of intelligent systems? Well, we can ask, how did it evolve in us? Presumably) s
+5 386 M
+(it endows us with some advantage, and I hope my discussion already points to) s
+5 375 M
+(a clear one: flexibility of behavior, ability to deal with a changing and) s
+5 364 M
+(complex world we cannot know in detail in advance. We must at times go on) s
+5 353 M
+(not only incomplete but also faulty knowledge, and be prepared to change) s
+5 342 M
+(our minds, while still remembering the past error. We had better not confuse) s
+5 331 M
+(our dreams for reality for long, nor our longings for the truth. ) s
+5 320 M
+(.ce) s
+5 309 M
+(<view-graph>) s
+5 298 M
+(.pp) s
+5 287 M
+(The cat) s
+5 276 M
+(had better not confuse its visual image of its food-bowl with the real thing,) s
+5 265 M
+(else it will just sit upstairs and think it is eating when in fact the bowl) s
+5 254 M
+(is downstairs. Now we can do more quoting \(stepping-back\) than cats. We can) s
+5 243 M
+(look at what's apparently real and imagine it to be otherwise, and we do) s
+5 232 M
+(this a lot. Cats probably do it to a limited degree, however. Any sort of) s
+5 221 M
+(planning activity must have some amount of this, but not necessarily very) s
+5 210 M
+(much; in particular, revising word use, though very important, does not) s
+5 199 M
+(enter into most current AI planning systems. An interesting sidelight on) s
+5 188 M
+(this is where did the need for such behavior \(belief-revision\) arise? Is there) s
+5 177 M
+(an evolutionary stage in which this emerged that corresponds to a known) s
+5 166 M
+(change in brain structure?) s
+5 155 M
+(.pp) s
+5 144 M
+(Now back to the external world. How do internal symbolizings correspond to) s
+5 133 M
+(the external world? Here Sayre's ideas may be relevant. But it seems that) s
+5 122 M
+(no unique identification can be made. Indeed, all our thinking may well) s
+5 111 M
+(be \\fIde dicto\\fR, we perhaps \\fInever\\fR directly refer to anything at all.) s
+5 100 M
+(.pp) s
+5 89 M
+(Still, though this may be true, it will not do to stop here, because) s
+5 78 M
+(we can agree. ``I'll meet you in London.'' ``OK.'' Then later we indeed) s
+5 67 M
+(meet in London. This is no coincidence. Apparently the patterns of internal) s
+5 56 M
+(manipulations have enough of a correspondence that many things can) s
+5 45 M
+(be ``narrowed-in on'' sufficiently to allow coherent behavior between) s
+5 34 M
+(individuals over a broad range of situations. This even though the two) s
+5 23 M
+(people, say A and B, may not mean exactly the same thing by `London' \(indeed,) s
+5 12 M
+(I concur with Stich and others that this itself may be meaningless\).) s
+_R
+S
+%%Page: (5) 5
+%%BeginPageSetup
+_S
+24 24 translate
+/pagenum 5 def
+/fname (wiwi.troff) def
+/fdir () def
+/ftail (wiwi.troff) def
+% User defined strings:
+/fmodstr (Fri May 05 18:04:27 1995) def
+/pagenumstr (5) def
+/user_header_p false def
+%%EndPageSetup
+do_header
+5 716 M
+(.pp) s
+5 705 M
+(We can apply this to Kripke's puzzle of London and Londres. Note that for us) s
+5 694 M
+(even to understand the puzzle, we must not simply take `London' and `Londres') s
+5 683 M
+(to be the city. we must recognize that \\fIwords\\fR, indeed \\fIparticular\\fR) s
+5 672 M
+(words, are being used, as well as their being related in an important way.) s
+5 661 M
+(Does `London' \\fIreally\\fR mean a particular thing? I think the various) s
+5 650 M
+(arguments about meaning and belief show that the answer is no. Words,) s
+5 639 M
+(language in general, perhaps even anything worthy of being called thought) s
+5 628 M
+(or awareness,) s
+5 617 M
+(is fundamentally flexible, and by this I mean quotational: we can recognize) s
+5 606 M
+(the tools of thought \(herein is the possibility of self-bumping\), and revise them. Symbolize) s
+5 595 M
+(rs, to be that, must control) s
+5 584 M
+(their use of symbols, even while the objects of the symbolizing \(i.e., the) s
+5 573 M
+(symboled\) are themselves symbolic entities. We can revise our use of `London') s
+5 562 M
+(and now relate it to `Greater London', but `Greater London' too is an) s
+5 551 M
+(internal entity. We are not changing strings attached at one end to words) s
+5 540 M
+(and at the other to cities; there is no giant old-fashioned cable-switchboard) s
+5 529 M
+(between our heads and the rest of reality.) s
+5 518 M
+(.pp) s
+5 507 M
+(Pierre thinks \\fIboth\\fR ``London is not pretty'' \\fIand\\fR ``Londres est jolie''.) s
+5 496 M
+(This is fine as long as we do not try to tie strings from Big Ben to) s
+5 485 M
+(the words `London' and `Londres' in Pierre's head. Or rather, as long as we) s
+5 474 M
+(do not try to explain Pierre's state of mind in terms of such strings. For it) s
+5 463 M
+(is clear that Pierre, in learning the word `Londres' as a French youth, did) s
+5 452 M
+(not have a tie to a city in England, except perhaps in the sense of an) s
+5 441 M
+(\\fIexpression\\fR, such as ``la plus grande ville d'Angleterre.'' If later) s
+5 430 M
+(he lives in London and eventually comes to realize that this is the largest) s
+5 419 M
+(English city, he might then be said to have contradictory beliefs, but not) s
+5 408 M
+(before. But the truth of his beliefs is still underspecified, for Londres) s
+5 397 M
+(does not refer to any one particular city for Pierre at first, so whether) s
+5 386 M
+(\\fIin fact\\fR Londres est jolie is ambiguous \(even ignoring the subjective) s
+5 375 M
+(character of `jolie'\). Following Dennett, it is never judged by Pierre, but) s
+5 364 M
+(rather simply taken whole as a bit of general information. \(Of course, the) s
+5 353 M
+(internal stance advocated here has the outcome that Londres \\fInever\\fR gets) s
+5 342 M
+(a `full' meaning, nor does London; but there is not even an approximate truth) s
+5 331 M
+(to `Londres est jolie' at first.\)) s
+5 320 M
+(.pp) s
+5 309 M
+(Despite this, we can meaningfully say \(at times\) of A and B that they both \\fIroughly\\fR ref) s
+5 298 M
+(er) s
+5 287 M
+(to London by, say, $L sub A$ and $L sub B$, respectively, and that A believes) s
+5 276 M
+(London has a population over 5 million, and that B does not. The) s
+5 265 M
+(roughness of this may be uneliminable in many cases. I have not presented a) s
+5 254 M
+(theory of how to `narrow-in' on such ties, nor do I have a theory of) s
+5 243 M
+(rough-reference. Perhaps Sayre's ideas will be useful here. But the evident) s
+5 232 M
+(fact that people do somehow communicate seems unequivocal; the very fact that) s
+5 221 M
+(we often recognize that we have \\fIfailed\\fR to communicate simply makes the) s
+5 210 M
+(point all over again. But again this seems to mean to depend on our) s
+5 199 M
+(quotational abilities; we recognize that there is a difference in our use of) s
+5 188 M
+(words.) s
+5 177 M
+(.pp) s
+5 166 M
+(Another example, due to Elgin \(1985\), is as follows: ) s
+5 144 M
+(\(A\) Sam believes that kangaroos are carnivores.) s
+5 122 M
+(\(B\) Sam believes that kangaroos are not meat-eaters.) s
+5 100 M
+(Despite Elgin's claim to the contrary, \\fIthe belief ascribed to Sam in \(A\)) s
+5 89 M
+(is true only if kangaroos eat meat\\fR, is true only if said by someone who) s
+5 78 M
+(takes ``carnivores'' to mean meat-eater. To say that this is ) s
+5 67 M
+(what ``carnivore'' means is to beg the question. Words do not have meanings) s
+5 56 M
+(independent of people.) s
+5 45 M
+(.pp) s
+5 34 M
+(Well, let us then introduce use-contexts. A belief B being held by a person p) s
+5 23 M
+(who assents to a use-context c for B, entails that p believes the contextual) s
+5 12 M
+(reading $B sub c$. But then we have that Pierre and Sam do not assent to the) s
+_R
+S
+%%Page: (6) 6
+%%BeginPageSetup
+_S
+24 24 translate
+/pagenum 6 def
+/fname (wiwi.troff) def
+/fdir () def
+/ftail (wiwi.troff) def
+% User defined strings:
+/fmodstr (Fri May 05 18:04:27 1995) def
+/pagenumstr (6) def
+/user_header_p false def
+%%EndPageSetup
+do_header
+5 716 M
+(consensual use-contexts for Londres and carnivores, respectively. Now, what) s
+5 705 M
+(goes into a context? The internal stance views a context simply as a \(large\)) s
+5 694 M
+(set of pairs of tokens. There is no ``right'' context. It is not ``right'') s
+5 683 M
+(that Londres = London; it is simply a consensus, a fact about the pairs in) s
+5 672 M
+(the heads of lots of people.) s
+5 661 M
+(.pp) s
+5 650 M
+(What can be said then, regarding aboutness? Is there any external tie worthy) s
+5 639 M
+(of mention? Perhaps the best we can do, and what we should do, is find rough) s
+5 628 M
+(partial isomorphisms between the networks of quotational forms in different) s
+5 617 M
+(agents. This might allow us to say that, with degree d, agent p and agent q) s
+5 606 M
+(have the same belief about entity r. That is, if the quotational network Np of) s
+5 595 M
+(\(beliefs of\) p maps \(almost\) uniquely to the world, and if the same holds for ) s
+5 584 M
+(Nq, and if r is in the joint range of those maps, then it may be possible to) s
+5 573 M
+(measure a degree d of similarity between those elements of Np and Nq) s
+5 562 M
+(connected to \(the pre-image of\) r. This is very \(\\fIvery\\fR\) vague, but is) s
+5 551 M
+(at least a direction to consider.) s
+5 540 M
+(.bp) s
+5 529 M
+(\\fBBibliography\\fR) s
+5 518 M
+(.lp) s
+5 507 M
+(.np) s
+5 496 M
+(Barcan Marcus, R. \(1983\) Rationality and believing the impossible. \\fIJ.) s
+5 485 M
+(Phil.\\fR 80:321-338.) s
+5 474 M
+(.np) s
+5 463 M
+(Bohm, D. Wholeness and the implicate order.) s
+5 452 M
+(.np) s
+5 441 M
+(Buchler, J. The metaphysics of natural complexes.) s
+5 430 M
+(.np) s
+5 419 M
+(Davidson, D.) s
+5 408 M
+(.np) s
+5 397 M
+(Dennett, D. \(1978\) \\fIBrainstorms\\fR. Montgomery, VT: Bradford Books.) s
+5 386 M
+(.np) s
+5 375 M
+(Derrida, J.) s
+5 364 M
+(.np) s
+5 353 M
+(Dretske, F.) s
+5 342 M
+(.np) s
+5 331 M
+(Elgin, C. \(1985\) Translucent belief. \\fIJ. Phil.\\fR 82:74-91.) s
+5 320 M
+(.np) s
+5 309 M
+(Field, H.) s
+5 298 M
+(.np) s
+5 287 M
+(Haas, A. \(1985\) Possible events, actual events, and robots. \\fIComputational) s
+5 276 M
+(Intelligence\\fR 1:59-70) s
+5 265 M
+(.np) s
+5 254 M
+(Kripke, S. \(1979\) A puzzle about belief. In: \\fIMeaning and Use\\fR, ed. A.) s
+5 243 M
+(Margalit, pp. 234-283. Holland: Dordrecht.) s
+5 232 M
+(.np) s
+5 221 M
+(Lebowitz, M. \(1986\) Semantic information: inference rules + memory. \\fIBehavioral) s
+5 210 M
+(and Brain Sciences, 9\(1\)\\fR, pp. 147-148.) s
+5 199 M
+(.np) s
+5 188 M
+(Loar, B.) s
+5 177 M
+(.np) s
+5 166 M
+(Loewer, B. From information to intentionality.) s
+5 155 M
+(.np) s
+5 144 M
+(Minsky, M. \(1968\) Matter, Mind, ) s
+5 133 M
+(and Models. In: \\fISemantic Information Processing\\fR, ed. M. Minsky, pp 425-432. ) s
+5 122 M
+(Cambridge: MIT Press.) s
+5 111 M
+(.np) s
+5 100 M
+(Nagel, T. What is it like to be a bat?) s
+5 89 M
+(.np) s
+5 78 M
+(Newell, A. The knowledge level.) s
+5 67 M
+(.np) s
+5 56 M
+(Odell, S.J. \(1984\) On the possibility of natural language processing: some) s
+5 45 M
+(philosophical objections. \\fITheoretical Linguistics\\fR 11:127-146.) s
+5 34 M
+(.np) s
+5 23 M
+(Perlis, D. \(1985\) Languages with self-reference I. \\fIArtificial Intelligence,) s
+5 12 M
+(25\\fR, pp.301-322.) s
+_R
+S
+%%Page: (7) 7
+%%BeginPageSetup
+_S
+24 24 translate
+/pagenum 7 def
+/fname (wiwi.troff) def
+/fdir () def
+/ftail (wiwi.troff) def
+% User defined strings:
+/fmodstr (Fri May 05 18:04:27 1995) def
+/pagenumstr (7) def
+/user_header_p false def
+%%EndPageSetup
+do_header
+5 716 M
+(.np) s
+5 705 M
+(Perlis, D. and Hall, R.  \(1986\) Intentionality as internality. \\fIBehavioral) s
+5 694 M
+(and Brain Sciences, 9\(1\)\\fR, pp. 151-152.) s
+5 683 M
+(.np) s
+5 672 M
+(Putnam, H. [1970] Is semantics possible? In H. Kiefer and M. Munitz \(eds.\)) s
+5 661 M
+(Language, Belief and Metaphysics, SUNY Press.) s
+5 650 M
+(.np) s
+5 639 M
+(Putnam, H. [1975] The meaning of `meaning'. In K. Gunderson \(ed.\) Language, Mind) s
+5 628 M
+(and Knowledge, Univ of Minnesota.) s
+5 617 M
+(.np) s
+5 606 M
+(Rock, I. The logic of perception.) s
+5 595 M
+(.np) s
+5 584 M
+(Sayre, K. \(1986\) Intentionality and information processing... \\fIBehavioral) s
+5 573 M
+(and Brain Sciences, 9\(1\)\\fR, pp. 121-138.) s
+5 562 M
+(.np) s
+5 551 M
+(Sloman, A.) s
+5 540 M
+(.np) s
+5 529 M
+(Smith, B.) s
+5 518 M
+(.np) s
+5 507 M
+(Stich, S. \(1984\) \\fIFrom folk psychology to cognitive science: the case) s
+5 496 M
+(against belief\\fR. Cambridge: MIT Press.) s
+5 485 M
+(.np) s
+5 474 M
+(Wittgenstein, L.) s
+_R
+S
+%%Trailer
+%%Pages: 7
+%%DocumentNeededResources: font Courier-Bold Courier 
+%%EOF

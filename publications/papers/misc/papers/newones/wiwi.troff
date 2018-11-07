@@ -1,0 +1,410 @@
+.sc
+.th
+.EQ
+delim $$
+.EN
+.ls 1
+.lp
+.ce 100
+\fBWhat Is and What Isn't\fR
+.sp
+Talk presented to the 
+Society for Philosophy and Psychology
+Johns Hopkins University
+June, 1986
+.sp 2
+Donald Perlis
+.sp
+University  of  Maryland
+Department of Computer Science
+College Park, Maryland 20742
+perlis@maryland.arpa
+(301) 454-7931
+.sp
+(rough draft)
+.ce 0
+.sp 2
+.pp
+I think it was Daniel Dennett who said recently that as far as he could tell, all AI-ers
+are really philosophers. So perhaps I'm not totally out of place here. Still,
+my lack of training in philosophy and psychology will undoubtedly
+show throughout my talk. Therefore I apologize in advance for failing to
+credit those
+who may have already stated and/or refuted what I am going to say.
+.pp
+However, the question still remains, am I or am I not a philosopher? The
+answer is immaterial here; what is important is that we can ask it, and that
+asking it is the key to sorting out various meanings of ``philosopher''.
+This ability is, I claim, key to the phenomenon of meaning, of symbolizing,
+of intentionality. We can use a word, and can then say of it (the word)
+that we have used it in such-and-such a way. Moreover, this has relevance
+not only for words: we can \fIthink\fR a thought (or see an image) and also
+recognize that it is (or may be) different from what we first took it to
+represent. This ability to \fIreflect\fR on our own representations, to
+put them in quotes, so to speak, and separate them from their usage, is
+I think a fundamental one for any form of thought.
+.pp
+My talk is about aboutness, which I take to be central to the issue of
+intentionality. That is, if a system employs symbols, in what sense are
+they symbolic, of \fIwhat\fR are they symbolic, and in what sense is it the
+\fIsystem\fR that makes them symbolic? 
+.pp
+My seemingly mundane answer is that a symbol is
+something used (by the system) to stand for something else, i.e., that
+the system itself has \fIboth\fR symbol and symboled at hand. Thus a bowl
+and `bowl' are related; my saying so attests to my having two modes
+for `bowl', the use and mention modes. If I have only one mode,
+then I do not relate the word and the (supposed) object. But note that even
+if I do relate them with two modes, I do not thereby actually have a bowl in my head, or
+even necessarily in my hand. That is, we are reduced to dealing with symbols
+and their meanings, whatever they are, as expressions or other internal
+forms. We categorize things: this is a that, yet `this' and `that' are
+expressions; we never get to the outer `thing in itself'.
+.pp
+Why then bother to have two notational tokens,
+bowl and `bowl' at all? Well, one reason is to distinguish what is from what
+isn't. For instance, I may change my mind that I have seen a bowl, but
+to use this fact (that I have changed my mind), I recall that
+I used `bowl' inappropriately, or that I entertained the sentence ``there is
+a bowl present''. Quotes (or words as such) allow us to entertain
+possibilities, even ones we think are false. By `quotes' I mean simply
+names; I refer to the capacity for creating structures to manipulate
+vis-a-vis one another. This can apply to images or any other structures.
+But crucial to it is a mechanism for relating name and named, essentially
+a truth-predicate (or reality-predicate): the cat-image is of a cat, 
+or `cat' stands for a cat.
+Then we can choose between hedging (maybe that isn't a cat) or going for it
+(that is a cat) where `that' is some other internal entity such as an
+image. The main point though is that not only `that' but also the considered
+reference (cat) is internal to the system, even if it is not quoted.
+To draw out the illustration further, a cup `becomes' (under suitable 
+circumstances) `cup' and then may not be a cup after all. This strange
+statement may seem less so when taken with the further claim that, as far
+as meaning goes, all is imag-inal. As long as thinking works, we use it, but
+possibly there are no `firm' cups at all. This is reminiscent of natural
+kinds, which often defy definition.
+.pp
+How avoid the criticism that then we never think about \fIreal\fR things? Well,
+here we can borrow from the adverbial theory of perception. We 
+think ``aboutly'', that is, when I think about a cow, I really am thinking
+in an ``about cowly'' fashion, that is, I have (at least) a pair of tokens,
+such as cow and `cow', in my head, that I am using to form hypotheses,
+reason concerning what is or isn't. Notice that this implicitly forces an
+external reality on us at least in terms of a natural explanation of what it
+means for such token-hypotheses to be or not to be the case: 
+the ``about-cowly'' thinker may \fItake\fR her tokens to be real. Now, whether
+or not they \fIare\fR real (externally), i.e., whether or not there is
+a (natural) external referent for the internal tokens, becomes contingent,
+much as in the adverbial theory of perception. We may 
+think ''about-unicornly'' and yet have no external referent; the same for a
+cow which may be though of in mistake mode, in contingent-yes mode, or in
+contingent-no mode (the latter for ruminating, no pun intended).
+.pp
+Of course, for `real' or `true' to have any behavioral significance, they
+must bear some relation to behavior, even if only to mental behavior such as
+expected perceptions following certain perceived actions (e.g., playing
+ping-pong in a dream). But someone, X, could presumably do nothing but dream
+and have thereby a rich mental life. Could we reasonably say X dreams
+\fIof\fR anything? Only if we can establish (in principle) a map between 
+(suitable aspects of) X and ourselves such that if we were to converse we
+would be able to agree on a large portion, or so that a translation map
+would connect beliefs of ours to X's and vice versa. The `suitable
+aspects' referred to are simply any structures at all in X and in us. We can
+suppose a language of thought \fIa la\fR Fodor, if this includes mental
+images and any other mental entities that may be present for the individuals
+in question. Such a map ought to be
+nearly unique on portions of our beliefs: a \fIpartial rough isomorphism\fR. If this is
+possible, then Nagel's bat might enjoy human sympathy after all. (Note that
+Londres might map to `a large pretty city in England, called Londres by some
+of my friends', so that this is not at all a simple map.) However, I
+conjecture that at least certain structures will admit fairly easily
+pinned-down correspondences between X and us: the voluntary-effector
+structures.  (I will at random interchange `us', `system', `cat',
+etc., in referring to a supposed intentional agent.)
+.pp
+Now, is this the issue in intentionality? I think so,
+and occasionally others seem to as well, though most accounts I have seen veer quickly
+away from it, focussing more on establishing \fIexternal\fR ties to symbols,
+e.g., Loewer. What I propose is to make this the central theme, and let the
+external ties slip a bit, as less of a problem for rendering intelligible
+the nature of mental events. Stich is a notable exception.
+.pp
+Lebowitz states a familiar theme, that despite claims of Sayre to the
+contrary, a formal symbol manipulator can be semantical if it has a rich
+enough symbol structure. Sayre responds that it is still merely formal,
+and so has no outer meaning, no tie to the world. [As will appear below, I agree with Stich, who argues that there
+may be no firm tie to the world (of interest for intentionality). Perhaps outer
+meanings can be narrowed in on (but not fully fixed), yet intentional states
+seem not to depend on this (e.g., we can dream, or think `about' abstract
+math, tho Stich may not agree that this has precise meaning).]
+Lebowitz has the rejoinder to Sayre that after all, what else do our own brains have?
+This is on the right track, as far as it goes, but it doesn't sufficiently
+distinguish us from, say, a spring that vibrates `til it settles down, or a
+program that simulates a spring, or even a means-ends analyzing program
+or virtually any other AI program of today. Like Dennett's intentional
+stance, this seems to say too little: can't we do more than merely \fIsay\fR
+that a system exhibits behavior we wish to call `intentional'?
+.pp
+However, we have more than complex collections of
+symbols; we have \fIspecial\fR collections of symbols. Namely, we have
+quotation: we can distinguish `cat' from a cat. 
+Typical AI systems today
+do not do so; they cannot be confused about what they `mean' because they
+don't mean anything at all to themselves. They cannot compare their use of
+a symbol and some other entity that it is supposed to refer to, because they
+do not use symbols \fIto refer.\fR Even though they may have rules
+associating `cat' and `feline pet' (and many more complex ones), they still
+do not have a rule that accounts for `cat' being used to refer to a feline
+pet. There are cats and feline pets, or expressions `cat' and `feline pet',
+as you like, but not the relation between use and mention. There is only one
+level of symbolism, which is to say, no symbolism at all. In particular,
+there is no facility to state something like ``the thing you called a `cat'
+is really a dog'', and even less to revise word use on such a basis.
+But a (formal) system that does have a
+quotation mechanism could ask itself whether, say, the thing it called a `cat' 
+is really a cat or a dog. 
+.pp
+Note again the oddity that what at first was
+simply taken as a cat without question, is now instead reduced to (or quoted
+into) a `cat' or a `cat-image' or simply `that thing I had in mind', and
+then inspected critically. We may then conjure up a supposed real cat
+concept C to which we compare the former (C itself being simply another
+internal form), or momentarily surrender by deciding we aren't sure what we
+are talking about, whether there is a cogent notion of cat at all. But it
+all stays \fIde dicto\fR. Roughly, essentially all aspects of the reasoning
+should be quotable, nameable, manipulable, copyable; this will come up again.
+[This may
+have metaphysical overtones, suggesting that the idea that reality is made
+up of things and categories is not quite right, even though we find it very
+useful to think that way most of the time. Such a view might lead to the
+conclusion that natural kinds are our inventions, and perhaps also that
+things are not properly thought of as wholly separate entities apart from
+their relations to other `things'. Bohm, Buchler, etc.] 
+We abstract further and further in an attempt to separate word and object, to
+divorce meanings from particular words; yet words (and other internal forms)
+are all we have to do this with. We tell ourselves something is `in the
+head' when we quote it. But this means we form \fIthat\fR in the head,
+awaiting the possibility of further quotation. Our saying it is in the head
+means we have put a token for our head (as an internal form) into our head.
+.pp
+The image version can make use of concepts from computer vision that is
+terminologically suggestive; we refer to segmentation of an image into
+its `things', e.g., lines, blobs, and so on.  We suppose these to be taken
+as entities in the world, and then upon `re-segmentation' they are instead
+viewed as just that (the result of segmentation done by our mental apparatus,
+as opposed to things in the world).
+Then we start to question the relation between what we (think we) see and
+what is `out there'. What initially \fIis\fR a cat for the system now is
+seen as a thing taken (categorized--pardon the pun) as a cat, i.e., related
+to the word `cat' but not identified with it. But of course, the word `cat'
+also is the result of segmentation, we never get outside. We are theory
+builders, we attempt to model our world, and recognize that is what we are
+trying to do. So we need to remind ourselves to take it with a grain of salt.
+Quotation is a grain-of-salt device. But since that too is internal, then
+when we say a supposed reality is after all not necessarily \fIthe\fR
+reality, we are again just contrasting two theories, for all we have of the
+outer reality is another form, e.g., `the outer reality'.
+.pp
+The tie between mental events and external events is important and complex.
+But it is different from what makes mental events intentional/meaningful.
+Stich (I think) argues that there may be no firm tie at all. We will return
+to this.
+.pp
+How broad might such a quotational theory be? I suggest it might account
+for a variety of things, including the notion of (intentional) identity,
+or self. Namely, the system will behave in a unique way when it assigns
+quotes to its own reasoning. That is, we first have a system that can assign
+a name to more or less any aspect of its mental sphere. But if it does so
+to its immediate reasoning, it will cause that very reasoning to shift away
+and out of range. In effect, it bumps into itself when it employs naming
+mechanisms to itself, unlike what happens when it does the same for (its
+internal correlates of) other systems.
+.pp
+But why bother? How will quotation help in the understanding and design
+of intelligent systems? Well, we can ask, how did it evolve in us? Presumably
+it endows us with some advantage, and I hope my discussion already points to
+a clear one: flexibility of behavior, ability to deal with a changing and
+complex world we cannot know in detail in advance. We must at times go on
+not only incomplete but also faulty knowledge, and be prepared to change
+our minds, while still remembering the past error. We had better not confuse
+our dreams for reality for long, nor our longings for the truth. 
+.ce
+<view-graph>
+.pp
+The cat
+had better not confuse its visual image of its food-bowl with the real thing,
+else it will just sit upstairs and think it is eating when in fact the bowl
+is downstairs. Now we can do more quoting (stepping-back) than cats. We can
+look at what's apparently real and imagine it to be otherwise, and we do
+this a lot. Cats probably do it to a limited degree, however. Any sort of
+planning activity must have some amount of this, but not necessarily very
+much; in particular, revising word use, though very important, does not
+enter into most current AI planning systems. An interesting sidelight on
+this is where did the need for such behavior (belief-revision) arise? Is there
+an evolutionary stage in which this emerged that corresponds to a known
+change in brain structure?
+.pp
+Now back to the external world. How do internal symbolizings correspond to
+the external world? Here Sayre's ideas may be relevant. But it seems that
+no unique identification can be made. Indeed, all our thinking may well
+be \fIde dicto\fR, we perhaps \fInever\fR directly refer to anything at all.
+.pp
+Still, though this may be true, it will not do to stop here, because
+we can agree. ``I'll meet you in London.'' ``OK.'' Then later we indeed
+meet in London. This is no coincidence. Apparently the patterns of internal
+manipulations have enough of a correspondence that many things can
+be ``narrowed-in on'' sufficiently to allow coherent behavior between
+individuals over a broad range of situations. This even though the two
+people, say A and B, may not mean exactly the same thing by `London' (indeed,
+I concur with Stich and others that this itself may be meaningless).
+.pp
+We can apply this to Kripke's puzzle of London and Londres. Note that for us
+even to understand the puzzle, we must not simply take `London' and `Londres'
+to be the city. we must recognize that \fIwords\fR, indeed \fIparticular\fR
+words, are being used, as well as their being related in an important way.
+Does `London' \fIreally\fR mean a particular thing? I think the various
+arguments about meaning and belief show that the answer is no. Words,
+language in general, perhaps even anything worthy of being called thought
+or awareness,
+is fundamentally flexible, and by this I mean quotational: we can recognize
+the tools of thought (herein is the possibility of self-bumping), and revise them. Symbolizers, to be that, must control
+their use of symbols, even while the objects of the symbolizing (i.e., the
+symboled) are themselves symbolic entities. We can revise our use of `London'
+and now relate it to `Greater London', but `Greater London' too is an
+internal entity. We are not changing strings attached at one end to words
+and at the other to cities; there is no giant old-fashioned cable-switchboard
+between our heads and the rest of reality.
+.pp
+Pierre thinks \fIboth\fR ``London is not pretty'' \fIand\fR ``Londres est jolie''.
+This is fine as long as we do not try to tie strings from Big Ben to
+the words `London' and `Londres' in Pierre's head. Or rather, as long as we
+do not try to explain Pierre's state of mind in terms of such strings. For it
+is clear that Pierre, in learning the word `Londres' as a French youth, did
+not have a tie to a city in England, except perhaps in the sense of an
+\fIexpression\fR, such as ``la plus grande ville d'Angleterre.'' If later
+he lives in London and eventually comes to realize that this is the largest
+English city, he might then be said to have contradictory beliefs, but not
+before. But the truth of his beliefs is still underspecified, for Londres
+does not refer to any one particular city for Pierre at first, so whether
+\fIin fact\fR Londres est jolie is ambiguous (even ignoring the subjective
+character of `jolie'). Following Dennett, it is never judged by Pierre, but
+rather simply taken whole as a bit of general information. (Of course, the
+internal stance advocated here has the outcome that Londres \fInever\fR gets
+a `full' meaning, nor does London; but there is not even an approximate truth
+to `Londres est jolie' at first.)
+.pp
+Despite this, we can meaningfully say (at times) of A and B that they both \fIroughly\fR refer
+to London by, say, $L sub A$ and $L sub B$, respectively, and that A believes
+London has a population over 5 million, and that B does not. The
+roughness of this may be uneliminable in many cases. I have not presented a
+theory of how to `narrow-in' on such ties, nor do I have a theory of
+rough-reference. Perhaps Sayre's ideas will be useful here. But the evident
+fact that people do somehow communicate seems unequivocal; the very fact that
+we often recognize that we have \fIfailed\fR to communicate simply makes the
+point all over again. But again this seems to mean to depend on our
+quotational abilities; we recognize that there is a difference in our use of
+words.
+.pp
+Another example, due to Elgin (1985), is as follows: 
+
+(A) Sam believes that kangaroos are carnivores.
+
+(B) Sam believes that kangaroos are not meat-eaters.
+
+Despite Elgin's claim to the contrary, \fIthe belief ascribed to Sam in (A)
+is true only if kangaroos eat meat\fR, is true only if said by someone who
+takes ``carnivores'' to mean meat-eater. To say that this is 
+what ``carnivore'' means is to beg the question. Words do not have meanings
+independent of people.
+.pp
+Well, let us then introduce use-contexts. A belief B being held by a person p
+who assents to a use-context c for B, entails that p believes the contextual
+reading $B sub c$. But then we have that Pierre and Sam do not assent to the
+consensual use-contexts for Londres and carnivores, respectively. Now, what
+goes into a context? The internal stance views a context simply as a (large)
+set of pairs of tokens. There is no ``right'' context. It is not ``right''
+that Londres = London; it is simply a consensus, a fact about the pairs in
+the heads of lots of people.
+.pp
+What can be said then, regarding aboutness? Is there any external tie worthy
+of mention? Perhaps the best we can do, and what we should do, is find rough
+partial isomorphisms between the networks of quotational forms in different
+agents. This might allow us to say that, with degree d, agent p and agent q
+have the same belief about entity r. That is, if the quotational network Np of
+(beliefs of) p maps (almost) uniquely to the world, and if the same holds for 
+Nq, and if r is in the joint range of those maps, then it may be possible to
+measure a degree d of similarity between those elements of Np and Nq
+connected to (the pre-image of) r. This is very (\fIvery\fR) vague, but is
+at least a direction to consider.
+.bp
+\fBBibliography\fR
+.lp
+.np
+Barcan Marcus, R. (1983) Rationality and believing the impossible. \fIJ.
+Phil.\fR 80:321-338.
+.np
+Bohm, D. Wholeness and the implicate order.
+.np
+Buchler, J. The metaphysics of natural complexes.
+.np
+Davidson, D.
+.np
+Dennett, D. (1978) \fIBrainstorms\fR. Montgomery, VT: Bradford Books.
+.np
+Derrida, J.
+.np
+Dretske, F.
+.np
+Elgin, C. (1985) Translucent belief. \fIJ. Phil.\fR 82:74-91.
+.np
+Field, H.
+.np
+Haas, A. (1985) Possible events, actual events, and robots. \fIComputational
+Intelligence\fR 1:59-70
+.np
+Kripke, S. (1979) A puzzle about belief. In: \fIMeaning and Use\fR, ed. A.
+Margalit, pp. 234-283. Holland: Dordrecht.
+.np
+Lebowitz, M. (1986) Semantic information: inference rules + memory. \fIBehavioral
+and Brain Sciences, 9(1)\fR, pp. 147-148.
+.np
+Loar, B.
+.np
+Loewer, B. From information to intentionality.
+.np
+Minsky, M. (1968) Matter, Mind, 
+and Models. In: \fISemantic Information Processing\fR, ed. M. Minsky, pp 425-432. 
+Cambridge: MIT Press.
+.np
+Nagel, T. What is it like to be a bat?
+.np
+Newell, A. The knowledge level.
+.np
+Odell, S.J. (1984) On the possibility of natural language processing: some
+philosophical objections. \fITheoretical Linguistics\fR 11:127-146.
+.np
+Perlis, D. (1985) Languages with self-reference I. \fIArtificial Intelligence,
+25\fR, pp.301-322.
+.np
+Perlis, D. and Hall, R.  (1986) Intentionality as internality. \fIBehavioral
+and Brain Sciences, 9(1)\fR, pp. 151-152.
+.np
+Putnam, H. [1970] Is semantics possible? In H. Kiefer and M. Munitz (eds.)
+Language, Belief and Metaphysics, SUNY Press.
+.np
+Putnam, H. [1975] The meaning of `meaning'. In K. Gunderson (ed.) Language, Mind
+and Knowledge, Univ of Minnesota.
+.np
+Rock, I. The logic of perception.
+.np
+Sayre, K. (1986) Intentionality and information processing... \fIBehavioral
+and Brain Sciences, 9(1)\fR, pp. 121-138.
+.np
+Sloman, A.
+.np
+Smith, B.
+.np
+Stich, S. (1984) \fIFrom folk psychology to cognitive science: the case
+against belief\fR. Cambridge: MIT Press.
+.np
+Wittgenstein, L.

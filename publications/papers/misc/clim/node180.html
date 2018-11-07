@@ -1,0 +1,154 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 99.1 release (March 30, 1999)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Item List Formatting Protocol</TITLE>
+<META NAME="description" CONTENT="Item List Formatting Protocol">
+<META NAME="keywords" CONTENT="clim">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v99.1 release">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="clim.css">
+
+<LINK REL="previous" HREF="node179.html">
+<LINK REL="up" HREF="node176.html">
+<LINK REL="next" HREF="node181.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html3203"
+ HREF="node181.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/icons/next_motif.gif"></A> 
+<A NAME="tex2html3199"
+ HREF="node176.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/icons/up_motif.gif"></A> 
+<A NAME="tex2html3195"
+ HREF="node179.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/icons/previous_motif.gif"></A> 
+<A NAME="tex2html3201"
+ HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/icons/contents_motif.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html3204"
+ HREF="node181.html">Graph Formatting</A>
+<B> Up:</B> <A NAME="tex2html3200"
+ HREF="node176.html">The Table and Item</A>
+<B> Previous:</B> <A NAME="tex2html3196"
+ HREF="node179.html">Cell Formatting Protocol</A>
+ &nbsp <B>  <A NAME="tex2html3202"
+ HREF="node1.html">Contents</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H2><A NAME="SECTION06334000000000000000">
+Item List Formatting Protocol</A>
+</H2>
+
+<P>
+item-list-output-record
+
+<P>
+The protocol class that represents an item list; a subclass of
+output-record.
+an item list output record item-list-output-record
+
+<P>
+item-list-output-record-p object
+
+<P>
+Returns <I> true</I> if <I> object</I> is an <I> item list output record</I>,
+otherwise returns <I> false</I>.
+
+<P>
+ 
+:x-spacing
+:y-spacing
+:initial-spacing
+:n-rows
+:n-columns
+:max-width
+:max-height
+
+<P>
+All subclasses of item-list-output-record must handle these initargs, which
+are used to specify, respectively, the 1#1 and 2#2 spacing, the initial spacing,
+the desired number of rows and columns, and maximum width and height attributes
+of the item list.
+
+<P>
+standard-item-list-output-record
+
+<P>
+The output record that represents item list output.  Its children will be a
+sequence of cells, with presentations possibly intervening.  This is a subclass
+of item-list-output-record.
+
+<P>
+map-over-item-list-cells function item-list-record
+
+<P>
+Applies <I> function</I> to all of the cells in <I> item-list-record</I>.
+map-over-item-list-cells must skip over intervening non-table output record
+structure, such as presentations.  <I> function</I> is a function of one argument,
+an output record corresponding to a cell in the item list; it has dynamic
+extent.
+
+<P>
+adjust-item-list-cells item-list-record
+
+<P>
+This function is called after the item list output has been collected, but
+before the record has been replayed.  The method on
+standard-item-list-output-record implements the usual item list layout
+constraint solver.
+
+<P>
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html3203"
+ HREF="node181.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/icons/next_motif.gif"></A> 
+<A NAME="tex2html3199"
+ HREF="node176.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/icons/up_motif.gif"></A> 
+<A NAME="tex2html3195"
+ HREF="node179.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/icons/previous_motif.gif"></A> 
+<A NAME="tex2html3201"
+ HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/icons/contents_motif.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html3204"
+ HREF="node181.html">Graph Formatting</A>
+<B> Up:</B> <A NAME="tex2html3200"
+ HREF="node176.html">The Table and Item</A>
+<B> Previous:</B> <A NAME="tex2html3196"
+ HREF="node179.html">Cell Formatting Protocol</A>
+ &nbsp <B>  <A NAME="tex2html3202"
+ HREF="node1.html">Contents</A></B> 
+<!--End of Navigation Panel-->
+<ADDRESS>
+<I>&</I>
+<BR><I>2001-06-12</I>
+</ADDRESS>
+</BODY>
+</HTML>

@@ -1,0 +1,266 @@
+<html>
+<head>
+    <title>Active Logic, Metacognitive Computation, and Mind: University of Maryland</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="author" content="Josiane Alagbe">
+<link rel="stylesheet" href="/assets/styles/netscape.css" type="text/css">
+<style type="text/css">
+ <!--
+   @import url(/assets/styles/explorer.css);
+     -->
+</style>
+
+<SCRIPT type="text/javascript">
+function gettip(txt)
+{
+tip.innerHTML=txt
+}
+
+function reset()
+{
+tip.innerHTML=""
+}
+function cursor(image)
+{
+trail.innerHTML="<img src='" + image + "' />"
+trail.style.visibility="visible"
+trail.style.position="absolute"
+trail.style.left=event.clientX+10
+trail.style.top=event.clientY
+}
+
+function cursorText(text)
+{
+trail.innerHTML=text
+trail.style.visibility="visible"
+trail.style.position="absolute"
+trail.style.left=event.clientX+10
+trail.style.top=event.clientY
+trail.style.color = "blue"
+}
+function hidecursor()
+{
+trail.style.visibility="hidden"
+}
+
+</SCRIPT>
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" link="#000080"
+vlink="#390764" alink="#FFB926">
+
+<table   border="0"  align="center" cellpadding="0" cellspacing="0">
+   <tr>
+   <td>
+   <table align = "center" ><tr>
+    <td align = "left" width="90"  height="90" align ="Left" NOWRAP><img
+         src="http://www.cs.umd.edu/active/logo.GIF "
+         alt="ALMECOM Logo" width="90" height="90" ALIGN = "UP"></td>
+
+   <td><table width = "50" >
+   <tr>
+   <td align = "center" valign = "up" >
+   <img src="http://www.cs.umd.edu/active/umbanner.gif" ></td></tr>
+
+   <tr><td align = "center">
+       <img src="http://www.cs.umd.edu/active/banner.gif" alt="Active Logic,
+        Metacognitive Computation, and Mind" ></td></tr>
+ <tr>
+   <td align ="center">
+   <table border=0  cellpadding=1 cellspacing=3>
+   <tr>
+   <td align="center" nowrap bgcolor="FFCC33">
+
+   <img src="http://www.cs.umd.edu/assets/images/spacer.gif" width="8" height="5" >
+   <a  class="topbar" href="http://www.cs.umd.edu/active"
+    onmouseover="style.color='red'" onmouseout="style.color='black'" >Home</a>
+
+
+  <img src="http://www.cs.umd.edu/assets/images/spacer.gif" width="10" height="5" >
+  <span class="topbar">|</span>
+
+<img src="http://www.cs.umd.edu/assets/images/spacer.gif" width="10" height="5">
+  <a class="topbar" href="http://www.cs.umd.edu/projects/active/res_topics.html"
+  onmouseover="style.color='red'" onmouseout="style.color='black'">Projects</a>
+
+  <img src="http://www.cs.umd.edu/assets/images/spacer.gif" width="10" height="5">
+  <span class="topbar">|</span>
+
+  <img src="http://www.cs.umd.edu/assets/images/spacer.gif" width="10" height="5">
+  <a class="topbar" href="http://www.cs.umd.edu/active/pub.html"
+  onmouseover="style.color='red'" onmouseout="style.color='black'">Publications</a>
+
+  <img src="http://www.cs.umd.edu/assets/images/spacer.gif" width="10" height="5">
+  <span class="topbar">|</span>
+
+  <img src="http://www.cs.umd.edu/assets/images/spacer.gif" width="10" height="5">
+  <a class="topbar" href="http://www.cs.umd.edu/active/people.html"
+  onmouseover="style.color='red'" onmouseout="style.color='black'">People</a>
+
+ <img src="http://www.cs.umd.edu/assets/images/spacer.gif" width="10" height="5">
+ <span class="topbar">|</span>
+
+ <img src="http://www.cs.umd.edu/assets/images/spacer.gif" width="10" height="5">
+  <a class="topbar" href="http://www.umiacs.umd.edu/seminars/laisem.htm"
+  onmouseover="style.color='red'" onmouseout="style.color='black'">Seminars</a>
+
+<img src="http://www.cs.umd.edu/assets/images/spacer.gif" width="10" height="5">
+  <span class="topbar">|</span>
+
+<img src="http://www.cs.umd.edu/assets/images/spacer.gif" width="10" height="5">
+  <a class="topbar" href="http://www.cs.umd.edu/active/search.html"
+  onmouseover="style.color='red'" onmouseout="style.color='black'">Search</a>
+
+<img src="http://www.cs.umd.edu/assets/images/spacer.gif" width="10" height="5" alt="spacer"></td>
+
+</tr></table>
+
+</td>
+<br>
+</tr>
+</table></td>
+</tr></table>
+</td>
+</tr>
+
+
+</table>
+
+
+<!-- ============ AFTER THE BANNER  ======================= -->
+
+<br>
+ <table border="0" height ="500" cellpadding="0" cellspacing="0" width ="100%"><tr> 
+
+<!-- ============ LEFT SIDE =============== -->
+
+      <td valign = "top" width ="10%" align="left"  valign="top">
+        <p><b>Toward Human-Level Cognitive Adequacy</b>
+        <br> 
+         Our long-range aim is to design and implement common sense in a computer.
+           Click <a href="aims.html">here</a> for details.
+	   <BR><BR><BR>
+	
+
+</td>
+<!-- ============ END LEFT SIDE =============== -->
+
+
+       <td valign="top" width="2" bgcolor="#FFFFFF"><img src="/assets/images/spacer.gif" width="1" height="1"></td>
+       <td valign="top" width="2" bgcolor="#FFFFFF"><img src="/assets/images/spacer.gif" width="1" height="1"></td>
+       <td valign="top" width="2" bgcolor="#FFFFFF"><img src="/assets/images/spacer.gif" width="1" height="1"></td>
+       <td valign="top" width="2" bgcolor="#FFFFFF"><img src="/assets/images/spacer.gif" width="1" height="1"></td>
+       <td valign="top" width = "0" bgcolor="#FFCC33"><img src="/assets/images/spacer.gif" width ="1"  height="1"></td>
+       <td valign="top" width="2" bgcolor="#FFFFFF"><img src="/assets/images/spacer.gif" width="1" height="1"></td>
+       <td valign="top" width="2" bgcolor="#FFFFFF"><img src="/assets/images/spacer.gif" width="1" height="1"></td>
+       <td valign="top" width="6" bgcolor="#FFFFFF"><img src="/assets/images/spacer.gif" width="1" height="1"></td>
+       <td valign="top" width="2" bgcolor="#FFFFFF"><img src="/assets/images/spacer.gif" width="1" height="1"></td>
+       <td valign="top" width="2" bgcolor="#FFFFFF"><img src="/assets/images/spacer.gif" width="1" height="1"></td>
+
+<td valign="top" nowrap "> </td>
+
+<!-- ============ START MAIN  CONTENT ======================= -->
+   <td valign="top" width ="100%" >
+<!--
+<p><b><font size="+1">Projects</font></b>
+
+-->
+
+<table>
+<TR>
+  <TD ALIGN="LEFT" WIDTH="1200" BGCOLOR="#FFCC33"><B><FONT
+   COLOR="#000000" size="+1"> <u>Conversational Adequacy</u></FONT></B></TD>
+</TR>
+
+</table>
+
+<!-- +++++++++++++++++++++++++++++++++ -->
+<br>
+<table><tr><td>
+        One major ongoing application of active logics is that of building a "conversationally 
+        adequate" dialogue agent (see paper on <a href="http://www.cs.umd.edu/projects/active/doc/conversational-adequacy/ver1_ss.html">Conversational 
+        Adequacy</a> -- one can view such an agent as having the ability to learn 
+        in McCarthy's sense of advice-taking, via conversation). 
+      <p>We have accomplished the following goals (see <a href="http://www.cs.umd.edu/projects/active/papers/etai.ps">research 
+        report</a>):
+      <ol>
+        <li> process a few simple queries via voice input, requiring the use of 
+          negative introspection, in the context of the Rochester TRAINS system 
+          rewritten to employ active logic. 
+        <li> handle apparent contradictions as in "Send the Boston train to NYC... 
+          [here the system does something]... No, send the Boston train to NYC" 
+          where the system has misunderstood the first request and so the user 
+          says "no" and repeats the same request. This requires the system to 
+          recognize that "no" refers to the systems response rather than to the 
+          user's first request. 
+      </ol>
+      <p>The long-range research plan envisions the following steps:</p>
+      <ol>
+        <li> understand and generate spelling in metadialogue ("The word I am 
+          saying is spelled 'xyz'...") 
+        <li> definitions and/or definitional queries ("What does the word 'xyz' 
+          mean?") 
+        <li> more general metadialogue: You said, I said, you meant, I meant, 
+          etc 
+        <li> reasoning about the physical and social worlds 
+        <li> focus, attention and memory 
+        <li> conversational adequacy
+      </ol>
+</td></tr></table>
+
+<!-- +++++++++++++++++++++++++++++++++ -->
+
+
+</td>
+<!-- ======= END MAIN CONTENT  ============================ -->
+
+
+
+
+</tr></table>
+
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

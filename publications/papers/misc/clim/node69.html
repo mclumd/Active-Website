@@ -1,0 +1,92 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 99.1 release (March 30, 1999)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Repaint Protocol Classes</TITLE>
+<META NAME="description" CONTENT="Repaint Protocol Classes">
+<META NAME="keywords" CONTENT="clim">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v99.1 release">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="clim.css">
+
+<LINK REL="previous" HREF="node68.html">
+<LINK REL="up" HREF="node67.html">
+<LINK REL="next" HREF="node70.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html1705"
+ HREF="node70.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/icons/next_motif.gif"></A> 
+<A NAME="tex2html1701"
+ HREF="node67.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/icons/up_motif.gif"></A> 
+<A NAME="tex2html1697"
+ HREF="node68.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/icons/previous_motif.gif"></A> 
+<A NAME="tex2html1703"
+ HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/icons/contents_motif.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html1706"
+ HREF="node70.html">Sheet Notification Protocol</A>
+<B> Up:</B> <A NAME="tex2html1702"
+ HREF="node67.html">Repaint Protocol</A>
+<B> Previous:</B> <A NAME="tex2html1698"
+ HREF="node68.html">Repaint Protocol Functions</A>
+ &nbsp <B>  <A NAME="tex2html1704"
+ HREF="node1.html">Contents</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H2><A NAME="SECTION04342000000000000000">
+Repaint Protocol Classes</A>
+</H2>
+
+<P>
+standard-repainting-mixin
+
+<P>
+Defines a dispatch-repaint method that calls queue-repaint.
+
+<P>
+immediate-repainting-mixin
+
+<P>
+RSL Is this a good name?
+
+<P>
+Defines a dispatch-repaint method that calls handle-repaint.
+
+<P>
+mute-repainting-mixin
+
+<P>
+Defines a dispatch-repaint method that calls queue-repaint, and a
+method on repaint-sheet that does nothing.  This means that its children
+will be recursively repainted when the repaint event is handled.
+
+<P>
+<BR><HR>
+<ADDRESS>
+<I>&</I>
+<BR><I>2001-06-12</I>
+</ADDRESS>
+</BODY>
+</HTML>

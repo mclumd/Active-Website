@@ -1,0 +1,148 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 99.1 release (March 30, 1999)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Designs</TITLE>
+<META NAME="description" CONTENT="Designs">
+<META NAME="keywords" CONTENT="clim">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v99.1 release">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="clim.css">
+
+<LINK REL="next" HREF="node122.html">
+<LINK REL="previous" HREF="node120.html">
+<LINK REL="up" HREF="node119.html">
+<LINK REL="next" HREF="node122.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2406"
+ HREF="node122.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/icons/next_motif.gif"></A> 
+<A NAME="tex2html2402"
+ HREF="node119.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/icons/up_motif.gif"></A> 
+<A NAME="tex2html2396"
+ HREF="node120.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/icons/previous_motif.gif"></A> 
+<A NAME="tex2html2404"
+ HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/icons/contents_motif.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html2407"
+ HREF="node122.html">Color</A>
+<B> Up:</B> <A NAME="tex2html2403"
+ HREF="node119.html">Drawing in Color</A>
+<B> Previous:</B> <A NAME="tex2html2397"
+ HREF="node120.html">The :ink Drawing Option</A>
+ &nbsp <B>  <A NAME="tex2html2405"
+ HREF="node1.html">Contents</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION05420000000000000000">
+Designs</A>
+</H1>
+
+<P>
+design
+
+<P>
+A design is an object that represents a way of arranging colors and opacities in
+the drawing plane.  The design class is the protocol class for designs.
+a design design
+
+<P>
+The fundamental operation of the CLIM graphic drawing model
+is to draw a design onto a drawing plane, thus drawing is always controlled by
+designs.  The designs discussed in this chapter do the same thing at each point
+in the drawing plane.  Chapter&nbsp;<A HREF="node134.html#patterns">14</A> discusses more general designs and
+reveals that regions are also designs.
+
+<P>
+A design can be characterized in several different ways:
+
+<P>
+All designs are either <I> bounded</I><A NAME="14810"></A> or <I> unbounded</I><A NAME="14812"></A>.  Bounded
+designs are transparent everywhere beyond a certain distance from a certain
+point.  Drawing a bounded design has no effect on the drawing plane outside that
+distance.  Unbounded designs have points of non-zero opacity arbitrarily far
+from the origin.  Drawing an unbounded design affects the entire drawing plane.
+
+<P>
+All designs are either <I> uniform</I><A NAME="14814"></A> or <I> non-uniform</I><A NAME="14816"></A>.  Uniform
+designs have the same color and opacity at every point in the drawing plane.
+Uniform designs are always unbounded, unless they are completely transparent.
+
+<P>
+All designs are either <I> solid</I><A NAME="14818"></A> or <I> translucent</I><A NAME="14820"></A>.  At each point
+a solid design is either completely opaque or completely transparent.  A solid
+design can be opaque at some points and transparent at others.  In translucent
+designs, at least one point has an opacity that is intermediate between
+completely opaque and transparent.
+
+<P>
+All designs are either <I> colorless</I><A NAME="14822"></A> or <I> colored</I><A NAME="14824"></A>.  Drawing a
+colorless design uses a default color specified by the medium's foreground
+design.  This is done by drawing with (compose-in +foreground-ink+
+the-colorless-design).  See Chapter&nbsp;<A HREF="node134.html#patterns">14</A> for the details of
+compose-in.
+
+<P>
+designp object
+
+<P>
+Returns <I> true</I> if <I> object</I> is a <I> design</I>, otherwise returns
+<I> false</I>.
+
+<P>
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2406"
+ HREF="node122.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/icons/next_motif.gif"></A> 
+<A NAME="tex2html2402"
+ HREF="node119.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/icons/up_motif.gif"></A> 
+<A NAME="tex2html2396"
+ HREF="node120.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/icons/previous_motif.gif"></A> 
+<A NAME="tex2html2404"
+ HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/icons/contents_motif.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html2407"
+ HREF="node122.html">Color</A>
+<B> Up:</B> <A NAME="tex2html2403"
+ HREF="node119.html">Drawing in Color</A>
+<B> Previous:</B> <A NAME="tex2html2397"
+ HREF="node120.html">The :ink Drawing Option</A>
+ &nbsp <B>  <A NAME="tex2html2405"
+ HREF="node1.html">Contents</A></B> 
+<!--End of Navigation Panel-->
+<ADDRESS>
+<I>&</I>
+<BR><I>2001-06-12</I>
+</ADDRESS>
+</BODY>
+</HTML>

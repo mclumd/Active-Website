@@ -1,0 +1,513 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 99.1 release (March 30, 1999)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Presentation Methods</TITLE>
+<META NAME="description" CONTENT="Presentation Methods">
+<META NAME="keywords" CONTENT="clim">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v99.1 release">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="clim.css">
+
+<LINK REL="next" HREF="node212.html">
+<LINK REL="previous" HREF="node210.html">
+<LINK REL="up" HREF="node208.html">
+<LINK REL="next" HREF="node212.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html3654"
+ HREF="node212.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/icons/next_motif.gif"></A> 
+<A NAME="tex2html3650"
+ HREF="node208.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/icons/up_motif.gif"></A> 
+<A NAME="tex2html3644"
+ HREF="node210.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/icons/previous_motif.gif"></A> 
+<A NAME="tex2html3652"
+ HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/icons/contents_motif.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html3655"
+ HREF="node212.html">Presentation Type Functions</A>
+<B> Up:</B> <A NAME="tex2html3651"
+ HREF="node208.html">Presentation Types</A>
+<B> Previous:</B> <A NAME="tex2html3645"
+ HREF="node210.html">Presentation Type Abbreviations</A>
+ &nbsp <B>  <A NAME="tex2html3653"
+ HREF="node1.html">Contents</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H2><A NAME="SECTION07223000000000000000">
+Presentation Methods</A>
+</H2>
+
+<P>
+Presentation methods inherit and combine in the same way as ordinary CLOS
+methods.  The reason presentation methods are not exactly the same as ordinary
+CLOS methods revolves around the <I> type</I> argument.  The parameter specializer
+for <I> type</I> is handled in a special way, and presentation method inheritance
+``massages'' the type parameters and options seen by each method.  For example,
+consider three types int, rrat, and num defined as follows:
+
+<P>
+SWM How are massaged arguments passed along?  Right now, we pass along
+those parameters of the same name, and no others.
+
+<P>
+ 
+<PRE>
+
+(define-presentation-type int (low high)
+  :inherit-from `(rrat ,high ,low))
+
+(define-presentation-method presentation-typep :around (object (type int))
+  (and (call-next-method)
+       (integerp object)
+       (&lt;= low object high)))
+
+(define-presentation-type rrat (high low)
+  :inherit-from `num)
+
+(define-presentation-method presentation-typep :around (object (type rrat))
+  (and (call-next-method)
+       (rationalp object)
+       (&lt;= low object high)))
+
+(define-presentation-type num ())
+
+(define-presentation-method presentation-typep (object (type num))
+  (numberp object))
+</PRE>
+
+<P>
+If the user were to evaluate the form (presentation-typep X '(int 1 5)),
+then the type parameters will be (1 5) in the presentation-typep
+method for int, (5 1) in the method for rrat, and nil in the
+method for num.  The value for <I> type</I> will be or ((int 1 5)) in
+each of the methods.
+
+<P>
+define-presentation-generic-function generic-function-name 
+                                                  presentation-function-name
+                                                  lambda-list <TT> &amp;rest </TT>options
+
+<P>
+Defines a generic function that will be used for presentation methods.
+<I> generic-function-name</I> is a symbol that names the generic function that
+will be used internally by CLIM for the individual methods,
+<I> presentation-function-name</I> is a symbol that names the function that
+programmers will call to invoke the method, and <I> lambda-list</I> and
+<I> options</I> are as for defgeneric.
+
+<P>
+There are some ``special'' arguments in <I> lambda-list</I> that are known about
+by the presentation type system.  The first argument in <I> lambda-list</I> must
+be either type-key or type-class; this argument is used by CLIM to
+implement method dispatching.  The second argument may be parameters,
+meaning that, when the method is invoked, the type parameters will be passed to
+it.  The third argument may be options, meaning that, when the method is
+invoked, the type options will be passed to it.  Finally, an argument named
+type must be included in <I> lambda-list</I>; when the method is called,
+<I> type</I> argument will be bound to the presentation type specifier.
+
+<P>
+For example, the accept presentation generic function might be defined as
+follows:
+<PRE>
+
+(define-presentation-generic-function present-method present
+  (type-key parameters options object type stream view
+   &amp;key acceptably for-context-type))
+</PRE>
+
+<P>
+None of the arguments is evaluated.
+
+<P>
+define-presentation-method name qualifiers* specialized-lambda-list <TT> &amp;body </TT>body
+
+<P>
+Defines a presentation method for the function named <I> name</I> on the
+presentation type named in <I> specialized-lambda-list</I>.
+<I> specialized-lambda-list</I> is a CLOS specialized lambda list for the method,
+and its contents varies depending on what <I> name</I> is.  <I> qualifiers*</I> is
+zero or more of the usual CLOS method qualifier symbols.
+define-presentation-method must support at least standard method
+combination (and therefore the :before, :after, and :around
+method qualifiers).  Some CLIM implementations may support other method
+combination types, but this is not required.
+
+<P>
+ 
+<I> body</I> defines the body of the method.  <I> body</I> may have zero or more
+declarations as its first forms.
+
+<P>
+All presentation methods have an argument named <I> type</I> that must be
+specialized with the name of a presentation type.  The value of <I> type</I> is a
+presentation type specifier, which can be for a subtype that inherited the
+method.
+
+<P>
+All presentation methods except presentation-subtypep have lexical access
+to the parameters from the presentation type specifier.  Presentation methods
+for the functions accept, present, describe-presentation-type,
+presentation-type-specifier-p, and accept-present-default also have
+lexical access to the options from the presentation type specifier.
+
+<P>
+define-default-presentation-method name qualifiers* specialized-lambda-list
+                                                <TT> &amp;body </TT>body
+
+<P>
+Like define-presentation-method, except that it is used to define a default
+method that will be used only if there are no more specific methods.
+
+<P>
+call-presentation-generic-function presentation-function-name <TT> &amp;rest </TT>arguments
+
+<P>
+Calls the presentation generic function named by <I> presentation-function-name</I>
+on the arguments <I> arguments</I>.  <I> arguments</I> must match the arguments
+specified by the define-presentation-generic-function that was used to define
+the presentation generic function, excluding the type-key, type-class,
+parameters, and options arguments, which are filled in by CLIM.
+
+<P>
+If <I> presentation-function-name</I> is eq to the symbol apply, then
+the <I> presentation-function-name</I> argument is set to be the first element of
+<I> arguments</I>, and <I> arguments</I> is set to be the remainder of
+<I> arguments</I>.  In this case, the presentation generic function is called with
+apply instead of funcall.
+
+<P>
+The <I> presentation-function-name</I> argument is not evaluated.
+
+<P>
+For example, to call the present presentation generic function, one might
+use the following:
+<PRE>
+
+(call-presentation-generic-function present
+  object presentation-type stream view)
+</PRE>
+
+<P>
+Here is a list of all of the standard presentation methods and their specialized
+lambda lists.  For the meaning of the arguments to each presentation method,
+refer to the description of the function that calls that method.
+
+<P>
+For all of the presentation methods, the <I> type</I> will always be specialized.
+For those methods that take a <I> view</I> argument, implementors and programmers
+may specialize it as well.  The other arguments are not typically specialized.
+
+<P>
+present object type stream view <TT> &amp;key </TT>acceptably for-context-type 
+
+<P>
+The present presentation method is responsible for displaying the
+representation of <I> object</I> having <I> presentation type</I> <I> type</I> for a
+particular <I> view</I> <I> view</I>.  The method's caller takes care of creating
+the presentation, the method simply displays the content of the presentation.
+
+<P>
+The present method can specialize on the <I> view</I> argument in order to
+define more than one view of the data.  For example, a spreadsheet program might
+define a presentation type for revenue, which can be displayed either as a
+number or a bar of a certain length in a bar graph.  Typically, at least one
+canonical view should be defined for a presentation type, for example, the
+present method for the textual-view view should be defined if the
+programmer wants to allow objects of that type to be displayed textually.
+
+<P>
+ 
+<B> Implementation note:</B> the actual argument list to the present method is
+
+<BR>
+<I> (type-key parameters options object type stream view <TT> &amp;key </TT>acceptably for-context-type)</I>
+
+<BR>
+<I> type-key</I> is the object that is used to cause the appropriate methods to be
+selected (an instance of the class that corresponds to the presentation type
+<I> type</I>.).
+<I> parameters</I> and <I> options</I> are the parameters and
+options for the type on which the current method is specialized.  
+The other arguments are gotten from the arguments of the same name in present.
+
+<P>
+ 
+<B> Implementation note:</B> the actual generic function of the present
+method is an internal generic function, not the function whose name is
+present.  Similar internal generic functions are used for all presentation
+methods.
+
+<P>
+accept type stream view <TT> &amp;key </TT>default default-type
+
+<P>
+The accept method is responsible for ``parsing'' the representation of the
+<I> presentation type</I> <I> type</I> for a particular <I> view</I> <I> view</I>.
+The accept method must return a single value, the object that was
+``parsed'', or two values, the object and its type (a presentation type
+specifier).  The method's caller takes care of establishing the input context,
+defaulting, prompting, and input editing.
+
+<P>
+The accept method can specialize on the <I> view</I> argument in order to
+define more than one input view for the data.  The accept method for the
+textual-view view must be defined if the programmer wants to allow objects
+of that type to entered via the keyboard.
+
+<P>
+Note that accept presentation methods can call accept recursively.  In
+this case, the programmer should be careful to specify nil for :prompt
+and :display-default unless recursive prompting is really desired.
+
+<P>
+ 
+<B> Implementation note:</B> the actual argument list to the accept method is
+
+<BR>
+<I> (type-key parameters options type stream view <TT> &amp;key </TT>default default-type)</I>
+
+<P>
+describe-presentation-type type stream plural-count
+
+<P>
+The describe-presentation-type method is responsible for textually
+describing the <I> presentation type</I> <I> type</I>.  <I> stream</I> is a stream,
+and will not be nil as it can be for the describe-presentation-type
+function.
+
+<P>
+ 
+<B> Implementation note:</B> the actual argument list to the 
+describe-presentation-type method is
+
+<BR>
+<I> (type-key parameters options type stream plural-count)</I> 
+
+<P>
+presentation-type-specifier-p type
+
+<P>
+The presentation-type-specifier-p method is responsible for checking the
+validity of the parameters and options for the <I> presentation type</I>
+<I> type</I>.  The default method returns t.
+
+<P>
+ 
+<B> Implementation note:</B> the actual argument list to the
+presentation-type-specifier-p method is
+
+<BR>
+<I> (type-key parameters options type)</I>
+
+<P>
+presentation-typep object type
+
+<P>
+The presentation-typep method is called when the presentation-typep
+function requires type-specific knowledge.  If the type name in the
+<I> presentation type</I> <I> type</I> is a CLOS class or names a CLOS class, the
+method is called only if <I> object</I> is a member of the class and <I> type</I>
+contains parameters, and the method simply tests whether <I> object</I> is a
+member of the subtype specified by the parameters.  For non-class types, the
+method is always called.
+
+<P>
+ 
+<B> Implementation note:</B> the actual argument list to the presentation-typep
+method is
+
+<BR>
+<I> (type-key parameters object type)</I>
+
+<P>
+presentation-subtypep type putative-supertype
+
+<P>
+presentation-subtypep walks the type lattice (using
+map-over-presentation-supertypes) to determine whethe or not the
+<I> presentation type</I> <I> type</I> is a subtype of the<I> presentation type</I>
+<I> putative-supertype</I>, without looking at the type parameters.  When a
+supertype of <I> type</I> has been found whose name is the same as the name of
+<I> putative-supertype</I>, then the subtypep method for that type is called
+in order to resolve the question by looking at the type parameters (that is, if
+the subtypep method is called, <I> type</I> and <I> putative-supertype</I> are
+guaranteed to be the same type, differing only in their parameters).  If
+<I> putative-supertype</I> is never found during the type walk, then
+presentation-subtypep will never call the presentation-subtypep
+presentation method for <I> putative-supertype</I>.
+
+<P>
+Unlike all other presentation methods, presentation-subtypep receives a
+<I> type</I> argument that has been translated to the presentation type for which
+the method is specialized; <I> type</I> is never a subtype.  The method is only
+called if <I> putative-supertype</I> has parameters and the two presentation type
+specifiers do not have equal parameters.  The method must return the two values
+that presentation-subtypep returns.
+
+<P>
+Since presentation-subtypep takes two type arguments, the parameters are
+not lexically available as variables in the body of a presentation method.
+
+<P>
+ 
+<B> Implementation note:</B> the actual argument list to the
+presentation-subtypep method is
+
+<BR>
+<I> (type-key type putative-supertype)</I>
+
+<P>
+map-over-presentation-type-supertypes function type
+
+<P>
+This method is called in order to apply <I> function</I> to the superclasses of
+the <I> presentation type</I> <I> type</I>.
+
+<P>
+ 
+<B> Implementation note:</B> the actual argument list to the
+map-over-presentation-type-supertypes method is
+
+<BR>
+<I> (type-class function type)</I>
+
+<P>
+accept-present-default type stream view default default-supplied-p
+                                       present-p query-identifier
+
+<P>
+The accept-present-default method is called when accept turns into
+present inside of accepting-values.  The default method calls
+present or describe-presentation-type depending on whether
+<I> default-supplied-p</I> is <I> true</I> or <I> false</I>, respectively.
+
+<P>
+The boolean <I> default-supplied-p</I> will be <I> true</I> only in the case when
+the :default option was explicitly supplied in the call to accept that
+invoked accept-present-default.
+
+<P>
+ 
+<B> Implementation note:</B> the actual argument list to the
+accept-present-default method is
+
+<BR>
+<I> (type-key parameters options type stream view default default-supplied-p present-p query-identifier)</I>
+
+<P>
+presentation-type-history type
+
+<P>
+This method is responsible for returning a history object for the
+<I> presentation type</I> <I> type</I>.
+
+<P>
+ 
+<B> Implementation note:</B> the actual argument list to the
+presentation-type-history method is
+
+<BR>
+<I> (type-key parameters type)</I>
+
+<P>
+presentation-default-preprocessor default type <TT> &amp;key </TT>default-type
+
+<P>
+This method is responsible for taking the object <I> default</I>, and coercing it
+to match the <I> presentation type</I> <I> type</I> (which is the type being
+accepted) and <I> default-type</I> (which is the presentation type of
+<I> default</I>).  This is useful when you want to change the default gotten from
+the presentation type's history so that it conforms to parameters or options in
+<I> type</I> and <I> default-type</I>.)  The method must return two values, the new
+object to be used as the default, and a new presentation type, which should be
+at least as specific as <I> type</I>.
+
+<P>
+ 
+<B> Implementation note:</B> the actual argument list to the
+presentation-default-preprocessor method is
+
+<BR>
+<I> (type-key parameters default type <TT> &amp;key </TT>default-type)</I>
+
+<P>
+presentation-refined-position-test 
+
+<P>
+SWM To be supplied.
+
+<P>
+highlight-presentation type record stream state
+
+<P>
+This method is responsible for drawing a highlighting box around the
+<I> presentation</I> <I> record</I> on the <I> output recording stream</I>
+<I> stream</I>.  <I> state</I> will be either :highlight or :unhighlight.
+
+<P>
+ 
+<B> Implementation note:</B> the actual argument list to the
+highlight-presentation method is
+
+<BR>
+<I> (type-key parameters options type record stream state)</I>
+
+<P>
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html3654"
+ HREF="node212.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/icons/next_motif.gif"></A> 
+<A NAME="tex2html3650"
+ HREF="node208.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/icons/up_motif.gif"></A> 
+<A NAME="tex2html3644"
+ HREF="node210.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/icons/previous_motif.gif"></A> 
+<A NAME="tex2html3652"
+ HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/icons/contents_motif.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html3655"
+ HREF="node212.html">Presentation Type Functions</A>
+<B> Up:</B> <A NAME="tex2html3651"
+ HREF="node208.html">Presentation Types</A>
+<B> Previous:</B> <A NAME="tex2html3645"
+ HREF="node210.html">Presentation Type Abbreviations</A>
+ &nbsp <B>  <A NAME="tex2html3653"
+ HREF="node1.html">Contents</A></B> 
+<!--End of Navigation Panel-->
+<ADDRESS>
+<I>&</I>
+<BR><I>2001-06-12</I>
+</ADDRESS>
+</BODY>
+</HTML>

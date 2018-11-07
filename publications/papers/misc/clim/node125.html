@@ -1,0 +1,161 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 99.1 release (March 30, 1999)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Opacity</TITLE>
+<META NAME="description" CONTENT="Opacity">
+<META NAME="keywords" CONTENT="clim">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v99.1 release">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="clim.css">
+
+<LINK REL="next" HREF="node126.html">
+<LINK REL="previous" HREF="node122.html">
+<LINK REL="up" HREF="node119.html">
+<LINK REL="next" HREF="node126.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2454"
+ HREF="node126.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/icons/next_motif.gif"></A> 
+<A NAME="tex2html2450"
+ HREF="node119.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/icons/up_motif.gif"></A> 
+<A NAME="tex2html2444"
+ HREF="node124.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/icons/previous_motif.gif"></A> 
+<A NAME="tex2html2452"
+ HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/icons/contents_motif.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html2455"
+ HREF="node126.html">Color Blending</A>
+<B> Up:</B> <A NAME="tex2html2451"
+ HREF="node119.html">Drawing in Color</A>
+<B> Previous:</B> <A NAME="tex2html2445"
+ HREF="node124.html">Contrasting Colors</A>
+ &nbsp <B>  <A NAME="tex2html2453"
+ HREF="node1.html">Contents</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION05440000000000000000">
+Opacity</A>
+</H1>
+
+<P>
+opacity
+
+<P>
+A member of the class opacity is a completely colorless design that is
+typically used as the second argument to compose-in to adjust the opacity
+of another design.  See Chapter&nbsp;<A HREF="node134.html#patterns">14</A> for the details of
+compose-in.  The opacity class is the protocol class for an opacity,
+and is a subclass of design.
+an opacity opacity
+
+<P>
+All of the standard instantiable opacity classes provided by CLIM are immutable.
+
+<P>
+Opacity controls how graphical output covers previous output.  Opacity can vary
+from totally opaque to totally transparent.  Intermediate opacity values result
+in color blending so that the earlier picture shows through what is drawn on top
+of it.
+
+<P>
+An opacity may be specified by a real number between 0 and 1 (inclusive).  0 is
+completely transparent, 1 is completely opaque, fractions are translucent.  The
+opacity of a design is the degree to which it hides the previous contents of the
+drawing plane when it is drawn.
+
+<P>
+The fully transparent and fully opaque opacity levels (that is, opacities 0 and
+1) must always be supported, but a valid CLIM implementation might only support
+a handful of opacity levels in between (including none).  A valid CLIM
+implementation might implement color blending and unsaturated colors by
+stippling, although it is preferred, when possible, for a viewport to display a
+uniform color as a uniform color rather than as a perceptible stipple.
+
+<P>
+opacityp object
+
+<P>
+Returns <I> true</I> if <I> object</I> is an <I> opacity</I>, otherwise returns
+<I> false</I>.
+
+<P>
+The following function returns an opacity:
+
+<P>
+make-opacity value
+
+<P>
+Returns a member of class opacity whose opacity is <I> value</I>, which is a
+real number in the range from 0 to 1 (inclusive), where 0 is fully transparent
+and 1 is fully opaque.
+
+<P>
+The following function returns the sole component of an opacity.  This is the
+only function in the opacity protocol.  All subclasses of opacity must
+implement methods for this generic function.
+
+<P>
+opacity-value opacity
+
+<P>
+Returns the opacity value of the <I> opacity</I> <I> opacity</I>, which is a real
+number in the range from 0 to 1 (inclusive).
+
+<P>
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2454"
+ HREF="node126.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/icons/next_motif.gif"></A> 
+<A NAME="tex2html2450"
+ HREF="node119.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/icons/up_motif.gif"></A> 
+<A NAME="tex2html2444"
+ HREF="node124.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/icons/previous_motif.gif"></A> 
+<A NAME="tex2html2452"
+ HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/icons/contents_motif.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html2455"
+ HREF="node126.html">Color Blending</A>
+<B> Up:</B> <A NAME="tex2html2451"
+ HREF="node119.html">Drawing in Color</A>
+<B> Previous:</B> <A NAME="tex2html2445"
+ HREF="node124.html">Contrasting Colors</A>
+ &nbsp <B>  <A NAME="tex2html2453"
+ HREF="node1.html">Contents</A></B> 
+<!--End of Navigation Panel-->
+<ADDRESS>
+<I>&</I>
+<BR><I>2001-06-12</I>
+</ADDRESS>
+</BODY>
+</HTML>

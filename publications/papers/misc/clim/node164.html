@@ -1,0 +1,90 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 99.1 release (March 30, 1999)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Standard Output Record Classes</TITLE>
+<META NAME="description" CONTENT="Standard Output Record Classes">
+<META NAME="keywords" CONTENT="clim">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v99.1 release">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="clim.css">
+
+<LINK REL="next" HREF="node165.html">
+<LINK REL="previous" HREF="node163.html">
+<LINK REL="up" HREF="node163.html">
+<LINK REL="next" HREF="node165.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html3006"
+ HREF="node165.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/icons/next_motif.gif"></A> 
+<A NAME="tex2html3002"
+ HREF="node163.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/icons/up_motif.gif"></A> 
+<A NAME="tex2html2996"
+ HREF="node163.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/icons/previous_motif.gif"></A> 
+<A NAME="tex2html3004"
+ HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/icons/contents_motif.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html3007"
+ HREF="node165.html">Graphics Displayed Output Records</A>
+<B> Up:</B> <A NAME="tex2html3003"
+ HREF="node163.html">Types of Output Records</A>
+<B> Previous:</B> <A NAME="tex2html2997"
+ HREF="node163.html">Types of Output Records</A>
+ &nbsp <B>  <A NAME="tex2html3005"
+ HREF="node1.html">Contents</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H2><A NAME="SECTION06221000000000000000">
+Standard Output Record Classes</A>
+</H2>
+
+<P>
+standard-sequence-output-record
+
+<P>
+The standard class provided by CLIM to store a relatively short sequence of
+output records; a subclass of output-record.  The insertion and retrieval
+complexity of this class is O(n).  Most of the formatted output facilities (such
+as formatting-table) create output records that are a subclass of
+standard-sequence-output-record.
+
+<P>
+standard-tree-output-record
+
+<P>
+The standard class provided by CLIM to store longer sequences of output records.
+Typically, the child records of a tree output record will be maintained in some
+sort of sorted order, such as a lexicographic ordering on the 1#1 and 2#2
+coordinates of the children.  The insertion and retrieval complexity of this
+class is O(n&nbsp;log&nbsp;n).
+
+<P>
+<BR><HR>
+<ADDRESS>
+<I>&</I>
+<BR><I>2001-06-12</I>
+</ADDRESS>
+</BODY>
+</HTML>

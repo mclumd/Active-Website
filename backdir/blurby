@@ -1,0 +1,45 @@
+Our goal is to build human-level common sense into a computer.
+Commonsense reasoning is a traditional topic, but our aim is both
+broader and more specific than that.  It is broader in that we include
+in our vision not only reasoning but also learning, acting, and
+perceiving, all integrated into a coherent overall system-agent.  The hope
+for such an integrated system is not new, of course. But our aim is also
+more specific in that we are focusing on one crucial piece that has been
+missing from the equation, and on a particular form for that piece.
+
+Traditionally there has been a hope that a kind of perfect reasoning
+is possible...  we think this is a will'o'the wisp, and that the real
+problem lies elsewhere, in facing up to error and real-time solutions
+to it. In particular, the notorious and endemic brittleness of AI systems is
+part and parcel of the perfection approach. But perfection is inherently
+brittle...and thereby almost useless; it is predicated on lack of
+surprise, yet the real world is full of surprise, necessitating
+real-time learning, revision, openness to change.  This observation is
+not new either, but we think it must be faced head-on rather than
+pushed aside as a topic for a future decade while the perfection
+studies are more finely honed.
+
+So, what is our idea for how to deal with error?
+We take a cue from human commonsense reasoning
+in this, and we have formulated a series of hypotheses to that end,
+centering on what we call the Metacognitive Loop (MCL).  This loop
+essentially watches for anomalies and initiates repairs as needed.
+Looked at a little more closely, it provides a number of distinct
+advantages, including:
+
+1. scaling should not be a problem, in that (a) MCL itself will not in
+general face much increased data as the external world data increases
+and (b) as that external data increases, MCL can simply treat that as
+another anomaly.
+
+2. MCL can provide an unbreakable wrapper
+
+3. MCL can -- via its version we call LGR -- learn to adjust its
+reasoning wrt to certain situation, eg to avoid using certain
+techniques that it is not very good at
+
+4. MCL can -- via the version we call RGL -- figure out specific
+retraining of its learning modules so that they perform a given task
+better.
+
+

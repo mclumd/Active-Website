@@ -1,0 +1,363 @@
+\documentclass[12pt]{amsart}
+%\documentclass[fullpage]{article}
+\usepackage{/fs/disco/group/util/latexstyles/lingmacros}
+\usepackage{epsfig}
+\textwidth = 400pt
+\oddsidemargin = 25pt
+\evensidemargin = 25pt
+
+\title{\bf Memory Modeling for Intelligent Behavior}
+
+%\author{Don Perlis\\
+%        University of Maryland\\
+%        College Park MD 20742 USA\\
+%        perlis@cs.umd.edu\\
+%        www.cs.umd.edu/~perlis\\
+%        301-405-2685\\
+%        fax: 301-405-6707}
+
+%"Image-Content and Texture Classification Using a Dynamically
+%Allocated ALISA Texture Module,"  
+%with T. Ko, Proceedings of the International Conference on Computer,
+%Communication and Control Technologies  
+%(CCCT '03) and the 9th International Conference on Information
+%Systems Analysis and Synthesis (ISAS '03),  %Orlando, August, 2003.
+%An Efficient Memory Algorithm using Simple Graph Maintenence Rules,
+%Ken Hennacy, Submitted to IJCAI 2005  
+%workshop on Nonmonotonic Reasoning, Action, and Change.
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+
+For next year's work, extensions of existing natural language
+processing of OMICS are proposed to address the research topic of
+intelligent memory.  Work based upon a theoretical treatment of memory
+modeling (the REM model) is discussed.  Specific work relating to the
+development of a visual processing simulator in a dynamic environment,
+the REM algorithm, and the integration of this work to past work on
+natural language understanding is required.
+
+\end{abstract}
+
+\section{Introduction}
+
+Over the past year, research with HRI has concentrated on
+commonsense reasoning and speach understanding.  Work on 
+commonsense reasoning focussed on developing the rules and methods
+needed to fill in missing information in natural language utterances.
+Work on speech understanding concentrated on assembling the grammars 
+needed for speech recognition using OMICS data as well as the binding
+of natural language statements to processing activities such as 
+task execution.  There are several other key areas for research that 
+are ongoing in the AI community that impact the research we are conducting,
+such as computer vision, probablistic reasoning with Baysian or Markovian
+methods, and machine learning.  
+
+However, one particular area of research that is very critical to
+intelligent system design is the topic that concerns itself with
+general methods for intelligent memory modeling.  By memory, we do not
+refer to typical hardware/software definitions.  Instead, we refer to
+the process of generating an organized data structure that can be used
+to recall knowledge, past events, and interpret present observations.
+Such types of "intelligent" memory represent the system's awareness of
+its environment and its ability to classify new observations for later
+processing.  To Jeff Hawkins, inventor of the PalmPilot, it represents
+the underlying component to intelligence.  He has recently created a
+company (Numenta) based in Menlo Park to develop technology he
+describes in his book, {\it On Intelligence}.
+
+Ken Hennacy has been developing intelligence concepts based upon the
+same conceptual thinking involving memory.  However, rather than
+involve explicit layering concepts inspired by brain architecture
+studies (as in the case of research inspiring Hawkins' concepts), he
+has been looking at pattern recognition, prediction, and inference
+based upon principles that are independent of brain architecture.  In
+the proposed work, we intend to implement the REM (Reluctant Episodic
+Memory) algorithm discussed in the attached paper.
+
+\section{Related Work}
+
+There is a body of related work for a variety of case-study problems
+in vision systems.  Peter Bock's ALISA project has been utilizing a
+cognitive "hemispherical" model for image classification and change
+detection [ref].  Work at the Redwood Neuroscience Institute and the
+recently founded Numenta company (March 2005) emphasizes the
+development of a platform for the hierarchichal temporal memory model
+(HTM) discussed in Hawkins' book.  Such work is largely centered on
+the problem of invariant classifications of visual images, and is
+largely discriminitive in nature, utilizing training samples [ref].
+Other work related to navigation has been performed utilizing
+probablistic methods and Markovian decision processes [ref].  While
+each paradigm has relatively good success for particular applications,
+there isn't generally alot of work being done on memory modeling for
+both small and large time-scale, complex, information storage
+requirements for dynamic environments.  Preliminary work on this topic
+has been carried out with the REM algorithm and more work will follow
+utilizing additional inference and pattern-recognition techniques.
+
+The topic of memory overall (attention, short-term memory, long-term episodic
+and semantic memory, as well as crucial aspects of perception and reasoning)
+covers a wide swath of research in cognitive psychology 
+(eg \cite{Cognition-3rd-ed-by-Mark-Ashcraft_Prentice-Hall_2002}),
+as well as in artificial intelligence (eg \cite{SOAR,Prodigy,SNePS,Golog,elgot-drapkin/miller/perlis:mrt}). In its most general
+form, memory can be thought of simply as a knowledge base (KB) where
+information is kept. If the KB does not get too large, then the usual
+memory issues need not arise: new information simply is inserted into
+the KB with no particular structure, and all items in the KB are
+available for immediate use in further inference or action. But as it
+turns out, this is often not realistic, especially when comples
+sensors as well as inference are involved, since starting from even a
+small KB, observation and inference quite often can produce a vast set
+of consequences and the KB can grow exponentially. In such cases,
+then, some sort of controls are needed. One approach is to control
+inferences and observations at the front end, to keep the numbers
+small. Another is to ``chunk'' incoming data into more manageable
+units. In either case, however, the key point is to ensure that the
+appropriate data from KB can be retrieved (quickly) at the appropriate
+times.
+
+\section{Scenario}
+
+Jessica is a gofer -- she fetches items when asked, or, if she
+cannot fetch them, she states where they are. To do this she
+must first learn where things can be: she must learn about the
+environment, and classify it into various sorts of locations
+(rooms, hallways, etc). She must also learn what objects are
+in the environment, and where they are, even though these things
+change dynamically: locations of (some) objects can change
+rapidly, objects can be removed altogether, new objects can
+appear, an object can be confused with one another, and so on.
+
+Jessica's basic tasks are thus 
+
+(i) roam about, noticing what is where,
+
+(ii) provide descriptions of what is where when asked, and 
+
+(iii) update this on a continual basis.
+
+\medskip
+
+\noindent
+Examples:
+\begin{enumerate}
+\item
+  "Jessica, have you seen my watch?" Jessica answers "I saw your watch
+   on the table in the bedroom."
+
+
+\item  "Jessica, is my wall safe closed?"
+
+   Jessica answers "I don't know,it was closed an hour ago. Shall I
+check?"  "Yes." Jessica enters bedroom, cannot see the wall safe since
+a painting has just been hung over it. He informs "The wall safe is
+not visible to me. A painting is in the location where I had expected
+the safe."
+
+\end{enumerate}
+
+To perform these tasks Jessica will need (a) learning and memory
+capabilities, (b) navigational and sensory (vision) abilities, (c) NLP
+capabilities (understanding and generation), (d) time-sensitive
+knowledge representation, and (e) time-sensitive reasoning. We propose
+to work on (a) and (d) in the coming Year, building on our work on (c)
+this past year.
+
+\section{Problem Statement}
+ 
+Given a set of natural language references to observations of the
+following categories:
+
+\begin{enumerate}
+ 
+\item
+ identification of individual objects such as "Susan" or "Sony
+Television" or ``my wall safe''
+\item
+ classification of objects such as "chair" or "carpet" or
+"unknown"
+\item
+ predication of object properties such as "brown" for chair or
+"tall" for lamp
+\item
+ identification of object locations such as "on floor", "on table",
+"in refrigerator"
+\item
+ identification of proximity relationships such as "chair is to the
+left of the television"
+ \end{enumerate}
+
+The goal is to organize this data into a form for later retreival and
+comparison to other observations and sources of knowledge such as
+OMICS.  Such organization is referred to in this proposal as (smart) memory
+modeling.  By smart memory, we refer to the useful organization of
+observations and inferences that occur in real time over the lifetime
+of a robot. 
+
+Here are various cases that require such smart memory:
+\begin{enumerate}
+ 
+\item Upon noticing an object in a room from one particular perspective
+(say from the hallway,
+looking through the door), an identification of an object may be
+partially obscurred,
+hence a readout such as the following may be produced via image
+processing:  "brown object
+on floor".  However, by reconciling this information with knowledge about
+what is in the
+room (including object labels and proximity information), the robot may
+be able to deduce
+what the object is, even though its image processing is unable to resolve
+the object
+completely.
+ 
+\item
+ A robot notices an object move (such as a person) from one room to
+another.  The reason the
+robot notices the motion is due to its use of memory, i.e. in one
+processed frame, the object is
+identified, and in another processed frame, the change in position is
+noticed.  Such motion tracking
+can be performed by a variety of techniques (utilizing precise coordinate
+representations), however
+the tracking can also be formed by noticing changes in proximity
+relationships between objects. 
+
+The advantage of having knowledge in this form is that :
+\begin{itemize} 
+ \item
+ it is less susceptable to noise and other uncertainties introduced
+via direct sensing.
+\item
+ it is far less susceptable to misinterpreting object movement due to
+change in perspective     (due to robot's own actions).
+\item
+ it can be used to deduce more readily the intent of an individual
+     (such as recognizing a person is retrieving milk from a
+refrigerator). 
+\end{itemize} 
+
+\item
+ A robot will be able to more readily correlate its actions with
+observed changes in the environment.  For example, upon updating
+memory (which annotates changes to things such as object properities),
+an independent verification scheme would be in place to validate
+expected cause-and-effect relationships as events unfold.  Such
+validation can be used to address problems in hand-vision
+coordination, for example.  While sensors placed in a hand may
+validate the acquisition of an object, visual processing as
+represented via memory modeling can be used to generate information
+such as "hand is to the right" as part of coarse-grained feeback
+scheme.  Such a coarse-grained representation lends itself well for
+high level reasoning and observation activities.
+\end{enumerate} 
+
+While the examples discussed so far rely heavily upon visual processing,
+the memory modeling work does not require the use of image processing
+algorithms.  Instead, a simulator for generating text phrases (similar to
+what is found in typical DD games) can be used to generate scenarios for
+the memory algorithm to keep track of.  Tracking the placement of objects
+over time requires memory that is constantly being accessed and revised. 
+Such revision schemes requires a nonmonotonic form of reasoning that is
+able to adapt to change.  Such memory-revision schemes have been worked
+out in a variety of studies
+\cite{mccarthy/80:circum_a_form,chapman/93:every_reason_revis,elgot-drapkin/miller/perlis:mrt}.
+
+\section{Memory and commonsense reasoning} 
+
+ 
+In our proposed work, we intend to utilize a general theoretical
+treatment for organizing memories in terms of facts via a graph structure
+implemented within JESS.  The combination of using graph-like constructs,
+together with a fact-based reasoning and information retreival
+architecture introduces new classes of graph algorithms that can be used
+to precisely categorize observations, relate them together, and notice
+change. 
+ 
+A precise theoretical treatment is given in [REM paper].
+ 
+The algorithm works in the following way:
+Specific points of reference (called decision points) are formed as a
+robot explores its environment.  These points of reference involve a
+determination that several options are available at that particular point
+in time to perform a different action.  For example, a robot may execute
+an algorithm to walk up the steps.  Once completed, the robot finds, via
+sensor processing, that it has two options in which to proceed, i.e. to
+the left or to the right.  These options are stored as facts in a
+graph-structure manner (which connects these facts to the decision point
+that existed at the foot of the stairs).  Then, the robot procedes again
+until new options appear (e.g. a door is available on the left).  All
+such points are connected together, representing a form of episodic
+memory.  Such memory modeling can be used for planning.
+Other uses include the proper recognition and learning of new events,
+locations, or objects, changes to the environment, and mistakes. The use
+of this algorithm is not limited to precise geometries or to walking.  It
+could refer to the steps undertaken, for example, in baking a cake.  The
+robot may take a series of actions for puting those ingredients into the
+bowl.  It may stir on some occasions.
+Such sequences are going to be represented in databases such as OMICS,
+however they need to be integrated into the "here-and-now" processsing
+that the robot undertakes in its reasoning as part of a "do-and-verify"
+process.  Such "here-and-now" processing relies upon memories to update
+the relative positions of objects and their relationship to the task at
+hand. Formal methods for updating memories will robustly detect
+anomalies, categorize new observations, and allow new plans (such as
+puting things back into place) to commence with accurate information. 
+When changes occur due to causes that are removed from the robot's
+immediate experience (someone left the milk out), the robot will, as part
+of its typical observational activities notice and remember such changes
+before they become a problem for actions that require this knowledge
+later on. 
+ 
+Hence, rather than rely upon the robot to notice change only as it
+becomes a problem, by proactively maintaining its knowledgebase as it
+performs every action, even with information unrelated to the activity at
+hand, it will have a far better awareness of its environment.  Upon
+talking with the robot, the robot, at any time, will be able to give
+up-to-date information about its environment.
+
+\section{Statement of work}
+We propose the following work to perform over the next fiscal year:
+
+\begin{enumerate}
+\item
+Examine existing methods of memory modeling in more detail to perform
+a white paper study of their application and limitations.   (1 month)
+
+\item
+Develop the simulator necessary to generate the text-based data that
+a robot will generate via vision processing as it moves between decision
+points.  (1.5 months)
+
+\item
+Develop the algorithm for maintaining memory as the robot moves
+around the simulator.   (2 months)
+    Integrate with the simulator.
+
+\item
+Integrate algorithm with existing speech recognition software to
+demonstrate interaction abilities.   (2 months)
+
+\item
+Behavioral modeling with memory study to demonstrate the ability to
+switch between obedient and autonomous modes of
+    interaction.  (2 months)
+
+\item
+Documentation.  (1 month)
+
+\item
+Refinements and other related studies.  (2 months)
+
+\end{enumerate}
+
+
+\bibliographystyle{plain}
+\bibliography{/fs/disco/group/bibfiles/ALL,/fs/disco/group/bibfiles/perlis1}
+
+
+
+\end{document}
+

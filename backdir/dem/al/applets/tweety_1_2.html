@@ -1,0 +1,60 @@
+<html>
+<head>
+<title>
+Tweety 1.2 example
+</title>
+</head>
+
+<body bgcolor="#ffffee" text="#000000" link="#ff0000" vlink="0000ff">
+
+<h3>Tweety 1.2 example </h3>
+<p>
+<h4>Description: </h4>
+This example illustrates one way to represent and use default
+information in active logic. The approach is to treat defaults just as
+implications. This results in contradictions if the default should not
+have been applied. We resolve contradictions by preferring the more
+preferred default. See Tweety 2.* for an alternative approach.
+
+This is a variation on Tweety 1.1. This time we first assert that
+Tweety is a penguin before asserting it is a bird.
+
+<p>
+<a href="tweety_1_2_applet.html" target="History"> View the history applet</a>
+<br>
+<a href="../histories/tweety_1.pl"> Alma specification</a>
+<p>
+<h4>Run: </h4>
+<ul>
+<li> The domain specification includes the following facts:
+<ul>
+<li> Penguins are birds.
+<li> Penguins don't fly. 
+<li> Birds fly.
+<li> We prefer penguinsdontfly to birdfly.
+<li> Formulas 2 to 5 specify how to resolve contradictions using the
+preference above.
+</ul>
+<li> At step 3 we assert that Tweety is  apenguin.
+<li> At step 4 Alma infers both that Tweety does not fly and that it
+is a bird.
+<li> At step 5 Alma also infers that Tweety flies since it is a bird.
+<li> This gives rise to a contradiction and distrust at step 6.
+<li> At step 7 Alma finds the parents of the contradictands.
+<li> At step 9, Alma chooses to believe that Tweety does not fly based
+on the preference.
+
+</ul>
+<p>
+<h4>Note:</h4>
+The metainformation about the derivations of the formulas that is
+maintainted by ALma is used in the axioms to determine which
+contradictand to prefer. 
+<br>
+There are situations that are problematic for this simple approach to
+defaults. 
+<p>
+<hr>
+<a href="mailto:kpurang@cs.umd.edu">kpurang@cs.umd.edu</a>
+</html>
+

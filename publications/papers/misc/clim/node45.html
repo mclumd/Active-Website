@@ -1,0 +1,166 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 99.1 release (March 30, 1999)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Introduction</TITLE>
+<META NAME="description" CONTENT="Introduction">
+<META NAME="keywords" CONTENT="clim">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v99.1 release">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="clim.css">
+
+<LINK REL="next" HREF="node46.html">
+<LINK REL="previous" HREF="node44.html">
+<LINK REL="up" HREF="node44.html">
+<LINK REL="next" HREF="node46.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html1397"
+ HREF="node46.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/icons/next_motif.gif"></A> 
+<A NAME="tex2html1393"
+ HREF="node44.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/icons/up_motif.gif"></A> 
+<A NAME="tex2html1387"
+ HREF="node44.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/icons/previous_motif.gif"></A> 
+<A NAME="tex2html1395"
+ HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/icons/contents_motif.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html1398"
+ HREF="node46.html">Properties of Sheets</A>
+<B> Up:</B> <A NAME="tex2html1394"
+ HREF="node44.html">Overview of Window Facilities</A>
+<B> Previous:</B> <A NAME="tex2html1388"
+ HREF="node44.html">Overview of Window Facilities</A>
+ &nbsp <B>  <A NAME="tex2html1396"
+ HREF="node1.html">Contents</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION04110000000000000000">
+Introduction</A>
+</H1>
+
+<P>
+A central notion in organizing graphical user interfaces is allocating screen
+regions to particular tasks and recursively subdividing these regions into
+subregions.  The layer of CLIM known as Silica defines an extensible framework
+for constructing, using, and managing such <I> hierarchies of interactive
+regions</I><A NAME="8387"></A>.  This framework allows uniform treatment of the following things:
+
+<P>
+
+<UL>
+<LI>Window objects like those in X or NeWS.
+
+<P>
+ </LI>
+<LI>Lightweight gadgets typical of toolkit layers.
+
+<P>
+ </LI>
+<LI>Structured graphics like output records and an application's presentation
+objects.
+
+<P>
+ </LI>
+<LI>Objects that act as Lisp handles for windows or gadgets implemented in a
+different language (such as OpenLook gadgets implemented in C).</LI>
+</UL>
+
+<P>
+From the perspective of most CLIM users, Silica plays the role of a window
+system.  However Silica will usually utilize the services of a window system
+platform to provide efficient windowing, input, and output facilities.  In this
+specification, such window system platforms will be referred to as host window
+or display servers.
+
+<P>
+The fundamental abstraction defined by Silica is called a <I> sheet</I><A NAME="8389"></A>.  A
+sheet can participate in a relationship called a <I> windowing
+relationship</I><A NAME="8391"></A>.  This relationship is one in which one sheet called the
+<I> parent</I><A NAME="8393"></A> provides space to a number of other sheets called
+<I> children</I><A NAME="8395"></A>.  Support for establishing and maintaining this kind of
+relationship is the essence of what window systems provide.  At any point in
+time, Silica allows a sheet to be a child in one relationship called its
+<I> youth windowing relationship</I><A NAME="8397"></A> and a parent in another relationship
+called its <I> adult windowing relationship</I><A NAME="8399"></A>.
+
+<P>
+Programmers can manipulate unrooted hierarchies of sheets (those without a
+connection to any particular display server).  However, a sheet hierarchy must
+be attached to a display server to make it visible.  <I> Ports</I><A NAME="8401"></A> and
+<I> grafts</I><A NAME="8403"></A> provide the functionality for managing this capability.  A
+<I> port</I> is an abstract connection to a display service that is responsible
+for managing host display server resources and for processing input events
+received from the host display server.  A <I> graft</I> is a special kind of
+sheet that represents a host window, typically a root window (that is, a
+screen-level window).  A sheet is attached to a display by making it a child of
+a graft, which represents an appropriate host window.  The sheet will then
+appear to be a child of that host window.  So, a sheet is put onto a particular
+screen by making it a child of an appropriate graft and enabling it.  Ports and
+grafts are described in detail in Chapter&nbsp;<A HREF="node73.html#ports-and-grafts">9</A>.
+
+<P>
+RSL An open issue in Silica's design is allowing a sheet to participate
+in multiple youth relationships.
+
+<P>
+SWM Allowing a sheet to have multiple parents at different times is
+necessary for allowing the same pane to appear in multiple layouts of a frame.
+We need to resolve this.
+
+<P>
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html1397"
+ HREF="node46.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/icons/next_motif.gif"></A> 
+<A NAME="tex2html1393"
+ HREF="node44.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/icons/up_motif.gif"></A> 
+<A NAME="tex2html1387"
+ HREF="node44.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/icons/previous_motif.gif"></A> 
+<A NAME="tex2html1395"
+ HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/icons/contents_motif.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html1398"
+ HREF="node46.html">Properties of Sheets</A>
+<B> Up:</B> <A NAME="tex2html1394"
+ HREF="node44.html">Overview of Window Facilities</A>
+<B> Previous:</B> <A NAME="tex2html1388"
+ HREF="node44.html">Overview of Window Facilities</A>
+ &nbsp <B>  <A NAME="tex2html1396"
+ HREF="node1.html">Contents</A></B> 
+<!--End of Navigation Panel-->
+<ADDRESS>
+<I>&</I>
+<BR><I>2001-06-12</I>
+</ADDRESS>
+</BODY>
+</HTML>

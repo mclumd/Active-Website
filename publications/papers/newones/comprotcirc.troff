@@ -1,0 +1,914 @@
+.sc
+.th
+.EQ
+delim @@
+.EN
+.ce
+Computing Protected Circumscription
+.sp 2
+.ce
+@\fRJack~ Minker sup 1,2~ and~ Donald~ Perlis sup 1~@
+.sp
+\MYDepartment of Computer @\fRScience sup 1@			\MXUniversity of Maryland @\fRInstitute sup 2@
+.br
+\CYUniversity of Maryland				\CXfor Advanced Computer Studies
+.sp
+.ce
+College Park, MD 20742
+.sp
+ABSTRACT: This paper deals with computing
+circumscription in the case of Horn data with additional protection (indefinite
+data), an intermediate investigation between Reiter's result on predicate
+completion and Lifschitz's efforts to make general (formula) circumscription
+more efficient as a computational tool.
+Reiter has shown a close tie between McCarthy's circumscription and
+Clark's predicate completion. Here we investigate a similar tie between an
+extended version of circumscription involving protected data, and an extended
+version of predicate completion. When we have a fully ground atomic protected theory,  we show that an extension to the relational algebra can be used
+to obtain all (and only) correct answers. When general Horn axioms are added to the
+protected theory, we show that Horn axioms also can be used to compute sound
+answers; however, some correct answers will not be found.
+
+1. Introduction
+
+.pp
+During the past several years, a number of notions have been 
+developed surrounding the topic of non-monotonic reasoning. 
+A basic aspect of non-monotonic reasoning is that of computing 
+answers to queries with negated atoms.
+Using first-order logic requires that the theory contain negated 
+data, otherwise queries that contain negated atoms will return with 
+the answer unknown.  First-order logic is monotonic 
+in that when a consistent set of axioms is given from which 
+one can prove a statement S, and a new statement B is added 
+to the set of axioms and B is consistent with S, then one can 
+still prove B.  Adding negated statements to a database may overwhelm 
+any practical system.  It would, therefore, be of interest to 
+consider systems which do not contain negated data and contain 
+some rule that permits one to compute answers when negated 
+information is requested.  
+.pp
+A number of concepts have been investigated with respect to 
+handling negation in non-monotonic systems.  In logic programming 
+applications, negation is handled by failure to prove the positive 
+atom.  Clark [1978] has shown that negation by failure corresponds to 
+providing the "only if" statements to the "if" statements 
+represented by the theory.  It is interesting to note that the 
+first-order theory with "only if" statements becomes cumbersome to 
+compute answers.  The non-monotonic theory represented by 
+"negation as failure", deals only with Horn clauses, from which it is 
+relatively easy to compute answers.
+McCarthy [1980] has introduced the notion of circumscription 
+to handle negation.  When the theory is Horn, and there are a finite 
+number of constants in the domain, then circumscription and 
+"negation by failure" are closely related [Reiter 1982].  Under 
+other conditions it may not be easy to compute answers to arbitrary 
+queries in circumscribed theories.  If, for 
+example, the theory is non-Horn, then the usual concept of 
+"negation as failure" does not apply and must be replaced by the 
+"generalized closed world assumption" (or "generalized failure 
+by negation") as developed by Minker [1982].  In such a theory 
+it is difficult to compute answers, as may be seen by the work 
+of Grant and Minker [1984], Henschen and Yahya [1984], and 
+Bossu and Siegel [1985].
+.pp
+The theory of circumscription as described by McCarthy [1980] does not 
+cover the topic of protected circumscription [Minker and Perlis 1984b].
+In circumscription, the object is to circumscribe a predicate so 
+that only that which is known to be true will be true and that which is 
+not know to be true will be circumscribed from being true and in fact 
+will be considered false.  In some situations we are interested in 
+circumscribing a predicate except that
+it is desired not to conclude that the predicate is false
+for certain exceptional values of the argument to the predicate. McCarthy's
+[1984] later
+version of circumscription, called \fIformula\fR circumscription,
+does subsume protected circumscription, but it is not clear that Reiter's
+work extends to allow one to
+compute efficiently in this case. We note that Lifschitz [1984] has
+nonetheless
+taken major strides toward reducing formula circumscription to a
+more tractable form.
+.pp
+In this paper we investigate computational issues with respect 
+to protected circumscription where the theory is Horn with some 
+exceptions where the user specifies that he does not want to conclude 
+that some values are either true or false.  In section 2 we discuss the concept of protected data 
+and propose an algorithm that can be implemented readily to answer 
+queries when the theory consists entirely of ground atomic formulas 
+and formulas that denote protection under the closed world assumption
+(Reiter [1978], Minker and Perlis [1984b]).
+We then formulate a logic representation of the same problem and 
+prove that the results obtained in the two theories are equivalent. 
+In section 3 we review the notion of protected circumscription and 
+show that the results for the above ground case when using the logic 
+representation or the concept of protected circumscription are 
+equivalent.  In section 4 we consider the case of deductive Horn databases 
+with protection.  That is, we are no longer concerned only with the ground 
+case.  Here we propose an extension to the algorithm presented in 
+section 2.  We show that the results obtained in computing answers 
+to queries in the case of the algorithm and the results from 
+protected circumscription are not equivalent.  We then show that
+a suitable "preparation" of a database will  prevent the
+algorithm from producing any answers that contradict circumscription,
+and also will produce all correct answers to queries in certain forms.
+
+
+2. Protected Data
+
+   2.1 The concept of protected data
+
+.pp
+Consider a database that consists of the following data:
+
+.ce
+{R(a),R(b),S(a),S(c)}
+
+There are two one-place predicates in the database: R and S. In such a
+database augmented by the closed world assumption, it is possible to prove
+not only the four (positive) atoms, but also the negative literals \(noR(c)
+and \(noS(b).  We wish to investigate databases that contain a form of null
+value in which it is not known whether a particular atom is true or false.
+We refer to such unknown data as \fIexceptional\fR, and the process of
+representing this situation as \fIprotection\fR.
+.pp
+Consider the  above database where R(c) is to be exceptional, that is, its
+truth or falsity is unknown. We represent this as follows:
+{R(a), R(b), ER(c), S(a), S(c)}.  By ER(c), we mean that it is unknown 
+whether  R(c) is true or false; that is \'c\' is protected in the 
+relation R.
+.pp
+In this first-order theory augmented by a closed-world assumption, it is possible to compute R(a), R(b), ER(c), S(a), 
+and S(c). We desire that it be possible to compute neither R(c) nor \(noR(c), 
+since \'c\' is protected for R. However, with the closed
+world assumption, both \(noR(c) and \(noS(b) are provable as well.
+.pp
+We refer the reader to [Zaniolo 1984] for an excellent discussion of the
+problem of indefinite data. We note that our concern here differs from that
+of Zaniolo, in that he is not concerned with the problem of negating conclusions
+when possible (the closed world assumption). He focusses instead on what he
+calls the problem of defining "a lower bound: the set of objects which, on the basis of available
+information, can be concluded to satisfy Q for sure..."
+The dual "upper bound" problem, in his words, "of preserving the closed
+world assumption when dealing with incomplete databases" is one we address
+here.
+
+   2.2  Algorithm for computing with protection
+
+.pp
+Again, consider the database: {R(a), R(b), ER(c), 
+S(a), S(c)}.  If we calculate as follows using this database: when 
+one wants to compute the negation of an atom, one takes the entire 
+domain, subtracts out those constants that satisfy the positive 
+atom and also subtracts out the protected constants, then the constants 
+remaining may be assumed to satisy the negation of the atom.  Let 
+||W|| denote the computation of a well formed formula by this method, 
+then for the above example we have:
+.sp
+.ce
+||\(noS(x)|| = {a, b, c} - ||S(x)|| - ||ES(x)||.
+.sp
+.br
+Since the atom S is not protected, ||ES(x)|| = \(es,
+and ||S(x)|| = {a, c}, we obtain
+.sp
+.ce
+||\(noS(x)|| = {b}.
+.sp
+In addition, if we calculate ||\(noR(x)|| in the same way, since \'c\' is 
+protected for R, we obtain
+.br
+||\(noR(x)|| = \(es.
+That is, we cannot prove \(noR(c), and hence, \'c\' is protected for R since 
+we can also not prove R(c).  Thus, the two methods of computation 
+just described yield the same results for this example. We shall show later
+that the algorithm computes correct answers for the case of relational
+databases.
+.pp
+Our algorithm, which effectively extends relational algebra to handle protected
+data, is as follows:
+.sp
+.ti +5
+.ul
+Protected Relational Algebra (PRA) Algorithm for Answering Queries With Protected Data:
+Let A be a finite set of ground atomic formulas, allowing exceptions 
+(protected data), but without function letters.  Let PRA be the 
+algorithm defined below, which begins with a query Q (in conjunctive 
+normal form) and returns a set ||Q|| of (tuples of) constants from the universal 
+set W of all constant symbols in A (the Herbrand Universe of A).  A 
+protected (or exceptional) atom P(a) is indicated by the atom EP(a) 
+in A.
+
+Protected Relational Algebra Algorithm (PRA): input Q(x), output ||Q|| where
+x is a vector @x sub 1 ,...,x sub n@, \fBW\fR is @W sup n@, and
+.sp
+.in +10
+if Q is atomic then ||Q|| = {x \(mo \fBW\fR : Q(x) \(mo A};
+.sp
+if Q is \(noB then ||Q|| = \fBW\fR - ||B|| - ||EB||, (B is atomic);
+.sp
+if Q is B & C then ||Q|| = ||B|| \(ca ||C||;
+.sp
+if Q is B v C then
+.sp
+.in +10
+if B v C is a tautology then ||Q|| = \fBW\fR
+.sp
+else ||Q|| = ||B|| \(cu ||C||.
+.in -20
+.sp 2
+The manner in which negation is handled in the protected relational algebra
+is referred to as the \fIprotected closed-world assumption.\fR Note that PRS
+can be applied to any wff Q, but if Q is not in conjunctive normal form then
+tautologies may not be correctly identified. For instance, the wff
+.sp
+.ce
+[P(x) & Q(x)] v [-P(x) v -Q(x)]
+.sp
+which is in disjunctive normal form, will not produce via PRA all tuples
+of \fBW\fR even though it is a tautology.
+.pp
+In the following sections, we show that the algorithm produces the same
+answers as two other approaches, which we call the logic representation
+and protected circumscription, in the ground function-free case.
+
+   2.3 Logic Representation
+
+.pp
+In  the  case of (Horn) databases we have a generalization of the idea of Clark [1978]
+who, when discussing negation as failure, showed that an \'if and only if\'  condition  was  its
+analogue.   For  example,  if P(a) and P(b) are known and we do not care about c or d, then we
+would write
+
+.ce
+(x = a) v (x = b)  \o'\(<-\(->'  P(x).
+
+\fIIf and only if\fR conditions of this form are referred to as \fIcompletion
+axioms\fR.
+Now, if one wants to protect c while leaving d unprotected, our solution is simply to place (x
+= c) on both the right and left hand sides of the above formula, to obtain
+
+.ce
+(x = a) v (x = b) v (x = c)  \o'\(<-\(->'  P(x) v (x = c).
+
+\fIIf and only if\fR conditions of this form we will call \fIprotected
+completion axioms\fR.
+For later reference, note that we can re-write this as a conjunction
+of two formulas and then remove tautologies:
+
+(1)		(x=a) v (x=b) v (x=c)  \(->  P(x) v (x=c)
+
+(2)		(x=a) v (x=b) v (x=c)  \(<-  P(x) v (x=c)
+
+and then
+
+(3)		(x=a) v (x=b)  \(-> P(x)
+
+(4)		P(x)  \(-> (x=a) v (x=b) v (x=c)
+
+(here  we  assume distinct constants stand for distinct entities).  
+If the original theory, which here we can take to be x=a v x=b .\(-> P(x),
+is denoted A, then A augmented by the protected completion axioms together with
+the unique names hypotheses [Reiter 1980] alluded to above--that distinct constants
+stand for distinct entities--we refer
+to as the logic representation, LR(A), of A.
+
+   2.4 Equivalence of Algorithm and Logic Representation
+
+.pp
+We will prove that the algorithm PRA and the logic representation
+LR(A)  are equivalent, for queries of the form {x | B(x)}, where B is a quantifier
+free formula in conjunctive normal form. The following theorem can now be shown.
+
+.in +5
+Theorem 1: a \(mo ||B|| iff LR(A) |- B(a) for all formulas B in conjunctive normal 
+form, where A is an atomic function-free theory.
+
+Proof: We proceed by induction on the length of B. 
+
+(i) If B is atomic then by definition of PRA, a \(mo 
+||B|| implies LR(A) |- B(a), since in fact then A |- B(a). On the other
+hand, if LR(A) |- B(a), then A |- B(a) since A is a ground theory and
+the completion-plus-protection yields no new positive atoms. Then a \(mo
+||B||.
+
+(ii) B is \(noP, where P is atomic. If a \(mo ||B|| = ||\(noP|| then a is neither
+in
+||P|| nor ||EP||. But then A |\o'-\(sl' P(a) and as above then LR(A) |\o'-\(sl' P(a).
+Moreover, P(a) is not protected, so LR(A) |- \(noP(a).  On the other hand,
+if LR(A) |- \(noP(a) then a is neither in ||EP|| nor ||P|| (the latter since for
+atomic wffs provability is the same as algorithmic validity). So we get
+a \(mo ||\(noP||.
+
+(iii) B is P & Q. But then a \(mo ||B|| iff a \(mo ||P|| int ||Q||
+iff LR(A) |- P(a) & Q(a) [by inductive hypothesis].
+
+(iv) B is P v Q. If a \(mo ||B|| and B is not a tautology, then either a\(mo ||P|| (in which case
+LR(A) |- P(a)) or a \(mo ||Q|| (in which case LR(A) |- Q(a)). So in
+either case, LR(A) |- P(a) v Q(a). If B however is a tautology, then we
+have LR(A) |- P(a) v Q(a) also. 
+
+On the other hand, if LR(A) |- P(a) v Q(a), and if P v Q is a tautology,
+then again by PRA a \(mo ||B||. But if P v Q is not a tautology, we proceed as
+follows. First consider the case in which P and Q consist of positive atoms. We
+want to show that at least one of P(a) and Q(a) is a theorem of LR(A).
+But a proof of P(a) v Q(a) by refutation-resolution can proceed only
+by producing negated atoms of the form a \(!= @c sub k@, since \(noP(a) and \(noQ(a)
+will resolve only with clauses of the forms x=@c sub 1@ v x=@c sub 2@ v ... \(-> @P sub i@(x)
+and x=@c sub 1@ v x=@c sub 2@ v ... \(-> @Q sub i@(x). In order to fail, one of these negated atoms
+must fail, i.e. some a\(!=@c sub k@ must resolve with a=@c sub k@; but this occurs on a
+single branch from either \(noP(a) or \(noQ(a), hence either P(a) is proven or
+Q(a) is proven. Then by the inductive hypothesis a is either in ||P|| or ||Q||.
+
+Next, if Q, say, is a single negated atom (for instance if Q is \(noR), then we have
+LR(A) |- P(a) v \(noR(a), where R is an atom and P is a disjunction of
+literals. Now a refutation-resolution proof derives a failure from
+\(noP(a) and R(a). But the latter can resolve only with protected completion clauses
+of the form Rx \(-> x=@c sub 1@ v x=@c sub 2@ v ... v x=@c sub n@, yielding a=@c sub 1@ v a=@c sub 2@ v ... v a=@c sub n@. Now
+either these disjuncts are all false, or exactly one of them is true,
+since we take @c sub 1@,@c sub 2@,...,@c sub n@ to be distinct elements. In the former case, then all such clauses disappear and failure
+comes directly from R(a) so that LR(A) |- \(noR(a). In the latter case,
+suppose a=@c sub i@ is true, and resolves with a unit clause a\(!=@c sub i@ in a branch derived
+from \(noP(a). Then a\(!=@c sub i@ is already false and so \(noP(a) fails by itself.
+.nf
+
+			\(noP(a)		R(a)
+			
+
+			a\(!=@c sub i@		a=@c sub i@
+
+
+				  nil
+
+.fi
+.sp 
+This then completes our proof by induction.  
+.in -5
+.pp
+Thus, the protected completion axioms and the protected relational algebra
+yield the same answers to queries on a ground atomic theory database with
+protected data. The protected closed-world assumption in the Horn theory
+avoids the potentially complicated answering process in the first-order
+theory augmented by the completion axioms.
+.pp
+Note that when the formula B is not in conjunctive normal form, the
+situation is rather different. For instance, let the database be EPa and Qa,
+and let the query be [Pa & Qa] v [\(noPa & Qa]. Intuitively this should
+be answered "yes" (i.e., true), for it is logically equivalent to Q(a).
+But since Pa and \(noP(a) are separated into two clauses, PRA will not
+recognize this, and will not return this answer. Also note that the test for
+tautologies in PRA in fact is quite trivial in the intended case, namely
+for wffs B that are in conjunctive normal form; for this amounts to nothing
+more than determing whether any clause contains two opposite literals, which
+can be performed in time linear in the length of the clause.
+
+3. Protected Circumscription and Protected Data
+
+   3.1  Background on Circumscription
+.pp
+We  review  briefly  the idea of circumscription.  Given a predicate
+symbol P (other than the equality  predicate  symbol)  and  a  formula  A[P]
+containing  P,  the circumscription of P by A[P] can be thought of as saying
+that the P-things consist of certain ones as needed to satisfy A[P]  and  no
+more,  in  the sense that any P-things Z satisfying A[Z] already include
+\fIall\fR
+P-things:
+.nf
+.ls 1
+             P
+	C [Z]: 	[A[Z] & (x)(Z(x)\(->P(x))]  \(->  (y)(P(y) \(-> Z(y)).
+             A
+
+.fi
+.ls 2
+.pp
+A  key  example, emphasized by McCarthy, is the following:  let A[P]
+be P(a) v P(b).  Let @Z sub 1@(x) be x=a and @Z sub 2@(x) be x=b.  Then from P(a)  v  P(b)
+we get that either @Z sub 1@ or @Z sub 2@ can serve for circumscription, i.e., either P(x)
+\(-> @Z sub 1@(x) or P(x) \(-> @Z sub 2@(x).  Thus either a is the only P-thing,  or  b  is:
+\(noP(a) v \(noP(b).  
+.pp
+The concept of predicate circumscription initially developed by 
+McCarthy [1980] was extended by McCarthy [1984] to include general formulas.
+Although McCarthy [1980] had a soundness result for predicate
+circumscription in terms of minimal models, he had no such result or model theory for
+formula circumscription. Minker and Perlis [1984b] provided a model theory
+and showed soundness for 
+the intermediate case of protected circumscription. Etherington [1984] has provided a model theory and
+soundness for formula circumscription, generalizing the previous work.  Perlis and Minker [1985] establish a
+partial converse to all these soundness results, for
+certain classes of theories; in particular, for theories all models of whose
+circumscriptions are minimal. One such type of theory is that in which the
+universe is provably finite.
+
+
+   3.2 Protected Circumscription
+
+.pp
+As a motivation, suppose a database DB is given, and that as
+is usual the queries Q that are answerable affirmatively are the  ones  that
+are true with respect to an intended real-world model, with the exception of
+certain queries regarding  items  that  we  know  have  not  been  specified
+completely  yet  in  DB.   E.g., we may know data is still being gathered on
+these items, such as, say, incomes of middle-level  management  in  a  large
+company,  while all the other entries in DB may be complete.  We may wish to
+reason about DB assuming that all data is  known  (closed  world  assumption
+[Reiter 1978]) except for these incomes. That is, we may wish to protect
+these data from circumscription.
+.pp
+Here  we review a simple syntactic device which will 
+yield the desired
+result in such cases.    We  suggest  that  once  A  has  been  selected  as
+appropriate  for  circumscribing  P, and if (perhaps later) it is desired to
+protect certain things (say, those satisfying the predicate EP) from this process so that circumscription will not be  used
+to  show  EP-things  are  not  P-things, we can keep the same criteria A, but
+alter the form of the schema itself.  Writing @EP sub i@(x) for protected
+from circumscription of  the atom @P sub i@, and writing
+T/U(x) for T(x) & \(noU(x), we alter
+the circumscription schema to read as follows:
+
+Definition:    The  protected  circumscription  schema for predicate letters
+@P sub 1@,...,@P sub k@ in the axioms A is
+
+.ce
+C[A;@P sub 1@,...,@P sub k@;@EP sub 1@,...,@EP sub k@]:   A[@Z sub 1@,...,@Z sub k@] & \(sl\\ (x)(@Z sub i@/@EP sub i@\(->@P sub i@)    \(->    \(sl\\ (y)(@P sub i@/@EP sub i@\(->@Z sub i@)
+
+.pp
+An  example  of  the  algorithm  and  circumscription  is as follows:  Let A
+consist of the atoms
+
+.ce
+{R(a) R(b) S(a) S(c) ER(c)}
+
+so  that  R(c)  is  protected.  Then circumscription would allow us to prove
+\(noS(b), and no other literals  than  this  and  those  already  in  A.    The
+algorithm  PRA  will  yield the same result:  if we query ||R||, we will get
+{a,b}; ||ER|| = {c}, and ||\(noR|| yields {a,b,c}  -  ||R||  -  ||ER||  =  nil.
+Also, ||S|| = {a,c}.  ||ES|| = nil, and ||\(noS|| = {a,b,c} - ||S|| - |||ES|| =
+{b}.
+.pp
+If we circumscribe on all predicates at once, which is the form corresponding
+to predicate completion and to the algorithm PRA, then we use as many
+protection predicates @EP sub i@ as there are  original predicates @P sub i@.
+
+
+
+   3.3 Equivalence of Logic Representation and Protected Circumscription
+.pp
+In this section we show that the logic representation LR(A) of an atomic function-free theory A
+and its protected circumscription CIRC(A) are equivalent in a precise sense. We employ the
+notation A |c- B to mean B is provable from A by protected circumscription.
+
+.in +5
+Theorem 2: LR(A) |- B iff A |c- B, where A is an atomic function-free theory.
+
+Proof: We simply circumscribe all P in A to derive LR(A), for the left-to-right direction.
+Let P@c sub 1@,...,P@c sub n@ be the P-atoms in A, and let @Z sub P@(x) be x=@c sub 1@v...vx=@c sub n@.
+Then circumscribing A  with protected atoms P@\(*d sub 1@,...,P@\(*d sub m@ yields
+the completion axioms
+
+.ce
+Px v x=@\(*d sub 1@ v ... v x=@\(*d sub m@ \o'\(<-\(->' x=@c sub 1@ v ... v x=@c sub n@ v x=@\(*d sub 1@ v ... v x=@\(*d sub m@.
+
+Now for the converse. Note that for atomic theories A, a completeness theorem  
+[Perlis & Minker 1985] holds for A: a wff B is true in
+all minimal models of A iff it is a circumscriptive theorem of A.  Now if
+M is a model of LR(A) then M is a minimal model of A since if (the extension of) any wff P
+is reduced, M no longer is a model of  LR(A), hence no longer a model of
+the circumscriptive schema (by the first part of the proof). Then all models of LR(A) are minimal, and
+it follows that if A |c- B then A |c= B whence LR(A) |= B, and finally
+LR(A) |- B.
+.in -5
+.pp
+As a consequence, protected circumscription, the algorithm PRA, and the
+logic representation LR(A) are equivalent in terms of what conclusions they
+produce, for theories A that are atomic and function-free. In the following
+sections, we attempt to extend these results to more complex theories.
+
+4. Deductive Databases and Protected Data
+
+   4.1 Protected Relational Algebra for Deductive Horn Databases
+.pp
+Let  A  be  a  finite  set  of  definite Horn formulas, allowing exceptions
+(protected data), but without function letters.    We wish to compute answers to queries
+in this case using an obvious extension to algorithm PRA presented earlier.
+Let PRAH  be  the  algorithm
+defined  below, which begins with a query Q (in conjunctive normal form) and
+returns a set ||Q|| of constants from the universal set W  of  all  constant
+symbols  in  A  (the  Herbrand universe of A).  A protected (or exceptional)
+atom P(a) is indicated by the atom EP(a) in A.
+.bp
+Protected Relational Algebra Algorithm for Horn Theories (PRAH): input Q; output ||Q|| where
+
+	if Q is atomic then ||Q|| = {x \(mo W: A |- Q(x)};
+
+	if Q is \(noB then ||Q|| = W - ||B|| - ||EB||; (B will be atomic)
+
+	if Q is B & C then ||Q|| = ||B|| \(ca ||C||;
+
+	if Q is B v C then 
+
+			   	if B v C is a tautology then ||Q|| = W
+
+			   	else ||Q|| = ||B|| \(cu ||C||.
+
+Note that the only difference between the algorithm PRAH and the algorithm
+PRA, aside from the fact that A now is a more general kind of theory, is
+that PRAH employs provability from A rather than simple axiomhood in the
+atomic case.
+
+   4.2 Non-equivalence
+.pp
+The case in which there are general Horn clauses in the theory that contain
+implication symbols and both the left and right sides are not empty, complicates 
+matters.  Consider a simple theory, A = {P(a), Q(x) \(<- P(x), EP(c)}.  
+The corresponding first-order theory corresponding to A obtained using 
+protected circumscription is:
+
+.ce
+CIRC(A) = {P(x) v (x = c) \o'\(<-\(->' (x = a) v (x = c), P(x) \o'\(<-\(->' Q(x)}.
+
+If we modify our algorithm as above, to state provability, as the 
+obvious generalization, we do not obtain the same results from the 
+circumscribed theory and the algorithm.  Applying the algorithm to 
+A, we obtain \(noQ(c), whereas in CIRC(A), we cannot prove \(noQ(c).  
+.pp
+Furthermore, although it is possible to circumvent this difficulty by
+addition of further protection atoms, the algorithm can fail for some 
+disjunctive queries.  For example, the theory, A\' = {P(a), Q(x) \(<- P(x), EP(c), EQ(x) \(<- EP(x)}, 
+now protects \'c\' for the atom Q, and the corresponding protected theory 
+finds negations correctly.  The protected circumscription theory for A\' 
+is given by: 
+
+CIRC(A\') = 
+.sp
+.ce
+{P(x) v (x = c) \o'\(<-\(->' (x = a) v (x = c), Q(x) v (x = c) \o'\(<-\(->' P(x) v (x =c)}.  
+
+But now, while CIRC(A\') "computes" the 
+answer to the query \(noP(x) v Q(x) to be {a}, the same answer is not
+obtained by the use of the algorithm applied to theory A\'. That is, PRAH
+will produce the answer ||\(noP(x) v Q(x)|| = \(es.
+
+
+
+     4.3 Soundness of a suitably prepared database
+
+.pp
+We establish that the appropriate "preparation" of the database will
+force the extended algorithm to agree with protected circumscription,
+in the weak sense that all answers to queries given by the algorithm will
+be consistent with the results of circumscription. The
+preparation we have in mind is that of adding extra protection to the
+database, typified in the following situation: if P\(->Q and EP(a) are in 
+the database, then EQ(a) is added, or alternatively, EP(x)\(->EQ(x).
+We will proceed by establishing several lemmas before giving our principal
+result on this.
+
+Definition: Call a theory A \fIsuitable\fR if it consists of a finite non-recursive Horn
+database \fBH\fR augmented with a set \fBE\fR of ground \fIprotection\fR clauses of the form
+EP(a) where P is a predicate symbol, function free, complete in the
+sense of  Perlis and Minker [1985] (i.e., all models of the circumscription of A are
+minimal).
+
+.pp
+Throughout we
+refer the reader to the following example for illustration: Let \fBH\fR consist of
+the clauses 
+.sp
+.ce
+{Fx\(<-Hx, Ga\(<-Ia, Ia\(<-Ba, Ix\(<-Cx&Fx, Ba\(<-Ca&Da&Fa, Fb\(<-Db, Ha},
+.sp
+and let A consist further of \fBH\fR together with the protection atom ECa.
+.pp
+As we saw in the examples of non-equivalence of CIRC(A) and PRAH, the algorithm may
+overdo the CWA in the sense that circumscription treats certain atoms as if protected
+while PRAH does not. In particular, the illustrated theory just mentioned has
+Ca explicitly protected, but circumscription will implicitly treat Fa,
+Ia, and Ga as if protected as well, even though PRAH will not. Thus CIRC(A) will
+not have \(noGa as a theorem, while PRAH will yield a \(mo ||\(noG||.   To prevent PRAH from
+"missing"  (and consequently negating)  the implicitly protected atoms, we seek to identify which these
+atoms are, and subsequently to make explicit their protection with a suitable
+"preparation" of A. The following lemma and "marking algorithm" identify those atoms which are
+protected, implicitly or explicitly, in circumscriptive deductions.
+
+.in +5
+Lemma 1: Let M be a (protected) minimal model of A, say, 
+M = {Ga,...,Db,...}. Suppose M |=\(*g, where \(*g is an atom (for instance,
+it is useful to think of \(*g as the atom Ga). Then
+if E\(*g \o'\(mo\(sl' \fBE\fR there is a formula \(*d 
+such that M |= \(*d, \(*g \(<- \(*d is an axiom of A, \(*d \(eq \(*@\(*d sub 1@ ...
+@\(*d sub n@,
+and for i \(eq
+1,...,n either A |- @\(*d sub i@ or @\(*d sub i@ \(mo \fBE\fR.
+
+Proof:  Note that by Perlis and Minker [1985], \(no\(*g is not a theorem of CIRC(A). We wish to show, in
+effect, that \(*g's presence (truth) in M is allowed only because it
+is forced by some protected and/or provable atoms @\(*d sub i@ also true in M.
+
+We now describe the formation of a tree that allows us to determine just
+how \(*g can be true in M. First, since M is (protected) minimal, then
+simply removing the atom \(*g from M will necessarily leave a structure M' that
+violates an axiom of A
+unless \(*g is explicitly protected (i.e., unless
+\(*g \(mo \fBE\fR). Now if \(*g is so protected, then we are done. So suppose
+otherwise. 
+
+We let \(*g be the
+root of the tree to be described; its immediate children will be all 
+conjunctions \(*d where \(*g\(<-\(*d is an axiom of H. (Note that
+no other axioms of A can be violated in M'.) Now, any such axiom, to be
+violated, requires \(*d to be true in M.
+We therefore repeat the above procedure, continuing the tree construction
+for each of these children nodes. Whenever we reach a node \(*@\(*d sub 1@...\(*@\(*d sub n@
+for which some E@\(*d sub i@ \(mo \fBE\fR, then in the next level of the tree replace
+@\(*d sub i@ with E@\(*d sub i@; and whenever a conjunct @\(*d sub i@ is an axiom of H, replace
+it with \(sq. 
+
+Now since A is suitable and hence has a finite number of
+non-recursive axioms and terms, this procedure must halt in a finite number
+of steps, yielding a tree T with a branch from \(*g to a leaf \(sq.
+By tracing back from \(sq to \(*g, we then find the conjuncts that are
+either theorems of A or are protected in A, and whose conjunction suffices
+to guarantee \(*g true in M.  
+
+.in -5
+.pp
+Now if \(*g is an atom such that neither it nor \(no\(*g is a theorem of
+CIRC(A), then there is a minimal model of A, say M, such that \(*g holds in
+M,
+and so the lemma just proven applies, and indeed the proof of the lemma already contains an algorithm
+to produce a "justification" for \(*g
+appearing in M, namely, other atoms \(*@\(*d sub 1@,...,@\(*d sub n@ of which some (at least
+one) are
+explicitly protected, and the rest are provable. We wish to know which these
+atoms \(*g are, so that we can make appropriate modifications in the use
+of PRAH. For this, we work backwards from all possible \(*@\(*d sub 1@,...,@\(*d sub n@,
+using
+the following \fImarking algorithm\fR will determine the atoms \(*g
+that are effectively protected by circumscription.
+
+
+Marking Algorithm: First, augment A by the new axiom P\(<-EP for all EP\(mo\fBE\fR.
+Then for each predicate \(*g, form a refutation
+tree with root \(<-\(*g,
+using the augmented theory A'. Whenever EP is produced, mark the
+corresponding axiom in that resolution step by placing a \(sq around
+any P on the right side of the axiom; and whenever P is produced, mark the
+corresponding axiom in that resolution step by placing a \(ci around any Q
+on the right side of the axiom; and whenever this results in an axiom all of
+whose right conjuncts are marked, including at least one \(sq, then mark
+also its left side with a \(sq. Call the theory resulting from the original A by adjoining
+all atoms EP where P is a marked left side, PREP(A), the "preparation" of A.
+In what follows, the answer set ||P|| to a query P is understood to be with
+respect to our extended algorithm PRAH applied to the preparation of A.
+
+Definition: A theory is \fIsuitably prepared\fR if it is suitable and is the
+preparation of  some theory.
+
+.in +5
+Lemma 2: Let A be suitably prepared. If CIRC(A) |\o'-\(sl' \(noP(a) then a \o'\(mo\(sl' ||\(noP||.
+
+Proof: Assume otherwise: CIRC(A) |\o'-\(sl' \(noP(a) and yet a \(mo ||\(noP||. Then
+a \(mo W - ||P|| - ||EP||. Now \(noP(a) cannot hold in \fIall\fR minimal
+models since CIRC(A) |\o'-\(sl' \(noP(a). So P(a) must hold in at least one minimal
+model. We employ Lemma 1 where \(*g is P(a), and M is a minimal model in
+which P(a) holds. Then there exists a formula \(*d = \(*@\(*d sub 1@...@\(*d sub n@ such that
+M |= \(*d, \(*g\(<-\(*d \(mo A, and for i=1,...,n, A |- @\(*d sub i@ or E@\(*d sub i@
+\(mo \fBE\fR. The marking algorithm will place a \(sq around \(*g, hence
+E\(*g will be a theorem of PREP(A), i.e., PREP(A) |- EP(a), so a \(mo ||EP||.
+This contradicts a \(mo W - ||P|| - ||EP||.
+.in -5
+.pp
+Now we can prove that  if CIRC(A) |\o'-\(sl' B(a) where B(x) is any formula in conjunctive normal form, then a \o'\(*e\(sl'
+||B||. 
+
+.in +5
+Theorem 3: If A is suitably prepared, then the PRAH algorithm produces only answers B  that also
+are
+provable by circumscription. 
+
+Proof: We use induction on the number of (instances of) predicate symbols in B(a). When B(a) has
+only one predicate symbol, then either it is an atom, or the negation of an
+atom. If B(a) is an atom, then circumscription and PRAH both reduce to mere
+provability in A, so we are done; and if B(a) is a negated atom, Lemma 2 is
+the result we seek.
+
+So we pass to the case of more than one predicate symbol; then B(a) is either
+a conjunction or a disjunction of subformulas F and G. If B(a) is F & G, then
+we have 
+.sp
+.ce
+||B|| = ||F|| \(ca ||G|| 
+.sp
+.ti +10
+\(ib {x: CIRC(A) |- F(x)} \(ca {x: CIRC(A) |- G(x)} 
+.sp
+.ti +10
+= {x: CIRC(A) |- F(x) & G(x)}
+.sp
+since by the inductive hypothesis PRAH produces as answers a subset of those
+derivable by circumscription, for queries of less predicate symbols than
+B(a). Finally, for the case of F v G, a parallel argument suffices using
+union instead of intersection.
+.in -5
+
+.pp
+We know of course that the full converse to Theorem 3 is false; however, 
+we can show that a partial converse does hold, giving rise to the following
+result. Let PRAH' be simply PRAH except in that a negative
+disjunction \(noP v \(noQ is replaced by \(noR and the database is augmented
+by the axioms R \(<- P&Q, P \(<- R, and Q \(<- R. [This has the effect of
+introducing a new predicate letter R that is equivalent to the conjunction
+P&Q, and will be used in the sequel.]
+A query is \fIpure\fR if it is in
+conjunctive normal form and each conjunct consists of disjuncts  of the same
+sign, i.e., all positive or all negative; in effect, no implications are
+present. 
+
+.in +5 
+Theorem 4: Protected circumscription and PRAH' agree for suitably prepared
+theories A and all pure queries B.
+
+Proof: We need only show that for pure queries B, proof by circumscription
+implies a positive answer by PRAH, since the converse is contained in
+Theorem 3. Our result
+essentially follows from Lemma 1 and its proof. We consider
+five cases: pure positive disjunctions P v Q, negated atoms \(noP, pure negative
+disjunctions \(noP v \(noQ, and pure negative conjunctions \(noP & \(noQ, and
+mixed conjunctions P & \(noQ.
+From these the cases of all pure queries follow.
+
+(i) Pa v Qa: We assume CIRC(A) |- Pa v Qa. If also CIRC(A) |- Pa or
+CIRC(A) |- Qa, then we are done since for atoms PRAH and CIRC reduce
+to simple provability. So suppose neither  CIRC(A) |- Pa nor  CIRC(A)
+|- Qa. We will derive a contradiction. Let M be a minimal model
+of A such that M |\o'=\(sl' Qa. Then M |= Pa. As in the proof
+of Lemma 1, determine the atoms @\(*d sub i@, and remove from M both Pa and
+any @\(*d sub i@ where A |\o'-\(sl' @\(*d sub i@ and  E@\(*d sub i@ \(mo \fBE\fR, thereby producing a new
+structure M'; M' will be a model of A by the construction of the tree in the
+proof of Lemma 1. But M' violates the theorem Pa v Qa, and M' either is
+minimal or has a minimal submodel [Etherington et al 1984], so we have a contradiction. This shows
+that when Pa v Qa is a circumscriptive theorem over a suitably prepared theory A, so is 
+one of Pa or Qa, and from this it follows that a \(mo ||P v Q||.
+
+(ii) \(noPa: If CIRC(A) |- \(noPa then a \o'\(mo\(sl' ||P|| (assuming
+A consistent). Assume a \(mo ||EP||. Then let M be a minimal model of A
+such that M |\o'=\(sl' Pa. Add Pa to M, and also all atoms \(*d such that
+A |- Pa\(->\(*d, to get a structure M'. Then M' is also a minimal model
+of A, and M' |= Pa, contradicting CIRC(A) |- \(noPa. So a \o'\(mo\(sl' ||EP||.
+Then we
+have a \(mo ||\(noP|| = W - ||P|| - ||EP||.
+
+(iii)\(noPa v \(no Qa: This case we handle simply by adjoining to A the
+additional axioms R \(<- P&Q, P \(<- R, and Q \(<- R, and working with
+the query \(noR (which PRAH' does), and placing us in case (ii) above.
+
+(iv) \(noP & \(noQ: This we do directly with intersections as in the
+algorithm.
+
+(v) Pa & \(noQa: This is also done directly with intersections.
+.in -5
+.pp
+We note that there is an obvious extension to PRAH that remains sound and
+comes closer to producing all correct answers (with respect to protected
+circumscription) for suitably prepared databases. This extension, which we
+might call PRAHX (extended PRAH), simply amounts to one additional source
+of answers in the case of a disjunctive query B v C; namely, if B v C is
+neither a tautology nor pure (all positive or all negative literals) then
+it is equivalent to the Horn clause A\(->B (if C is \(noA)  and the answer is 
+.sp
+.ce
+||B|| \(cu ||\(noA|| \(cu {x \(mo\fBW\fR: Ax\(->Bx \(mo A}.
+.sp
+The additional answers are then those that are already present in the
+database axioms, if the database is compiled in advance to include all
+possible implications derivable from A. In general
+then many
+additional answers can be obtained this way. Unfortunately, even then
+not all correct answers can be guaranteed. The following example illustrates
+this phenomenon.
+.pp
+Let the database A consist of EPa, EQa, Qb, Pa\(->Qa. Then the query Px v
+\(noQx will have no answers as far as PRAHX is concerned, even though
+protected circumscription yields x=a as an answer. we leave it then as an
+open question, whether a natural and computationally feasible modification
+of PRAHX can be sound and complete for protected circumscription and suitably
+prepared theories.
+
+
+   4.4 PROLOG Implementation
+.pp
+PROLOG provides an implementation of the concept of the closed world
+assumption, or negation by failure, and thereby provides a valuable tool to
+implement logic databases. In a logic database one has relational data
+augmented by general Horn axioms as part of the database.
+.pp
+It is easy to see that a modification to PROLOG will permit an implementation
+of the protected closed world assumption. It basically follows the way in
+which negation is handled in PROLOG. If we desire to define @\(no sub E@ to be a new
+negation relative to the protected closed world assumption, we may use the
+following representation:
+
+(1)  @\(no sub E@ P \(<- P &/& fail.
+
+(2)  @\(no sub E@ P \(<- EP &/& fail.
+
+(3)  @\(no sub E@ P \(<- .
+
+
+5. Conclusions
+
+.pp
+We have shown that it is possible to compute answers effectively in the case
+of protected circumscription when using Horn axioms. This leads to the open
+question, to what extent Horn theories will be useful replacements of
+circumscribed theories. There are now at least two cases where one can
+effectively compute such theories--these are the Horn axioms augmented by
+Clark's completion axioms [Clark 1978] as shown by Reiter [1982], and the
+work presented in this paper. In the case of protected theories, we do not
+obtain all answers for some queries.
+.pp
+It would be of considerable interest to investigate formula circumscription
+for Horn theories to determine the class of formulae circumscribed that
+lead to varying degrees of effective computation.
+
+.bp
+Acknowledgements
+
+We gratefully acknowledge the very helpful comments made to us by Vladimir
+Lifschitz. This research was supported in part by grants from the following 
+organizations:
+
+AFOSR (AFOSR-82-0303)
+
+NSF (MCS-83-05992)
+
+ARO 
+
+Martin Marietta Corporation
+
+
+
+.bp
+References
+
+.np
+Bossu, G. and Siegel, P. [1985] Saturation, nonmonotonic reasoning, and the
+closed-world assumption.  Artificial Intelligence, 25 (1), pp. 13-63.
+
+.np
+Clark, K. [1978] Negation as failure. In: Logic and Databases, Gallaire, H. and Minker, J. (eds.).  Plenum Press, New York, pp. 293-322.
+
+.np
+Etherington, D. [1984] Personal communication, Week on Logic and AI, U of Md.
+
+.np
+Etherington, D., Mercer, R., and Reiter, R. [1984] On the adequacy of predicate circumscription for closed-world reasoning. University of British Columbia, Dept. of Computer Science, Tech. Report 84-5.
+
+.np
+Grant, J. and Minker, J. [1984] Answering queries in indefinite databases and the null value problem. Tech. Report 1374, University of Maryland.
+
+.np
+Henschen, L. and Yahya [1985] Deduction in Non-Horn Databases, to appear, J.
+of Automated Reasoning.
+
+.np
+Lifschitz, V. [1984] Some results on circumscription. Workshop on
+Nonmonotonic Reasoning, Mohonk.
+.np
+McCarthy, J. [1980] Circumscription--a form of non-monotonic reasoning. Artificial Intelligence, 13 (1,2), pp. 27-39.
+
+.np
+McCarthy, J. [1984] Applications of circumscription to formalizing common sense knowledge.  Workshop on
+Nonmonotonic Reasoning, Mohonk.
+
+.np
+Minker, J. [1982] On indefinite databases and the closed-world assumption. Lecture Notes in Computer Science, v. 138, pp. 292-308, Springer. (6th Conference on Automated Deduction).
+
+.np
+Minker, J. [1983] On theories of definite and indefinite databases. Tech. Report, University of Maryland. 
+
+.np
+Minker, J. and Perlis, D. [1984a] Applications of protected circumscription. Lecture Notes in Computer Science, v. 170, pp. 414-425, Springer. (7th Conference on
+Automated Deduction).
+
+.np
+Minker, J. and Perlis, D. [1984b] Protected circumscription. Workshop on
+Nonmonotonic Reasoning, Mohonk.
+
+.np
+Perlis, D. and Minker, J.  [1985]  Completeness results for circumscription. Draft.
+
+.np
+Reiter,  R. [1978]  On  closed world databases.  In:  Logic and Databases, Gallaire, H. and Minker, J. (eds.),  Plenum, pp. 55-76.
+
+.np
+Reiter, R. [1980] Equality and domain closure in first-order databases. J.
+ACM, v. 27, pp. 235-249.
+.np
+Reiter,  R.    [1982]  Circumscription  implies  predicate    completion   (sometimes).  Proc. AAAI-82, pp. 418-420.
+
+.np
+Zaniolo, C. [1984] Database relations with null values. J. Comp. and System
+Sci., v. 28, pp. 142-166.

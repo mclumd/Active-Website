@@ -1,0 +1,393 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 99.1 release (March 30, 1999)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Drawing Functions</TITLE>
+<META NAME="description" CONTENT="Drawing Functions">
+<META NAME="keywords" CONTENT="clim">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v99.1 release">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="clim.css">
+
+<LINK REL="next" HREF="node114.html">
+<LINK REL="previous" HREF="node111.html">
+<LINK REL="up" HREF="node105.html">
+<LINK REL="next" HREF="node114.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2297"
+ HREF="node114.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/icons/next_motif.gif"></A> 
+<A NAME="tex2html2293"
+ HREF="node105.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/icons/up_motif.gif"></A> 
+<A NAME="tex2html2287"
+ HREF="node112.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/icons/previous_motif.gif"></A> 
+<A NAME="tex2html2295"
+ HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/icons/contents_motif.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html2298"
+ HREF="node114.html">Pixmaps</A>
+<B> Up:</B> <A NAME="tex2html2294"
+ HREF="node105.html">Graphics</A>
+<B> Previous:</B> <A NAME="tex2html2288"
+ HREF="node112.html">Permissible Alternatives During Rendering</A>
+ &nbsp <B>  <A NAME="tex2html2296"
+ HREF="node1.html">Contents</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION05340000000000000000"></A><A NAME="drawing-functions"></A>
+<BR>
+Drawing Functions
+</H1>
+
+<P>
+Each drawing function takes keyword arguments allowing any drawing option or
+suboption to be supplied separately in the call to the function.  In some
+implementations of CLIM, the drawing functions may ignore drawing options that
+are irrelevant to that function; in other implementations, an error may be
+signalled.  See Chapter&nbsp;<A HREF="node92.html#drawing-options">10</A> for a more complete discussion of
+the drawing options.  An error will be signalled if any drawing function is
+called on a sheet that is mute for output.
+
+<P>
+While the functions in this section are specified to be called on sheets, they
+can also be called on streams and mediums.
+
+<P>
+ 
+<B> Implementation note:</B> The drawing functions are all specified as ordinary
+functions, not as generic functions.  This is intended to ease the task of
+writing compile-time optimizations that avoid keyword argument taking, check for
+such things as constant drawing options, and so forth.  If you need to
+specialize any of the drawing methods, use define-drawing-function-method.
+
+<P>
+Each drawing function comes in two forms, a ``structured'' version and a
+``spread'' version.  The structured version passes points, whereas the spread
+version passes coordinates.  See Section&nbsp;<A HREF="node7.html#spread-vs-point">2.3</A> for more
+information on this.
+
+<P>
+Any drawing functions may create an <I> output record</I> that corresponds to the
+figure being drawn.  See Chapter&nbsp;<A HREF="node147.html#extended-output">15</A> for a complete discussion
+of output recording.  During output recording, none of these functions capture
+any arguments that are points, point sequences, coordinate sequences, or text
+strings.  Line styles, text styles, transformations, and clipping regions may be
+captured.
+
+<P>
+Note that the CLIM specification does not specify more complex shapes such as
+cubic splines and B&#233;zier curves.  These are suitable candidates for
+extensions to CLIM.
+
+<P>
+draw-point  sheet point <TT> &amp;key </TT>ink clipping-region transformation-style line-thickness line-unit
+draw-point* sheet x y   <TT> &amp;key </TT>ink clipping-region transformation-style line-thickness line-unit
+
+<P>
+These functions (structured and spread arguments, respectively) draw a single
+point on the <I> sheet</I> <I> sheet</I> at the <I> point</I> <I> point</I> (or the
+position 6#6).
+
+<P>
+The unit and thickness components of the current line style (see
+Chapter&nbsp;<A HREF="node92.html#drawing-options">10</A>) affect the drawing of the point by controlling
+the size on the display device of the ``blob'' that is used to render the point.
+
+<P>
+draw-points  sheet point-seq <TT> &amp;key </TT>ink clipping-region transformation-style line-thickness line-unit
+draw-points* sheet coord-seq <TT> &amp;key </TT>ink clipping-region transformation-style line-thickness line-unit
+
+<P>
+These functions (structured and spread arguments, respectively) draw a set of
+points on the <I> sheet</I> <I> sheet</I>.  <I> point-seq</I> is a sequence of
+point objects; <I> coord-seq</I> is a sequence of coordinate pairs, which are real
+numbers.  It is an error if <I> coord-seq</I> does not contain an even number of
+elements.
+
+<P>
+These functions exist as equivalents to
+<PRE>
+
+(map nil #`(lambda (point) (draw-point sheet point)) point-seq)
+</PRE>
+and
+<PRE>
+
+(do ((i 0 (+ i 2)))
+    ((= i (length coord-seq)))
+  (draw-point* sheet (elt coord-seq i) (elt coord-seq (+ i 1))))
+</PRE>
+for convenience and efficiency.
+
+<P>
+draw-line  sheet point1 point2 <TT> &amp;key </TT>ink clipping-region transformation-style line-thickness line-unit line-dashes line-cap-shape
+draw-line* sheet x1 y1  x2 y2  <TT> &amp;key </TT>ink clipping-region transformation-style line-thickness line-unit line-dashes line-cap-shape
+
+<P>
+These functions (structured and spread arguments, respectively) draw a line
+segment on the <I> sheet</I> <I> sheet</I> from the <I> point</I> <I> point1</I> to
+<I> point2</I> (or from the position (<I> x1</I>,<I> y1</I>) to (<I> x2</I>,<I> y2</I>)).
+
+<P>
+The current line style (see Chapter&nbsp;<A HREF="node92.html#drawing-options">10</A>) affects the drawing
+of the line in the obvious way, except that the joint shape has no effect.
+Dashed lines start dashing at <I> point1</I>.
+
+<P>
+draw-lines  sheet point-seq <TT> &amp;key </TT>ink clipping-region transformation-style line-thickness line-unit line-dashes line-cap-shape
+draw-lines* sheet coord-seq <TT> &amp;key </TT>ink clipping-region transformation-style line-thickness line-unit line-dashes line-cap-shape
+
+<P>
+These functions (structured and spread arguments, respectively) draw a set of
+disconnected line segments.  <I> point-seq</I> is a sequence of point objects;
+<I> coord-seq</I> is a sequence of coordinate pairs.  It is an error if
+<I> coord-seq</I> does not contain an even number of elements.
+
+<P>
+These functions are equivalent to
+<PRE>
+
+(do ((i 0 (+ i 2)))
+    ((= i (length point-seq)))
+  (draw-line sheet (elt point-seq i) (elt point-seq (1+ i))))
+</PRE>
+and
+<PRE>
+
+(do ((i 0 (+ i 4)))
+    ((= i (length coord-seq)))
+  (draw-line* sheet (elt coord-seq i) (elt coord-seq (+ i 1))
+                    (elt coord-seq (+ i 2)) (elt coord-seq (+ i 3))))
+</PRE>
+
+<P>
+draw-polygon  sheet point-seq <TT> &amp;key </TT>(filled t) (closed t)
+                        ink clipping-region transformation-style line-thickness line-unit line-dashes line-joint-shape line-cap-shape
+draw-polygon* sheet coord-seq <TT> &amp;key </TT>(filled t) (closed t) 
+                        ink clipping-region transformation-style line-thickness line-unit line-dashes line-joint-shape line-cap-shape
+
+<P>
+Draws a polygon or polyline on the <I> sheet</I> <I> sheet</I>.  When
+<I> filled</I> is <I> false</I>, this draws a set of connected lines, otherwise it
+draws a filled polygon.  If <I> closed</I> is <I> true</I> (the default) and
+<I> filled</I> is <I> false</I>, it ensures that a segment is drawn that connects
+the ending point of the last segment to the starting point of the first segment.
+The current line style (see Chapter&nbsp;<A HREF="node92.html#drawing-options">10</A>) affects the drawing
+of unfilled polygons in the obvious way.  The cap shape affects only the
+``open'' vertices in the case when <I> closed</I> is <I> false</I>.  Dashed lines
+start dashing at the starting point of the first segment, and may or may not
+continue dashing across vertices, depending on the window system.
+
+<P>
+ 
+<I> point-seq</I> is a sequence of point objects; <I> coord-seq</I> is a sequence of
+coordinate pairs.  It is an error if <I> coord-seq</I> does not contain an even
+number of elements.
+
+<P>
+If <I> filled</I> is <I> true</I>, a closed polygon is drawn and filled in.  In
+this case, <I> closed</I> is assumed to be <I> true</I> as well.
+
+<P>
+draw-rectangle* sheet x1 y1 x2 y2 <TT> &amp;key </TT>(filled t)
+                          ink clipping-region transformation-style line-thickness line-unit line-dashes line-joint-shape 
+
+<P>
+Draws either a filled or unfilled rectangle on the <I> sheet</I> <I> sheet</I>
+that has its sides aligned with the coordinate axes.  One corner of the
+rectangle is at the position (<I> x1</I>,<I> y1</I>) and the opposite corner is at
+(<I> x2</I>,<I> y2</I>).  The arguments <I> x1</I>, <I> y1</I>, <I> x2</I>, and <I> y1</I>
+are real numbers that are canonicalized in the same way as for
+make-bounding-rectangle.  <I> filled</I> is as for draw-polygon*.
+
+<P>
+DCPL This needs some good short text to explain that ``aligned with
+the coordinate axes'' is the axes relative to the current transformation, not
+the result of transforming the points.  But I'm having trouble dreaming up such
+text.
+
+<P>
+The current line style (see Chapter&nbsp;<A HREF="node92.html#drawing-options">10</A>) affects the drawing
+of unfilled rectangles in the obvious way, except that the cap shape has no
+effect.
+
+<P>
+draw-ellipse  sheet center-pt radius-1-dx radius-1-dy radius-2-dx radius-2-dy
+                        <TT> &amp;key </TT>(filled t) start-angle end-angle
+                        ink clipping-region transformation-style line-thickness line-unit line-dashes line-cap-shape
+draw-ellipse* sheet center-x center-y radius-1-dx radius-1-dy radius-2-dx radius-2-dy
+                        <TT> &amp;key </TT>(filled t) start-angle end-angle
+                        ink clipping-region transformation-style line-thickness line-unit line-dashes line-cap-shape
+
+<P>
+These functions (structured and spread arguments, respectively) draw an ellipse
+(when <I> filled</I> is <I> true</I>, the default) or an elliptical arc (when
+<I> filled</I> is <I> false</I>) on the <I> sheet</I> <I> sheet</I>.  The center of
+the ellipse is the <I> point</I> <I> center-pt</I> (or the position
+(<I> center-x</I>,<I> center-y</I>)).
+
+<P>
+Two vectors, (<I> radius-1-dx</I>,<I> radius-1-dy</I>) and
+(<I> radius-2-dx</I>,<I> radius-2-dy</I>) specify the bounding parallelogram of the
+ellipse as explained in Chapter&nbsp;<A HREF="node16.html#geometry">3</A>.  All of the radii are real
+numbers.  If the two vectors are collinear, the ellipse is not well-defined and
+the ellipse-not-well-defined error will be signalled.  The special case
+of an ellipse with its major axes aligned with the coordinate axes can be
+obtained by setting both <I> radius-1-dy</I> and <I> radius-2-dx</I> to 0.
+
+<P>
+ 
+<I> start-angle</I> and <I> end-angle</I> are real numbers that specify an arc
+rather than a complete ellipse.  Angles are measured with respect to the
+positive 1#1 axis.  The elliptical arc runs positively (counter-clockwise) from
+<I> start-angle</I> to <I> end-angle</I>.  The default for <I> start-angle</I> is 27#27;
+the default for <I> end-angle</I> is 28#28.
+
+<P>
+In the case of a ``filled arc'' (that is when <I> filled</I> is <I> true</I> and
+<I> start-angle</I> or <I> end-angle</I> are supplied and are not 27#27 and 28#28),
+the figure drawn is the ``pie slice'' area swept out by a line from the center
+of the ellipse to a point on the boundary as the boundary point moves from
+<I> start-angle</I> to <I> end-angle</I>.
+
+<P>
+When drawing unfilled ellipses, the current line style (see
+Chapter&nbsp;<A HREF="node92.html#drawing-options">10</A>) affects the drawing in the obvious way, except
+that the joint shape has no effect.  Dashed elliptical arcs start ``dashing'' at
+<I> start-angle</I>.
+
+<P>
+draw-circle  sheet center-pt radius <TT> &amp;key </TT>(filled t) start-angle end-angle
+                       ink clipping-region transformation-style line-thickness line-unit line-dashes line-cap-shape
+draw-circle* sheet center-x center-y radius <TT> &amp;key </TT>(filled t) start-angle end-angle
+                       ink clipping-region transformation-style line-thickness line-unit line-dashes line-cap-shape
+
+<P>
+These functions (structured and spread arguments, respectively) draw a circle
+(when <I> filled</I> is <I> true</I>, the default) or a circular arc (when
+<I> filled</I> is <I> false</I>) on the <I> sheet</I> <I> sheet</I>.  The center of
+the circle is <I> center-pt</I> or (<I> center-x</I>,<I> center-y</I>) and the radius
+is <I> radius</I>.  These are just special cases of draw-ellipse and
+draw-ellipse*.  <I> filled</I> is as for draw-ellipse*.
+
+<P>
+ 
+<I> start-angle</I> and <I> end-angle</I> allow the specification of an arc rather
+than a complete circle in the same manner as that of the ellipse functions,
+above.
+
+<P>
+The ``filled arc'' behavior is the same as that of an ellipse, above.
+
+<P>
+draw-text  sheet string-or-char point
+                     <TT> &amp;key </TT>text-style (start 0) end
+                          (align-x :left) (align-y :baseline)
+                          toward-point transform-glyphs
+                     ink clipping-region transformation-style text-family text-face text-size
+draw-text* sheet string-or-char x y
+                     <TT> &amp;key </TT>text-style (start 0) end
+                          (align-x :left) (align-y :baseline)
+                          toward-x toward-y transform-glyphs
+                     ink clipping-region transformation-style text-family text-face text-size
+
+<P>
+The text specified by <I> string-or-char</I> is drawn on the <I> sheet</I>
+<I> sheet</I> starting at the position specified by the <I> point</I> <I> point</I>
+(or the position 6#6).  The exact definition of ``starting at'' is dependent
+on <I> align-x</I> and <I> align-y</I>.  <I> align-x</I> is one of :left,
+:center, or :right.  <I> align-y</I> is one of :baseline,
+:top, :center, or :bottom.  <I> align-x</I> defaults to :left
+and <I> align-y</I> defaults to :baseline; with these defaults, the first
+glyph is drawn with its left edge and its baseline at <I> point</I>.
+
+<P>
+ 
+<I> text-style</I> defaults to nil, meaning that the text will be drawn using
+the current text style of the sheet's medium.
+
+<P>
+ 
+<I> start</I> and <I> end</I> specify the start and end of the string, in the case
+where <I> string-or-char</I> is a string.  If <I> start</I> is supplied, it must be
+an integer that is less than the length of the string.  If <I> end</I> is
+supplied, it must be an integer that is less than the length of the string, but
+greater than or equal to <I> start</I>.
+
+<P>
+Normally, glyphs are drawn from left to right no matter what transformation is
+in effect.  <I> toward-x</I> or <I> toward-y</I> (derived from <I> toward-point</I> in
+the case of draw-text) can be used to change the direction from one glyph
+to the next one.  For example, if <I> toward-x</I> is less than the 1#1 position
+of <I> point</I>, then the glyphs will be drawn from right to left.  If
+<I> toward-y</I> is greater than the 2#2 position of <I> point</I>, then the glyphs'
+baselines will be positioned one above another.  More precisely, the reference
+point in each glyph lies on a line from <I> point</I> to <I> toward-point</I>, and
+the spacing of each glyph is determined by packing rectangles along that line,
+where each rectangle is ``char-width'' wide and ``char-height'' high.
+
+<P>
+If <I> transform-glyphs</I> is <I> true</I>, then each glyph is transformed as an
+image before it is drawn.  That is, if a rotation transformation is in effect,
+then each glyph will be rotated individually.  If <I> transform-glyphs</I> is not
+supplied, then the individual glyphs are not subject to the current
+transformation.  It is permissible for CLIM implementations to ignore
+<I> transform-glyphs</I> if it is too expensive to implement.
+
+<P>
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2297"
+ HREF="node114.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/icons/next_motif.gif"></A> 
+<A NAME="tex2html2293"
+ HREF="node105.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/icons/up_motif.gif"></A> 
+<A NAME="tex2html2287"
+ HREF="node112.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/icons/previous_motif.gif"></A> 
+<A NAME="tex2html2295"
+ HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/icons/contents_motif.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html2298"
+ HREF="node114.html">Pixmaps</A>
+<B> Up:</B> <A NAME="tex2html2294"
+ HREF="node105.html">Graphics</A>
+<B> Previous:</B> <A NAME="tex2html2288"
+ HREF="node112.html">Permissible Alternatives During Rendering</A>
+ &nbsp <B>  <A NAME="tex2html2296"
+ HREF="node1.html">Contents</A></B> 
+<!--End of Navigation Panel-->
+<ADDRESS>
+<I>&</I>
+<BR><I>2001-06-12</I>
+</ADDRESS>
+</BODY>
+</HTML>

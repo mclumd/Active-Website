@@ -1,0 +1,143 @@
+<!--#include virtual="../include.shtml"-->
+
+<table>
+<TR>
+  <TD VALIGN="BOTTOM" ALIGN="LEFT" WIDTH="1200" BGCOLOR="#FFCC33"><B><FONT
+   COLOR="#000000" size="+1"> <u>People</u></FONT></B></TD> 
+</TR>
+
+</table>
+
+<table cellpadding=10 cellspacing=10>
+
+
+<!-- First ROWWWWWWWWWWWWWWWWWWWWWW -->
+<tr ALIGN=LEFT>
+
+<td valign="top">
+
+  <h3>Senior Researchers</h3>
+  <ul>
+    <li><a href="http://www.cs.umd.edu/~anderson">Mike Anderson</a></li>
+    <li><a href ="http://www.cs.umd.edu/~yuan">Waiyian Chong</a></li>
+    <li><a href ="http://www.cs.umd.edu/~scott">Scott Fults</a></li>
+    <li><a href ="http://www.cs.umd.edu/~darsana">Darsana  P. Josyula</a></li>
+    <li><a href="http://www.cs.umbc.edu/~oates">Tim Oates</a>
+    <li><a href="/users/perlis/index.html">Don Perlis (Project Director)</a></li>
+  </ul>
+
+ </td>
+<td valign="top">
+  <h3>Graduate Students</h3>
+  <ul>
+    <li><a href ="http://www.cs.umd.edu/~shomir">Shomir Wilson</a></li>
+  </ul>
+</td>
+
+</tr>
+
+<!-- Second ROWWWWWWWWWWWWWWWWWWWWWWWWWW -->
+<tr ALIGN=LEFT>
+
+
+
+<td valign="top">
+  <h3>Current and Former Affiliates</h3>
+  <ul>
+    <li><a href="mailto:ahmad@ce.aut.ac.ir">Ahmad Barfouroush</a></li>
+    <li><a href="mailto:mbhatia@bowiestate.edu">Manjit Bhatia</a></li>
+    <li><a href="mailto:pchi@cs.bowiestate.edu">Paul Chi</a></li>
+    <li><a href="http://www.towson.edu/~grant">John Grant</a></li>
+    <li><a href="/projects/active/people/gurney.html">John
+    Gurney</a></li>
+    <li><a href="http://www.cs.umd.edu/~khennacy">Ken Hennacy</a></li>
+    <li><a href="http://www.umiacs.umd.edu/users/sarit">Sarit Kraus</a></li>
+    <li><a href="http://www.bsos.umd.edu/psyc/faculty/tnelson">Tom Nelson</a>
+    <li><a href ="http://www.umiacs.umd.edu/~yoshi">Yoshi Okamoto</a></li>
+    <li><a href="mailto:kpurang@yahoo.com">K. Purang</a></li>
+    <li><a href ="http://www.cs.umd.edu/~nswamy">Nikhil Swamy</a></li>
+    <li><a href ="http://www.cs.umd.edu/~traum">David Traum</a></li>
+    </ul>
+ </td>
+
+
+<td valign="top">
+  <h3>Undergraduate Students</h3>
+      <ul>
+      <li>Anna Nhan</li>
+      </ul>
+
+<!--
+        <li> Josiane Alagbe </li>
+        <li>Andrew Fister</li>
+        <li> Nikhil Gulati </li>
+        <li>Bryant Lee</li>
+        <li> Devmann Lee </li>
+        <li> Tandeep Sidhu </li>
+        <li> Sonny Sinha </li>
+        <li>Luwito Tardia</li>
+        <li>Danny Wang</li>
+-->
+      </ul>
+ </td>
+
+
+</tr>
+
+
+
+</table>
+          
+
+     </td>
+<!-- ======= END MAIN CONTENT  ============================ -->
+
+
+</tr></table>
+
+
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

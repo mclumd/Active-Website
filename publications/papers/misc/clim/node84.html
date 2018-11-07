@@ -1,0 +1,212 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 99.1 release (March 30, 1999)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Sheet Types and Contracts</TITLE>
+<META NAME="description" CONTENT="Sheet Types and Contracts">
+<META NAME="keywords" CONTENT="clim">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v99.1 release">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="clim.css">
+
+<LINK REL="next" HREF="node85.html">
+<LINK REL="previous" HREF="node83.html">
+<LINK REL="up" HREF="node83.html">
+<LINK REL="next" HREF="node85.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html1893"
+ HREF="node85.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/icons/next_motif.gif"></A> 
+<A NAME="tex2html1889"
+ HREF="node83.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/icons/up_motif.gif"></A> 
+<A NAME="tex2html1883"
+ HREF="node83.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/icons/previous_motif.gif"></A> 
+<A NAME="tex2html1891"
+ HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/icons/contents_motif.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html1894"
+ HREF="node85.html">Dynamic Output Contract</A>
+<B> Up:</B> <A NAME="tex2html1890"
+ HREF="node83.html">Non-standard Sheet Types</A>
+<B> Previous:</B> <A NAME="tex2html1884"
+ HREF="node83.html">Non-standard Sheet Types</A>
+ &nbsp <B>  <A NAME="tex2html1892"
+ HREF="node1.html">Contents</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION04510000000000000000">
+Sheet Types and Contracts</A>
+</H1>
+
+<P>
+Contracts can be thought of as delegates of the sheet that handle certain
+functions for the sheet, however the CLIM implementation of this framework
+avoids excessive object allocation and method trampolining overhead, by using
+inheritance.  In particular, contracts objects do not exist separately from the
+sheets that use them, but rather the class of such sheets includes its
+contracts' implementing classes as superclasses.
+
+<P>
+Input and output contract classes are simply inherited from by sheet classes.
+The situation with windowing contracts is slightly more complex.  Windowing
+contracts are implemented as two part classes, one to be mixed into sheets that
+are to be a parent in the windowing relationship and the other to be mixed into
+those that are to be children.  In addition, a windowing contract class is
+defined, though it not be instantiated.  This class exists primarily as a handle
+for functionality that manipulates windowing contracts (for example,
+change-windowing-contract).  However, the implementor of the windowing
+contract can decide whether the child and parent parts are sufficient or whether
+a separate neutral object is needed for its purposes.
+
+<P>
+To be specific, a sheet is an instance of a <I> sheet class</I><A NAME="8735"></A>.  Sheet classes
+are constructed based on the input, output, and windowing functionality selected
+by the client of the sheet.  Additionally, clients can add their own mixins to
+the sheet that supply client specific methods.  So, in summary, sheet classes
+inherit from the following classes:
+
+<P>
+
+<UL>
+<LI>sheet
+
+<P>
+ </LI>
+<LI>A parent part class (part of adult windowing contract)
+
+<P>
+ </LI>
+<LI>A child part class (part of youth windowing contract)
+
+<P>
+ </LI>
+<LI>An output contract class
+
+<P>
+ </LI>
+<LI>An input contract class
+
+<P>
+ </LI>
+<LI>An arbitrary number of client supplied classes.</LI>
+</UL>
+
+<P>
+SWM The inheritance stuff above is wrong, now that we are trying to
+get rid of the contract classes.  Flush all discussions of contracts.
+
+<P>
+There are two ways to construct sheet classes and instantiate them.  One way is
+to invoke make-sheet, which dynamically constructs a sheet class according
+to arguments passed in by the caller.  These dynamically constructed classes are
+cached, so that construction overhead is incurred only once.  Subsequent
+attempts to use the same sheet class only incur lookup overhead.
+
+<P>
+The second way is to statically define a sheet type using
+define-sheet-class and to instantiated it using make-instance or a
+client defined constructor.  Make-standard-sheet is a constructor that uses a
+statically defined sheet class, namely standard-sheet.
+
+<P>
+make-sheet <TT> &amp;rest </TT>args
+                     <TT> &amp;key </TT>youth-contract-class adult-contract-class 
+                          input-contract-class output-contract-class
+                          supers region parent transformation <TT> &amp;allow-other-keys </TT>
+
+<P>
+The <I> class arguments</I> and <I> supers</I> are ordered as listed above to
+generate a specification for a sheet class.  This specification is used to
+locate a dynamically constructed sheet class.  The class arguments can be
+symbols or classes and supers is a list of symbols or classes.  This class is
+instantiated and initialized with <I> args</I>.  Which args are applicable depends
+on the initialization options defined by the contracts and the client supplied
+supers.
+
+<P>
+If <I> parent</I> is supplied, sheet-adopt-child is invoked on the sheet and
+<I> parent</I>.  <I> region</I> and <I> transformation</I> initialize the sheet
+according to the specification of the windowing contracts of the sheet.
+
+<P>
+define-sheet-class class supers slots <TT> &amp;rest </TT>options
+
+<P>
+This macro allows you to statically define a sheet class.  Its syntax is the
+same as defclass with the addition of the following extra <I> options</I>:
+:youth-contract-class, :adult-contract-class,
+:input-contract-class, or :output-contract-class.  These extra options
+take the names of contract classes as arguments.
+
+<P>
+SWM The contract stuff below is now wrong.
+
+<P>
+ 
+<PRE>
+
+(define-sheet-class standard-sheet ()
+    ()
+  (:youth-contract-class standard-windowing-contract)
+  (:adult-contract-class standard-windowing-contract)
+  (:input-contract-class standard-input-contract)
+  (:output-contract-class standard-output-contract))
+</PRE>
+
+<P>
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html1893"
+ HREF="node85.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/icons/next_motif.gif"></A> 
+<A NAME="tex2html1889"
+ HREF="node83.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/icons/up_motif.gif"></A> 
+<A NAME="tex2html1883"
+ HREF="node83.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/icons/previous_motif.gif"></A> 
+<A NAME="tex2html1891"
+ HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/icons/contents_motif.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html1894"
+ HREF="node85.html">Dynamic Output Contract</A>
+<B> Up:</B> <A NAME="tex2html1890"
+ HREF="node83.html">Non-standard Sheet Types</A>
+<B> Previous:</B> <A NAME="tex2html1884"
+ HREF="node83.html">Non-standard Sheet Types</A>
+ &nbsp <B>  <A NAME="tex2html1892"
+ HREF="node1.html">Contents</A></B> 
+<!--End of Navigation Panel-->
+<ADDRESS>
+<I>&</I>
+<BR><I>2001-06-12</I>
+</ADDRESS>
+</BODY>
+</HTML>

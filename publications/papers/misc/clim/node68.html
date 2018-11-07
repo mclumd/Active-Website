@@ -1,0 +1,139 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 99.1 release (March 30, 1999)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Repaint Protocol Functions</TITLE>
+<META NAME="description" CONTENT="Repaint Protocol Functions">
+<META NAME="keywords" CONTENT="clim">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v99.1 release">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="clim.css">
+
+<LINK REL="next" HREF="node69.html">
+<LINK REL="previous" HREF="node67.html">
+<LINK REL="up" HREF="node67.html">
+<LINK REL="next" HREF="node69.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html1695"
+ HREF="node69.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/icons/next_motif.gif"></A> 
+<A NAME="tex2html1691"
+ HREF="node67.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/icons/up_motif.gif"></A> 
+<A NAME="tex2html1685"
+ HREF="node67.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/icons/previous_motif.gif"></A> 
+<A NAME="tex2html1693"
+ HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/icons/contents_motif.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html1696"
+ HREF="node69.html">Repaint Protocol Classes</A>
+<B> Up:</B> <A NAME="tex2html1692"
+ HREF="node67.html">Repaint Protocol</A>
+<B> Previous:</B> <A NAME="tex2html1686"
+ HREF="node67.html">Repaint Protocol</A>
+ &nbsp <B>  <A NAME="tex2html1694"
+ HREF="node1.html">Contents</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H2><A NAME="SECTION04341000000000000000">
+Repaint Protocol Functions</A>
+</H2>
+
+<P>
+dispatch-repaint sheet region
+
+<P>
+Requests a repaint of the <I> region</I> <I> region</I> within the <I> sheet</I>
+<I> sheet</I>.  The region is given in sheet coordinates.  Depending on the class
+of the sheet, this may cause queue-repaint or handle-repaint to be
+invoked.
+
+<P>
+All CLIM implementations must support repainting for regions that are rectangles
+or region sets composed entirely of rectangles.
+
+<P>
+queue-repaint sheet region
+
+<P>
+Requests that a repaint event for the <I> region</I> <I> region</I> be placed in
+the input queue of the <I> sheet</I> <I> sheet</I>.  A program that reads events
+out of the queue will be expected to call handle-event for the repaint
+region; the method for that generic function on repaint events will generally
+call repaint-sheet.
+
+<P>
+handle-repaint sheet medium region
+
+<P>
+Recursively causes repainting of the <I> sheet</I> <I> sheet</I> and any of its
+children that overlap the <I> region</I> <I> region</I>.  <I> medium</I> is the
+medium to use for the repainting; if it is nil, handle-repaint will
+allocate a medium and associate it with the sheet.  handle-repaint will
+call repaint-sheet on <I> sheet</I>, and then call handle-repaint on all
+of the children of <I> sheet</I>.
+
+<P>
+repaint-sheet sheet region
+
+<P>
+Implements repainting for a given sheet class.  It may only be called on a sheet
+that has an associated medium.  <I> sheet</I> and <I> region</I> are as for
+dispatch-repaint.
+
+<P>
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html1695"
+ HREF="node69.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/icons/next_motif.gif"></A> 
+<A NAME="tex2html1691"
+ HREF="node67.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/icons/up_motif.gif"></A> 
+<A NAME="tex2html1685"
+ HREF="node67.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/icons/previous_motif.gif"></A> 
+<A NAME="tex2html1693"
+ HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/icons/contents_motif.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html1696"
+ HREF="node69.html">Repaint Protocol Classes</A>
+<B> Up:</B> <A NAME="tex2html1692"
+ HREF="node67.html">Repaint Protocol</A>
+<B> Previous:</B> <A NAME="tex2html1686"
+ HREF="node67.html">Repaint Protocol</A>
+ &nbsp <B>  <A NAME="tex2html1694"
+ HREF="node1.html">Contents</A></B> 
+<!--End of Navigation Panel-->
+<ADDRESS>
+<I>&</I>
+<BR><I>2001-06-12</I>
+</ADDRESS>
+</BODY>
+</HTML>

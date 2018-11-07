@@ -1,0 +1,93 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 99.1 release (March 30, 1999)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Gesture Preprocessing</TITLE>
+<META NAME="description" CONTENT="Gesture Preprocessing">
+<META NAME="keywords" CONTENT="clim">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v99.1 release">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="clim.css">
+
+<LINK REL="previous" HREF="node203.html">
+<LINK REL="up" HREF="node196.html">
+<LINK REL="next" HREF="node205.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html3542"
+ HREF="node205.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/icons/next_motif.gif"></A> 
+<A NAME="tex2html3538"
+ HREF="node196.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/icons/up_motif.gif"></A> 
+<A NAME="tex2html3534"
+ HREF="node203.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/icons/previous_motif.gif"></A> 
+<A NAME="tex2html3540"
+ HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/icons/contents_motif.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html3543"
+ HREF="node205.html">Presentation Types</A>
+<B> Up:</B> <A NAME="tex2html3539"
+ HREF="node196.html">Extended Stream Input</A>
+<B> Previous:</B> <A NAME="tex2html3535"
+ HREF="node203.html">Pointer Tracking</A>
+ &nbsp <B>  <A NAME="tex2html3541"
+ HREF="node1.html">Contents</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION07160000000000000000"></A><A NAME="gesture-preproc"></A>
+<BR>
+Gesture Preprocessing
+</H1>
+
+<P>
+Every gesture that goes through stream-read-gesture gets processed before
+it is returned.  This allows applications to intercept gestures and alter the
+flow of control.  Gesture processing is done via a gesture table that associates
+each gesture with a function of two arguments, <I> stream</I> and <I> gesture</I>,
+which is applied when the gesture is read.
+
+<P>
+SWM So what is ``gesture preprocessing'' anyway?  It should surely
+specialize on the stream, or the application frame, or both.
+
+<P>
+gesture-processing-handler gesture
+(setf gesture-processing-handler) gesture
+
+<P>
+Manipulate the gesture processing handler for a particular gesture.  All pointer
+button presses are considered equivalent at this layer; to modify the handler
+for pointer button presses, specify :pointer-button-press as the
+<I> gesture</I>.  The default values for the handlers for all gestures is
+nil, meaning there is no handler.  The presentation subsystem could be
+implemented by installing input-context-button-press-handler as the handler
+for pointer button presses.
+
+<BR><HR>
+<ADDRESS>
+<I>&</I>
+<BR><I>2001-06-12</I>
+</ADDRESS>
+</BODY>
+</HTML>

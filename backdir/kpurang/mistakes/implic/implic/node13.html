@@ -1,0 +1,159 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!--Converted with LaTeX2HTML 98.1p1 release (March 2nd, 1998)
+originally by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Axioms used.</TITLE>
+<META NAME="description" CONTENT="Axioms used.">
+<META NAME="keywords" CONTENT="implic">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<LINK REL="STYLESHEET" HREF="implic.css">
+<LINK REL="next" HREF="node14.html">
+<LINK REL="previous" HREF="node10.html">
+<LINK REL="up" HREF="node9.html">
+<LINK REL="next" HREF="node14.html">
+</HEAD>
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html180"
+ HREF="node14.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="http://www.cs.umd.edu/icons/latex2html/icons.gif/next_motif.gif"></A> 
+<A NAME="tex2html178"
+ HREF="node9.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="http://www.cs.umd.edu/icons/latex2html/icons.gif/up_motif.gif"></A> 
+<A NAME="tex2html172"
+ HREF="node12.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="http://www.cs.umd.edu/icons/latex2html/icons.gif/previous_motif.gif"></A>   
+<BR>
+<B> Next:</B> <A NAME="tex2html181"
+ HREF="node14.html">Example 1</A>
+<B> Up:</B> <A NAME="tex2html179"
+ HREF="node9.html">Our solution</A>
+<B> Previous:</B> <A NAME="tex2html173"
+ HREF="node12.html">Some formulas</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H2><A NAME="SECTION00042000000000000000">
+Axioms used.</A>
+</H2>
+
+<P>
+The first set of axioms for inheritance, contradiction detection and
+resolution, and the clock rule are likely to be common to a wide
+variety of problems described using this representation.
+
+<P>
+<PRE>
+% inheritance rule: we inherit anything that is not killed and is not
+%     itself a kill
+(mt:(((`(Q:X)) &amp; (?(kill(X)))  &amp; eval(\+ (Q = time)) &amp; (?(k2(Q))) 
+      &amp; eval(\+ (X = k2(_))) &amp; eval(\+ (X = kill(_)))) =&gt; (Q:X)))@0.
+
+%contradiction detection rule: when we detect a contradiction, we add
+%     a contra belief at the next step and we kill both contradictands
+%     and the contra belief itself (so these don't propagate)
+
+(mt:((`(Q:X) &amp; `(W:not(X)) &amp; (?(kill(not(X))))) =&gt; 
+    mt:(kill(not(X)))))@0.
+(mt:((`(Q:X) &amp; `(W:not(X)) &amp; (?(kill(contra((Q:X), (W:not(X))))))) =&gt; 
+    mt:(kill(contra((Q:X), (W:not(X)))))))@0.
+(mt:((`(Q:X) &amp; `(W:not(X)) &amp; (?(kill(contra((Q:X), (W:not(X))))))) =&gt; 
+    mt:(contra((Q:X), (W:not(X))))))@0.
+(mt:((`(Q:X) &amp; `(W:not(X)) &amp; (?(kill(X)))) =&gt; mt:(kill(X))))@0.
+
+%contradiction resolution rule: we prefer utterances(beliefs)
+
+(mt:((contra((imp:X), (bel:Y))) =&gt; (bel:Y)))@0.
+(mt:((contra((bel:Y), (imp:X))) =&gt; (bel:Y)))@0.
+
+% the clock rule
+(mt: ((`(time:now(T)) &amp; eval(T1 is T+1)) =&gt; time:(now(T1))))@0.
+
+% the initial time
+(time: (now(0)))@0.
+</PRE>
+<P>
+The next set involves specific rules for the implicature problems:
+
+<P>
+<PRE>
+% usually when X informs us of P, we believe P.
+(bel: (( (inform(X, Y, P)@_) &amp; whoami(Y) &amp; (?(ab2(X, Y, P)))
+         ) =&gt; (bel:P)))@0.
+
+% direct response to a yes-no question- we believe the response
+(bel: (( (respond(X, Y, P, q_yes_no(P))@_) &amp; whoami(Y) &amp; (?(ab2(X, Y, P)))
+           ) =&gt; (bel:P)))@0.
+(bel: (( (respond(X, Y, not(P), q_yes_no(P))@_) &amp; whoami(Y) &amp; 
+         (?(ab2(X, Y, P)))  ) =&gt; (bel:P)))@0.
+
+% indirect responses to yes-no questions- we try to figure what it means
+(bel: (( (respond(_, X, P, q_yes_no(Q))@T) &amp; whoami(X) &amp; now(T) &amp;
+          eval(\+ P = Q) &amp; eval(\+ P = not(Q)))
+      =&gt; (qyn(Q):P) ))@0.
+
+% if we have figured the answer, we make it an implicature and we stop
+% trying to find out what the response meant. In this case, we just lose
+% all the irrelevant beliefs we came across.
+(bel: (( `((qyn(Q)):P) &amp; (?(k2(qyn(Q)))) &amp; eval(P = Q)) =&gt; imp:P))@0.
+(bel: (( `((qyn(Q)):P) &amp; (?(k2(qyn(Q)))) &amp; eval(P = Q)) =&gt; 
+    mt:k2(qyn(Q))  ))@0.
+(bel: (( `((qyn(Q)):P) &amp; (?(k2(qyn(Q)))) &amp; eval(P = not(Q))) =&gt; imp:P))@0.
+(bel: (( `((qyn(Q)):P) &amp; (?(k2(qyn(Q)))) &amp; eval(P = not(Q))) =&gt; 
+    mt:k2(qyn(Q))  ))@0.
+</PRE>
+<P>
+Finally we have rules that are specific for the examples under
+consideration: 
+
+<P>
+<PRE>
+% things in fridges are cold
+(bel: ((`(Z:infridge(X)) &amp; (?(k2(Z))) &amp; (?(not(cold(X))))) =&gt; Z:cold(X)))@0.
+
+% things in fridges are small
+(bel: ((`(Z:infridge(X)) &amp; (?(k2(Z))) &amp; (?(not(small(X))))) =&gt; Z:small(X)))@0.
+
+% things in fridges are dead
+(bel: ((`(Z:infridge(X)) &amp; (?(k2(Z))) &amp; (?(not(dead(X))))) =&gt; Z:dead(X)))@0.
+
+% things in fridges are edible
+(bel: ((`(Z:infridge(X)) &amp; (?(k2(Z))) &amp; (?(not(edible(X))))) =&gt; 
+       Z:edible(X)))@0.
+
+% cold roses are fresh
+(bel: ((roses(X) &amp; `(Z:cold(X)) &amp; (?(k2(Z)))  &amp; (?(not(fresh(X)))))
+       =&gt; Z:fresh(X)))@0.
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% initial beliefs
+
+(bel: (whoami(kathy)))@0.
+(bel: (roses(r1)))@0.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+</PRE>
+<P>
+The utterances considered are also represented in the same way. These
+are presented later.
+
+<P>
+<BR><HR>
+<ADDRESS>
+<I>K. Purang</I>
+<BR><I>2001-06-16</I>
+</ADDRESS>
+</BODY>
+</HTML>

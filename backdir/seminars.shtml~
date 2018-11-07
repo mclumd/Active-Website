@@ -1,0 +1,112 @@
+<html>
+<head>
+    <title>Active Logic, Metacognitive Computation, and Mind: University of Maryland</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="author" content="Josiane Alagbe">
+<link rel="stylesheet" href="/assets/styles/netscape.css" type="text/css">
+<style type="text/css">
+ <!--
+   @import url(/assets/styles/explorer.css);
+     -->
+</style>
+
+<SCRIPT type="text/javascript">
+function gettip(txt)
+{
+tip.innerHTML=txt
+}
+
+function reset()
+{
+tip.innerHTML=""
+}
+function cursor(image)
+{
+trail.innerHTML="<img src='" + image + "' />"
+trail.style.visibility="visible"
+trail.style.position="absolute"
+trail.style.left=event.clientX+10
+trail.style.top=event.clientY
+}
+function cursorText(text)
+{
+trail.innerHTML=text
+trail.style.visibility="visible"
+trail.style.position="absolute"
+trail.style.left=event.clientX+10
+trail.style.top=event.clientY
+trail.style.color = "blue"
+}
+function hidecursor()
+{
+trail.style.visibility="hidden"
+}
+
+</SCRIPT>
+</head>
+
+
+<!--#include virtual="include.shtml"-->
+
+
+
+
+<!-------------------------------------------------------------------------->    
+
+<table>
+<TR>
+  <TD ALIGN="LEFT" WIDTH="1200" BGCOLOR="#FFCC33"><B><FONT
+   COLOR="#000000" size="+1"> <u>Seminars</u></FONT></B></TD>
+</TR>
+
+</table>
+
+<!--#include virtual="http://www.umiacs.umd.edu/seminars/laisem.htm"-->
+
+
+</tr></table>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

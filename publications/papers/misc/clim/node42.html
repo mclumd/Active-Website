@@ -1,0 +1,211 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 99.1 release (March 30, 1999)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Applying Transformations</TITLE>
+<META NAME="description" CONTENT="Applying Transformations">
+<META NAME="keywords" CONTENT="clim">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v99.1 release">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="clim.css">
+
+<LINK REL="previous" HREF="node41.html">
+<LINK REL="up" HREF="node39.html">
+<LINK REL="next" HREF="node43.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html1310"
+ HREF="node43.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/icons/next_motif.gif"></A> 
+<A NAME="tex2html1306"
+ HREF="node39.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/icons/up_motif.gif"></A> 
+<A NAME="tex2html1302"
+ HREF="node41.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/icons/previous_motif.gif"></A> 
+<A NAME="tex2html1308"
+ HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/icons/contents_motif.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html1311"
+ HREF="node43.html">Windowing Substrate</A>
+<B> Up:</B> <A NAME="tex2html1307"
+ HREF="node39.html">The Transformation Protocol</A>
+<B> Previous:</B> <A NAME="tex2html1303"
+ HREF="node41.html">Composition of Transformations</A>
+ &nbsp <B>  <A NAME="tex2html1309"
+ HREF="node1.html">Contents</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H2><A NAME="SECTION03333000000000000000">
+Applying Transformations</A>
+</H2>
+
+<P>
+Transforming a region applies a coordinate transformation to that region, thus
+moving its position on the drawing plane, rotating it, or scaling it.  Note that
+transforming a region does not side-effect the <I> region</I> argument; it is free
+to either create a new region or return an existing (cached) region.
+
+<P>
+These generic functions must be implemented for all classes of transformations.
+Furthermore, all subclasses of region and design must implement
+methods for transform-region and untransform-region.  That is, methods
+for the following generic functions will typically specialize both the
+<I> transformation</I> and <I> region</I> arguments.
+
+<P>
+transform-region transformation region
+
+<P>
+Applies <I> transformation</I> to the <I> region</I> <I> region</I>, and returns the
+transformed region.
+
+<P>
+untransform-region transformation region
+
+<P>
+This is exactly equivalent to 
+<BR>
+<code>(transform-region (invert-transformation</code> <I> transformation</I><code>)</code>
+<I> region</I><code>)</code> .
+
+<P>
+CLIM provides a default method for untransform-region on the
+transformation protocol class that does exactly this.
+
+<P>
+transform-point* transformation x y
+
+<P>
+Applies the <I> transformation</I> <I> transformation</I> to the point whose
+coordinates are the real numbers <I> x</I> and <I> y</I>, and returns two values,
+the transformed 1#1 coordinate and the transformed 2#2 coordinate.
+
+<P>
+transform-point* is the spread version of transform-region in the case
+where the region is a point.
+
+<P>
+untransform-point* transformation x y
+
+<P>
+This is exactly equivalent to 
+<BR>
+<code>(transform-point* (invert-transformation</code> <I> transformation</I><code>)</code>
+<I> x</I> <I> y</I><code>)</code> .
+
+<P>
+CLIM provides a default method for untransform-point* on the
+transformation protocol class that does exactly this.
+
+<P>
+transform-distance transformation dx dy
+
+<P>
+Applies the <I> transformation</I> <I> transformation</I> to the distance
+represented by the real numbers <I> dx</I> and <I> dy</I>, and returns two values,
+the transformed <I> dx</I> and the transformed <I> dy</I>.
+
+<P>
+A distance represents the difference between two points.  It does <I> not</I>
+transform like a point.
+
+<P>
+untransform-distance transformation dx dy 
+
+<P>
+This is exactly equivalent to 
+<BR>
+<code>(transform-distance (invert-transformation</code> <I> transformation</I><code>)</code>
+<I> dx</I> <I> dy</I><code>)</code> .
+
+<P>
+CLIM provides a default method for untransform-distance on the
+transformation protocol class that does exactly this.
+
+<P>
+transform-rectangle* transformation x1 y1 x2 y2
+
+<P>
+Applies the <I> transformation</I> <I> transformation</I> to the rectangle
+specified by the four coordinate arguments, which are real numbers.  The
+arguments <I> x1</I>, <I> y1</I>, <I> x2</I>, and <I> y1</I> are canonicalized in the
+same way as for make-bounding-rectangle.  Returns four values that specify
+the minimum and maximum points of the transformed rectangle in the order
+<I> min-x</I>, <I> min-y</I>, <I> max-x</I>, and <I> max-y</I>.
+
+<P>
+It is an error is <I> transformation</I> does not satisfy
+rectilinear-transformation-p.
+
+<P>
+transform-rectangle* is the spread version of transform-region in the
+case where the transformation is rectilinear and the region is a rectangle.
+
+<P>
+untransform-rectangle* transformation x1 y1 x2 y2
+
+<P>
+This is exactly equivalent to 
+<BR>
+<code>(transform-rectangle* (invert-transformation</code> <I> transformation</I><code>)</code>
+<I> x1</I> <I> y1</I> <I> x2</I> <I> y2</I><code>)</code> .
+
+<P>
+CLIM provides a default method for untransform-rectangle* on the
+transformation protocol class that does exactly this.
+
+<P>
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html1310"
+ HREF="node43.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/icons/next_motif.gif"></A> 
+<A NAME="tex2html1306"
+ HREF="node39.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/icons/up_motif.gif"></A> 
+<A NAME="tex2html1302"
+ HREF="node41.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/icons/previous_motif.gif"></A> 
+<A NAME="tex2html1308"
+ HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/icons/contents_motif.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html1311"
+ HREF="node43.html">Windowing Substrate</A>
+<B> Up:</B> <A NAME="tex2html1307"
+ HREF="node39.html">The Transformation Protocol</A>
+<B> Previous:</B> <A NAME="tex2html1303"
+ HREF="node41.html">Composition of Transformations</A>
+ &nbsp <B>  <A NAME="tex2html1309"
+ HREF="node1.html">Contents</A></B> 
+<!--End of Navigation Panel-->
+<ADDRESS>
+<I>&</I>
+<BR><I>2001-06-12</I>
+</ADDRESS>
+</BODY>
+</HTML>

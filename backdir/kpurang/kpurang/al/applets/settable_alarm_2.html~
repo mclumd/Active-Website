@@ -1,0 +1,34 @@
+<html>
+<head>
+<title>
+Settable alarm II  example
+</title>
+</head>
+
+<body bgcolor="#ffffee" text="#000000" link="#ff0000" vlink="0000ff">
+
+<h3>Settable alarm II example </h3>
+<p>
+<h4>Description: </h4>
+The objective is similar to that of settable alarm I, but we specify
+it differently.
+
+<p>
+<a href="settable_alarm_2_applet.html" target="History"> View the history applet</a>
+<br>
+<a href="../histories/settable_alarm_2.pl"> Alma specification</a>
+<p>
+<h4>Run: </h4>
+<ul>
+<li> 
+
+</ul>
+<p>
+<h4>Note:</h4>
+
+
+<p>
+<hr>
+<a href="mailto:kpurang@cs.umd.edu">kpurang@cs.umd.edu</a>
+</html>
+

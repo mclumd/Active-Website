@@ -1,0 +1,36 @@
+%
+% /fs/that/kpurang/disco/group/papers/aaai01/main.tex
+%
+
+\documentstyle[aaai]{article}
+
+\title{Handling Uncertainty with Active Logic}
+\author{Manjit Bhatia, Paul Chi, Waiyian Chong, Darsana P. Josyula\\
+ Yoshi Okamoto, Don Perlis \and Khemdut Purang}
+
+
+\begin{document}
+\maketitle
+
+\section{Introduction to Active Logic}
+\input{introduction}
+
+
+\section{Alma/Carne}
+\input{almaCarne}
+
+\section{Existing Applications}
+\input{applications}
+%\input{applns}
+
+\section{Potential Applications}
+\input{fft}
+
+\section{Importing Intelligence Into Computation}
+\input{importing}
+
+
+\bibliographystyle{aaai}
+\bibliography{/fs/disco/group/bibfiles/ALL}
+
+\end{document}

@@ -1,0 +1,175 @@
+
+<!--#include virtual="include.shtml"-->
+
+
+
+<table>
+<TR>
+  <TD ALIGN="LEFT" WIDTH="1200" BGCOLOR="#FFCC33"><B><FONT
+   COLOR="#000000" size="+1"> <u>Home</u></FONT></B></TD>
+</TR>
+</table>
+
+     <table  border=0  cellpadding=1 cellspacing=3   width="100%">
+
+     <tr bgcolor="#FFFFFF">
+     <td  align = "left" width="100%">
+      <p>Our acronym <b>ALMECOM</b> stands for <b>A</b>ctive <b>L</b>ogic,
+        <b>ME</b>tacognitice <b>CO</b>mputation, and
+        <b>M</b>ind. Active Logic is a time-sensitive 
+        formalism that has been developed with real-world applications
+        and their challenges in mind.  Active logic explicitly reasons
+        in time, and incorporates a history of its reasoning as it
+        runs. This characteristic makes active logic more flexible
+        than traditional AI systems and therefore more suitable for
+        commonsense, real-world reasoning.  
+
+        <p>One important strategy
+        that we employ in active logic is metareasoning.
+        Because active logic tracks its reasoning, it is able to
+        reason about its own inferences, and thereby recognize and
+        recover from errors. 
+
+        <p>We hypothesize the existence of a limited
+        and formalizable set of generic strategies of metareasoning,
+        which are central to the human mind's ability to deal easily and
+        smoothly with mistakes, contradictions, and other
+        irregularities; click <a href="aims.shtml">here</a> for more on
+        this.
+<p>
+
+        One area in which these strategies are most apparent, and 
+        most often used, is in <a
+        href="http://www.cs.umd.edu/active/conv.shtml">conversation</a>,  
+        and so one central area of our research  
+        focuses on human-computer natural-language dialog. 
+  </td>
+  </tr>
+
+  <tr>
+  <td align = "left" >
+   <table width="100%" border=0  cellpadding=1 cellspacing=3>
+
+   <tr>
+    <td  ALIGN=center width ="50%"  bgcolor="#FFFFFF" >
+
+<!--
+     some DeMOS<br>
+     some DeMOS<br>
+
+-->
+
+     </td>
+     <td ALIGN=center  bgcolor="#FFFFFF" width="50%" >
+   
+<!--
+   &nbsp;&nbsp;&nbsp;some ALMECOM  lab Picture
+    
+-->
+
+
+ </td>
+</tr>
+</table>
+
+</td>
+<!-- ======= END MAIN CONTENT  ============================ -->
+
+</tr>
+</table>
+
+</td>
+
+</tr></table>
+
+
+<br>
+<P>
+<table border="0" cellpadding="0" cellspacing="0" width = "100%">
+
+<tr>
+<td valign="top" width = "100" bgcolor="#FFCC33"><img src="/assets/images/spacer.gif" width ="1"  height="1"></td>
+</tr>
+
+</table>
+
+<b>We appreciate the sponsorship of 
+<a href="http://www.afosr.af.mil"> AFOSR</a>, 
+<a href="http://www.onr.navy.mil"> ONR</a>, 
+<a href="http://www.honda-ri.com"> Honda Research Institute USA</a>,
+and
+<a href="http://www.umiacs.umd.edu"> UMIACS</a>.</b><br>
+<p>
+
+ <table height ="100" width=100%  border="0" align="left" cellpadding="0" cellspacing="0">
+<tr>
+ <td width="25% align="left" valign="middle" nowrap><a
+ href="http://www.afosr.af.mil"><img  border="0" src="airforcelogo.gif" height="93"  width="100" valign ="down" ></a>
+</td>
+
+ <td width="30%"align="left" valign="middle" nowrap><a
+ href="http://www.onr.navy.mil"><img   border="0" src="onrLogo.jpg" width="150" height="70" valign ="down" nosave> </a>
+</td>
+
+<td align="left" valign="middle" ><a
+href="http://www.honda-ri.com/Hn_Frames/Hn_Frames.html"><img
+border="0" src="Hn_Logo_HRI.gif"  height ="40"   width="300"  > </a>
+</td>
+ 
+ <td width="30%" align="center" valign="middle" nowrap>
+ <a href="http://www.umiacs.umd.edu">
+ <img src="umiacs-logo.gif" alt="UMIACS" border="0" width="183" height="65" valign ="down" nosave></a></td>
+
+ 
+</tr>
+</table>
+ 
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,36 @@
+Version Changes for Hypermail
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+1.0b1 7/6/94
+	Hypermail rewritten in C. Because the source is so new and
+	relatively untested, it's still considered to be in beta
+	until feedback from users is received.
+1.0b2 7/13/94
+	Incremental updating added and various parsing bugs fixed.
+1.0b3 7/14/94
+	Environment variables added, ampersands are converted.
+1.0   7/29/94
+	Configuration file, logic fixes, better "re:" stripping,
+	name tags, default index.html (HM_DEFAULTINDEX), default
+	directory name can be mailbox name, mailto: fix, better dates,
+	better error messages, numbered files are padded to four digits,
+	headers are always in <pre>, next in thread, maybe in reply and
+	maybe reply, MAILCOMMAND, EURODATE, commented source, chmods only
+	new files, <html>, custom mail command variables.
+1.01  7/29/94
+	Printfooter declaration, getdate() and timezone names changed
+	to avoid library conflicts. Bad #define fixed (null) bug.
+1.02  8/1/94
+	Fixed configfile problem, different usage() output, days[] space
+	fix, NODATE, stripzone() fix, insig fix, SHOWBR, SHOWHR, IQUOTES,
+	THRDLEVELS.
+
+Things to do:
+~~~~~~~~~~~~
+
+Correctly grep RFC 822 headers, fold lines, and collapse white space
+Use the Content-length: header to help figure out forwarded messages
+Display HTML when the "Content-type: text/html" shows up
+        (allow for MIME HTML stuff, boundaries)
+Make the parser better - make it handle more than one instance per line
+Add date/subject/author filters for articles that are read in

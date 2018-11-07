@@ -1,0 +1,146 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 99.1 release (March 30, 1999)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Presentation Types</TITLE>
+<META NAME="description" CONTENT="Presentation Types">
+<META NAME="keywords" CONTENT="clim">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v99.1 release">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="clim.css">
+
+<LINK REL="next" HREF="node320.html">
+<LINK REL="previous" HREF="node318.html">
+<LINK REL="up" HREF="node304.html">
+<LINK REL="next" HREF="node320.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html5072"
+ HREF="node320.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/icons/next_motif.gif"></A> 
+<A NAME="tex2html5068"
+ HREF="node304.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/icons/up_motif.gif"></A> 
+<A NAME="tex2html5062"
+ HREF="node318.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/icons/previous_motif.gif"></A> 
+<A NAME="tex2html5070"
+ HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/icons/contents_motif.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html5073"
+ HREF="node320.html">Input Editing and Completion</A>
+<B> Up:</B> <A NAME="tex2html5069"
+ HREF="node304.html">Changes from CLIM 1.0</A>
+<B> Previous:</B> <A NAME="tex2html5063"
+ HREF="node318.html">Extended Stream Input</A>
+ &nbsp <B>  <A NAME="tex2html5071"
+ HREF="node1.html">Contents</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H4><A NAME="SECTION095000150000000000000">
+Presentation Types</A>
+</H4>
+
+<P>
+
+<UL>
+<LI>The argument list for with-output-as-presentation has been changed to
+make <I> stream</I>, <I> object</I>, and <I> type</I> be required arguments instead of
+keyword arguments.  This is because it is always necessary to supply those
+arguments in order for with-output-as-presentation to work.  Compability
+code will be provided to support the old syntax.
+
+<P>
+ </LI>
+<LI>The <I> activation-characters</I>, <I> additional-activation-characters</I>,
+<I> blip-characters</I>, and <I> additional-blip-characters</I> keyword arguments to
+the accept functions have been renamed to <I> activation-gestures</I>,
+<I> additional-activation-gestures</I>, <I> blip-gestures</I>, and
+<I> additional-blip-gestures</I>.  Compability code will be provided to support
+the old keyword arguments.
+
+<P>
+ </LI>
+<LI>The arglists for presentation translators and their documentation and
+tester components have been changed to take a single position <I> object</I>
+argument and a list of named (keyword) arguments.  Except for translators that
+omit the <I> object</I> argument or have it in other than the initial position of
+the arglist, this will not pose a problem.  This change can be detected.
+
+<P>
+ </LI>
+<LI>The <I> shift-mask</I> keyword argument to test-presentation-translator,
+find-applicable-translators, presentation-matches-context-type, and
+find-innermost-applicable-presentation has been renamed to
+<I> modifier-state</I> in order to be consistent with the device event terminology.
+Compability code will be provided to support the old keyword.
+
+<P>
+ </LI>
+<LI>The <I> shifts</I> keyword argument to define-gesture-name has been
+renamed to <I> modifiers</I> in order to be consistent with the device event
+terminology.  Compability code will be provided to support the old keyword.
+
+<P>
+ </LI>
+<LI>dialog-view and +dialog-view+ have been renamed to
+textual-dialog-view and +textual-dialog-view+ in order to accurately
+reflect what they are.  Likewise, menu-view and +menu-view+ have been
+renamed to textual-menu-view and +textual-menu-view+.  Compatibility
+classes and constants will be provided.</LI>
+</UL>
+
+<P>
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html5072"
+ HREF="node320.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/icons/next_motif.gif"></A> 
+<A NAME="tex2html5068"
+ HREF="node304.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/icons/up_motif.gif"></A> 
+<A NAME="tex2html5062"
+ HREF="node318.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/icons/previous_motif.gif"></A> 
+<A NAME="tex2html5070"
+ HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/icons/contents_motif.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html5073"
+ HREF="node320.html">Input Editing and Completion</A>
+<B> Up:</B> <A NAME="tex2html5069"
+ HREF="node304.html">Changes from CLIM 1.0</A>
+<B> Previous:</B> <A NAME="tex2html5063"
+ HREF="node318.html">Extended Stream Input</A>
+ &nbsp <B>  <A NAME="tex2html5071"
+ HREF="node1.html">Contents</A></B> 
+<!--End of Navigation Panel-->
+<ADDRESS>
+<I>&</I>
+<BR><I>2001-06-12</I>
+</ADDRESS>
+</BODY>
+</HTML>

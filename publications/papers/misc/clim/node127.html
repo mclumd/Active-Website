@@ -1,0 +1,137 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 99.1 release (March 30, 1999)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Indirect Inks</TITLE>
+<META NAME="description" CONTENT="Indirect Inks">
+<META NAME="keywords" CONTENT="clim">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v99.1 release">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="clim.css">
+
+<LINK REL="next" HREF="node128.html">
+<LINK REL="previous" HREF="node126.html">
+<LINK REL="up" HREF="node119.html">
+<LINK REL="next" HREF="node128.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2478"
+ HREF="node128.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/icons/next_motif.gif"></A> 
+<A NAME="tex2html2474"
+ HREF="node119.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/icons/up_motif.gif"></A> 
+<A NAME="tex2html2468"
+ HREF="node126.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/icons/previous_motif.gif"></A> 
+<A NAME="tex2html2476"
+ HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/icons/contents_motif.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html2479"
+ HREF="node128.html">Flipping Ink</A>
+<B> Up:</B> <A NAME="tex2html2475"
+ HREF="node119.html">Drawing in Color</A>
+<B> Previous:</B> <A NAME="tex2html2469"
+ HREF="node126.html">Color Blending</A>
+ &nbsp <B>  <A NAME="tex2html2477"
+ HREF="node1.html">Contents</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION05460000000000000000">
+Indirect Inks</A>
+</H1>
+
+<P>
+Drawing with an <I> indirect ink</I><A NAME="14869"></A> is the same as drawing another design
+named directly.  For example, +foreground-ink+ is a design that draws the
+medium's foreground design and is the default value of the :ink drawing
+option.  Indirect inks exist for the benefit of output recording.  For example,
+one can draw with +foreground-ink+, change to a different
+medium-foreground, and replay the output record; the replayed output will
+come out in the new color.
+
+<P>
+You can change the foreground or background design of a medium at any time.
+This changes the contents of the medium's drawing plane.  The effect is as if
+everything on the drawing plane is erased, the background design is drawn onto
+the drawing plane, and then everything that was ever drawn (provided it was
+saved in the output history) is drawn over again, using the medium's new
+foreground and background.
+
+<P>
+If an infinite recursion is created using an indirect ink, an error is
+signalled when the recursion is created, when the design is used for drawing,
+or both.
+
+<P>
+Two indirect inks are defined, but no advertised way is provided to create more
+of them.
+
+<P>
+ 
++foreground-ink+
+
+<P>
+An indirect ink that uses the medium's foreground design.
+
+<P>
+ 
++background-ink+
+
+<P>
+An indirect ink that uses the medium's background design.
+
+<P>
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2478"
+ HREF="node128.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/icons/next_motif.gif"></A> 
+<A NAME="tex2html2474"
+ HREF="node119.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/icons/up_motif.gif"></A> 
+<A NAME="tex2html2468"
+ HREF="node126.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/icons/previous_motif.gif"></A> 
+<A NAME="tex2html2476"
+ HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/icons/contents_motif.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html2479"
+ HREF="node128.html">Flipping Ink</A>
+<B> Up:</B> <A NAME="tex2html2475"
+ HREF="node119.html">Drawing in Color</A>
+<B> Previous:</B> <A NAME="tex2html2469"
+ HREF="node126.html">Color Blending</A>
+ &nbsp <B>  <A NAME="tex2html2477"
+ HREF="node1.html">Contents</A></B> 
+<!--End of Navigation Panel-->
+<ADDRESS>
+<I>&</I>
+<BR><I>2001-06-12</I>
+</ADDRESS>
+</BODY>
+</HTML>

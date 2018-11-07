@@ -1,0 +1,85 @@
+<HTML>
+<HEAD>
+<TITLE>
+Logic and AI Seminar  - Spring '99
+</TITLE>
+<!-- This is a comment -->
+<!-- if you have problems, mail webmaster@cs.umd.edu -->
+<BODY BGCOLOR = "FFFFFF" BACKGROUND="bg.gif">
+</HEAD>
+<H1>
+
+<P>
+<a href="http://www.cs.umd.edu/projects/active/laisem/laisem.html"> LOGIC AND AI SEMINAR</a>
+</H1>
+<H2>
+<P>
+Spring 1999
+</H2>
+
+<!---------------------------------------------------------------------->
+<p> <hr>
+<H3>
+February
+</H3>
+<!---------------------------------------------------------------------->
+ 
+<li> February 10, 3:30 pm
+<dd>Nuel Belnap <br>
+<dd>Univ of Pittsburgh
+<dd><a href ="spring99/belnap.html">"Word and World: the Direction of Fit"
+</a><br>
+<!---------------------------------------------------------------------->
+<p> <hr>
+
+<!---------------------------------------------------------------------->
+
+<H3>
+April
+</H3>
+
+<li> April 15, 4:00 pm
+<dd>Mark Johnson <br>
+<dd>Brown University 
+<dd><a href ="spring99/johnson.html">"Estimators for Stochastic
+``Unification-based'' Grammars" </a> <br>
+
+<li> April 19, 4:30 pm
+<dd>Bob Carpenter <br>
+<dd>Bell Labs
+<dd><a href = "spring99/carpenter.html">"Type Logical Grammar" </a>
+<br>
+
+<li>April 26, 11:00 am
+<dd>Stuart C. Shapiro <br>
+<dd>State University of New York at Buffalo
+<dd> <a href = "spring99/shapiro.html" > "SNePS: A Logic for Natural
+Language Understanding and Commonsense Reasoning" </a>
+<!---------------------------------------------------------------------->
+<p> <hr>
+
+<!---------------------------------------------------------------------->
+
+<H3>
+May
+</H3>
+
+<li> May 3
+<dd>Vladimir Zadorozhny <br>
+<dd>UMIACS <br>
+<dd> <a href = "spring99/vladimir.html" > 
+"On implementation of a deductive query language with bounded
+universal quantifier" </a>
+
+<br>
+<p> <hr>
+<p>
+<em>
+This page is maintained by
+<a href = "http://www.cs.umd.edu/projects/active/">
+Active Logic Group </a> . Send comments <a
+href="mailto:darsana@cs.umd.edu"><I> here</I></a>.  
+<br>
+</em>
+</BODY>
+</HTML>

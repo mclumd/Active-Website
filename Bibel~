@@ -1,0 +1,88 @@
+From perlis@cs.umd.edu Fri Oct 15 13:08:58 2004
+Date: Wed, 13 Oct 2004 14:20:16 -0400 (EDT)
+From: Don Perlis <perlis@cs.umd.edu>
+To: laisemlist@cs.umd.edu
+Cc: Luis Marti <lmarti@umd.edu>, Cliff Judge <judge@umd.edu>,
+     Messay Bekele <messay5@yahoo.com>, Randy Baden <randofu@cs.umd.edu>,
+     cecilia@cs.umd.edu, mcl@math.umd.edu, Ken Hennacy <khennacy@cs.umd.edu>,
+     Mike Anderson <anderson@cs.umd.edu>,
+     Charles Hawkins <chawkin2@wam.umd.edu>, horty@cs.umd.edu,
+     ai-seminars@cs.umd.edu, Bradley Keith Engel <engelb@wam.umd.edu>,
+     Zvi Band <skeevis@skeevis.com>, YUAN <yuan@cs.umd.edu>,
+     Darsana P. Josyula <darsana@cs.umd.edu>, ScottThomas <scthmas@cs.umd.edu>,
+     Tim Oates <oates@csee.umbc.edu>, kueker@math.umd.edu, ai@cs.umd.edu,
+     mimo@umail.umd.edu, ai-students@cs.umd.edu, egkle@math.umd.edu
+Subject: AI-SEMINAR Talk by Wolfgang Bibel on Oct 26
+
+    [ The following text is in the "X-UNKNOWN" character set. ]
+    [ Your display is set for the "US-ASCII" character set.  ]
+    [ Some characters may be displayed incorrectly. ]
+
+The LOGIC AND AI SEMINAR is very pleased to announce the following
+lecture:
+
+
+                       Transition Logic
+
+                        Wolfgang Bibel
+                      Professor Emeritus
+                     Darmstadt University
+
+                           10:30am
+                     Tuesday, October 26
+                 Room 2120 (UMIACS Conf Room)
+                      A.V. Williams Bldg
+
+Abstract:
+The talk addresses the problem of how to integrate into a classical
+logical framework transitions which change the knowledge state of
+an agent. The transition logic achieves this integration by defining
+a deductive relationship |- (T,<=) among formulas for a partially
+ordered set (T,<=) of transitions. This novel integration is closer
+to human reasoning as experienced in natural language use than
+previous approaches to this fundamental problem. It provides a unified
+framework for practical reasoning with the potential of a full
+exploitation of the maturing techniques from classical deduction and
+from special applications such as planning, explanation, diagnosis,
+nonmonotonic reasoning, and others.
+
+Biographical sketch:
+Wolfgang Bibel is currently Professor emeritus for Intellectics at the
+Department of Computer Science of the Darmstadt University of Technology
+in Germany. He also maintains an affiliation with the University of
+British Columbia in Vancouver, Canada, as an Adjunct Professor. Before
+moving to Darmstadt in 1988 he was a Professor at the University of
+British Columbia in Vancouver and a Fellow of the Canadian Institute for
+Advanced Research. Before that he worked as a senior researcher at the
+Technical University in Munich and held visiting professorships at
+several universities (Rome, Duke, Karlsruhe, Saarbrücken, Wayne State,
+et al).
+
+Wolfgang Bibel received his PhD with a thesis in Mathematical Logic in
+1968 and his Diploma in Mathematics in 1964 from the Ludwig-Maximilian
+University in Munich. His more than 200 publications including several
+books cover a variety of topics in Artificial Intelligence/Intellectics
+such as automated deduction, architecture of deductive systems,
+knowledge representation and inference, planning, learning, program
+synthesis, aspects of applications of AI in disciplines like Psychology,
+Sociology, Education, and Politics.
+
+Professor Bibel for many years served on more than a dozen boards of
+journals and book series, for instance as Section Editor of the
+Artificial Intelligence Journal. In the years 1992 through 1998 he
+coordinated the national program on Automated Deduction in
+Germany. He was heavily involved in the foundation of Artificial
+Intelligence research and organization in Germany and Europe.
+
+Dr. Bibel is a fellow of the American Association for Artificial
+Intelligence (AAAI) as well as of ECCAI, the European AI organization
+which he founded, and received the Donald E. Walker Distinguished
+Service Award from IJCAII, the International Joint Conferences for
+Artificial Intelligence Inc., among other awards.
+
+
+
+_______________________________________________
+Ai-seminars mailing list
+Ai-seminars@mimsy.cs.umd.edu
+http://mailman.cs.umd.edu/mailman/listinfo/ai-seminars

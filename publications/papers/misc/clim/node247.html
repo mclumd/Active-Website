@@ -1,0 +1,157 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 99.1 release (March 30, 1999)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Presentation Translator Utilities</TITLE>
+<META NAME="description" CONTENT="Presentation Translator Utilities">
+<META NAME="keywords" CONTENT="clim">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v99.1 release">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="clim.css">
+
+<LINK REL="next" HREF="node248.html">
+<LINK REL="previous" HREF="node246.html">
+<LINK REL="up" HREF="node242.html">
+<LINK REL="next" HREF="node248.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html4147"
+ HREF="node248.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/icons/next_motif.gif"></A> 
+<A NAME="tex2html4143"
+ HREF="node242.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/icons/up_motif.gif"></A> 
+<A NAME="tex2html4137"
+ HREF="node246.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/icons/previous_motif.gif"></A> 
+<A NAME="tex2html4145"
+ HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/icons/contents_motif.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html4148"
+ HREF="node248.html">The Command Processor</A>
+<B> Up:</B> <A NAME="tex2html4144"
+ HREF="node242.html">Command Processing</A>
+<B> Previous:</B> <A NAME="tex2html4138"
+ HREF="node246.html">Keystroke Accelerators</A>
+ &nbsp <B>  <A NAME="tex2html4146"
+ HREF="node1.html">Contents</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION08150000000000000000">
+Presentation Translator Utilities</A>
+</H1>
+
+<P>
+These are some utilities for maintain presentation translators in
+command tables.  Presentation translators are discussed in more detail
+in Chapter&nbsp;<A HREF="node205.html#presentation-types">23</A>.
+
+<P>
+add-presentation-translator-to-command-table command-table translator-name
+                                                       <TT> &amp;key </TT>(errorp t)
+
+<P>
+Adds the translator named by <I> translator-name</I> to <I> command-table</I>.  The
+translator should have been previously defined with
+define-presentation-translator or
+define-presentation-to-command-translator.  <I> command-table</I> is a
+<I> command table designator</I>.
+
+<P>
+If <I> translator-name</I> is already present in <I> command-table</I> and
+<I> errorp</I> is <I> true</I>, then the command-already-present error will be
+signalled.  When the translator is already present and <I> errorp</I> is
+<I> false</I>, the old translator will first be removed.
+
+<P>
+remove-presentation-translator-from-command-table command-table translator-name
+                                                            <TT> &amp;key </TT>(errorp t)
+
+<P>
+Removes the translator named by <I> translator-name</I> from <I> command-table</I>.
+<I> command-table</I> is a <I> command table designator</I>.
+
+<P>
+If the translator is not present in the command table and <I> errorp</I> is
+<I> true</I>, then the command-not-present error will be signalled.
+
+<P>
+map-over-command-table-translators function command-table <TT> &amp;key </TT>(inherited t)
+
+<P>
+Applies <I> function</I> to all of the translators accessible in
+<I> command-table</I>.  <I> function</I> must be a function of one argument, the
+translator; it has dynamic extent.  <I> command-table</I> is a <I> command table
+designator</I>. 
+
+<P>
+If <I> inherited</I> is <I> false</I>, this applies <I> function</I> only to
+those translators present in <I> command-table</I>, that is, it does
+not map over any inherited command tables.  If <I> inherited</I> is
+<I> true</I>, then the inherited command tables are traversed in the same
+order as for do-command-table-inheritance.
+
+<P>
+find-presentation-translator translator-name command-table <TT> &amp;key </TT>(errorp t)
+
+<P>
+Given a translator name and a command table, returns two values, the
+presentation translator and the command table in which it was found.  If the
+translator is not present in <I> command-table</I> and <I> errorp</I> is
+<I> true</I>, then the command-not-accessible error will be signalled.
+<I> command-table</I> is a <I> command table designator</I>.
+
+<P>
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html4147"
+ HREF="node248.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/icons/next_motif.gif"></A> 
+<A NAME="tex2html4143"
+ HREF="node242.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/icons/up_motif.gif"></A> 
+<A NAME="tex2html4137"
+ HREF="node246.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/icons/previous_motif.gif"></A> 
+<A NAME="tex2html4145"
+ HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/icons/contents_motif.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html4148"
+ HREF="node248.html">The Command Processor</A>
+<B> Up:</B> <A NAME="tex2html4144"
+ HREF="node242.html">Command Processing</A>
+<B> Previous:</B> <A NAME="tex2html4138"
+ HREF="node246.html">Keystroke Accelerators</A>
+ &nbsp <B>  <A NAME="tex2html4146"
+ HREF="node1.html">Contents</A></B> 
+<!--End of Navigation Panel-->
+<ADDRESS>
+<I>&</I>
+<BR><I>2001-06-12</I>
+</ADDRESS>
+</BODY>
+</HTML>

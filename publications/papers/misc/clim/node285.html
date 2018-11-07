@@ -1,0 +1,133 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 99.1 release (March 30, 1999)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Defining Leaf Panes</TITLE>
+<META NAME="description" CONTENT="Defining Leaf Panes">
+<META NAME="keywords" CONTENT="clim">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v99.1 release">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="clim.css">
+
+<LINK REL="next" HREF="node286.html">
+<LINK REL="previous" HREF="node284.html">
+<LINK REL="up" HREF="node284.html">
+<LINK REL="next" HREF="node286.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html4627"
+ HREF="node286.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/icons/next_motif.gif"></A> 
+<A NAME="tex2html4623"
+ HREF="node284.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/icons/up_motif.gif"></A> 
+<A NAME="tex2html4617"
+ HREF="node284.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/icons/previous_motif.gif"></A> 
+<A NAME="tex2html4625"
+ HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/icons/contents_motif.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html4628"
+ HREF="node286.html">Defining Composite Panes</A>
+<B> Up:</B> <A NAME="tex2html4624"
+ HREF="node284.html">Defining New Pane Types</A>
+<B> Previous:</B> <A NAME="tex2html4618"
+ HREF="node284.html">Defining New Pane Types</A>
+ &nbsp <B>  <A NAME="tex2html4626"
+ HREF="node1.html">Contents</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION08510000000000000000">
+Defining Leaf Panes</A>
+</H1>
+
+<P>
+To define a gadget pane implementation, first define the appearance and layout
+behavior of the gadget, then define the callbacks, then define the specific user
+interactions that trigger the callbacks.
+
+<P>
+For example, to define an odd new kind of button that displays itself as a
+circle, and activates whenever the mouse is moved over it, proceed as follows:
+
+<P>
+ 
+<PRE>
+
+;; A new kind of button
+(defclass sample-button-pane (gadget-pane) ())
+
+;; An arbitrary size parameter
+(defparameter *sample-button-radius* 10)
+
+;; Define the sheet's repaint method to draw the button.
+(defmethod handle-repaint ((button sample-button-pane) region 
+                           &amp;key medium &amp;allow-other-keys)
+  (let ((radius *sample-button-radius*)
+        (half (round  *sample-button-radius* 2)))
+    ;; Larger circle with small one in the center.
+    (draw-circle* medium radius radius radius
+                  :filled nil)
+    (draw-circle* medium radius radius half
+                  :filled t)))
+
+;;; Define the pane's compose-space method to always request the
+;;; fixed size of the pane.
+(defmethod compose-space ((pane sample-button-pane))
+  (make-space-requirement :width  (* 2 *sample-button-radius*)
+                          :height (* 2 *sample-button-radius*)))
+</PRE>
+
+<P>
+The above code is enough to allow you to instantiate the button pane in an
+application frame.  It will fit in with the space composition protocol of, for
+example, an hbox-pane.  It will display itself as two nested circles.
+
+<P>
+The next step is to define the callbacks supported by this gadget, and the user
+interaction that triggers them.
+
+<P>
+ 
+<PRE>
+
+;; This default method is defined so that the callback can be invoked
+;; on an arbitrary client value without error.
+(defmethod value-change-callback
+           ((button sample-button-pane) client id value)
+  (declare (ignore client id value)))
+
+;; This event processing method defines the rather odd interaction
+;; style of this button, to whit: it triggers the activate callback
+;; whenever the mouse moves into it.
+(defmethod enter-region ((pane sample-button-pane) &amp;key &amp;allow-other-keys)
+  (value-change-callback pane (gadget-client pane) (gadget-id pane) nil))
+</PRE>
+
+<P>
+<BR><HR>
+<ADDRESS>
+<I>&</I>
+<BR><I>2001-06-12</I>
+</ADDRESS>
+</BODY>
+</HTML>

@@ -1,0 +1,205 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 99.1 release (March 30, 1999)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Transformation Predicates</TITLE>
+<META NAME="description" CONTENT="Transformation Predicates">
+<META NAME="keywords" CONTENT="clim">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v99.1 release">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="clim.css">
+
+<LINK REL="next" HREF="node41.html">
+<LINK REL="previous" HREF="node39.html">
+<LINK REL="up" HREF="node39.html">
+<LINK REL="next" HREF="node41.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html1288"
+ HREF="node41.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/icons/next_motif.gif"></A> 
+<A NAME="tex2html1284"
+ HREF="node39.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/icons/up_motif.gif"></A> 
+<A NAME="tex2html1278"
+ HREF="node39.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/icons/previous_motif.gif"></A> 
+<A NAME="tex2html1286"
+ HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/icons/contents_motif.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html1289"
+ HREF="node41.html">Composition of Transformations</A>
+<B> Up:</B> <A NAME="tex2html1285"
+ HREF="node39.html">The Transformation Protocol</A>
+<B> Previous:</B> <A NAME="tex2html1279"
+ HREF="node39.html">The Transformation Protocol</A>
+ &nbsp <B>  <A NAME="tex2html1287"
+ HREF="node1.html">Contents</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H2><A NAME="SECTION03331000000000000000">
+Transformation Predicates</A>
+</H2>
+
+<P>
+In all of the functions below, the argument named <I> transformation</I> must be a
+transformation.
+
+<P>
+transformation-equal transformation1 transformation2 
+
+<P>
+Returns <I> true</I> if the two <I> transformations</I> <I> transformation1</I> and
+<I> transformation2</I> have equivalent effects (that is, are mathematically
+equal), otherwise returns <I> false</I>.
+
+<P>
+Implementations are encouraged to allow transformations that are not numerically
+equal due to floating-point roundoff errors to be transformation-equal.  An
+appropriate level of ``fuzziness'' is single-float-epsilon, or some small
+multiple of single-float-epsilon.
+
+<P>
+identity-transformation-p transformation 
+
+<P>
+Returns <I> true</I> if the <I> transformation</I> <I> transformation</I> is equal
+(in the sense of transformation-equal) to the identity transformation,
+otherwise returns <I> false</I>.
+
+<P>
+invertible-transformation-p transformation 
+
+<P>
+Returns <I> true</I> if the <I> transformation</I> <I> transformation</I> has an
+inverse, otherwise returns <I> false</I>.
+
+<P>
+translation-transformation-p transformation
+
+<P>
+Returns <I> true</I> if the <I> transformation</I> <I> transformation</I> is a pure
+translation, that is, a transformation such that there are two distance
+components 38#38 and 39#39 and every point 6#6 is moved to 40#40.
+Otherwise, translation-transformation-p returns <I> false</I>.
+
+<P>
+reflection-transformation-p transformation
+
+<P>
+Returns <I> true</I> if the <I> transformation</I> <I> transformation</I> inverts
+the ``handedness'' of the coordinate system, otherwise returns <I> false</I>.
+Note that this is a very inclusive category--transformations are considered
+reflections even if they distort, scale, or skew the coordinate system, as long
+as they invert the handedness.
+
+<P>
+rigid-transformation-p transformation
+
+<P>
+Returns <I> true</I> if the <I> transformation</I> <I> transformation</I> transforms
+the coordinate system as a rigid object, that is, as a combination of
+translations, rotations, and pure reflections.  Otherwise, it returns
+<I> false</I>.
+
+<P>
+Rigid transformations are the most general category of transformations that
+preserve magnitudes of all lengths and angles.
+
+<P>
+even-scaling-transformation-p transformation
+
+<P>
+Returns <I> true</I> if the <I> transformation</I> <I> transformation</I> multiplies
+all 1#1 lengths and 2#2 lengths by the same magnitude, otherwise returns
+<I> false</I>.  It does include pure reflections through vertical and horizontal
+lines.
+
+<P>
+scaling-transformation-p transformation
+
+<P>
+Returns <I> true</I> if the <I> transformation</I> <I> transformation</I> multiplies
+all 1#1 lengths by one magnitude and all 2#2 lengths by another magnitude,
+otherwise returns <I> false</I>.  This category includes even scalings as a
+subset.
+
+<P>
+rectilinear-transformation-p transformation
+
+<P>
+Returns <I> true</I> if the <I> transformation</I> <I> transformation</I> will
+always transform any axis-aligned rectangle into another axis-aligned rectangle,
+otherwise returns <I> false</I>.  This category includes scalings as a subset,
+and also includes 90 degree rotations.
+
+<P>
+Rectilinear transformations are the most general category of transformations for
+which the bounding rectangle of a transformed object can be found by
+transforming the bounding rectangle of the original object.
+
+<P>
+
+<P></P>
+<DIV ALIGN="CENTER"><A NAME="6271"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure:</STRONG>
+The predicates for analyzing the mathematical properties of a transformation.</CAPTION>
+<TR><TD>41#41</TD></TR>
+</TABLE>
+</DIV><P></P>
+
+<P>
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html1288"
+ HREF="node41.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/icons/next_motif.gif"></A> 
+<A NAME="tex2html1284"
+ HREF="node39.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/icons/up_motif.gif"></A> 
+<A NAME="tex2html1278"
+ HREF="node39.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/icons/previous_motif.gif"></A> 
+<A NAME="tex2html1286"
+ HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/icons/contents_motif.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html1289"
+ HREF="node41.html">Composition of Transformations</A>
+<B> Up:</B> <A NAME="tex2html1285"
+ HREF="node39.html">The Transformation Protocol</A>
+<B> Previous:</B> <A NAME="tex2html1279"
+ HREF="node39.html">The Transformation Protocol</A>
+ &nbsp <B>  <A NAME="tex2html1287"
+ HREF="node1.html">Contents</A></B> 
+<!--End of Navigation Panel-->
+<ADDRESS>
+<I>&</I>
+<BR><I>2001-06-12</I>
+</ADDRESS>
+</BODY>
+</HTML>

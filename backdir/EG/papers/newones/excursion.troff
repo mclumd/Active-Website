@@ -1,0 +1,575 @@
+.in +2
+erase
+.sp
+.sc
+.EQ
+delim $$
+.EN
+.ls 1
+.ce 100
+\fBA PRELIMINARY EXCURSION INTO STEP-LOGICS\fR
+.sp 2
+Jennifer Drapkin and Donald Perlis
+.sp
+University  of  Maryland
+Department of Computer Science
+College Park, Maryland 20742
+.sp 3
+.ce 0
+.ls 1
+ABSTRACT: 
+We have suggested that a new kind of logical study that focuses on individual deductive steps is
+appropriate to agents that must do commonsense reasoning. In order to
+adequately study such reasoners, a formal description of  such ``steps''
+is necessary. Here we carry further this program
+for the propositional case. In particular we give a result on completeness
+for reasoning about agents.
+.sp
+KEYWORDS: commonsense, time, reasoning steps
+.sp 2
+\fBI. Introduction\fR
+.sp
+In [4] we proposed that a new kind of logical study
+was appropriate to
+agents engaged in commonsense reasoning, namely, one that focuses on the
+steps of reasoning at any given time,
+rather than dealing with the collection of all conclusions ever
+reached. 
+For this, one would like an
+analytic formalism (AF) allowing us to determine what a given reasoner has and
+has not done at any given time.  
+Also, the \fBreasoner\fR should also be able to
+reason (in some language/formalism RF) about what it has and has
+not done at any given time.  These are obviously interrelated, and yet can be
+tackled somewhat independently.  In particular, the ``analytic
+completeness'' of AF can be tackled without requiring the same of the
+reasoning agent,
+and \fBvice versa\fR.  That is, we can seek a theory AF with the property
+that, for any given time i, and for any given wff \(*a in the agent's language,
+AF should allow either a proof that the agent knows (has proved or otherwise
+determined) \(*a at i, or a proof that the agent has not done so.
+Here we pursue the study of AF in the case of a propositional reasoner, i.e.,
+an agent with propositional logic as its inferential mechanism.
+.sp
+We contend that the kind of resource limitation that is most evident in commonsense
+reasoning is
+the passage of time while the reasoner reasons. There is
+not necessarily any fixed and final set of consequences
+with which such a reasoning agent ends up. In fact, the paradigm for such an
+agent would seem to be that suggested by Nilsson [15], namely, a computer
+individual with a lifetime of its own. What is of interest for such an agent
+is not then its ``ultimate'' set of conclusions, but rather its changing set
+of conclusions over time. Indeed, there will, in general, be no ultimate or
+limiting set of conclusions.
+.sp
+The above phenomenon is a limitation in the following sense: the conclusions
+that may be logically entailed by the agent's information (beliefs) take
+time to be derived, and time spent in such derivations is concurrent with
+changes in the world. Even if the only changes are \fBwithin\fR the agent,
+still this is important, for it may be useful to know whether a problem is
+nearing solution, or if one has only begun initial explorations, and so on.
+That is, the agent should be able to reason about its ongoing reasoning
+efforts themselves.
+.sp
+The current paper is an extension of [4]. In that paper
+we began some formal details of AF.  In fact, we proposed a list (actually
+a lattice) of step-logics, arranged in increasing sophistication, from
+$SL sub 0$ to $SL sub 7$. The former has simply a propositional reasoner
+as agent, with no internal knowledge of steps; only the analytic formalism
+(AF) records the agent's steps. The latter not only allows the agent
+first-order reasoning, but also knowledge of self and time, and the ability
+to retract beliefs. A key feature of step-logic is that it lends itself
+naturally to belief revision, in that the agent is never faced with the
+totality of all logical consequences of its beliefs at any moment. Rather,
+the belief set is finite (but changing); this allows the possibility of
+a genuinely computational solution to introspection, and decision as to what
+beliefs (if any) are to be removed. We will not elaborate further on this
+here since in this paper we will focus solely on $SL sub 0$.
+.sp
+The remainder of our treatment is as follows:
+In section II we present further motivation and related approaches in the literature.
+Section III contains some formal directions we feel are worth exploring.
+In section IV we present some
+results of having pursued one such direction, including the aforementioned
+analytic completeness.
+.sp 2
+\fBII. Motivation\fR
+.sp
+A puzzle that a reasonable model of knowledge ought to be able to
+solve, is the \fBthree-wise-men\fR problem.  
+We present a variation of this classic problem which was 
+first introduced by McCarthy [11].
+A king wishes to know whether his three
+advisors are as wise as they claim to be.
+Three chairs are lined up, all facing the same direction, with
+one behind the other.  The wise men are instructed to sit down.
+The wise man in the back (A) can see the backs of the other two men.  
+The man in the middle (B) can only see the one wise man in front of him (C); 
+and the wise man in front (C) can see neither A nor B.
+The king begins with five cards, three white, and two
+black.  He throws two (of unknown color) away, then places one card, face up, 
+behind
+each of the three
+wise men.  The men are given 30 minutes to determine the color of the card
+that sits behind his own chair.  
+The room is silent; then, after 29 minutes, C says 'My card is white!'.
+.sp
+The reasoning that supposedly occurred is as follows.
+Because the king started out with three white  and two black cards, 
+then threw two away,
+each wise man must realize there is at least one white card.
+If the cards of B and C were black, then A would have been able to announce
+immediately that his card was white.  They all realize this (they are
+all truly wise).  Since A kept
+silent, either B's card is white, or C's is.
+At this point B would be able to
+predict, if C's were black, that his card was white.
+They all realize this.
+Since B also remains
+silent, C knows his card must be white.
+.sp
+One of our eventual goals is to develop a formalism which is capable of
+performing the above reasoning. We do not achieve this here. Our current
+results contribute to the analytic half of the problem. We have been
+able to achieve analytic completeness for propositional agents; that is,
+for any agent wff \(*a and any time i, our formalism ($SL sub 0$) can
+either prove $""sup i \(*a$ or can prove its negation. This means that
+the agent's reasoning over time is completely characterized,
+in the sense that we know what it
+has and has not established at each moment.
+.sp
+We quickly mention further examples in which the effort or time spent is crucial.
+It is not appropriate to spend hours figuring out a plan
+to save Nell from an onrushing train; she will no longer need saving by then
+(see Haas [7] and McDermott [12]). 
+For another example, consider two agents, A
+and B, each of which has the intellectual ability (inference rules, etc.) to
+derive conclusion C, and to reason about the other's reasoning abilities.
+The two agents are told to try to determine whether C
+is true. But each derives that the other can derive C, and so each relaxes
+in the (mistaken) assumption that the other already must have derived C.
+.sp
+In part, these are problems of modelling time, as has been studied by Allen
+[1] and McDermott [12]. However, there is more to it than this. Not only
+must
+the agent be able to reason about time, it must be able to reason \fBin\fR
+time. That is, as it makes more deductions, time passes, and this fact
+itself must be recognized. Otherwise we again face the prospect of losing
+Nell while deducing that it will take too long to get to a phone to call the
+train depot. We may even take too long to deduce that it will take too long! In
+other words, even the treatments of time in the literature are themselves
+still in the standard mold of unlimited reasoning.
+.sp
+The literature contains a number of approaches to limited reasoning,
+apparently with these issues as motivational guides. However, with very
+little exception, the oversimplification of a ``final'' state of reasoning
+is maintained, and the limitation amounts to a reduced set of consequences
+rather than an ever-changing set of tentative conclusions. 
+Thus, Konolige [8],
+for instance, studies agents with fairly arbitrary rules of inference, but
+assumes logical closure for the agents with respect to those rules, ignoring
+the effort involved in performing the deductions. Similarly, Levesque
+[10] and Fagin and Halpern [6] provide formal treatments of
+limited reasoning, so that,
+for instance, a contradiction may go unnoticed; but the conclusions that
+\fBare\fR drawn are done so instantaneously, i.e., the steps of reasoning
+involved are not explicit.  The logics of Levesque, and Fagin and Halpern
+deal with propositional reasoners.  Lakemeyer [9] deals with
+issues raised by then adding quantifiers, but does not address the issue
+that concerns us here. Vardi [16] also deals with limitations
+on omniscience, but again without taking steps into account.
+.sp 2
+\fBIII. Step-Logics\fR
+.sp
+As was indicated in section I, we would like to build
+self (S), time (T), and retraction (R) operators into RF.
+These of course will necessitate
+corresponding changes in AF, in order for AF to be able to ``keep up'' with
+a complete analysis of RF.
+The agent (using RF) would then be able to talk about his beliefs,
+reason about time,
+and retract former beliefs.   For the purposes of study,
+however, it is useful to add these operators individually at first.
+We have therefore suggested a lattice of step-logics as mentioned earlier.
+.sp
+We note again the difference
+between the \fBagent's\fR language/theory (RF), and \fBour\fR (the scientist's) language and theory (AF).
+The agent has one set of symbols, axioms, and rules, while we have another.
+For instance, ``$"" sup i \(*a$'' is used by us to indicate that the agent has
+proven \(*a at time i; ``\(*a'' is any wff in the \fBagent's\fR
+language. For example, it might be the case that we have been able to
+prove that the agent has been unable to prove ``P'' in time i, where P
+is a propositional letter in the agent's language.  We would
+write this |- $\(no sup i roman P$. We will continue the convention of using
+Greek letters for agent wffs. To further
+differentiate AF and RF, we use ``implies'' and ``not'' as function symbols
+of AF to designate implication and negation, respectively, of the agent's wffs.
+L(RF) is used to indicate the set of agent wffs.
+.sp
+It is worth making a distinction here between \fBtraditional\fR
+meta-theorems and the
+meta-theorems in which \fBwe\fR are interested.  Those theorems proved about
+conventional logics are asymptotic in nature, that is,
+they demonstrate useful properties of the \fBlimiting\fR case.  The 
+meta-theorems we wish to prove about $SL sub 0$ and all
+subsequent step-logics, on the other
+hand, concern the \fBbounded\fR case.  For the most part, we are
+not interested in what the agent may eventually know, but rather 
+what it may know within a finite amount of time, whether that be
+10 seconds, or 10 years.  
+.sp
+One hope of ours with each of the step-logics is to be able to
+characterize the agent by determining what it does or doesn't
+know at any given time.  That is, for an arbitrary agent wff
+\(*a, and for any time i, we would like to say 
+|- $"" sup i \(*a$   or   |- $\(no sup i \(*a$, in any of the
+logics.  Such a result, we call ``analytic completeness'': the
+logic can completely analyze the agent's reasoning behavior.
+.sp
+We are not concerned, however, with showing the following
+asymptotic result,
+.sp
+.ce
+|- (\*(qei)$"" sup i \(*a$   or   |- \(no(\*(qei)$"" sup i \(*a$.
+.sp
+Although this is decidable in the propositional case (tautology
+testing will do),
+this, in fact, is undecidable in predicate calculus.
+However, we are only interested in what the agent has
+been able to prove in a finite amount of time, and this \fBis\fR
+decidable (that is, analytic completeness holds),
+at least for the particular version of a propositional agent that we
+have chosen to study.
+.sp
+Certain asymptotic results, however,
+are sometimes useful and/or interesting.
+For example, Theorem 2 stated
+below is a theorem dealing with  the limiting case.
+It says that all agent conclusions are tautologies, and was used
+to arrive at the corollary which states that a single propositional
+letter is never proven.  The
+contra-positive of Theorem 2 would be interesting to verify as well, 
+namely, that all tautologies are eventually proven.
+.sp
+We are focussing on the AF in this paper, as an initial aspect of a larger
+study. Development of the RF in a way suitable for the kind of problem given
+in section II will be presented in future work. However, analytic
+completeness, which is a property of the AF, is important to the entire
+undertaking in that it establishes that we have indeed represented an agent.
+That is, this guarantees that an agent has been adequately and fully
+specified,
+short of actually building/simulating its behavior.
+.sp 2
+\fBIV. $SL sub 0$
+.sp
+In $SL sub 0$ the agent has neither S, T, nor R.
+To simplify it even more, the agent uses only propositional logic.
+(For definiteness, we have arbitrarily picked one of the standard
+axiomatizations in the literature.)
+As such, then, $SL sub 0$ is basically a formalism to help us
+to understand the reasoner.  
+It does not allow the agent to do any reasoning about his own reasoning.  
+Note that \(*a is a formula in the agent's language, but is treated as a 
+constant 
+in our language.  
+We can think of ``$"" sup i \(*a$'' as an abbreviation for
+Thm(i,\(*a), which refers to statements \(*a that can be proven in the
+agent's theory in i steps.
+We wish $SL sub 0$ to be powerful enough so
+that for each i \(mo \fBN\fR (the natural numbers), 
+and for each \(*a \(mo L(RF),
+.ce
+$SL sub 0$ |- $"" sup i \(*a$   or   $SL sub 0$ |- $\(no sup i \(*a$.  
+As mentioned, we call this analytic completeness.
+In this section we sketch a version of $SL sub 0$ adequate for
+demonstrating this result.  As might be expected, the hard part is
+determining when a wff of L(RF) is \fBnot\fR deduced after i steps.
+.sp
+We first sketch intuitively the operation of our intended agent. For each
+wff \(*a in the agent language L(RF), and for each time (step) i \(mo \fBN\fR,
+$"" sup i \(*a$ is to hold (i.e., the agent has
+deduced
+\(*a by time i) if and only if
+there is a formal proof of \(*a in i or less steps
+using only \fBmodus ponens\fR and whatever axioms can be retrieved in i
+steps. Here axioms are conceived to be constructed by the agent little by
+little.  This has some similarity to
+Fagin-Halpern's notion of awareness. More particularly, the agent begins with
+no axioms at all, and at any step i has access to all old conclusions as well
+as any axioms using no more than the first i proposition letters and no more
+than i connectives (instances of \(no and \(->). In order to distinguish the
+agent's wffs from our own (i.e., wffs of AF or $SL sub 0$), we write
+not(\(*a) for the agent's negation of \(*a, and implies(\(*a,\(*b) for the
+agent's representation of \(*a implies \(*b. In $SL sub 0$, then,
+\fBnot\fR and \fBimplies\fR become function symbols. 
+Also, for agent wffs to appear as constant
+terms in $SL sub 0$, proposition letters must be constant symbols of L(AF).
+.sp
+$SL sub 0$ is given enough arithmetic to reason about steps as integers. In
+addition, the following principal
+axioms and axiom schemata are given:
+.sp
+.in +2
+.ls 1
+AX: \MY(\*(qa\(*a) [Ax(\(*a)\ \ \o'\(<-\(->' 
+.br
+          \CY[(\*(qe\(*b)(\*(qe\(*g)(\(*a=implies(\(*b,implies(\(*g,\(*b)))
+.br
+   \CY\fBv\fR(\*(qe\(*b)(\*(qe\(*g)(\(*a=implies(implies(not(\(*g),not(\(*b)),implies(implies(not(\(*g),\(*b),\(*g)))
+.br
+   \CY\fBv\fR(\*(qe\(*b)(\*(qe\(*g)(\*(qe\(*d)(\(*a\=implies(implies(\(*b,implies(\(*g,\(*d)),implies(implies(\(*b,\(*g),implies(\(*b,\(*d)))]
+.in +2
+.br
+*AX says that axioms are of the three tautology types as in 
+[13].*
+.in -2
+.sp
+MP: (\*(qai)(\*(qaj) [ [$"" sup i \(*a$  & $"" sup j$implies(\(*a,\(*b) & 
+i<k & j<k] \(->  $"" sup k \(*b$]
+.in +2
+.br
+*This is a version of \fBmodus ponens.\fR*
+.in -2
+.sp
+THM: (\*(qa\(*a)(\*(qai)[$"" sup i \(*a$  \o'\(<-\(->' [ \MZ[Ax(\(*a) & (l(\(*a) \(<= i) & (p(\(*a) < i) ]
+.br
+            \CZ\fBv\fR\ (\*(qej)(\*(qek)(\*(qe\(*b)($"" sup j$\(*b & $"" sup k$implies(\(*b,\(*a) & j<i & k<i)],
+.in +2
+.br
+*THM defines what it means for \(*a to be proven by the agent at time i:
+either \(*a is an axiom, and has been ``fed in'', or \(*a has been derived
+through \fBmodus ponens\fR from previous steps.*
+.in -2
+.sp
+TabulaRasa: (\*(qa\(*a)(\*(qai)[$"" sup i$\(*a \(-> (i >= 0)].
+.in +2
+.br
+*The agent knows nothing before time step 0.
+.in -2
+.sp
+LN1: (\*(qa\(*a)(PL(\(*a) \o'\(<-\(->' l(\(*a) = 0).
+.sp
+LN2: (\*(qa\(*a)[l(not(\(*a)) = l(\(*a) + 1]
+.sp
+LN3: (\*(qa\(*a)(\*(qa\(*b)[l(implies(\(*a,\(*b)) = l(\(*a) + l(\(*b) + 1]
+.sp
+LN4: (\*(qa\(*a)(l(\(*a) >= 0)
+.in +2
+.br
+*The function l(\(*a) returns the length of \(*a, i.e. the number of 
+connectives in \(*a.*
+.in -2
+.sp
+P1: (\*(qa\(*a)[(PL(\(*a) & p(\(*a)=i) \o'\(<-\(->' (\(*a) = $P sub i$)]
+.sp
+P2: (\*(qa\(*a)[p(not(\(*a)) = p(\(*a)]
+.sp
+P3: (\*(qa\(*a)(\*(qa\(*b)[p(implies(\(*a,\(*b)) = max(p(\(*a),p(\(*b))]
+.sp
+P4: (\*(qa\(*a)[p(\(*a) >= 0]
+.in +2
+.br
+*The function p(\(*a) returns the maximum index of all the propositional 
+letters in \(*a.*
+.in -2
+.sp
+MAX1: (\*(qai)(\*(qaj)[i>=j \o'\(<-\(->' max(i,j)=i]
+.sp
+MAX2: (\*(qai)(\*(qaj)[max(i,j)=max(j,i)] 
+.in +2
+.br
+*The function max returns the maximum of its two arguments.*
+.in -2
+.sp
+EQ1: s \(!= t , for all distinct propositional letters s,t \(mo L(RF)
+.sp
+EQ2: s \(!= implies(t,u),  if s is a propositional letter \(mo L(RF), 
+and t,u \(mo L(RF).
+.sp
+EQ3: s \(!= not(t),  if s is a propositional letter \(mo L(RF), 
+and t \(mo L(RF).
+.sp
+EQ4: implies(s,t) \(!= not(u),  for all s,t,u \(mo L(RF).
+.sp
+EQ5: implies(s,t) = implies(u,v) \o'\(<-\(->' s=u & t=v, for all s,t,u,v \(mo 
+L(RF).
+.sp
+EQ6: not(s) = not(t) \o'\(<-\(->' s=t, for all s,t \(mo L(RF).
+.in +2
+.br
+*EQ1, EQ2, and EQ3 say that distinct agent wffs represent distinct objects.
+EQ4 says that a wff whose last connective is an implication arrow cannot
+be equal to a wff whose last connective is a not symbol.
+EQ5 (EQ6) says that in order for two wffs to be equal, where the implication
+arrow (not symbol) is the last connective that was used to join each of the 
+wffs, their arguments must be equal.*
+.in -2
+.sp
+TFCN: (\*(qax)[ Tfcn(x) \(->. \MW(\*(qa\(*a)(\*(qa\(*b)[True(x,implies(\(*a,\(*b))  \o'\(<-\(->'. True(x,\(*b)  \fBv\fR  \(noTrue(x,\(*a)]
+.br
+             \CW&\ (\*(qa\(*a)[True(x,not(\(*a)) \o'\(<-\(->' \(noTrue(x,\(*a)] ]
+.in +2
+.br
+*TFCN says that truth-functions behave properly with respect to connectives.*
+.in -2
+.sp
+TAUT1: (\*(qa\(*a)[ Taut(\(*a)  \o'\(<-\(->'  (\*(qax)(Tfcn(x) \(-> True(x,\(*a)) ]
+.sp
+TAUT2: (\*(qa\(*a)[Ax(\(*a) \(-> Taut(\(*a)]
+.in +2
+.br
+*TAUT1 and TAUT2 say, respectively, that tautologies are wffs that
+are true under all truth-functions, and that axioms are tautologies.*
+.in -2
+.sp
+PL1: (\*(qa\(*a)[PL(\(*a) \(-> (\*(qex)[Tfcn(x) & \(noTrue(x,\(*a)] ]
+.sp
+PL2: PL($P sub i$), for all i \(mo \fBN\fR. 
+.in +2
+.br
+*PL1 says that for each propositional letter there is a truth-function
+making it false.  PL2 says that $P sub 0$, $P sub 1$, $P sub 2$, ... 
+are propositional letters.  Note that this does not give \fBall\fR the usual
+truth-functions, but it is sufficient for our purposes.*
+.in -4
+.sp 
+We then have the following results:
+.sp
+.ls 1
+.in +2
+$Theorem 1:~ SL sub 0$|- (\*(qa\(*a)(\*(qa\(*b)[ [Taut(\(*a)
+& Taut(implies(\(*a,\(*b)) ] \(-> Taut(\(*b) ].
+.sp
+$Theorem 2:~ SL sub 0$|- (\*(qei)$"" sup i$\(*a  \(->
+Taut(\(*a) , for any wff \(*a \(mo L(RF).
+.in +2
+*The only wffs an agent will ever prove are those that are tautologies.*
+.in -2
+.sp
+$Lemma:~ SL sub 0$|- \(noTaut(P) , for any propositional letter 
+P \(mo L(RF).
+.in +2
+*P is not a tautology, for all propositional letters P.*
+.in -2
+.sp
+$Corollary:~ SL sub 0$|- (\*(qai)\(no$"" sup i$P , for any propositional letter P \(mo L(RF).
+.in +2
+*The agent will never be able to prove P, where P is a propositional letter.
+This follows immediately from Theorem 2 and the lemma.*
+.in -2
+.sp
+$Monotonicity~Lemma:~ SL sub 0$|- $"" sup i$\(*a  \(-> $"" sup (i+1)$\(*a
+.in +2
+*Once a belief is held, it remains.*
+.in -2
+.sp
+$Access~Lemma:~ SL sub 0$|- $"" sup i$\(*a  \(-> [l(\(*a) \(<= i] & [p(\(*a) < i].
+.in +2
+*Those theorems proved by the agent at time i are only those with length less
+than or equal to i, and containing no propositional letters with index greter
+than i.
+This follows immediately from THM.*
+.in -2
+.sp
+$Lemma$: If $SL sub 0$|\o'/-' Ax(\(*a) then $SL sub 0$|- \(noAx(\(*a).
+.in +2
+*$SL sub 0$ can always prove whether or not a wff is an axiom (as defined by 
+Ax).*
+.in -2
+.sp
+$Boundedness~Lemma:~$ Let i \(mo \fBN\fR, i >= 2.  Then 
+\*(qe $\(*a sub 1$...$\(*a sub n sub i$ \(mo L(RF), such that
+.ce
+$SL sub 0$ |- (\*(qa\(*a)[ $"" sup i \(*a$  \o'\(<-\(->' [ \(*a=$\(*a sub 1$ \fBv\fR ...\fBv\fR  \(*a=$\(*a sub n sub i$ ] ].
+.in -2
+.sp
+We can then prove the following result.
+.sp
+.in +2
+$Analytic~Completeness~Theorem:$ For each i \(mo \fBN\fR, 
+and for each \(*a \(mo L(RF),
+.ce
+$SL sub 0$ |- $"" sup i \(*a$   or   $SL sub 0$ |- $\(no sup i \(*a$.  
+.in +2
+*$SL sub 0$ can characterize exactly what has and has not been proved at
+any given time i.*
+.in -4
+.sp 2
+Proofs of the above results tend to be rather long, and proceed mainly
+by induction on i and/or the number of connectives in \(*a.
+.sp 2
+\fBV. Conclusions\fR
+.sp
+We have argued that in order to do
+appropriate reasoning in the commonsense world, it
+is necessary to keep track of one's own steps of reasoning. Moreover, for
+us to be able to study such reasoners, it is necessary to have a formal
+description.
+Here we have suggested particular avenues for doing just that.  
+We have developed the first in a sequence of
+formalisms that allows us to keep track of the agent's steps of reasoning.
+The analytic completeness criterion was obtained for this logic.
+.sp 2
+This research has been supported in part by the following institutions:
+
+The U.S. Army Research Office (DAAG29-85-K-0177)
+
+The Martin Marietta Corporation.
+
+The IBM Corporation.
+.sp 2
+\fBBibliography\fR
+.ls 1
+.np
+Allen, J. [1984] Towards a general theory of action and time. 
+\fBArtificial Intelligence\fR, 23\fR, pp.123-154.
+.np
+Doyle, J. [1982] Some theories of reasoned assumptions: an essay in rational
+psychology. Dept. of Computer Science, CMU.
+.np
+Drapkin, J., Miller, M., and Perlis, D. [1986] A memory model for real-time
+commonsense reasoning. Technical report, Univ. of Maryland.
+.np
+Drapkin, J. and Perlis, D. [1986] Step-logics: an alternative approach to
+limited reasoning. \fBProc. European Conf. on Artif. Intell.\fR, 1986.
+.np
+Drapkin, J. and Perlis, D. [1986] Analytic completeness in $SL sub 0$.
+Technical report, Univ. of Maryland.
+.np
+Fagin, R. and Halpern, J. [1985] Belief, awareness, and limited reasoning:
+preliminary report.  
+\fBProc. 9th Int'l Joint Conf. on Artificial Intelligence\fR, 1985, pp.491-501.
+.np
+Haas, A. [1985] Possible events, actual events, and robots. 
+\fBComputational Intelligence\fR, pp.59-70.
+.np
+Konolige, K. [1985] A computational theory of belief introspection. 
+\fBProc. 9th Int'l Joint Conf. on Artificial Intelligence\fR, 1985, pp.503-508.
+.np
+Lakemeyer, G. [1986] Steps towards a first-order logic of explicit and 
+implicit belief. 
+\fBProc. 1986 Conference on Theoretical Aspects of Reasoning about 
+Knowledge\fR, pp.325-340.
+.np
+Levesque, H. [1984] A logic of implicit and explicit belief. 
+\fBProc. 3rd National Conf. on Artificial Intelligence\fR, pp.198-202.
+.np
+McCarthy, J. [1978] Formalization of two puzzles involving knowledge.
+Unpublished note, Stanford University, Stanford, California.
+.np
+McDermott, D. [1982] A temporal logic for reasoning about processes and
+plans. \fBCognitive Science\fR, 6\fR, pp.101-155.
+.np
+Mendelson, E. [1972] \fBIntroduction to mathematical logic\fR, van Nostrand.
+.np
+Moore, R. [1985] A formal theory of knowledge and action. 
+\fBFormal Theories of the Commonsense World\fR,
+Ablex Publishing Company, pp. 319-358.
+.np
+Nilsson, N. [1983] Artificial intelligence prepares for 2001. 
+\fBAI Magazine\fR,
+4\fR.
+.np
+Vardi, M. [1986] On epistemic logic and logical omniscience,
+\fBProc. 1986 Conference on Theoretical Aspects of Reasoning about 
+Knowledge\fR, pp.293-305.

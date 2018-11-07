@@ -1,0 +1,424 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 99.1 release (March 30, 1999)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Completion</TITLE>
+<META NAME="description" CONTENT="Completion">
+<META NAME="keywords" CONTENT="clim">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v99.1 release">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="clim.css">
+
+<LINK REL="previous" HREF="node237.html">
+<LINK REL="up" HREF="node231.html">
+<LINK REL="next" HREF="node239.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html3988"
+ HREF="node239.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/icons/next_motif.gif"></A> 
+<A NAME="tex2html3984"
+ HREF="node231.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/icons/up_motif.gif"></A> 
+<A NAME="tex2html3980"
+ HREF="node237.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/icons/previous_motif.gif"></A> 
+<A NAME="tex2html3986"
+ HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/icons/contents_motif.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html3989"
+ HREF="node239.html">Menu Facilities</A>
+<B> Up:</B> <A NAME="tex2html3985"
+ HREF="node231.html">Input Editing and Completion</A>
+<B> Previous:</B> <A NAME="tex2html3981"
+ HREF="node237.html">Reading and Writing of</A>
+ &nbsp <B>  <A NAME="tex2html3987"
+ HREF="node1.html">Contents</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION07350000000000000000">
+Completion</A>
+</H1>
+
+<P>
+CLIM provides a <I> completion</I><A NAME="29623"></A> facility that completes a string provided
+by a user against some set of possible completions (which are themselves
+strings).  Each completion is associated with some Lisp object.  CLIM
+implementations are encouraged to provide ``chunkwise'' completion, that is, if
+the user input consists of several tokens separated by ``partial delimiters'',
+CLIM should complete each token separately against the possibilities.
+
+<P>
+ 
+*completion-gestures*
+
+<P>
+A list of the gesture names that cause complete-input to complete the
+user's input as fully as possible.  The exact global contents of this list is
+unspecified, but must include the :complete gesture name.
+
+<P>
+ 
+*help-gestures*
+
+<P>
+A list of the gesture names that cause accept and complete-input to
+display a (possibly input context-sensitive) help message, and for some
+presentation types a list of possibilities as well.  The exact global contents
+of this list is unspecified, but must include the :help gesture name.
+
+<P>
+ 
+*possibilities-gestures*
+
+<P>
+A list of the gesture names that cause complete-input to display a
+(possibly input context-sensitive) help message and a list of possibilities.
+The exact global contents of this list is unspecified, but must include the
+:possibilites gesture name.
+
+<P>
+complete-input stream function 
+                         <TT> &amp;key </TT>partial-completers allow-any-input
+                              possibility-printer (help-displays-possibilities t)
+
+<P>
+Reads input from the user from the <I> interactive stream</I> <I> stream</I>,
+completing over a set of possibilities.
+
+<P>
+ 
+<I> function</I> is a function of two arguments.  It is called to generate the
+completion possibilities that match the user's input; it has dynamic extent.
+Usually, programmers will pass either complete-from-possibilities or
+complete-from-generator as the value of <I> function</I>.  Its first argument
+is a string containing the user's input ``so far''.  Its second argument is the
+completion mode, one of the following:
+
+<P>
+
+<UL>
+<LI>:complete-limited--the function must complete the input up to the
+next partial delimiter.  This is the mode used when the user types one of the
+partial completers.
+
+<P>
+ </LI>
+<LI>:complete-maximal--the function must complete the input as much as
+possible.  This is the mode used when the user issues a gesture that matches one
+of the gesture names in *completion-gestures*.
+
+<P>
+ </LI>
+<LI>:complete--the function must complete the input as much as possible,
+except that if the user's input exactly matches one of the possibilities, even
+if it is a left substring of another possibility, the shorter possibility is
+returned as the result.  This is the mode used when the user issues an
+activation gesture or a blip gesture that is not a partial completers.
+
+<P>
+ </LI>
+<LI>:possibilities--the function must return an alist of the possible
+completions as its fifth value.  This is the mode used when the user a gesture
+that matches one of the gesture names in *possibilities-gestures* or
+*help-gestures* (if <I> help-displays-possibilities</I> is <I> true</I>).</LI>
+</UL>
+
+<P>
+ 
+<I> function</I> must return five values:
+
+<P>
+
+<UL>
+<LI><I> string</I>--the completed input string.
+
+<P>
+ </LI>
+<LI><I> success</I>--<I> true</I> if completion was successful, otherwise
+<I> false</I>.
+
+<P>
+ </LI>
+<LI><I> object</I>--the object corresponding to the completion, or nil if
+the completion was unsuccessful.
+
+<P>
+ </LI>
+<LI><I> nmatches</I>--the number of possible completions of the input.
+
+<P>
+ </LI>
+<LI><I> possibilities</I>--an alist of completions whose entries are a list
+of a string and an object, returned only when the completion mode is
+:possibilities.  This list will be freshly created.</LI>
+</UL>
+
+<P>
+complete-input returns three values: <I> object</I>, <I> success</I>, and
+<I> string</I>.  In addition, the printed representation of the completed input
+will be inserted into the input buffer of <I> stream</I> in place of the
+user-supplied string by calling replace-input.
+
+<P>
+ 
+<I> partial-completers</I> is a list of characters that delimit portions of a name
+that can be completed separately.  The default is an empty list.
+
+<P>
+If the boolean <I> allow-any-input</I> is <I> true</I>, then complete-input
+will return as soon as the user issues an activation gesture, even if the input
+is not any of the possibilities.  If the input is not one of the possibilities,
+the three values returned by complete-input will be nil, t, and
+the string.  The default for <I> allow-any-input</I> is <I> false</I>.
+
+<P>
+If <I> possibility-printer</I> is supplied, it must be a function of three
+arguments, a possibility, a presentation type, and a stream; it has dynamic
+extent.  The function displays the possibility on the stream.  The possibility
+will be a list of two elements, the first being a string and the second being
+the object corresponding to the string.
+
+<P>
+If <I> help-display-possibilities</I> is <I> true</I> (the default), then when the
+user issues a help gesture (a gesture that matches one of the gesture names in
+*help-gestures*), CLIM will display all the matching possibilities. If it
+is <I> false</I>, then CLIM will not display the possibilities unless the user
+issues a possibility gesture (a gesture that matches one of the gesture names in
+*possibilities-gestures*).
+
+<P>
+completing-from-suggestions (stream
+                                          <TT> &amp;key </TT>partial-completers allow-any-input possibility-printer) 
+                                         <TT> &amp;body </TT>body  
+
+<P>
+Reads input from the <I> interactive stream</I> <I> stream</I>, completing over a
+set of possibilities generated by calls to suggest within <I> body</I>.
+<I> body</I> may have zero or more declarations as its first forms.
+
+<P>
+completing-from-suggestions returns three values, <I> object</I>,
+<I> success</I>, and <I> string</I>
+
+<P>
+The <I> stream</I> argument is not evaluated, and must be a symbol that is bound
+to a stream.  If <I> stream</I> is t (the default), *query-io* is used.
+
+<P>
+ 
+<I> partial-completers</I>, <I> allow-any-input</I>, and <I> possibility-printer</I>
+are as for complete-input.
+
+<P>
+Implementations will probably use complete-from-generator to implement
+this.
+
+<P>
+suggest completion object
+
+<P>
+Specifies one possibility for completing-from-suggestions.  <I> completion</I>
+is a string, the printed representation of <I> object</I>.  <I> object</I> is the
+internal representation.
+
+<P>
+It is permitted for this function to have lexical scope, and be defined only
+within the body of completing-from-suggestions.
+
+<P>
+complete-from-generator string function delimiters
+                                  <TT> &amp;key </TT>(action :complete) predicate
+
+<P>
+Given an input string <I> string</I> and a list of delimiter characters
+<I> delimiters</I> that act as partial completion characters,
+complete-from-generator completes against the possibilities that are
+generated by the function <I> generator</I>.  <I> generator</I> is a function of two
+arguments, the string <I> string</I> and another function that it calls in order
+to process the possibility; it has dynamic extent.
+
+<P>
+ 
+<I> action</I> will be one of :complete, :complete-maximal,
+:complete-limited, or :possibilities.  These are described under the
+function complete-input.
+
+<P>
+ 
+<I> predicate</I> must be a function of one argument, an object.  If the predicate
+returns <I> true</I>, the possibility corresponding to the object is processed,
+otherwise it is not.  It has dynamic extent.
+
+<P>
+complete-from-generator returns five values, the completed input string,
+the success value (<I> true</I> if the completion was successful, otherwise
+<I> false</I>), the object matching the completion (or nil if unsuccessful),
+the number of matches, and a list of possible completions if <I> action</I> was
+:possibilities.
+
+<P>
+This function is one that will typically be passed as the second argument to
+complete-input.
+
+<P>
+complete-from-possibilities string completions delimiters
+                                      <TT> &amp;key </TT>(action :complete) predicate
+                                           name-key value-key
+
+<P>
+Given an input string <I> string</I> and a list of delimiter characters
+<I> delimiters</I> that act as partial completion characters,
+complete-from-possibilities completes against the possibilities in the
+sequence <I> completions</I>.  The completion string is extracted from the
+possibilities in completions by applying <I> name-key</I>, which is a function of
+one argument.  The object is extracted by applying <I> value-key</I>, which is a
+function of one argument.  <I> name-key</I> defaults to first, and
+<I> value-key</I> defaults to second.
+
+<P>
+ 
+<I> action</I> will be one of :complete, :complete-maximal,
+:complete-limited, or :possibilities.  These are described under the
+function complete-input.
+
+<P>
+ 
+<I> predicate</I> must be a function of one argument, an object.  If the predicate
+returns <I> true</I>, the possibility corresponding to the object is processed,
+otherwise it is not.
+
+<P>
+ 
+<I> predicate</I>, <I> name-key</I>, and <I> value-key</I> have dynamic extent.
+
+<P>
+complete-from-possibilities returns five values, the completed input
+string, the success value (<I> true</I> if the completion was successful,
+otherwise <I> false</I>), the object matching the completion (or nil if
+unsuccessful), the number of matches, and a list of possible completions if
+<I> action</I> was :possibilities.
+
+<P>
+This function is one that will typically be passed as the second argument to
+complete-input.
+
+<P>
+with-accept-help options <TT> &amp;body </TT>body
+
+<P>
+Binds the dynamic environment to control the documentation produced by help and
+possibilities gestures during user input in calls to accept with the
+dynamic scope of <I> body</I>.  <I> body</I> may have zero or more declarations as
+its first forms.
+
+<P>
+ 
+<I> options</I> is a list of option specifications.  Each specification is itself
+a list of the form <I> (help-option help-string)</I>.  <I> help-option</I> is either
+a symbol that is a <I> help-type</I> or a list of the form <I> (help-type
+mode-flag)</I>.
+
+<P>
+ 
+<I> help-type</I> must be one of:
+
+<P>
+
+<UL>
+<LI>:top-level-help--specifies that <I> help-string</I> be used instead of
+the default help documentation provided by accept.
+
+<P>
+ </LI>
+<LI>:subhelp--specifies that <I> help-string</I> be used in addition to
+the default help documentation provided by accept.</LI>
+</UL>
+
+<P>
+ 
+<I> mode-flag</I> must be one of:
+
+<P>
+
+<UL>
+<LI>:append--specifies that the current help string be appended to any
+previous help strings of the same help type. This is the default mode.
+
+<P>
+ </LI>
+<LI>:override--specifies that the current help string is the help for
+this help type; no lower-level calls to with-accept-help can override this.
+(:override works from the out-side in.)
+
+<P>
+ </LI>
+<LI>:establish-unless-overridden--specifies that the current help string
+be the help for this help type unless a higher-level call to
+with-accept-help has already established a help string for this help type
+in the :override mode. This is what accept uses to establish the
+default help.</LI>
+</UL>
+
+<P>
+ 
+<I> help-string</I> is a string or a function that returns a string.  If it is a
+function, it receives three arguments, the stream, an action (either :help
+or :possibilities) and the help string generated so far.
+
+<P>
+None of the arguments is evaluated.
+
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html3988"
+ HREF="node239.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/icons/next_motif.gif"></A> 
+<A NAME="tex2html3984"
+ HREF="node231.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/icons/up_motif.gif"></A> 
+<A NAME="tex2html3980"
+ HREF="node237.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/icons/previous_motif.gif"></A> 
+<A NAME="tex2html3986"
+ HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/icons/contents_motif.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html3989"
+ HREF="node239.html">Menu Facilities</A>
+<B> Up:</B> <A NAME="tex2html3985"
+ HREF="node231.html">Input Editing and Completion</A>
+<B> Previous:</B> <A NAME="tex2html3981"
+ HREF="node237.html">Reading and Writing of</A>
+ &nbsp <B>  <A NAME="tex2html3987"
+ HREF="node1.html">Contents</A></B> 
+<!--End of Navigation Panel-->
+<ADDRESS>
+<I>&</I>
+<BR><I>2001-06-12</I>
+</ADDRESS>
+</BODY>
+</HTML>

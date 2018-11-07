@@ -1,0 +1,331 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 99.1 release (March 30, 1999)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Ellipses and Elliptical Arcs</TITLE>
+<META NAME="description" CONTENT="Ellipses and Elliptical Arcs">
+<META NAME="keywords" CONTENT="clim">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v99.1 release">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="clim.css">
+
+<LINK REL="previous" HREF="node27.html">
+<LINK REL="up" HREF="node20.html">
+<LINK REL="next" HREF="node30.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html1151"
+ HREF="node30.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/icons/next_motif.gif"></A> 
+<A NAME="tex2html1147"
+ HREF="node20.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/icons/up_motif.gif"></A> 
+<A NAME="tex2html1143"
+ HREF="node28.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/icons/previous_motif.gif"></A> 
+<A NAME="tex2html1149"
+ HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/icons/contents_motif.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html1152"
+ HREF="node30.html">The Ellipse and Elliptical</A>
+<B> Up:</B> <A NAME="tex2html1148"
+ HREF="node20.html">Other Region Types</A>
+<B> Previous:</B> <A NAME="tex2html1144"
+ HREF="node28.html">The Rectangle Protocol</A>
+ &nbsp <B>  <A NAME="tex2html1150"
+ HREF="node1.html">Contents</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H2><A NAME="SECTION03125000000000000000">
+Ellipses and Elliptical Arcs</A>
+</H2>
+
+<P>
+An <I> ellipse</I><A NAME="4537"></A> is an area that is the outline and interior of an ellipse.
+Circles are special cases of ellipses.
+
+<P>
+An <I> elliptical arc</I><A NAME="4539"></A> is a path consisting of all or a portion of the
+outline of an ellipse.  Circular arcs are special cases of elliptical arcs.
+
+<P>
+An ellipse is specified in a manner that is easy to transform, and treats all
+ellipses on an equal basis.  An ellipse is specified by its center point and two
+vectors that describe a bounding parallelogram of the ellipse.  The bounding
+parallelogram is made by adding and subtracting the vectors from the the center
+point in the following manner:
+
+<P>
+ 
+<TABLE CELLPADDING=3 BORDER="1">
+<TR><TD ALIGN="CENTER">&nbsp;</TD>
+<TD ALIGN="CENTER"><I> 1#1 coordinate</I></TD>
+<TD ALIGN="CENTER"><I> 2#2 coordinate</I></TD>
+</TR>
+<TR><TD ALIGN="CENTER">Center of Ellipse</TD>
+<TD ALIGN="CENTER">10#10</TD>
+<TD ALIGN="CENTER">11#11</TD>
+</TR>
+<TR><TD ALIGN="CENTER">Vectors</TD>
+<TD ALIGN="CENTER">12#12</TD>
+<TD ALIGN="CENTER">13#13</TD>
+</TR>
+<TR><TD ALIGN="CENTER">&nbsp;</TD>
+<TD ALIGN="CENTER">14#14</TD>
+<TD ALIGN="CENTER">15#15</TD>
+</TR>
+<TR><TD ALIGN="CENTER">Corners of Parallelogram</TD>
+<TD ALIGN="CENTER">
+<!-- MATH
+ $x_c + dx_1 + dx_2$
+ -->
+16#16</TD>
+<TD ALIGN="CENTER">
+<!-- MATH
+ $y_c + dy_1 + dy_2$
+ -->
+17#17</TD>
+</TR>
+<TR><TD ALIGN="CENTER">&nbsp;</TD>
+<TD ALIGN="CENTER">
+<!-- MATH
+ $x_c + dx_1 - dx_2$
+ -->
+18#18</TD>
+<TD ALIGN="CENTER">
+<!-- MATH
+ $y_c + dy_1 - dy_2$
+ -->
+19#19</TD>
+</TR>
+<TR><TD ALIGN="CENTER">&nbsp;</TD>
+<TD ALIGN="CENTER">
+<!-- MATH
+ $x_c - dx_1 - dx_2$
+ -->
+20#20</TD>
+<TD ALIGN="CENTER">
+<!-- MATH
+ $y_c - dy_1 - dy_2$
+ -->
+21#21</TD>
+</TR>
+<TR><TD ALIGN="CENTER">&nbsp;</TD>
+<TD ALIGN="CENTER">
+<!-- MATH
+ $x_c - dx_1 + dx_2$
+ -->
+22#22</TD>
+<TD ALIGN="CENTER">
+<!-- MATH
+ $y_c - dy_1 + dy_2$
+ -->
+23#23</TD>
+</TR>
+</TABLE>
+
+<P>
+Note that several different parallelograms specify the same ellipse.  One
+parallelogram is bound to be a rectangle--the vectors will be perpendicular
+and correspond to the semi-axes of the ellipse.
+
+<P>
+
+<P></P>
+<DIV ALIGN="CENTER"><A NAME="4218"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure:</STRONG>
+Different vectors may specify the same ellipse.</CAPTION>
+<TR><TD>24#24</TD></TR>
+</TABLE>
+</DIV><P></P>
+
+<P>
+The special case of an ellipse with its axes aligned with the coordinate axes
+can be obtained by setting 
+<!-- MATH
+ $dx_2 = dy_1 = 0$
+ -->
+25#25 or 
+<!-- MATH
+ $dx_1 = dy_2 = 0$
+ -->
+26#26.
+
+<P>
+ellipse
+
+<P>
+The protocol class that corresponds to a mathematical ellipse.  This is a
+subclass of area.
+an ellipse ellipse
+
+<P>
+ellipsep object
+
+<P>
+Returns <I> true</I> if <I> object</I> is an <I> ellipse</I>, otherwise returns
+<I> false</I>.
+
+<P>
+standard-ellipse
+
+<P>
+An instantiable class that implements an ellipse.  This is a subclass of
+ellipse.  This is the class that make-ellipse and make-ellipse*
+instantiate.
+Members of this class are immutable. 
+<P>
+make-ellipse  center-point 
+                        radius-1-dx radius-1-dy radius-2-dx radius-2-dy
+                        <TT> &amp;key </TT>start-angle end-angle
+make-ellipse* center-x center-y 
+                        radius-1-dx radius-1-dy radius-2-dx radius-2-dy 
+                        <TT> &amp;key </TT>start-angle end-angle
+
+<P>
+Returns an object of class standard-ellipse.  The center of the ellipse is
+at the <I> point</I> <I> center-point</I> (or the position
+(<I> center-x</I>,<I> center-y</I>)).
+
+<P>
+Two vectors, (<I> radius-1-dx</I>,<I> radius-1-dy</I>) and
+(<I> radius-2-dx</I>,<I> radius-2-dy</I>) specify the bounding parallelogram of the
+ellipse as explained above.  All of the radii are real numbers.  If the two
+vectors are collinear, the ellipse is not well-defined and the
+ellipse-not-well-defined error will be signalled.  The special case of an
+ellipse with its axes aligned with the coordinate axes can be obtained by
+setting both <I> radius-1-dy</I> and <I> radius-2-dx</I> to 0.
+
+<P>
+If <I> start-angle</I> or <I> end-angle</I> are supplied, the ellipse is the ``pie
+slice'' area swept out by a line from the center of the ellipse to a point on
+the boundary as the boundary point moves from the angle <I> start-angle</I> to
+<I> end-angle</I>.  Angles are measured counter-clockwise with respect to the
+positive 1#1 axis.  If <I> end-angle</I> is supplied, the default for
+<I> start-angle</I> is 27#27; if <I> start-angle</I> is supplied, the default for
+<I> end-angle</I> is 28#28; if neither is supplied then the region is a full
+ellipse and the angles are meaningless.
+
+<P>
+This function is permitted to capture its mutable inputs; the
+consequences of modifying those objects are unspecified. 
+<P>
+elliptical-arc
+
+<P>
+The protocol class that corresponds to a mathematical elliptical arc.  This is a
+subclass of path.
+an elliptical arc elliptical-arc
+
+<P>
+elliptical-arc-p object
+
+<P>
+Returns <I> true</I> if <I> object</I> is an <I> elliptical arc</I>, otherwise
+returns <I> false</I>.
+
+<P>
+standard-elliptical-arc
+
+<P>
+An instantiable class that implements an elliptical arc.  This is a subclass of
+elliptical-arc.  This is the class that make-elliptical-arc and
+make-elliptical-arc* instantiate.
+Members of this class are immutable. 
+<P>
+make-elliptical-arc  center-point
+                               radius-1-dx radius-1-dy radius-2-dx radius-2-dy
+                               <TT> &amp;key </TT>start-angle end-angle
+make-elliptical-arc* center-x center-y 
+                               radius-1-dx radius-1-dy radius-2-dx radius-2-dy
+                               <TT> &amp;key </TT>start-angle end-angle
+
+<P>
+Returns an object of class standard-elliptical-arc.  The center of the
+ellipse is at the <I> point</I> <I> center-point</I> (or the position
+(<I> center-x</I>,<I> center-y</I>)).
+
+<P>
+Two vectors, (<I> radius-1-dx</I>,<I> radius-1-dy</I>) and
+(<I> radius-2-dx</I>,<I> radius-2-dy</I>), specify the bounding parallelogram of the
+ellipse as explained above.  All of the radii are real numbers.   If the two
+vectors are collinear, the ellipse is not well-defined and the
+ellipse-not-well-defined error will be signalled.  The special case of
+an elliptical arc with its axes aligned with the coordinate axes can be obtained
+by setting both <I> radius-1-dy</I> and <I> radius-2-dx</I> to 0.
+
+<P>
+If <I> start-angle</I> and <I> start-angle</I> are supplied, the arc is swept from
+<I> start-angle</I> to <I> end-angle</I>.  Angles are measured counter-clockwise
+with respect to the positive 1#1 axis.  If <I> end-angle</I> is supplied, the
+default for <I> start-angle</I> is 27#27; if <I> start-angle</I> is supplied, the
+default for <I> end-angle</I> is 28#28; if neither is supplied then the region is
+a closed elliptical path and the angles are meaningless.
+
+<P>
+This function is permitted to capture its mutable inputs; the
+consequences of modifying those objects are unspecified. 
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
+
+<UL>
+<LI><A NAME="tex2html1153"
+ HREF="node30.html">The Ellipse and Elliptical Arc Protocol</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html1151"
+ HREF="node30.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/icons/next_motif.gif"></A> 
+<A NAME="tex2html1147"
+ HREF="node20.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/icons/up_motif.gif"></A> 
+<A NAME="tex2html1143"
+ HREF="node28.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/icons/previous_motif.gif"></A> 
+<A NAME="tex2html1149"
+ HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/icons/contents_motif.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html1152"
+ HREF="node30.html">The Ellipse and Elliptical</A>
+<B> Up:</B> <A NAME="tex2html1148"
+ HREF="node20.html">Other Region Types</A>
+<B> Previous:</B> <A NAME="tex2html1144"
+ HREF="node28.html">The Rectangle Protocol</A>
+ &nbsp <B>  <A NAME="tex2html1150"
+ HREF="node1.html">Contents</A></B> 
+<!--End of Navigation Panel-->
+<ADDRESS>
+<I>&</I>
+<BR><I>2001-06-12</I>
+</ADDRESS>
+</BODY>
+</HTML>

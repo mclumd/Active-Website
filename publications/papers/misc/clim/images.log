@@ -1,0 +1,1170 @@
+This is TeX, Version 3.1415 (C version 6.1) (format=latex2e 98.6.30)  12 JUN 2001 16:49
+**./images.tex
+(images.tex
+LaTeX2e <1995/12/01> patch level 2
+
+(/usr/imports/lib/tex/latex2e/latex209.def
+File: latex209.def 1995/12/08 v0.50 Standard LaTeX file
+Entering LaTeX 2.09 compatibility mode.
+\footheight=\dimen102
+\@maxsep=\dimen103
+\@dblmaxsep=\dimen104
+\@cla=\count79
+\@clb=\count80
+\mscount=\count81
+(/usr/imports/lib/tex/latex2e/tracefnt.sty
+Package: tracefnt 1995/11/28v3.0g Standard LaTeX package (font tracing)
+\tracingfonts=\count82
+LaTeX Info: Redefining \selectfont on input line 138.
+)
+\symbold=\mathgroup4
+\symsans=\mathgroup5
+\symtypewriter=\mathgroup6
+\symitalic=\mathgroup7
+\symsmallcaps=\mathgroup8
+\symslanted=\mathgroup9
+LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 299.
+LaTeX Font Info:    Redeclaring math alphabet \mathsf on input line 300.
+LaTeX Font Info:    Redeclaring math alphabet \mathtt on input line 301.
+LaTeX Font Info:    Redeclaring math alphabet \mathit on input line 307.
+LaTeX Info: Redefining \em on input line 317.
+(/usr/imports/lib/tex/latex2e/latexsym.sty
+Package: latexsym 1995/11/28 v2.2c Standard LaTeX package (lasy symbols)
+\symlasy=\mathgroup10
+LaTeX Font Info:    Overwriting symbol font `lasy' in version `bold'
+(Font)                  U/lasy/m/n --> U/lasy/b/n on input line 85.
+)
+LaTeX Font Info:    Redeclaring math delimiter \lgroup on input line 382.
+LaTeX Font Info:    Redeclaring math delimiter \rgroup on input line 384.
+LaTeX Font Info:    Redeclaring math delimiter \bracevert on input line 386.
+) (/usr/imports/lib/tex/latex2e/report.cls
+Document Class: report 1995/12/20 v1.3q Standard LaTeX document class
+(/usr/imports/lib/tex/latex2e/size10.clo
+File: size10.clo 1995/12/20 v1.3q Standard LaTeX file (size option)
+)
+\c@part=\count83
+\c@chapter=\count84
+\c@section=\count85
+\c@subsection=\count86
+\c@subsubsection=\count87
+\c@paragraph=\count88
+\c@subparagraph=\count89
+\c@figure=\count90
+\c@table=\count91
+\abovecaptionskip=\skip41
+\belowcaptionskip=\skip42
+Compatibility mode: definition of \rm ignored.
+Compatibility mode: definition of \sf ignored.
+Compatibility mode: definition of \tt ignored.
+Compatibility mode: definition of \bf ignored.
+Compatibility mode: definition of \it ignored.
+Compatibility mode: definition of \sl ignored.
+Compatibility mode: definition of \sc ignored.
+LaTeX Info: Redefining \cal on input line 614.
+LaTeX Info: Redefining \mit on input line 615.
+\bibindent=\dimen105
+) (/usr/imports/lib/tex/latex/times.sty (/usr/imports/lib/tex/latex/psfonts.sty
+\@cmrfam=\mathgroup11
+\@cmrscale=\count92
+\aadimen=\dimen106
+)) (/a/disco/disco/group/systems/misc/doc/clim/clim2.0/epsf.sty
+\epsffilein=\read1
+\epsfxsize=\dimen107
+\epsfysize=\dimen108
+\epsftsize=\dimen109
+\epsfrsize=\dimen110
+\epsftmp=\dimen111
+\epsfrtmp=\dimen112
+\epsfttmp=\dimen113
+\pspoints=\dimen114
+)
+\@indexfile=\write3
+Writing index file images.idx
+\@unused=\write4
+! Undefined control sequence.
+\@nnil ->\@nil 
+               
+l.1253 ...e\write\@unused}psfig/tex 1.2-dvi2ps-li}
+                                                  }
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<write> ....2-dvi2ps-li}} \par \def \@nnil {\@nil 
+                                                  } \def \@empty {} \def \@p...
+l.1253 ...e\write\@unused}psfig/tex 1.2-dvi2ps-li}
+                                                  }
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<write> ...} \def \@empty {} \def \@psdonooppsfig 
+                                                  /tex 1.2-dvi2ps-li\@@ ##2#...
+l.1253 ...e\write\@unused}psfig/tex 1.2-dvi2ps-li}
+                                                  }
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<write> ... \@psdonooppsfig /tex 1.2-dvi2ps-li\@@ 
+                                                  ##2##3{} \def \@psdopsfig ...
+l.1253 ...e\write\@unused}psfig/tex 1.2-dvi2ps-li}
+                                                  }
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<write> ...dvi2ps-li\@@ ##2##3{} \def \@psdopsfig 
+                                                  /tex 1.2-dvi2ps-li:=##2\do...
+l.1253 ...e\write\@unused}psfig/tex 1.2-dvi2ps-li}
+                                                  }
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<write> ...\@psdopsfig /tex 1.2-dvi2ps-li:=##2\do 
+                                                  ##3{\edef \@psdotmp {##2}\...
+l.1253 ...e\write\@unused}psfig/tex 1.2-dvi2ps-li}
+                                                  }
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<write> ...-dvi2ps-li:=##2\do ##3{\edef \@psdotmp 
+                                                  {##2}\ifx \@psdotmp \@empt...
+l.1253 ...e\write\@unused}psfig/tex 1.2-dvi2ps-li}
+                                                  }
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<recently read> \@psdoloop 
+                           
+l.1253 ...e\write\@unused}psfig/tex 1.2-dvi2ps-li}
+                                                  }
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<write> ...else \expandafter \@psdoloop ##2,\@nil 
+                                                  ,\@nil \@@psfig /tex 1.2-d...
+l.1253 ...e\write\@unused}psfig/tex 1.2-dvi2ps-li}
+                                                  }
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<write> ...xpandafter \@psdoloop ##2,\@nil ,\@nil 
+                                                  \@@psfig /tex 1.2-dvi2ps-l...
+l.1253 ...e\write\@unused}psfig/tex 1.2-dvi2ps-li}
+                                                  }
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<write> ...r \@psdoloop ##2,\@nil ,\@nil \@@psfig 
+                                                  /tex 1.2-dvi2ps-li{##3}\fi...
+l.1253 ...e\write\@unused}psfig/tex 1.2-dvi2ps-li}
+                                                  }
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<write> ...i2ps-li{##3}\fi } \def \@psdolooppsfig 
+                                                  /tex 1.2-dvi2ps-li,##2,##3...
+l.1253 ...e\write\@unused}psfig/tex 1.2-dvi2ps-li}
+                                                  }
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<write> ...ooppsfig /tex 1.2-dvi2ps-li,##2,##3\@@ 
+                                                  ##4##5{\def ##4{psfig/tex ...
+l.1253 ...e\write\@unused}psfig/tex 1.2-dvi2ps-li}
+                                                  }
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<write> ...#2}\ifx ##4\@nnil \else ##5\@ipsdoloop 
+                                                  ##3\@@ ##4{##5}\fi \fi } \...
+l.1253 ...e\write\@unused}psfig/tex 1.2-dvi2ps-li}
+                                                  }
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<write> ... ##4\@nnil \else ##5\@ipsdoloop ##3\@@ 
+                                                  ##4{##5}\fi \fi } \def \@i...
+l.1253 ...e\write\@unused}psfig/tex 1.2-dvi2ps-li}
+                                                  }
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<write> ...#4{##5}\fi \fi } \def \@ipsdolooppsfig 
+                                                  /tex 1.2-dvi2ps-li,##2\@@ ...
+l.1253 ...e\write\@unused}psfig/tex 1.2-dvi2ps-li}
+                                                  }
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<write> ...sdolooppsfig /tex 1.2-dvi2ps-li,##2\@@ 
+                                                  ##3##4{\def ##3{psfig/tex ...
+l.1253 ...e\write\@unused}psfig/tex 1.2-dvi2ps-li}
+                                                  }
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<write> ...nil \let \@ \else nextwhile=\@psdonoop 
+                                                  ##4\relax \let \@ \fi next...
+l.1253 ...e\write\@unused}psfig/tex 1.2-dvi2ps-li}
+                                                  }
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<write> ...elax \let \@ \fi nextwhile=\@ipsdoloop 
+                                                  \@nextwhile ##2\@@ ##3{##4...
+l.1253 ...e\write\@unused}psfig/tex 1.2-dvi2ps-li}
+                                                  }
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<write> ... \fi nextwhile=\@ipsdoloop \@nextwhile 
+                                                  ##2\@@ ##3{##4}} \def \@tp...
+l.1253 ...e\write\@unused}psfig/tex 1.2-dvi2ps-li}
+                                                  }
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<write> ...xtwhile=\@ipsdoloop \@nextwhile ##2\@@ 
+                                                  ##3{##4}} \def \@tpsdopsfi...
+l.1253 ...e\write\@unused}psfig/tex 1.2-dvi2ps-li}
+                                                  }
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<write> ...ile ##2\@@ ##3{##4}} \def \@tpsdopsfig 
+                                                  /tex 1.2-dvi2ps-li:=##2\do...
+l.1253 ...e\write\@unused}psfig/tex 1.2-dvi2ps-li}
+                                                  }
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<write> ...@tpsdopsfig /tex 1.2-dvi2ps-li:=##2\do 
+                                                  ##3{\xdef \@psdotmp {##2}\...
+l.1253 ...e\write\@unused}psfig/tex 1.2-dvi2ps-li}
+                                                  }
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<write> ...-dvi2ps-li:=##2\do ##3{\xdef \@psdotmp 
+                                                  {##2}\ifx \@psdotmp \@empt...
+l.1253 ...e\write\@unused}psfig/tex 1.2-dvi2ps-li}
+                                                  }
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<write> ...fx \@psdotmp \@empty \else \@tpsdoloop 
+                                                  ##2\@nil \@nil \@@psfig /t...
+l.1253 ...e\write\@unused}psfig/tex 1.2-dvi2ps-li}
+                                                  }
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<write> ...tmp \@empty \else \@tpsdoloop ##2\@nil 
+                                                  \@nil \@@psfig /tex 1.2-dv...
+l.1253 ...e\write\@unused}psfig/tex 1.2-dvi2ps-li}
+                                                  }
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<write> ...empty \else \@tpsdoloop ##2\@nil \@nil 
+                                                  \@@psfig /tex 1.2-dvi2ps-l...
+l.1253 ...e\write\@unused}psfig/tex 1.2-dvi2ps-li}
+                                                  }
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<write> ...se \@tpsdoloop ##2\@nil \@nil \@@psfig 
+                                                  /tex 1.2-dvi2ps-li{##3}\fi...
+l.1253 ...e\write\@unused}psfig/tex 1.2-dvi2ps-li}
+                                                  }
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<write> ...2ps-li{##3}\fi } \def \@tpsdolooppsfig 
+                                                  /tex 1.2-dvi2ps-li##2\@@ #...
+l.1253 ...e\write\@unused}psfig/tex 1.2-dvi2ps-li}
+                                                  }
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<write> ...psdolooppsfig /tex 1.2-dvi2ps-li##2\@@ 
+                                                  ##3##4{\def ##3{psfig/tex ...
+l.1253 ...e\write\@unused}psfig/tex 1.2-dvi2ps-li}
+                                                  }
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<write> ...nil \let \@ \else nextwhile=\@psdonoop 
+                                                  ##4\relax \let \@ \fi next...
+l.1253 ...e\write\@unused}psfig/tex 1.2-dvi2ps-li}
+                                                  }
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<write> ...elax \let \@ \fi nextwhile=\@tpsdoloop 
+                                                  \@nextwhile ##2\@@ ##3{##4...
+l.1253 ...e\write\@unused}psfig/tex 1.2-dvi2ps-li}
+                                                  }
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<write> ... \fi nextwhile=\@tpsdoloop \@nextwhile 
+                                                  ##2\@@ ##3{##4}} \def \def...
+l.1253 ...e\write\@unused}psfig/tex 1.2-dvi2ps-li}
+                                                  }
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<write> ...xtwhile=\@tpsdoloop \@nextwhile ##2\@@ 
+                                                  ##3{##4}} \def \def \@psdr...
+l.1253 ...e\write\@unused}psfig/tex 1.2-dvi2ps-li}
+                                                  }
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<write> ...e ##2\@@ ##3{##4}} \def \def \@psdraft 
+                                                  {0} { \def \@psdraft {0} }...
+l.1253 ...e\write\@unused}psfig/tex 1.2-dvi2ps-li}
+                                                  }
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<write> ...ef \def \@psdraft {0} { \def \@psdraft 
+                                                  {0} } \def \def \@psdraft ...
+l.1253 ...e\write\@unused}psfig/tex 1.2-dvi2ps-li}
+                                                  }
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<write> ...ef \@psdraft {0} } \def \def \@psdraft 
+                                                  {100} { \def \@psdraft {10...
+l.1253 ...e\write\@unused}psfig/tex 1.2-dvi2ps-li}
+                                                  }
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<write> ... \def \@psdraft {100} { \def \@psdraft 
+                                                  {100} } \def \@psdraft {10...
+l.1253 ...e\write\@unused}psfig/tex 1.2-dvi2ps-li}
+                                                  }
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<write> ... \def \@psdraft {100} } \def \@psdraft 
+                                                  {100} \par \newif \if@prol...
+l.1253 ...e\write\@unused}psfig/tex 1.2-dvi2ps-li}
+                                                  }
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<argument> \if@prologfile 
+                          
+l.1253 ...e\write\@unused}psfig/tex 1.2-dvi2ps-li}
+                                                  }
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<write> ...isy \@verbosetrue \else \@verbosefalse 
+                                                  \fi \par { \@bbllxfalse \@...
+l.1253 ...e\write\@unused}psfig/tex 1.2-dvi2ps-li}
+                                                  }
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<write> ...\@verbosefalse \fi \par { \@bbllxfalse 
+                                                  \@bbllyfalse \@bburxfalse ...
+l.1253 ...e\write\@unused}psfig/tex 1.2-dvi2ps-li}
+                                                  }
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<write> ...e \fi \par { \@bbllxfalse \@bbllyfalse 
+                                                  \@bburxfalse \@bburyfalse ...
+l.1253 ...e\write\@unused}psfig/tex 1.2-dvi2ps-li}
+                                                  }
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<write> ...\@bbllxfalse \@bbllyfalse \@bburxfalse 
+                                                  \@bburyfalse \@heightfalse...
+l.1253 ...e\write\@unused}psfig/tex 1.2-dvi2ps-li}
+                                                  }
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<write> ...\@bbllyfalse \@bburxfalse \@bburyfalse 
+                                                  \@heightfalse \@widthfalse...
+l.1253 ...e\write\@unused}psfig/tex 1.2-dvi2ps-li}
+                                                  }
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<write> ...@bburxfalse \@bburyfalse \@heightfalse 
+                                                  \@widthfalse \@rheightfals...
+l.1253 ...e\write\@unused}psfig/tex 1.2-dvi2ps-li}
+                                                  }
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<write> ...@bburyfalse \@heightfalse \@widthfalse 
+                                                  \@rheightfalse \@rwidthfal...
+l.1253 ...e\write\@unused}psfig/tex 1.2-dvi2ps-li}
+                                                  }
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<write> ...eightfalse \@widthfalse \@rheightfalse 
+                                                  \@rwidthfalse \def \@p@sbb...
+l.1253 ...e\write\@unused}psfig/tex 1.2-dvi2ps-li}
+                                                  }
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<write> ...idthfalse \@rheightfalse \@rwidthfalse 
+                                                  \def \@p@sbbllx {}\def \@p...
+l.1253 ...e\write\@unused}psfig/tex 1.2-dvi2ps-li}
+                                                  }
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<write> ...ghtfalse \@rwidthfalse \def \@p@sbbllx 
+                                                  {}\def \@p@sbblly {} \def ...
+l.1253 ...e\write\@unused}psfig/tex 1.2-dvi2ps-li}
+                                                  }
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<write> ...alse \def \@p@sbbllx {}\def \@p@sbblly 
+                                                  {} \def \@p@sbburx {}\def ...
+l.1253 ...e\write\@unused}psfig/tex 1.2-dvi2ps-li}
+                                                  }
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<write> ...x {}\def \@p@sbblly {} \def \@p@sbburx 
+                                                  {}\def \@p@sbbury {} \def ...
+l.1253 ...e\write\@unused}psfig/tex 1.2-dvi2ps-li}
+                                                  }
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<write> ...y {} \def \@p@sbburx {}\def \@p@sbbury 
+                                                  {} \def \@p@sheight {}\def...
+l.1253 ...e\write\@unused}psfig/tex 1.2-dvi2ps-li}
+                                                  }
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<write> ... {}\def \@p@sbbury {} \def \@p@sheight 
+                                                  {}\def \@p@swidth {} \def ...
+l.1253 ...e\write\@unused}psfig/tex 1.2-dvi2ps-li}
+                                                  }
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<write> ... {} \def \@p@sheight {}\def \@p@swidth 
+                                                  {} \def \@p@srheight {}\de...
+l.1253 ...e\write\@unused}psfig/tex 1.2-dvi2ps-li}
+                                                  }
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<write> ...{}\def \@p@swidth {} \def \@p@srheight 
+                                                  {}\def \@p@srwidth {} \def...
+l.1253 ...e\write\@unused}psfig/tex 1.2-dvi2ps-li}
+                                                  }
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<write> ...} \def \@p@srheight {}\def \@p@srwidth 
+                                                  {} \def \@p@sfile {} \def ...
+l.1253 ...e\write\@unused}psfig/tex 1.2-dvi2ps-li}
+                                                  }
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<write> ...t {}\def \@p@srwidth {} \def \@p@sfile 
+                                                  {} \def \@p@percent {} \de...
+l.1253 ...e\write\@unused}psfig/tex 1.2-dvi2ps-li}
+                                                  }
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<write> ... {} \def \@p@sfile {} \def \@p@percent 
+                                                  {} \def \@p@scost {10} \de...
+l.1253 ...e\write\@unused}psfig/tex 1.2-dvi2ps-li}
+                                                  }
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<write> ... {} \def \@p@percent {} \def \@p@scost 
+                                                  {10} \def \@sc {} \@prolog...
+l.1253 ...e\write\@unused}psfig/tex 1.2-dvi2ps-li}
+                                                  }
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<write> ...rcent {} \def \@p@scost {10} \def \@sc 
+                                                  {} \@prologfilefalse \@pos...
+l.1253 ...e\write\@unused}psfig/tex 1.2-dvi2ps-li}
+                                                  }
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<write> ...st {10} \def \@sc {} \@prologfilefalse 
+                                                  \@postlogfilefalse \@clipf...
+l.1253 ...e\write\@unused}psfig/tex 1.2-dvi2ps-li}
+                                                  }
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<write> ...} \@prologfilefalse \@postlogfilefalse 
+                                                  \@clipfalse \@percentfalse...
+l.1253 ...e\write\@unused}psfig/tex 1.2-dvi2ps-li}
+                                                  }
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<write> ...lefalse \@postlogfilefalse \@clipfalse 
+                                                  \@percentfalse \if@noisy \...
+l.1253 ...e\write\@unused}psfig/tex 1.2-dvi2ps-li}
+                                                  }
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<write> ...ogfilefalse \@clipfalse \@percentfalse 
+                                                  \if@noisy \@verbosetrue \e...
+l.1253 ...e\write\@unused}psfig/tex 1.2-dvi2ps-li}
+                                                  }
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<write> ...e \@clipfalse \@percentfalse \if@noisy 
+                                                  \@verbosetrue \else \@verb...
+l.1253 ...e\write\@unused}psfig/tex 1.2-dvi2ps-li}
+                                                  }
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<write> ...\@percentfalse \if@noisy \@verbosetrue 
+                                                  \else \@verbosefalse \fi \...
+l.1253 ...e\write\@unused}psfig/tex 1.2-dvi2ps-li}
+                                                  }
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Extra \else.
+<write> ...entfalse \if@noisy \@verbosetrue \else 
+                                                  \@verbosefalse \fi \par } ...
+l.1253 ...e\write\@unused}psfig/tex 1.2-dvi2ps-li}
+                                                  }
+I'm ignoring this; it doesn't match any \if.
+
+! Undefined control sequence.
+<write> ...isy \@verbosetrue \else \@verbosefalse 
+                                                  \fi \par } \def \@psdo \@p...
+l.1253 ...e\write\@unused}psfig/tex 1.2-dvi2ps-li}
+                                                  }
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Extra \fi.
+<write> ...\@verbosetrue \else \@verbosefalse \fi 
+                                                  \par } \def \@psdo \@psfig...
+l.1253 ...e\write\@unused}psfig/tex 1.2-dvi2ps-li}
+                                                  }
+I'm ignoring this; it doesn't match any \if.
+
+! Undefined control sequence.
+<write> ... \@verbosefalse \fi \par } \def \@psdo 
+                                                  \@psfiga :=p\do {\expandaf...
+l.1253 ...e\write\@unused}psfig/tex 1.2-dvi2ps-li}
+                                                  }
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<write> ...efalse \fi \par } \def \@psdo \@psfiga 
+                                                  :=p\do {\expandafter \@set...
+l.1253 ...e\write\@unused}psfig/tex 1.2-dvi2ps-li}
+                                                  }
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<write> ...\fi \par } \def \@psdo \@psfiga :=p\do 
+                                                  {\expandafter \@setparms \...
+l.1253 ...e\write\@unused}psfig/tex 1.2-dvi2ps-li}
+                                                  }
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<write> ...p\do {\expandafter \@setparms \@psfiga 
+                                                  ,}sfig/tex 1.2-dvi2ps-li{ ...
+l.1253 ...e\write\@unused}psfig/tex 1.2-dvi2ps-li}
+                                                  }
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<recently read> \@setparms 
+                           
+l.1253 ...e\write\@unused}psfig/tex 1.2-dvi2ps-li}
+                                                  }
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<write> ...sfiga ,}sfig/tex 1.2-dvi2ps-li{ \@psdo 
+                                                  \@psfiga :=psfig/tex 1.2-d...
+l.1253 ...e\write\@unused}psfig/tex 1.2-dvi2ps-li}
+                                                  }
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<write> ...fig/tex 1.2-dvi2ps-li{ \@psdo \@psfiga 
+                                                  :=psfig/tex 1.2-dvi2ps-li\...
+l.1253 ...e\write\@unused}psfig/tex 1.2-dvi2ps-li}
+                                                  }
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<write> ... \@psfiga :=psfig/tex 1.2-dvi2ps-li\do 
+                                                  {\expandafter \@setparms \...
+l.1253 ...e\write\@unused}psfig/tex 1.2-dvi2ps-li}
+                                                  }
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<write> ...i\do {\expandafter \@setparms \@psfiga 
+                                                  ,}} \newif \ifno@bb \newif...
+l.1253 ...e\write\@unused}psfig/tex 1.2-dvi2ps-li}
+                                                  }
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<recently read> \@setparms 
+                           
+l.1253 ...e\write\@unused}psfig/tex 1.2-dvi2ps-li}
+                                                  }
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<argument> \ifno@bb 
+                    
+l.1253 ...e\write\@unused}psfig/tex 1.2-dvi2ps-li}
+                                                  }
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<argument> \if@bbmatch 
+                       
+l.1253 ...e\write\@unused}psfig/tex 1.2-dvi2ps-li}
+                                                  }
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<write> ... bounding box} }\fi \openin \ps@stream 
+                                                  =\@p@sfile \no@bbtrue \not...
+l.1253 ...e\write\@unused}psfig/tex 1.2-dvi2ps-li}
+                                                  }
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<write> ...ox} }\fi \openin \ps@stream =\@p@sfile 
+                                                  \no@bbtrue \not@eoftrue \c...
+l.1253 ...e\write\@unused}psfig/tex 1.2-dvi2ps-li}
+                                                  }
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<write> ...penin \ps@stream =\@p@sfile \no@bbtrue 
+                                                  \not@eoftrue \catcode `\%=...
+l.1253 ...e\write\@unused}psfig/tex 1.2-dvi2ps-li}
+                                                  }
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<write> ...eam =\@p@sfile \no@bbtrue \not@eoftrue 
+                                                  \catcode `\%=12 \loop \rea...
+l.1253 ...e\write\@unused}psfig/tex 1.2-dvi2ps-li}
+                                                  }
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<argument> \read \ps@stream 
+                            to \line@in \global \toks 200=\expandafter {\lin...
+l.1253 ...e\write\@unused}psfig/tex 1.2-dvi2ps-li}
+                                                  }
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<argument> \read \ps@stream to \line@in 
+                                        \global \toks 200=\expandafter {\lin...
+l.1253 ...e\write\@unused}psfig/tex 1.2-dvi2ps-li}
+                                                  }
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<argument> ...al \toks 200=\expandafter {\line@in 
+                                                  } \ifeof \ps@stream \not@e...
+l.1253 ...e\write\@unused}psfig/tex 1.2-dvi2ps-li}
+                                                  }
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<argument> ...after {\line@in } \ifeof \ps@stream 
+                                                  \not@eoffalse \fi \@bbtest...
+l.1253 ...e\write\@unused}psfig/tex 1.2-dvi2ps-li}
+                                                  }
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<argument> ...n } \ifeof \ps@stream \not@eoffalse 
+                                                  \fi \@bbtest {\toks 200} \...
+l.1253 ...e\write\@unused}psfig/tex 1.2-dvi2ps-li}
+                                                  }
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Missing number, treated as zero.
+<to be read again> 
+                   \relax 
+l.1253 ...e\write\@unused}psfig/tex 1.2-dvi2ps-li}
+                                                  }
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Undefined control sequence.
+<argument> ...s@stream \not@eoffalse \fi \@bbtest 
+                                                  {\toks 200} \if@bbmatch \n...
+l.1253 ...e\write\@unused}psfig/tex 1.2-dvi2ps-li}
+                                                  }
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<argument> ...fi \@bbtest {\toks 200} \if@bbmatch 
+                                                  \not@eoffalse \expandafter...
+l.1253 ...e\write\@unused}psfig/tex 1.2-dvi2ps-li}
+                                                  }
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<argument> ...toks 200} \if@bbmatch \not@eoffalse 
+                                                  \expandafter \bb@cull \the...
+l.1253 ...e\write\@unused}psfig/tex 1.2-dvi2ps-li}
+                                                  }
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Extra \fi.
+<argument> ...andafter \bb@cull \the \toks 200\fi 
+                                                  \ifnot@eof 
+l.1253 ...e\write\@unused}psfig/tex 1.2-dvi2ps-li}
+                                                  }
+I'm ignoring this; it doesn't match any \if.
+
+! Undefined control sequence.
+<argument> ...b@cull \the \toks 200\fi \ifnot@eof 
+                                                  
+l.1253 ...e\write\@unused}psfig/tex 1.2-dvi2ps-li}
+                                                  }
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<recently read> \bb@cull 
+                         
+l.1253 ...e\write\@unused}psfig/tex 1.2-dvi2ps-li}
+                                                  }
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Extra \fi.
+\loop ...rate {#1\relax \expandafter \iterate \fi 
+                                                  }\iterate \let \iterate \r...
+l.1253 ...e\write\@unused}psfig/tex 1.2-dvi2ps-li}
+                                                  }
+I'm ignoring this; it doesn't match any \if.
+
+! Undefined control sequence.
+<argument> \if@bbmatch 
+                       
+l.1253 ...e\write\@unused}psfig/tex 1.2-dvi2ps-li}
+                                                  }
+(That makes 100 errors; please try again.) 
+Here is how much of TeX's memory you used:
+ 569 strings out of 10945
+ 5322 string characters out of 73481
+ 64082 words of memory out of 262141
+ 3463 multiletter control sequences out of 9500
+ 3640 words of font info for 14 fonts, out of 100000 for 255
+ 14 hyphenation exceptions out of 607
+ 19i,0n,19p,188b,40s stack positions out of 300i,100n,60p,3000b,4000s
+
+No pages of output.

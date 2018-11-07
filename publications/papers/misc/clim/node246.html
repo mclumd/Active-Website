@@ -1,0 +1,245 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 99.1 release (March 30, 1999)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Keystroke Accelerators</TITLE>
+<META NAME="description" CONTENT="Keystroke Accelerators">
+<META NAME="keywords" CONTENT="clim">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v99.1 release">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="clim.css">
+
+<LINK REL="next" HREF="node247.html">
+<LINK REL="previous" HREF="node245.html">
+<LINK REL="up" HREF="node242.html">
+<LINK REL="next" HREF="node247.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html4135"
+ HREF="node247.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/icons/next_motif.gif"></A> 
+<A NAME="tex2html4131"
+ HREF="node242.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/icons/up_motif.gif"></A> 
+<A NAME="tex2html4125"
+ HREF="node245.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/icons/previous_motif.gif"></A> 
+<A NAME="tex2html4133"
+ HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/icons/contents_motif.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html4136"
+ HREF="node247.html">Presentation Translator Utilities</A>
+<B> Up:</B> <A NAME="tex2html4132"
+ HREF="node242.html">Command Processing</A>
+<B> Previous:</B> <A NAME="tex2html4126"
+ HREF="node245.html">Command Menus</A>
+ &nbsp <B>  <A NAME="tex2html4134"
+ HREF="node1.html">Contents</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION08140000000000000000">
+Keystroke Accelerators</A>
+</H1>
+
+<P>
+Each command table may have a mapping from keystroke accelerator gesture names
+to menu items.  When a user types a key on the keyboard that corresponds to the
+gesture for keystroke accelerator, the menu item will be invoked.  Note that
+menu items are shared among the command table's menu and the accelerator table.
+There are several reasons for this.  One is that it is common to have menus
+display the keystroke associated with a particular item, if there is one.
+
+<P>
+Note that, despite the fact the keystroke accelerators are specified using
+keyboard gesture names rather than characters, the conventions for typed
+characters vary widely from one platform to another.  Therefore the programmer
+must be careful in choosing keystroke accelerators.  Some sort of per-platform
+conditionalization is to be expected.
+
+<P>
+add-keystroke-to-command-table command-table gesture type value 
+                                         <TT> &amp;key </TT>documentation (errorp t) 
+
+<P>
+Adds a menu item to <I> command-table</I>'s keystroke accelerator table.
+<I> gesture</I> is a keyboard gesture name to be used as the accelerator.
+<I> type</I> and <I> value</I> are as in add-menu-item-to-command-table, except
+that <I> type</I> must be either :command, :function or :menu.
+<I> command-table</I> is a <I> command table designator</I>.
+
+<P>
+SWM Should we allow <I> gesture</I> to be a gesture specification as
+well as just a gesture name?  It simplifies its use by avoiding a profusion of
+defined gesture names, but we may want to encourage the use of gesture names.
+
+<P>
+ 
+<I> documentation</I> is a documentation string, which can be used as
+documentation for the keystroke accelerator.
+
+<P>
+If the menu item associated with <I> gesture</I> is already present in the command
+table's accelerator table and <I> errorp</I> is <I> true</I>, then the
+command-already-present error will be signalled.  When the item is already
+present in the command table's accelerator table and <I> errorp</I> is
+<I> false</I>, the old item will first be removed.
+
+<P>
+remove-keystroke-from-command-table command-table gesture <TT> &amp;key </TT>(errorp t)  
+
+<P>
+Removes the item named by keyboard gesture name <I> gesture</I> from
+<I> command-table</I>'s accelerator table.  <I> command-table</I> is a <I> command
+table designator</I>.
+
+<P>
+If the menu item associated with <I> gesture</I> is not present in the command
+table's menu and <I> errorp</I> is <I> true</I>, then the command-not-present
+error will be signalled.
+
+<P>
+map-over-command-table-keystrokes function command-table
+
+<P>
+Applies <I> function</I> to all of the keystroke accelerators in
+<I> command-table</I>'s accelerator table.  <I> function</I> must be a function of
+three arguments, the menu name (which will be nil if there is none), the
+keystroke accelerator, and the menu item; it has dynamic extent.
+<I> command-table</I> is a <I> command table designator</I>.
+
+<P>
+map-over-command-table-keystrokes does not descend into sub-menus.  If the
+programmer requires this behavior, he should examine the type of the menu item
+to see if it is :menu.
+
+<P>
+find-keystroke-item gesture command-table <TT> &amp;key </TT>(errorp t)
+
+<P>
+Given a keyboard gesture <I> gesture</I> and a command table, returns two values,
+the menu item associated with the gesture and the command table in which it was
+found.  (Since keystroke accelerators are not inherited, the second returned
+value will always be <I> command-table</I>.)
+
+<P>
+This function returns objects that reveal CLIM's internal state;
+do not modify those objects. 
+<P>
+Note that <I> gesture</I> may be either a keyboard gesture name of a gesture
+object.  When it is a gesture name, eql will be used to compare the
+supplied gesture to the gesture names stored in the command table's menu.  When
+it is a gesture object, event-matches-gesture-name-p will be used to do the
+comparison.
+
+<P>
+If the keystroke accelerator is not present in <I> command-table</I> and
+<I> errorp</I> is <I> true</I>, then the command-not-present error will be
+signalled.  <I> command-table</I> is a <I> command table designator</I>.
+
+<P>
+lookup-keystroke-item gesture command-table
+
+<P>
+Given a keyboard gesture <I> gesture</I> and a command table, returns two values,
+the menu item associated with the gesture and the command table in which it was
+found.  Note that <I> gesture</I> may be either a keyboard gesture name of a
+gesture object, and is handled in the same way as in find-keystroke-item.
+This function returns objects that reveal CLIM's internal state;
+do not modify those objects. 
+<P>
+Unlike find-keystroke-item, this follows the sub-menu chains that can be
+created with add-menu-item-to-command-table.  If the keystroke accelerator
+cannot be found in the command table or any of the command tables from which it
+inherits, lookup-keystroke-item will return nil.  <I> command-table</I>
+is a <I> command table designator</I>.
+
+<P>
+lookup-keystroke-command-item gesture command-table <TT> &amp;key </TT>numeric-arg
+
+<P>
+Given a keyboard gesture <I> gesture</I> and a command table, returns the command
+associated with the keystroke, or <I> gesture</I> if no command is found.  Note
+that <I> gesture</I> may be either a keyboard gesture name of a gesture object,
+and is handled in the same way as in find-keystroke-item.
+This function returns objects that reveal CLIM's internal state;
+do not modify those objects. 
+<P>
+This is like find-keystroke-item, except that only keystrokes that map to
+an enabled application command will be matched.  <I> command-table</I> is a
+<I> command table designator</I>.
+
+<P>
+ 
+<I> numeric-arg</I> (which defaults to 1) is substituted into the resulting
+command for any occurrence of *numeric-argument-marker* in the command.
+This is intended to allow programmers to define keystroke accelerators that take
+simple numeric arguments, which will be passed on by the input editor.
+
+<P>
+SWM The above three functions need to have their hands on the port
+object since they are might use event-matches-gesture-name-p, which also
+needs to have a port object.
+
+<P>
+substitute-numeric-argument-marker command numeric-arg
+
+<P>
+Given a command object <I> command</I>, this substitutes the values of
+<I> numeric-arg</I> for all occurrences of the value of
+*numeric-argument-marker* in the command, and returns a command object with
+those substitutions.
+
+<P>
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html4135"
+ HREF="node247.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/icons/next_motif.gif"></A> 
+<A NAME="tex2html4131"
+ HREF="node242.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/icons/up_motif.gif"></A> 
+<A NAME="tex2html4125"
+ HREF="node245.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/icons/previous_motif.gif"></A> 
+<A NAME="tex2html4133"
+ HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/icons/contents_motif.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html4136"
+ HREF="node247.html">Presentation Translator Utilities</A>
+<B> Up:</B> <A NAME="tex2html4132"
+ HREF="node242.html">Command Processing</A>
+<B> Previous:</B> <A NAME="tex2html4126"
+ HREF="node245.html">Command Menus</A>
+ &nbsp <B>  <A NAME="tex2html4134"
+ HREF="node1.html">Contents</A></B> 
+<!--End of Navigation Panel-->
+<ADDRESS>
+<I>&</I>
+<BR><I>2001-06-12</I>
+</ADDRESS>
+</BODY>
+</HTML>

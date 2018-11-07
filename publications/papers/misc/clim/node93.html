@@ -1,0 +1,288 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 99.1 release (March 30, 1999)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Medium Components</TITLE>
+<META NAME="description" CONTENT="Medium Components">
+<META NAME="keywords" CONTENT="clim">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v99.1 release">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="clim.css">
+
+<LINK REL="next" HREF="node94.html">
+<LINK REL="previous" HREF="node92.html">
+<LINK REL="up" HREF="node92.html">
+<LINK REL="next" HREF="node94.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2045"
+ HREF="node94.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/icons/next_motif.gif"></A> 
+<A NAME="tex2html2041"
+ HREF="node92.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/icons/up_motif.gif"></A> 
+<A NAME="tex2html2035"
+ HREF="node92.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/icons/previous_motif.gif"></A> 
+<A NAME="tex2html2043"
+ HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/icons/contents_motif.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html2046"
+ HREF="node94.html">Drawing Option Binding Forms</A>
+<B> Up:</B> <A NAME="tex2html2042"
+ HREF="node92.html">Drawing Options</A>
+<B> Previous:</B> <A NAME="tex2html2036"
+ HREF="node92.html">Drawing Options</A>
+ &nbsp <B>  <A NAME="tex2html2044"
+ HREF="node1.html">Contents</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION05110000000000000000">
+Medium Components</A>
+</H1>
+
+<P>
+Medium objects contain components that correspond to the drawing options; when
+no value for a drawing option is explicitly provided to a drawing function, it
+is taken from the medium.  These values can be directly queried or modified
+using accessors defined on the sheet or medium.  They can also be temporarily
+bound within a dynamic context using with-drawing-options,
+with-text-style, and related forms.
+
+<P>
+setf of one of these components while it is temporarily bound (via
+with-drawing-options, for instance) takes effect immediately but is undone
+when the dynamic binding context is exited.
+
+<P>
+In systems that support multiple processes, the consequences are unspecified if
+one process reads or writes a medium component that is temporarily bound by
+another process.
+
+<P>
+The following functions read and write components of a medium related to drawing
+options.  While these functions are defined for mediums, they can also be called
+on sheets support the sheet output protocol and on streams that output to such
+sheets.  All classes that support the medium protocol must implement methods for
+these generic functions.  Often, a sheet class that supports the output protocol
+will implement a ``trampoline'' method that passes the operation on to
+sheet-medium of the sheet.
+
+<P>
+medium-foreground medium
+medium-background medium
+
+<P>
+Returns the foreground and background inks (which are designs) for the
+<I> medium</I> <I> medium</I>, respectively.  The foreground ink is the default ink
+used when drawing.  The background ink is the ink used when erasing.  See
+Chapter&nbsp;<A HREF="node119.html#color">13</A> for a more complete description of designs.
+
+<P>
+Any indirect inks are resolved against the foreground and background at the time
+a design is rendered.
+
+<P>
+ 
+(setf medium-foreground) design medium
+(setf medium-background) design medium
+
+<P>
+Sets the foreground and background ink, respectively, for the <I> medium</I>
+<I> medium</I> to <I> design</I>.  You may not set medium-foreground or
+medium-background to an indirect ink.  
+
+<P>
+ 
+<I> design</I> is an unbounded design.  If the background design is not completely
+opaque at all points, the consequences are unspecified.
+
+<P>
+Changing the foreground or background of a sheet that supports output recording
+causes the contents of the stream's viewport to be erased and redrawn using the
+new foreground and background.
+
+<P>
+medium-ink medium
+
+<P>
+The current drawing ink for the <I> medium</I> <I> medium</I>, which can be any
+design.  The drawing functions draw with the color and pattern that this
+specifies.  See Chapter&nbsp;<A HREF="node119.html#color">13</A> for a more complete description of inks.
+The :ink drawing option temporarily changes the value of medium-ink.
+
+<P>
+ 
+(setf medium-ink) design medium
+
+<P>
+Sets the current drawing ink for the <I> medium</I> <I> medium</I> to <I> design</I>.
+<I> design</I> is as for medium-foreground, and may be an indirect ink as
+well.
+
+<P>
+medium-transformation medium
+
+<P>
+The current user transformation for the <I> medium</I> <I> medium</I>.  This
+transformation is used to transform the coordinates supplied as arguments to
+drawing functions to the coordinate system of the drawing plane.  See
+Chapter&nbsp;<A HREF="node35.html#transforms">5</A> for a complete description of transformations.  The
+:transformation drawing option temporarily changes the value of
+medium-transformation.
+
+<P>
+ 
+(setf medium-transformation) transformation medium
+
+<P>
+Sets the current user transformation for the <I> medium</I> <I> medium</I> to the
+<I> transformation</I> <I> transformation</I>.
+
+<P>
+medium-clipping-region medium
+
+<P>
+The current clipping region for the <I> medium</I> <I> medium</I>.  The drawing
+functions do not affect the drawing plane outside this region.  The
+:clipping-region drawing option temporarily changes the value of
+medium-clipping-region.
+
+<P>
+ 
+(setf medium-clipping-region) region medium
+
+<P>
+Sets the current clipping region for the <I> medium</I> <I> medium</I> to
+<I> region</I>.  <I> region</I> must be a subclass of area.  Furthermore, some
+implementations may signal an error if the clipping region is not a rectangle or
+a region set composed entirely of rectangles.
+
+<P>
+medium-line-style medium
+
+<P>
+The current line style for the <I> medium</I> <I> medium</I>.  The line and arc
+drawing functions render according to this line style.  See
+Section&nbsp;<A HREF="node97.html#line-styles">10.3</A> for a complete description of line styles.  The
+:line-style drawing option temporarily changes the value of
+medium-line-style.
+
+<P>
+ 
+(setf medium-line-style) line-style medium
+
+<P>
+Sets the current line style for the <I> medium</I> <I> medium</I> to the <I> line
+style</I> <I> line-style</I>.
+
+<P>
+medium-default-text-style medium
+
+<P>
+The default text style for the <I> medium</I> <I> medium</I>.
+medium-default-text-style will return a fully specified text style, unlike
+medium-text-style, which may return a text style with null components.  Any
+text styles that are not fully specified by the time they are used for rendering
+are merged against medium-default-text-style using merge-text-styles.
+See Chapter&nbsp;<A HREF="node100.html#text-styles">11</A> for a complete description of text styles.
+
+<P>
+ 
+(setf medium-default-text-style) text-style medium
+
+<P>
+Sets the default text style for the <I> medium</I> <I> medium</I> to the <I> text
+style</I> <I> text-style</I>.  <I> text-style</I> must be a fully specified text style.
+
+<P>
+Some CLIM implementations may arrange to erase and redraw the output on an
+output recording stream when the default text style of the stream is changed.
+Implementations that do this must obey the proper vertical spacing for output
+streams, and must reformat tables, graphs, and so forth, as necessary.  Because
+of the expense of this operation, CLIM implementations are not required to
+support this.
+
+<P>
+medium-text-style medium
+
+<P>
+The current text style for the <I> medium</I> <I> medium</I>.  The text drawing
+functions, including ordinary stream output, render text as directed by this
+text style merged against the default text style.  This controls both graphical
+text (such as that drawn by draw-text*) and stream text (such as that
+written by write-string).  See Chapter&nbsp;<A HREF="node100.html#text-styles">11</A> for a complete
+description of text styles.  The :text-style drawing option temporarily
+changes the value of medium-text-style.
+
+<P>
+ 
+(setf medium-text-style) text-style medium
+
+<P>
+Sets the current text style for the <I> medium</I> <I> medium</I> to the <I> text
+style</I> <I> text-style</I>.  <I> text-style</I> need not be a fully merged text
+style.
+
+<P>
+medium-current-text-style medium
+
+<P>
+The current, fully merged text style for the <I> medium</I> <I> medium</I>.  This
+is the text style that will be used when drawing text output, and is the result
+of merging medium-text-style against medium-default-text-style.
+
+<P>
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2045"
+ HREF="node94.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/icons/next_motif.gif"></A> 
+<A NAME="tex2html2041"
+ HREF="node92.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/icons/up_motif.gif"></A> 
+<A NAME="tex2html2035"
+ HREF="node92.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/icons/previous_motif.gif"></A> 
+<A NAME="tex2html2043"
+ HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/icons/contents_motif.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html2046"
+ HREF="node94.html">Drawing Option Binding Forms</A>
+<B> Up:</B> <A NAME="tex2html2042"
+ HREF="node92.html">Drawing Options</A>
+<B> Previous:</B> <A NAME="tex2html2036"
+ HREF="node92.html">Drawing Options</A>
+ &nbsp <B>  <A NAME="tex2html2044"
+ HREF="node1.html">Contents</A></B> 
+<!--End of Navigation Panel-->
+<ADDRESS>
+<I>&</I>
+<BR><I>2001-06-12</I>
+</ADDRESS>
+</BODY>
+</HTML>

@@ -1,0 +1,305 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 99.1 release (March 30, 1999)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>The Command Processor</TITLE>
+<META NAME="description" CONTENT="The Command Processor">
+<META NAME="keywords" CONTENT="clim">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v99.1 release">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="clim.css">
+
+<LINK REL="previous" HREF="node247.html">
+<LINK REL="up" HREF="node242.html">
+<LINK REL="next" HREF="node249.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html4157"
+ HREF="node249.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/icons/next_motif.gif"></A> 
+<A NAME="tex2html4153"
+ HREF="node242.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/icons/up_motif.gif"></A> 
+<A NAME="tex2html4149"
+ HREF="node247.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/icons/previous_motif.gif"></A> 
+<A NAME="tex2html4155"
+ HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/icons/contents_motif.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html4158"
+ HREF="node249.html">Command Presentation Types</A>
+<B> Up:</B> <A NAME="tex2html4154"
+ HREF="node242.html">Command Processing</A>
+<B> Previous:</B> <A NAME="tex2html4150"
+ HREF="node247.html">Presentation Translator Utilities</A>
+ &nbsp <B>  <A NAME="tex2html4156"
+ HREF="node1.html">Contents</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION08160000000000000000">
+The Command Processor</A>
+</H1>
+
+<P>
+Once a set of commands has been defined, CLIM provides a variety of means to
+read a command.  These are all mediated by the Command Processor.
+
+<P>
+read-command command-table 
+                       <TT> &amp;key </TT>(stream *query-io*)
+                            command-parser command-unparser partial-command-parser
+                            use-keystrokes 
+
+<P>
+read-command is the standard interface used to read a command line.
+<I> stream</I> is an extended input stream, and <I> command-table</I> is a
+<I> command table designator</I>.
+
+<P>
+ 
+<I> command-parser</I> must be a function of two arguments, a command table and a
+stream.  It reads a command from the user and returns a command object.  The
+default value for <I> command-parser</I> is *command-parser*.
+
+<P>
+ 
+<I> command-unparser</I> must be a function of three arguments, a command table, a
+stream, and a command to ``unparse''.  It prints a textual description of the
+command its supplied arguments onto the stream.  The default value for
+<I> command-unparser</I> is *command-unparser*.
+
+<P>
+ 
+<I> partial-command-parser</I> must be a function of four arguments, a command
+table, a stream, a partial command, and a start position.  The partial command
+is a command object with the value of *unsupplied-argument-marker* in place
+of any argument that needs to be filled in.  The function reads the remaining,
+unsupplied arguments in any way it sees fit (for example, via an
+accepting-values dialog), and returns a command object.  The start position
+is the original input-editor scan position of the stream, when the stream is an
+interactive stream.  The default value for <I> partial-command-parser</I> is
+*partial-command-parser*.
+
+<P>
+ 
+<I> command-parser</I>, <I> command-unparser</I>, and <I> partial-command-parser</I>
+have dynamic extent.
+
+<P>
+When <I> use-keystrokes</I> is <I> true</I>, the command reader will also process
+keystroke accelerators.  (Implementations will typically use
+with-command-table-keystrokes and read-command-using-keystrokes to
+implement the case when <I> use-keystrokes</I> is <I> true</I>.)
+
+<P>
+Input editing, while conceptually an independent facility, fits into the command
+processor via its use of accept.  That is, read-command must be
+implemented by calling accept to read command objects, and accept
+itself makes use of the input editing facilities.
+
+<P>
+with-command-table-keystrokes (keystroke-var command-table) <TT> &amp;body </TT>body
+
+<P>
+Binds <I> keystroke-var</I> to a sequence that contains all of the keystroke
+accelerators in <I> command-table</I>'s menu, and then executes <I> body</I> in that
+context.  <I> command-table</I> is a <I> command table designator</I>.  <I> body</I>
+may have zero or more declarations as its first forms.
+
+<P>
+read-command-using-keystrokes command-table keystrokes
+                                        <TT> &amp;key </TT>(stream *query-io*)
+                                             command-parser command-unparser
+                                             partial-command-parser
+
+<P>
+Reads a command from the user via command lines, the pointer, or a single
+keystroke, and returns either a command object, or a keyboard gesture object if
+the user typed a keystroke that is in <I> keystrokes</I> but does not have a
+command associated with it in <I> command-table</I>.
+
+<P>
+ 
+<I> keystrokes</I> is a sequence of keyboard gesture names that are the keystroke
+accelerators.
+
+<P>
+ 
+<I> command-table</I>, <I> stream</I>, <I> command-parser</I>, <I> command-unparser</I>,
+and <I> partial-command-parser</I> are as for read-command.
+
+<P>
+command-line-command-parser command-table stream
+
+<P>
+The default command-line parser.  It reads a command name and the command's
+arguments as a command line from <I> stream</I> (with completion as much as is
+possible), and returns a command object.  <I> command-table</I> is a <I> command
+table designator</I> that specifies the command table to use; the commands are read
+via the textual command-line name.
+
+<P>
+command-line-command-unparser command-table stream command
+
+<P>
+The default command-line unparser.  It prints the command <I> command</I> as a
+command name and its arguments as a command line on <I> stream</I>.
+<I> command-table</I> is a <I> command table designator</I> that specifies the
+command table to use; the commands are displayed using the textual command-line
+name.
+
+<P>
+command-line-read-remaining-arguments-for-partial-command
+       command-table stream partial-command start-position
+
+<P>
+The default partial command-line parser.  If the remaining arguments are at the
+end of the command line, it reads them as a command line, otherwise it
+constructs a dialog using accepting-values and reads the remaining
+arguments from the dialog.  <I> command-table</I> is a <I> command table
+designator</I>. 
+
+<P>
+menu-command-parser command-table stream
+
+<P>
+The default menu-driven command parser.  It uses only pointer clicks to
+construct a command.  It relies on presentations of all arguments being visible.
+<I> command-table</I> and <I> stream</I> are as for command-line-parser.
+
+<P>
+There is no menu-driven command unparser, since it makes no sense to unparse a
+completely menu-driven command.
+
+<P>
+menu-read-remaining-arguments-for-partial-command
+       command-table stream partial-command start-position
+
+<P>
+The default menu-driven partial command parser.  It uses only pointer clicks to
+fill in the command.  Again, it relies on presentations of all arguments being
+visible.  <I> command-table</I> is a <I> command table designator</I>.
+
+<P>
+ 
+*command-parser*
+
+<P>
+Contains the currently active command parsing function.  The default value is
+the function command-line-command-parser, which is the default command-line
+parser.
+
+<P>
+ 
+*command-unparser*
+
+<P>
+Contains the currently active command unparsing function.  The default value is
+the function command-line-command-unparser, which is the default
+command-line unparser.
+
+<P>
+ 
+*partial-command-parser*
+
+<P>
+Contains the currently active partial command parsing function.  The default value
+is the function command-line-read-remaining-arguments-for-partial-command.
+
+<P>
+ 
+*unsupplied-argument-marker*
+
+<P>
+The value of *unsupplied-argument-marker* is an object that can be uniquely
+identified as standing for an unsupplied argument in a command object.
+
+<P>
+ 
+*numeric-argument-marker*
+
+<P>
+The value of *numeric-argument-marker* is an object that can be uniquely
+identified as standing for a numeric argument in a command object.
+
+<P>
+ 
+*command-name-delimiters*
+
+<P>
+This is a list of the characters that separate the command name from the command
+arguments in a command line.  The standard set of command name delimiters must
+include <code>#\Space</code>.
+
+<P>
+ 
+*command-argument-delimiters*
+
+<P>
+This is a list of the characters that separate the command arguments from each
+other in a command line.  The standard set of command argument delimiters must
+include <code>#\Space</code>.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
+
+<UL>
+<LI><A NAME="tex2html4159"
+ HREF="node249.html">Command Presentation Types</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html4157"
+ HREF="node249.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/icons/next_motif.gif"></A> 
+<A NAME="tex2html4153"
+ HREF="node242.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/icons/up_motif.gif"></A> 
+<A NAME="tex2html4149"
+ HREF="node247.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/icons/previous_motif.gif"></A> 
+<A NAME="tex2html4155"
+ HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/icons/contents_motif.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html4158"
+ HREF="node249.html">Command Presentation Types</A>
+<B> Up:</B> <A NAME="tex2html4154"
+ HREF="node242.html">Command Processing</A>
+<B> Previous:</B> <A NAME="tex2html4150"
+ HREF="node247.html">Presentation Translator Utilities</A>
+ &nbsp <B>  <A NAME="tex2html4156"
+ HREF="node1.html">Contents</A></B> 
+<!--End of Navigation Panel-->
+<ADDRESS>
+<I>&</I>
+<BR><I>2001-06-12</I>
+</ADDRESS>
+</BODY>
+</HTML>

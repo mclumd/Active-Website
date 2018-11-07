@@ -1,0 +1,393 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 99.1 release (March 30, 1999)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Typed Input</TITLE>
+<META NAME="description" CONTENT="Typed Input">
+<META NAME="keywords" CONTENT="clim">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v99.1 release">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="clim.css">
+
+<LINK REL="next" HREF="node215.html">
+<LINK REL="previous" HREF="node213.html">
+<LINK REL="up" HREF="node205.html">
+<LINK REL="next" HREF="node215.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html3688"
+ HREF="node215.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/icons/next_motif.gif"></A> 
+<A NAME="tex2html3684"
+ HREF="node205.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/icons/up_motif.gif"></A> 
+<A NAME="tex2html3678"
+ HREF="node213.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/icons/previous_motif.gif"></A> 
+<A NAME="tex2html3686"
+ HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/icons/contents_motif.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html3689"
+ HREF="node215.html">Views</A>
+<B> Up:</B> <A NAME="tex2html3685"
+ HREF="node205.html">Presentation Types</A>
+<B> Previous:</B> <A NAME="tex2html3679"
+ HREF="node213.html">Typed Output</A>
+ &nbsp <B>  <A NAME="tex2html3687"
+ HREF="node1.html">Contents</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION07240000000000000000">
+Typed Input</A>
+</H1>
+
+<P>
+Associating semantics with output is only half of the user interface equation.
+The presentation type system also supports the input side of the user
+interaction.  When an application wishes to solicit from the user input of a
+particular presentation type, it establishes an <I> input context</I><A NAME="25673"></A> for that
+type.  CLIM will then automatically allow the user to satisfy the input request
+by pointing at a visible presentation of the requested type (or a valid subtype)
+and pressing a pointer button.  Only the presentations that ``match'' the input
+context will be ``sensitive'' (that is, highlighted when the pointer is moved
+over them) and accepted as input, this the presentation-based input mechanism
+supports <I> context-dependent input</I><A NAME="25675"></A>.
+
+<P>
+SWM What exactly is an input context?  What does it mean for them to
+be nested?
+
+<P>
+ 
+*input-context*
+
+<P>
+The current input context.  This will be a list, each element of which
+corresponds to a single call to with-input-context.  The first element of
+the list is the context established by the most recent call to
+with-input-context, and the last element is the least recent call to
+with-input-context.
+
+<P>
+The exact format of the elements in the list is unspecified, but will typically
+be a list of a presentation type and a tag that corresponds to the point in the
+control structure of CLIM at which the input context was establish.
+*input-context* and the elements in it may have dynamic extent.
+
+<P>
+with-input-context (type <TT> &amp;key </TT>override)
+                                (<TT> &amp;optional </TT>object-var type-var event-var options-var)
+                                form
+                                <TT> &amp;body </TT>pointer-cases 
+
+<P>
+Establishes an input context of <I> presentation type</I> <I> type</I>; this must
+be done by binding *input-context*.  When the boolean <I> override</I> is
+<I> false</I> (the default), this invocation of with-input-context adds its
+context presentation type to the current context.  In this way an application
+can solicit more than one type of input at the same time.  When <I> override</I>
+is <I> true</I>, it overrides the current input context rather than nesting
+inside the current input context.
+
+<P>
+ 
+<I> type</I> can be a presentation type abbreviation.
+
+<P>
+After establishing the new input context, <I> form</I> is evaluated.  If no
+pointer gestures are made by the user during the evaluation of <I> form</I>, the
+values of <I> form</I> are returned.  Otherwise, one of the <I> pointer-cases</I> is
+executed (based on the presentation type of the object that was clicked on) and
+the value of that is returned.  (See the descriptions of
+call-presentation-menu and throw-highlighted-presentation.)
+<I> pointer-cases</I> is constructed like a typecase statement clause list whose
+keys are presentation types; the first clause whose key satisfies the condition
+(presentation-subtypep <I> type</I> <I> key</I>) is the one that is chosen.
+
+<P>
+During the execution of one of the <I> pointer-cases</I>, <I> object-var</I> is
+bound to the object that was clicked on (the first returned value from the
+presentation translator that was invoked), <I> type-var</I> is bound to its
+presentation type (the second returned value from the translator), and
+<I> event-var</I> is bound to the pointer button event that was used.
+<I> options-var</I> is bound to any options that a presentation translator might
+have returned (the third value from the translator), and will be either nil
+or a list of keyword-value pairs.  <I> object-var</I>, <I> type-var</I>,
+<I> event-var</I>, and <I> options-var</I> must all be symbols.
+
+<P>
+ 
+<I> type</I>, <I> stream</I>, and <I> override</I> are evaluated, the others are not.
+
+<P>
+For example,
+<PRE>
+
+(with-input-context ('pathname)
+                    (path)
+     (read)
+   (pathname
+     (format t "~&amp;The pathname ~A was clicked on." path)))
+</PRE>
+
+<P>
+accept type
+                 <TT> &amp;key </TT>stream view
+                      default default-type provide-default 
+                      insert-default replace-input history
+                      prompt prompt-mode display-default query-identifier
+                      activation-gestures additional-activation-gestures
+                      blip-gestures additional-blip-gestures
+
+<P>
+Requests input of type <I> type</I> from the <I> stream</I> <I> stream</I>, which
+defaults to *query-io*.  accept returns two values, the object
+representing the input and its presentation type.  <I> type</I> is a presentation
+type specifier, and can be an abbreviation.  The other arguments and overall
+behavior of accept are as for accept-internal.
+
+<P>
+accept must be implemented by first expanding any presentation type
+abbreviations (<I> type</I>, <I> default-type</I>, and <I> history</I>), handling the
+interactions between the default, default type, and presentation history,
+prompting the user by calling prompt-for-accept, and then calling
+stream-accept on <I> stream</I>, <I> type</I>, and the remaining keyword
+arguments.
+
+<P>
+stream-accept stream type
+                             <TT> &amp;key </TT>view 
+                                  default default-type provide-default 
+                                  insert-default replace-input history
+                                  prompt prompt-mode display-default query-identifier
+                                  activation-gestures additional-activation-gestures
+                                  blip-gestures additional-blip-gestures
+
+<P>
+stream-accept is the per-stream implementation of accept, analogous to
+the relationship between read-char and stream-read-char.  All extended
+input streams must implement a method for stream-accept.  The default
+method (on standard-extended-input-stream) simply calls accept-internal.
+
+<P>
+The arguments and overall behavior of stream-accept are as for accept-internal.
+
+<P>
+ 
+<B> Rationale:</B> the reason accept is specified as a three-function
+``trampoline'' is to allow close tailoring of the behavior of accept.
+accept itself is the function that should be called by application
+programmers.  CLIM implementors will specialize stream-accept on a
+per-stream basis.  (For example, the behavior of accepting-values can be
+implemented by creating a special class of stream that turns calls to
+accept into fields of a dialog.)  accept-internal is provided as a
+convenient function for the stream-accept methods to call when they require
+the default behavior.
+
+<P>
+accept-internal stream type
+                          <TT> &amp;key </TT>view 
+                               default default-type provide-default 
+                               insert-default replace-input history
+                               prompt prompt-mode display-default query-identifier
+                               activation-gestures additional-activation-gestures
+                               blip-gestures additional-blip-gestures
+
+<P>
+Requests input of type <I> type</I> from the <I> stream</I> <I> stream</I>.
+<I> type</I> must be a presentation type specifier.  <I> view</I> is a view object
+that defaults to stream-default-view of <I> stream</I>.  accept-internal
+returns two values, the object representing the input and its presentation type.
+
+<P>
+accept-internal establishes an input context via with-input-context,
+and then calls the accept presentation method for <I> type</I> and
+<I> view</I>.  When called on an interactive stream, accept must allow input
+editing; see Chapter&nbsp;<A HREF="node231.html#input-editing">24</A> for a discussion of input editing.  The
+call to accept will be terminated when the accept method returns, or
+the user clicks on a sensitive presentation.
+
+<P>
+A top-level accept satisfied by keyboard input discards the terminating
+keyboard gesture (which will be either a blip or an activation gesture).  A
+nested call to accept leaves the terminating gesture unread.
+
+<P>
+If the user clicked on a matching presentation, accept-internal will insert
+the object into the input buffer by calling presentation-replace-input on
+the object and type returned by the presentation translator, unless either the
+boolean <I> replace-input</I> is <I> false</I> or the presentation translator
+returned an :echo option of <I> false</I>.  <I> replace-input</I> defaults to
+<I> true</I>, but this default is overridden by the translator explicitly
+returning an :echo option of <I> false</I>.
+
+<P>
+If <I> default</I> is supplied, then it and <I> default-type</I> are returned as
+values from accept-internal when the input is empty.  <I> default-type</I>
+must be a presentation type specifier.  If <I> default</I> is not supplied and
+<I> provide-default</I> is <I> true</I> (the default is <I> false</I>), then the
+default is determined by taking the most recent item from the presentation type
+history specified by <I> history</I>.  If <I> insert-default</I> is <I> true</I> and
+there is a default, the default will be inserted into the input stream by
+calling presentation-replace-input.
+
+<P>
+ 
+<I> history</I> must be either nil, meaning that no presentation type history
+will be used, or a presentation type (or abbreviation) that names a history to
+be used for the call to accept.  <I> history</I> defaults to <I> type</I>.
+
+<P>
+SWM What is a presentation type history?  Should they be exposed?
+
+<P>
+ 
+<I> prompt</I> can be t, which prompts by describing the type, nil,
+which suppresses prompting, or a string, which is displayed as a prompt (via
+write-string).  The default is t, which produces ``Enter a
+<I> type</I>:'' in a top-level call to accept or ``(<I> type</I>)'' in a nested
+call to accept.
+
+<P>
+If the boolean <I> display-default</I> is <I> true</I>, the default is displayed
+(if one was supplied).  If <I> display-default</I> is <I> false</I>, the default is
+not displayed.  <I> display-default</I> defaults to <I> true</I> if <I> prompt</I>
+was provided, otherwise it defaults to <I> false</I>.
+
+<P>
+ 
+<I> prompt-mode</I> can be :normal (the default) or :raw, which
+suppresses putting a colon after the prompt and/or default in a top-level
+accept and suppresses putting parentheses around the prompt and/or default
+in a nested accept.
+
+<P>
+ 
+<I> query-identifier</I> is used within accepting-values to identify the
+field within the dialog.
+
+<P>
+ 
+<I> activation-gestures</I> is a list of gesture names that will override the
+current activation gestures (which are stored in *activation-gestures*).
+Alternatively, <I> additional-activation-gestures</I> can be supplied to add
+activation gestures without overriding the current ones.  See
+Chapter&nbsp;<A HREF="node231.html#input-editing">24</A> for a discussion of activation gestures.
+
+<P>
+ 
+<I> blip-gestures</I> is a list of gesture names that will override the current
+blip gestures (which are stored in *blip-gestures*).  Alternatively,
+<I> additional-blip-gestures</I> can be supplied to add blip gestures without
+overriding the current ones.  See Chapter&nbsp;<A HREF="node231.html#input-editing">24</A> for a discussion
+of blip gestures.
+
+<P>
+accept-from-string type string <TT> &amp;key </TT>view default default-type start end
+
+<P>
+Like accept, except that the input is taken from <I> string</I>, starting at
+the position specified by <I> start</I> and ending at <I> end</I>.  <I> view</I>,
+<I> default</I>, and <I> default-type</I> are as for accept.
+
+<P>
+accept-from-string returns an object and a presentation type (as in
+accept), but also returns a third value, the index at which input
+terminated.
+
+<P>
+prompt-for-accept stream type <TT> &amp;rest </TT>accept-args <TT> &amp;key </TT>
+
+<P>
+Called by accept to prompt the user for input of <I> presentation type</I>
+<I> type</I> on the <I> stream</I> <I> stream</I>.  <I> accept-args</I> are all of the
+keyword arguments supplied to accept.  The default method (on
+standard-extended-input-stream) simply calls
+prompt-for-accept-internal.
+
+<P>
+prompt-for-accept-internal stream type
+                                     <TT> &amp;key </TT>default default-type display-default
+                                          prompt prompt-mode
+                                     <TT> &amp;allow-other-keys </TT>
+
+<P>
+Prompts the user for input of <I> presentation type</I> <I> type</I> on the
+<I> stream</I> <I> stream</I>.
+
+<P>
+If the boolean <I> display-default</I> is <I> true</I>, then the default is
+displayed; otherwise, the default is not displayed.  When the default is being
+displayed, <I> default</I> and <I> default-type</I> are the taken as the object and
+presentation type of the default to display. <I> display-default</I> defaults to
+<I> true</I> if <I> prompt</I> is non-nil, otherwise it defaults to
+<I> false</I>.
+
+<P>
+If <I> prompt</I> is nil, no prompt is displayed.  If it is a string, that
+string is displayed as the prompt.  If <I> prompt</I> is t (the default), the
+prompt is generated by calling describe-presentation-type to produce a
+prompt of the form ``Enter a <I> type</I>:'' in a top-level call to accept,
+or ``(<I> type</I>)'' in a nested call to accept.
+
+<P>
+ 
+<I> prompt-mode</I> can be :normal (the default) or :raw, which
+suppresses putting a colon after the prompt and/or default in a top-level
+accept and suppresses putting parentheses around the prompt and/or default
+in a nested accept.
+
+<P>
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html3688"
+ HREF="node215.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/icons/next_motif.gif"></A> 
+<A NAME="tex2html3684"
+ HREF="node205.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/icons/up_motif.gif"></A> 
+<A NAME="tex2html3678"
+ HREF="node213.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/icons/previous_motif.gif"></A> 
+<A NAME="tex2html3686"
+ HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/icons/contents_motif.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html3689"
+ HREF="node215.html">Views</A>
+<B> Up:</B> <A NAME="tex2html3685"
+ HREF="node205.html">Presentation Types</A>
+<B> Previous:</B> <A NAME="tex2html3679"
+ HREF="node213.html">Typed Output</A>
+ &nbsp <B>  <A NAME="tex2html3687"
+ HREF="node1.html">Contents</A></B> 
+<!--End of Navigation Panel-->
+<ADDRESS>
+<I>&</I>
+<BR><I>2001-06-12</I>
+</ADDRESS>
+</BODY>
+</HTML>

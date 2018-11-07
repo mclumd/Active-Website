@@ -1,0 +1,182 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 99.1 release (March 30, 1999)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Text Protocol</TITLE>
+<META NAME="description" CONTENT="Text Protocol">
+<META NAME="keywords" CONTENT="clim">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v99.1 release">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="clim.css">
+
+<LINK REL="next" HREF="node156.html">
+<LINK REL="previous" HREF="node150.html">
+<LINK REL="up" HREF="node147.html">
+<LINK REL="next" HREF="node154.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2857"
+ HREF="node154.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/icons/next_motif.gif"></A> 
+<A NAME="tex2html2853"
+ HREF="node147.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/icons/up_motif.gif"></A> 
+<A NAME="tex2html2847"
+ HREF="node152.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/icons/previous_motif.gif"></A> 
+<A NAME="tex2html2855"
+ HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/icons/contents_motif.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html2858"
+ HREF="node154.html">Mixing Text and Graphics</A>
+<B> Up:</B> <A NAME="tex2html2854"
+ HREF="node147.html">Extended Stream Output</A>
+<B> Previous:</B> <A NAME="tex2html2848"
+ HREF="node152.html">Stream Text Cursor Protocol</A>
+ &nbsp <B>  <A NAME="tex2html2856"
+ HREF="node1.html">Contents</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION06140000000000000000">
+Text Protocol</A>
+</H1>
+
+<P>
+The following generic functions comprise the text protocol.  Any extended output
+stream class must implement methods for these generic functions.
+
+<P>
+stream-character-width stream character <TT> &amp;key </TT>text-style
+
+<P>
+Returns a rational number corresponding to the amount of horizontal motion of
+the cursor position that would occur if the character <I> character</I> were
+output to the <I> extended output stream</I> <I> stream</I> in the <I> text
+style</I> <I> text-style</I> (which defaults to the current text style for the
+stream).  This ignores the stream's text margin.
+
+<P>
+stream-string-width stream character <TT> &amp;key </TT>start end text-style
+
+<P>
+Computes how the cursor position would move horizontally if the string
+<I> string</I> were output to the <I> extended output stream</I> <I> stream</I> in
+the <I> text style</I> <I> text-style</I> (which defaults to the current text style
+for the stream) starting at the left margin.  This ignores the stream's text
+margin.
+
+<P>
+The first returned value is the 1#1 coordinate that the cursor position would
+move to.  The second returned value is the maximum 1#1 coordinate the cursor
+would visit during the output. (This is the same as the first value unless the
+string contains a <code>#\Newline</code> character.)
+
+<P>
+ 
+<I> start</I> and <I> end</I> are integers, and default to 0 and the length of the
+string, respectively.
+
+<P>
+stream-text-margin stream
+(setf stream-text-margin) new-margin stream
+
+<P>
+The 1#1 coordinate at which text wraps around on the <I> extended output
+stream</I> <I> stream</I> (see stream-end-of-line-action).  The default setting
+is the width of the viewport, which is the right-hand edge of the viewport when
+it is horizontally scrolled to the ``initial position''.
+
+<P>
+You can use setf with stream-text-margin to establish a new text
+margin.  If <I> new-margin</I> is nil, then the width of the viewport will be
+used.  If the width of the viewport is later changed, the text margin will
+change, too.
+
+<P>
+stream-line-height stream <TT> &amp;key </TT>text-style
+
+<P>
+Returns what the line height of a line on the <I> extended output stream</I>
+<I> stream</I> containing text in the <I> text style</I> <I> text-style</I> would be,
+as a rational number.  <I> text-style</I> defaults to the current text style for
+the stream.
+
+<P>
+stream-vertical-spacing stream
+
+<P>
+Returns the current inter-line spacing (as a rational number) for the
+<I> extended output stream</I> <I> stream</I>.
+
+<P>
+stream-baseline stream
+
+<P>
+Returns the current text baseline (as a rational number) for the <I> extended
+output stream</I> <I> stream</I>.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
+
+<UL>
+<LI><A NAME="tex2html2859"
+ HREF="node154.html">Mixing Text and Graphics</A>
+<LI><A NAME="tex2html2860"
+ HREF="node155.html">Wrapping of Text</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2857"
+ HREF="node154.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/icons/next_motif.gif"></A> 
+<A NAME="tex2html2853"
+ HREF="node147.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/icons/up_motif.gif"></A> 
+<A NAME="tex2html2847"
+ HREF="node152.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/icons/previous_motif.gif"></A> 
+<A NAME="tex2html2855"
+ HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/icons/contents_motif.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html2858"
+ HREF="node154.html">Mixing Text and Graphics</A>
+<B> Up:</B> <A NAME="tex2html2854"
+ HREF="node147.html">Extended Stream Output</A>
+<B> Previous:</B> <A NAME="tex2html2848"
+ HREF="node152.html">Stream Text Cursor Protocol</A>
+ &nbsp <B>  <A NAME="tex2html2856"
+ HREF="node1.html">Contents</A></B> 
+<!--End of Navigation Panel-->
+<ADDRESS>
+<I>&</I>
+<BR><I>2001-06-12</I>
+</ADDRESS>
+</BODY>
+</HTML>

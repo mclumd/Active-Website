@@ -1,0 +1,296 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 99.1 release (March 30, 1999)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Presentation Type Functions</TITLE>
+<META NAME="description" CONTENT="Presentation Type Functions">
+<META NAME="keywords" CONTENT="clim">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v99.1 release">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="clim.css">
+
+<LINK REL="previous" HREF="node211.html">
+<LINK REL="up" HREF="node208.html">
+<LINK REL="next" HREF="node213.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html3664"
+ HREF="node213.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/icons/next_motif.gif"></A> 
+<A NAME="tex2html3660"
+ HREF="node208.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/icons/up_motif.gif"></A> 
+<A NAME="tex2html3656"
+ HREF="node211.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/icons/previous_motif.gif"></A> 
+<A NAME="tex2html3662"
+ HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/icons/contents_motif.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html3665"
+ HREF="node213.html">Typed Output</A>
+<B> Up:</B> <A NAME="tex2html3661"
+ HREF="node208.html">Presentation Types</A>
+<B> Previous:</B> <A NAME="tex2html3657"
+ HREF="node211.html">Presentation Methods</A>
+ &nbsp <B>  <A NAME="tex2html3663"
+ HREF="node1.html">Contents</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H2><A NAME="SECTION07224000000000000000">
+Presentation Type Functions</A>
+</H2>
+
+<P>
+describe-presentation-type type <TT> &amp;optional </TT>stream plural-count
+
+<P>
+Describes the <I> presentation type specifier</I> <I> type</I> on the <I> stream</I>
+<I> stream</I>, which defaults to *standard-output*.  If <I> stream</I> is
+nil, a string containing the description is returned.  <I> plural-count</I>
+is either nil (meaning that the description should be the singular form of
+the name), t (meaning that the description should the plural form of the
+name), or an integer greater than zero (the number of items to be described).
+The default is 1.
+
+<P>
+ 
+<I> type</I> can be a presentation type abbreviation.
+
+<P>
+presentation-type-parameters type-name <TT> &amp;optional </TT>env
+
+<P>
+Returns a lambda-list, the parameters specified when the presentation type or
+presentation type abbreviation whose name is <I> type-name</I> was defined.
+<I> type-name</I> is a symbol or a class.  <I> env</I> is a macro-expansion
+environment, as in find-class.
+
+<P>
+presentation-type-options type-name <TT> &amp;optional </TT>env
+
+<P>
+Returns the list of options specified when the presentation type or presentation
+type abbreviation whose name is <I> type-name</I> was defined.  This does not
+include the standard options unless the presentation-type definition mentioned
+them explicitly.  <I> type-name</I> is a symbol or a class.  <I> env</I> is a
+macro-expansion environment, as in find-class.
+
+<P>
+with-presentation-type-decoded (name-var <TT> &amp;optional </TT>parameters-var options-var) 
+                                            type
+                                            <TT> &amp;body </TT>body
+
+<P>
+The specified variables are bound to the components of the presentation type
+specifier produced by evaluating <I> type</I>, the forms in <I> body</I> are
+executed, and the values of the last form are returned.  <I> name-var</I>, if
+non-nil, is bound to the presentation type name.  <I> parameters-var</I>, if
+non-nil, is bound to a list of the parameters.  <I> options-var</I>, if
+non-nil, is bound to a list of the options.  When supplied, <I> name-var</I>,
+<I> parameters-var</I>, and <I> options-var</I> must be symbols.
+
+<P>
+The <I> name-var</I>, <I> parameters-var</I>, and <I> options-var</I> arguments are
+not evaluated.  <I> body</I> may have zero or more declarations as its first
+forms. 
+
+<P>
+with-presentation-type-parameters (type-name type) <TT> &amp;body </TT>body
+
+<P>
+Variables with the same name as each parameter in the definition of the
+presentation type are bound to the parameter values in <I> type</I>, if present,
+or else to the defaults specified in the definition of the presentation type.
+The forms in <I> body</I> are executed in the scope of these variables and the
+values of the last form are returned.
+
+<P>
+The value of the form <I> type</I> must be a presentation type specifier whose
+name is <I> type-name</I>.  The <I> type-name</I> and <I> type</I> arguments are not
+evaluated.  <I> body</I> may have zero or more declarations as its first forms.
+
+<P>
+with-presentation-type-options (type-name type) <TT> &amp;body </TT>body
+
+<P>
+Variables with the same name as each option in the definition of the
+presentation type are bound to the option values in <I> type</I>, if present, or
+else to the defaults specified in the definition of the presentation type.  The
+forms in <I> body</I> are executed in the scope of these variables and the values
+of the last form are returned.
+
+<P>
+The value of the form <I> type</I> must be a presentation type specifier whose
+name is <I> type-name</I>.  The <I> type-name</I> and <I> type</I> arguments are not
+evaluated.  <I> body</I> may have zero or more declarations as its first forms.
+
+<P>
+presentation-type-specifier-p object
+
+<P>
+Returns <I> true</I> if <I> object</I> is a valid <I> presentation type
+specifier</I>, otherwise returns <I> false</I>.
+
+<P>
+presentation-typep object type
+
+<P>
+Returns <I> true</I> if <I> object</I> is of the presentation type specified by the
+<I> presentation type specifier</I> <I> type</I>, otherwise returns <I> false</I>.
+
+<P>
+ 
+<I> type</I> may not be a presentation type abbreviation.
+
+<P>
+This is analogous to the Common Lisp typep function.
+
+<P>
+presentation-type-of object
+
+<P>
+Returns a presentation type of which <I> object</I> is a member.
+presentation-type-of returns the most specific presentation type that can
+be conveniently computed and is likely to be useful to the programmer.  If
+presentation-type-of cannot determine the presentation type of the object,
+it may return either expression or t.
+
+<P>
+This is analogous to the Common Lisp typep function.
+
+<P>
+presentation-subtypep type putative-supertype
+
+<P>
+Answers the question ``is the type specified by the <I> presentation type
+specifier</I> <I> type</I> a subtype of the type specified by the <I> presentation
+type specifier</I> <I> putative-supertype</I>?''.  presentation-subtypep returns
+two values, <I> subtypep</I> and <I> known-p</I>.  When <I> known-p</I> is
+<I> true</I>, <I> subtypep</I> can be either <I> true</I> (meaning that <I> type</I>
+is definitely a subtype of <I> putative-supertype</I>) or <I> false</I> (meaning
+that <I> type</I> is definitely not a subtype of <I> putative-supertype</I>).  When
+<I> known-p</I> is <I> false</I>, then <I> subtypep</I> must also be <I> false</I>;
+this means that the answer cannot reliably be determined.
+
+<P>
+ 
+<I> type</I> may not be a presentation type abbreviation.
+
+<P>
+This is analogous to the Common Lisp subtypep function.
+
+<P>
+map-over-presentation-type-supertypes function type
+
+<P>
+Calls the function <I> function</I> on the <I> presentation type specifier</I>
+<I> type</I> and each of its supertypes.  <I> function</I> is called with two
+arguments, the name of a type and a presentation type specifier for that type
+with the parameters and options filled in.  <I> function</I> has dynamic extent;
+its two arguments are permitted to have dynamic extent.  The traversal of the
+type lattice is done in the order specified by the CLOS class precedence rules,
+and visits each type in the lattice exactly once.
+
+<P>
+presentation-type-direct-supertypes type
+
+<P>
+Returns a sequence consisting of the names of all of the presentation types that
+are direct supertypes of the <I> presentation type specifier</I> <I> type</I>, or
+nil if <I> type</I> has no supertypes.  The consequences of modifying the
+returned sequence are unspecified.
+
+<P>
+find-presentation-type-class name <TT> &amp;optional </TT>(errorp t) environment
+
+<P>
+Returns the class corresponding to the presentation type named <I> name</I>, which
+must be a symbol or a class object.  <I> errorp</I> and <I> environment</I> are as
+for find-class.
+
+<P>
+class-presentation-type-name class <TT> &amp;optional </TT>environment
+
+<P>
+Returns the presentation type name corresponding to the class <I> class</I>.  This
+is essentially the inverse of find-presentation-type-class.
+<I> environment</I> is as for find-class.
+
+<P>
+default-describe-presentation-type description stream plural-count
+
+<P>
+Performs the default actions for describe-presentation-type, notably
+pluralization and prepending an indefinite article if appropriate.
+<I> description</I> is a string or a symbol, typically the :description
+presentation type option or the :description option to
+define-presentation-type.  <I> plural-count</I> is as for
+describe-presentation-type.
+
+<P>
+make-presentation-type-specifier type-name-and-parameters <TT> &amp;rest </TT>options
+
+<P>
+A convenient way to assemble a presentation type specifier with only non-default
+options included.  This is only useful for abbreviation expanders, not for
+:inherit-from.  <I> type-name-and-parameters</I> is a presentation type
+specifier, which must be in the (<I> type-name</I> <I> parameters...</I>) form.
+<I> options</I> are alternating keywords and values that are added as options to
+the presentation type specifier, except that if a value is equal to
+<I> type-name</I>'s default, that option is omitted, producing a more concise
+presentation type specifier.
+
+<P>
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html3664"
+ HREF="node213.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/icons/next_motif.gif"></A> 
+<A NAME="tex2html3660"
+ HREF="node208.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/icons/up_motif.gif"></A> 
+<A NAME="tex2html3656"
+ HREF="node211.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/icons/previous_motif.gif"></A> 
+<A NAME="tex2html3662"
+ HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/icons/contents_motif.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html3665"
+ HREF="node213.html">Typed Output</A>
+<B> Up:</B> <A NAME="tex2html3661"
+ HREF="node208.html">Presentation Types</A>
+<B> Previous:</B> <A NAME="tex2html3657"
+ HREF="node211.html">Presentation Methods</A>
+ &nbsp <B>  <A NAME="tex2html3663"
+ HREF="node1.html">Contents</A></B> 
+<!--End of Navigation Panel-->
+<ADDRESS>
+<I>&</I>
+<BR><I>2001-06-12</I>
+</ADDRESS>
+</BODY>
+</HTML>

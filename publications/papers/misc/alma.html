@@ -1,0 +1,158 @@
+<html>
+<head><title>ALMA</title></head>
+
+<body bgcolor=whitesmoke>
+
+<h1>Dialogue System</h1>
+
+<hr>
+<h2>Conversational Adequacy</h2>
+
+One major ongoing application of <a
+href="http://www.cs.umd.edu/projects/active">active logics</a> is that of
+building a "conversationally adequate" dialogue agent (see paper on <a
+href="http://www.cs.umd.edu/projects/active/doc/conversational-adequacy/ver1_ss.html">
+Conversational Adequacy</a> -- one can view such an agent as having the
+ability to learn in McCarthy's sense of advice-taking, via
+conversation).<p>
+
+The long-range research plan envisions the following steps:
+
+<ol>
+<li>Process a few simple queries via voice input, requiring the use of
+    negative introspection, in the context of the Rochester TRAINS system
+    rewritten to employ active logic;
+<li>Handle apparent contradictions as in "Send the Boston train to NYC...
+    [here the system does something]... No, send the Boston train to NYC"
+    where the system has misunderstood the first request and so the user
+    says "no" and repeats the same request. This requires the system to
+    recognize that "no" refers to the systems response rather than to the
+    user's first request;
+<li>Understand and generate spelling in metadialogue ("The word I am saying
+   is spelled 'xyz'...");
+<li>Definitions and/or definitional queries ("What does the word 'xyz'
+    mean?");
+<li>More general metadialogue: You said, I said, you meant, I meant, etc.;
+<li>Reasoning about the physical and social worlds;
+<li>Focus, attention and memory;
+<li><a
+    href="http://www.cs.umd.edu/projects/active/doc/conversational-adequacy/ver1_ss.html">
+    Conversational adequacy</a>.
+</ol>
+
+<!--
+We recognize that this is a very daunting list of abilities; currently
+we're nearly done with step 1 and preparing to address step 2.
+-->
+
+<hr>
+<h2>Implementation</h2>
+
+<img
+src="http://www.cs.umd.edu/projects/active/doc/dialogue-system/diagram.gif"
+alt="" vspace=30 hspace=30 height=384 align=right>
+
+<ul>
+<li>
+<h3>Alma-Carne</h3>
+
+Alma is an <a href="http://www.cs.umd.edu/projects/active">active logic</a>
+execution system. The major parts are the database and a set of inference
+rules. The database evolves through discrete states by applications of the
+inference rules and addition of information from external sources through
+the Carne process. This process repeats indefinitely.<p>
+
+A ``theory'' of the domain that is being reasoned about can be loaded into
+Alma when it is started and the external information can be added by
+separate processes or by the user at the interface. The contents of the
+database can be viewed at the interface. The evolution of the database can
+be recorded in a history file. We should have a query function too.<p>
+
+The Alma language has terms corresponding to the current time and the times
+at which formulas were derived. Formulas in the language can also be used
+as terms. A built in inference rule detects direct contradictions in the
+Alma database, removes them and asserts that there has been a
+contradiction. This enables the user to reason about inconsistencies in the
+database without the consequences of the contradiction spoiling the whole
+database.<p>
+
+Alma together with Carne can be used to specify the behavior of an agent
+that can reason about and in a dynamic environment using the theory in Alma
+and act and observe that environment using the procedures in Carne.<p>
+
+<li>
+<h3>Software and Manuals</h3>
+<ul>
+<li>Complete manual
+    <a href="http://www.cs.umd.edu/projects/active/alma/description.ps">
+      (description.ps).
+    </a>
+<li>Executable for Sun Solaris: 
+    <a href="http://disco.cs.umd.edu:8000/systems/alma/alma">
+      alma
+    </a> and
+    <a href="http://disco.cs.umd.edu:8000/systems/alma/alma.nolib">
+      alma.nolib
+    </a>
+<li><a href="http://disco.cs.umd.edu:8000/kpurang/examples/">
+      Examples
+    </a>
+    <a href="http://www.cs.umd.edu/projects/active/alma/examples.tar">
+      (examples.tar).
+    </a>
+<li><a href="http://disco.cs.umd.edu:8000/systems/alma/Alma/">
+      Source code
+    </a><a href="http://disco.cs.umd.edu:8000/systems/alma/Alma.tgz">
+      (Alma.tgz), 
+    </a>
+    <a href="http://disco.cs.umd.edu:8000/systems/alma/doc/index.html">
+      additional doc, 
+    </a>  
+      etc.
+</ul>
+</ul>
+
+<hr>
+<h2>Related Publications</h2> 
+<ul>
+
+  <li>D. Traum and C. Andersen.  <a
+    href=http://www.cs.umd.edu/projects/active/papers/ijcai99-dialog.ps>
+    Representations of dialogue state for domain and task independent
+    meta-dialogue.  </a> In <em> Working notes of the IJCAI99 Workshop:
+    Knowledge And Reasoning in Practical Dialogue Systems . </em>
+    1999.</li>
+
+  <li>C. Andersen, D. Traum, K. Purang, D. Purushothaman and D. Perlis.  <a
+    href=http://www.cs.umd.edu/projects/active/papers/mixinit.ps> Mixed
+    Initiative Dialogue and Intelligence via Active Logic,.  </a> In <em>
+    Proceedings of the AAAI'99 Workshop on Mixed-Initiative
+    Intelligence. </em> 1999.</li>
+
+  <li>D. Perlis, K. Purang and C. Andersen.  <a
+    href=http://www.cs.umd.edu/projects/active/papers/lang/mnm-si.ps.Z>
+    Conversational Adequacy: Mistakes are the essense.  </a> <em>
+    International Journal of Human Computer Studies/Knowledg
+    Acquisition. </em> 1998.</li>
+
+  <li>D. Perlis and K. Purang.  <a
+    href=http://www.cs.umd.edu/projects/active/papers/lang/mnm.ps>
+    Conversational Adequacy: Mistakes are the Essense.  </a> <em> AAAI 96
+    Workshop on Detecting, Repairing, and Preventing Human-Machine
+    Miscommunication. </em> 1996.</li>
+
+  <li>D. Perlis.  <a
+    href=http://www.cs.umd.edu/projects/active/papers/inconsis.ps> Sources
+    of, and exploiting, inconsistency: preliminary report.  </a> <em>
+    Technical report, University of Maryland at College Park.  </em>
+    1996.</li>
+
+  <li><a
+    href="http://www.cs.umd.edu/projects/active/papers/htmlbibdec99.html">List
+    of all Active Logic papers.</a></li>
+</ul>
+
+<hr>
+Mon Oct  2 11:57:04 EDT 2000
+</body>
+</html>

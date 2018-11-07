@@ -1,0 +1,161 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 99.1 release (March 30, 1999)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Patterns and Stencils</TITLE>
+<META NAME="description" CONTENT="Patterns and Stencils">
+<META NAME="keywords" CONTENT="clim">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v99.1 release">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="clim.css">
+
+<LINK REL="next" HREF="node137.html">
+<LINK REL="previous" HREF="node135.html">
+<LINK REL="up" HREF="node134.html">
+<LINK REL="next" HREF="node137.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2595"
+ HREF="node137.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/icons/next_motif.gif"></A> 
+<A NAME="tex2html2591"
+ HREF="node134.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/icons/up_motif.gif"></A> 
+<A NAME="tex2html2585"
+ HREF="node135.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/icons/previous_motif.gif"></A> 
+<A NAME="tex2html2593"
+ HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/icons/contents_motif.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html2596"
+ HREF="node137.html">Tiling</A>
+<B> Up:</B> <A NAME="tex2html2592"
+ HREF="node134.html">Patterned Designs</A>
+<B> Previous:</B> <A NAME="tex2html2586"
+ HREF="node135.html">The Compositing Protocol</A>
+ &nbsp <B>  <A NAME="tex2html2594"
+ HREF="node1.html">Contents</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION05520000000000000000">
+Patterns and Stencils</A>
+</H1>
+
+<P>
+ 
+<I> Patterning</I><A NAME="15533"></A> creates a bounded rectangular arrangement of designs, like
+a checkerboard.  Drawing a pattern draws a different design in each rectangular
+cell of the pattern.  To create an infinite pattern, apply
+make-rectangular-tile to a pattern.
+
+<P>
+A <I> stencil</I><A NAME="15535"></A> is a special kind of pattern that contains only opacities.
+
+<P>
+make-pattern array designs
+
+<P>
+Returns a pattern design that has (array-dimension <I> array</I> 0) cells in
+the vertical direction and (array-dimension <I> array</I> 1) cells in the
+horizontal direction.  <I> array</I> must be a two-dimensional array of
+non-negative integers less than the length of <I> designs</I>.  <I> designs</I> must
+be a sequence of <I> designs</I>.  The design in cell 76#76 of the resulting
+pattern is the 77#77th element of <I> designs</I>, if 77#77 is the value of (aref
+<I> array</I> i j).  For example, <I> array</I> can be a bit-array and
+<I> designs</I> can be a list of two designs, the design drawn for 0 and the one
+drawn for 1.
+
+<P>
+Each cell of a pattern can be regarded as a hole that allows the design in it to
+show through.  Each cell might have a different design in it.  The portion of
+the design that shows through a hole is the portion on the part of the drawing
+plane where the hole is located.  In other words, incorporating a design into a
+pattern does not change its alignment to the drawing plane, and does not apply a
+coordinate transformation to the design.  Drawing a pattern collects the pieces
+of designs that show through all the holes and draws the pieces where the holes
+lie on the drawing plane.  The pattern is completely transparent outside the
+area defined by the array.
+
+<P>
+Each cell of a pattern occupies a 1 by 1 square.  You can use
+transform-region to scale the pattern to a different cell size and shape,
+or to rotate the pattern so that the rectangular cells become diamond-shaped.
+Applying a coordinate transformation to a pattern does not affect the designs
+that make up the pattern.  It only changes the position, size, and shape of the
+cells' holes, allowing different portions of the designs in the cells to show
+through.  Consequently, applying make-rectangular-tile to a pattern of
+nonuniform designs can produce a different appearance in each tile.  The pattern
+cells' holes are tiled, but the designs in the cells are not tiled and a
+different portion of each of those designs shows through in each tile.
+
+<P>
+This function is permitted to capture its mutable inputs; the
+consequences of modifying those objects are unspecified. 
+<P>
+make-stencil array
+
+<P>
+Returns a pattern design that has (array-dimension <I> array</I> 0) cells in
+the vertical direction and (array-dimension <I> array</I> 1) cells in the
+horizontal direction.  <I> array</I> must be a two-dimensional array of real
+numbers between 0 and 1 (inclusive) that represent opacities.  The design in
+cell 76#76 of the resulting pattern is the value of (make-opacity (aref
+<I> array</I> i j)).
+
+<P>
+This function is permitted to capture its mutable inputs; the
+consequences of modifying those objects are unspecified. 
+<P>
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2595"
+ HREF="node137.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/icons/next_motif.gif"></A> 
+<A NAME="tex2html2591"
+ HREF="node134.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/icons/up_motif.gif"></A> 
+<A NAME="tex2html2585"
+ HREF="node135.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/icons/previous_motif.gif"></A> 
+<A NAME="tex2html2593"
+ HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/icons/contents_motif.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html2596"
+ HREF="node137.html">Tiling</A>
+<B> Up:</B> <A NAME="tex2html2592"
+ HREF="node134.html">Patterned Designs</A>
+<B> Previous:</B> <A NAME="tex2html2586"
+ HREF="node135.html">The Compositing Protocol</A>
+ &nbsp <B>  <A NAME="tex2html2594"
+ HREF="node1.html">Contents</A></B> 
+<!--End of Navigation Panel-->
+<ADDRESS>
+<I>&</I>
+<BR><I>2001-06-12</I>
+</ADDRESS>
+</BODY>
+</HTML>

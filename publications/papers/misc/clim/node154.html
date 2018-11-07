@@ -1,0 +1,132 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 99.1 release (March 30, 1999)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Mixing Text and Graphics</TITLE>
+<META NAME="description" CONTENT="Mixing Text and Graphics">
+<META NAME="keywords" CONTENT="clim">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v99.1 release">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="clim.css">
+
+<LINK REL="next" HREF="node155.html">
+<LINK REL="previous" HREF="node153.html">
+<LINK REL="up" HREF="node153.html">
+<LINK REL="next" HREF="node155.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2871"
+ HREF="node155.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/icons/next_motif.gif"></A> 
+<A NAME="tex2html2867"
+ HREF="node153.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/icons/up_motif.gif"></A> 
+<A NAME="tex2html2861"
+ HREF="node153.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/icons/previous_motif.gif"></A> 
+<A NAME="tex2html2869"
+ HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/icons/contents_motif.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html2872"
+ HREF="node155.html">Wrapping of Text</A>
+<B> Up:</B> <A NAME="tex2html2868"
+ HREF="node153.html">Text Protocol</A>
+<B> Previous:</B> <A NAME="tex2html2862"
+ HREF="node153.html">Text Protocol</A>
+ &nbsp <B>  <A NAME="tex2html2870"
+ HREF="node1.html">Contents</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H2><A NAME="SECTION06141000000000000000">
+Mixing Text and Graphics</A>
+</H2>
+
+<P>
+The following macro provides a convenient way to mix text and graphics on the
+same output stream.
+
+<P>
+with-room-for-graphics (<TT> &amp;optional </TT>stream
+                                     <TT> &amp;key </TT>(move-cursor t) height record-type)
+                                    <TT> &amp;body </TT>body
+
+<P>
+Binds the dynamic environment to establish a local Cartesian coordinate system
+for doing graphics output onto the <I> extended output stream</I> designated by
+<I> stream</I>.  The origin 31#31 of the local coordinate system is placed at
+the current cursor position, and is in the lower left corner of the area
+created.  If the boolean <I> move-cursor</I> is <I> true</I> (the default), then
+after the graphic output is completed, the cursor is positioned past
+(immediately below) this origin.  The bottom of the vertical block allocated is
+at this location (that is, just below point 31#31, not necessarily at the
+bottom of the output done).
+
+<P>
+The <I> stream</I> argument is not evaluated, and must be a symbol that is bound
+to a stream.  If <I> stream</I> is t (the default), *standard-output* is
+used.  <I> body</I> may have zero or more declarations as its first forms.
+
+<P>
+If <I> height</I> is supplied, it must be a rational number that specifies the
+amount of vertical space to allocate for the output, in device units. If it is
+not supplied, the height is computed from the output.
+
+<P>
+ 
+<I> record-type</I> specifies the class of output record to create to hold the
+graphical output.  The default is standard-sequence-output-record.
+
+<P>
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2871"
+ HREF="node155.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/icons/next_motif.gif"></A> 
+<A NAME="tex2html2867"
+ HREF="node153.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/icons/up_motif.gif"></A> 
+<A NAME="tex2html2861"
+ HREF="node153.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/icons/previous_motif.gif"></A> 
+<A NAME="tex2html2869"
+ HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/icons/contents_motif.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html2872"
+ HREF="node155.html">Wrapping of Text</A>
+<B> Up:</B> <A NAME="tex2html2868"
+ HREF="node153.html">Text Protocol</A>
+<B> Previous:</B> <A NAME="tex2html2862"
+ HREF="node153.html">Text Protocol</A>
+ &nbsp <B>  <A NAME="tex2html2870"
+ HREF="node1.html">Contents</A></B> 
+<!--End of Navigation Panel-->
+<ADDRESS>
+<I>&</I>
+<BR><I>2001-06-12</I>
+</ADDRESS>
+</BODY>
+</HTML>

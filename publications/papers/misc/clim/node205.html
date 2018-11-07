@@ -1,0 +1,218 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 99.1 release (March 30, 1999)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Presentation Types</TITLE>
+<META NAME="description" CONTENT="Presentation Types">
+<META NAME="keywords" CONTENT="clim">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v99.1 release">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="clim.css">
+
+<LINK REL="next" HREF="node231.html">
+<LINK REL="previous" HREF="node196.html">
+<LINK REL="up" HREF="node195.html">
+<LINK REL="next" HREF="node206.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html3554"
+ HREF="node206.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/icons/next_motif.gif"></A> 
+<A NAME="tex2html3550"
+ HREF="node195.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/icons/up_motif.gif"></A> 
+<A NAME="tex2html3544"
+ HREF="node204.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/icons/previous_motif.gif"></A> 
+<A NAME="tex2html3552"
+ HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/icons/contents_motif.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html3555"
+ HREF="node206.html">Presentations</A>
+<B> Up:</B> <A NAME="tex2html3551"
+ HREF="node195.html">Extended Stream Input Facilities</A>
+<B> Previous:</B> <A NAME="tex2html3545"
+ HREF="node204.html">Gesture Preprocessing</A>
+ &nbsp <B>  <A NAME="tex2html3553"
+ HREF="node1.html">Contents</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION07200000000000000000"></A>
+<A NAME="presentation-types"></A>
+<BR>
+Presentation Types
+</H1>
+
+<P>
+The core around which the CLIM application user interface model is built is the
+concept of the application-defined user interface data type.  Each application
+has its own set of semantically significant user interface entities; a CAD
+program for designing circuits has its various kinds of components (gates,
+resistors, and so on), while a database manager has its relations and field
+types.  These entities have to be displayed to the user (possibly in more than
+one displayed representation) and the user has to be able to interact with and
+specify the entities via pointer gestures and keyboard input.  Frequently each
+user interface entity has a corresponding Lisp data type (such as an
+application-specific structure or CLOS class definition), but this is not always
+the case.  The data representation for an interaction entity may be a primitive
+Lisp data type.  In fact, it is possible for several different user interface
+entities to use the same Lisp data type for their internal representation, for
+example, building floor numbers and employee vacation day totals could both be
+represented internally as integers.
+
+<P>
+CLIM provides a framework for defining the appearance and behavior of these user
+interface entities via the <I> presentation type</I><A NAME="25280"></A> mechanism.  A
+presentation type can be thought of as a CLOS class that has some additional
+functionality pertaining to its roles in the user interface of an application.
+By defining a presentation type the application programmer defines all of the
+user interface components of the entity:
+
+<P>
+
+<UL>
+<LI>Its displayed representation, textual or graphical
+
+<P>
+ </LI>
+<LI>Textual representation, for user input via the keyboard
+
+<P>
+ </LI>
+<LI>Pointer sensitivity, for user input via the pointer</LI>
+</UL>
+
+<P>
+In other words, by defining a presentation type, the application programmer
+describes in one place all the information about an object necessary to display
+it to the user and interact with the user for object input.
+
+<P>
+The set of presentation types forms a type lattice, an extension of the Common
+Lisp CLOS type lattice.  When a new presentation type is defined as a subtype of
+another presentation type it inherits all the attributes of the supertype except
+those explicitly overridden in the definition.
+
+<P>
+SWM What exactly is a presentation type?  What is a parameterized
+presentation type?  Why do we want them?  Why are they in a lattice?  How do
+they relate to CL types and CLOS classes?  What exactly gets inherited?
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
+
+<UL>
+<LI><A NAME="tex2html3556"
+ HREF="node206.html">Presentations</A>
+<UL>
+<LI><A NAME="tex2html3557"
+ HREF="node207.html">The Presentation Protocol</A>
+</UL>
+<LI><A NAME="tex2html3558"
+ HREF="node208.html">Presentation Types</A>
+<UL>
+<LI><A NAME="tex2html3559"
+ HREF="node209.html">Defining Presentation Types</A>
+<LI><A NAME="tex2html3560"
+ HREF="node210.html">Presentation Type Abbreviations</A>
+<LI><A NAME="tex2html3561"
+ HREF="node211.html">Presentation Methods</A>
+<LI><A NAME="tex2html3562"
+ HREF="node212.html">Presentation Type Functions</A>
+</UL>
+<LI><A NAME="tex2html3563"
+ HREF="node213.html">Typed Output</A>
+<LI><A NAME="tex2html3564"
+ HREF="node214.html">Typed Input</A>
+<LI><A NAME="tex2html3565"
+ HREF="node215.html">Views</A>
+<LI><A NAME="tex2html3566"
+ HREF="node216.html">Presentation Translators</A>
+<UL>
+<LI><A NAME="tex2html3567"
+ HREF="node217.html">Defining Presentation Translators</A>
+<LI><A NAME="tex2html3568"
+ HREF="node218.html">Presentation Translator Functions</A>
+<LI><A NAME="tex2html3569"
+ HREF="node219.html">Finding Applicable Presentations</A>
+<LI><A NAME="tex2html3570"
+ HREF="node220.html">Translator Applicability</A>
+</UL>
+<LI><A NAME="tex2html3571"
+ HREF="node221.html">Standard Presentation Types</A>
+<UL>
+<LI><A NAME="tex2html3572"
+ HREF="node222.html">Basic Presentation Types</A>
+<LI><A NAME="tex2html3573"
+ HREF="node223.html">Numeric Presentation Types</A>
+<LI><A NAME="tex2html3574"
+ HREF="node224.html">Character and String Presentation Types</A>
+<LI><A NAME="tex2html3575"
+ HREF="node225.html">Pathname Presentation Type</A>
+<LI><A NAME="tex2html3576"
+ HREF="node226.html">``One-of'' and ``Some-of'' Presentation Types</A>
+<LI><A NAME="tex2html3577"
+ HREF="node227.html">Sequence Presentation Types</A>
+<LI><A NAME="tex2html3578"
+ HREF="node228.html">``Meta'' Presentation Types</A>
+<LI><A NAME="tex2html3579"
+ HREF="node229.html">Compound Presentation Types</A>
+<LI><A NAME="tex2html3580"
+ HREF="node230.html">Lisp Expression Presentation Types</A>
+</UL></UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html3554"
+ HREF="node206.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/icons/next_motif.gif"></A> 
+<A NAME="tex2html3550"
+ HREF="node195.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/icons/up_motif.gif"></A> 
+<A NAME="tex2html3544"
+ HREF="node204.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/icons/previous_motif.gif"></A> 
+<A NAME="tex2html3552"
+ HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/icons/contents_motif.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html3555"
+ HREF="node206.html">Presentations</A>
+<B> Up:</B> <A NAME="tex2html3551"
+ HREF="node195.html">Extended Stream Input Facilities</A>
+<B> Previous:</B> <A NAME="tex2html3545"
+ HREF="node204.html">Gesture Preprocessing</A>
+ &nbsp <B>  <A NAME="tex2html3553"
+ HREF="node1.html">Contents</A></B> 
+<!--End of Navigation Panel-->
+<ADDRESS>
+<I>&</I>
+<BR><I>2001-06-12</I>
+</ADDRESS>
+</BODY>
+</HTML>

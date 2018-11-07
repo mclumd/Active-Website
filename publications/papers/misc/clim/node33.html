@@ -1,0 +1,153 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 99.1 release (March 30, 1999)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>The Bounding Rectangle Protocol</TITLE>
+<META NAME="description" CONTENT="The Bounding Rectangle Protocol">
+<META NAME="keywords" CONTENT="clim">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v99.1 release">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="clim.css">
+
+<LINK REL="next" HREF="node34.html">
+<LINK REL="previous" HREF="node32.html">
+<LINK REL="up" HREF="node32.html">
+<LINK REL="next" HREF="node34.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html1201"
+ HREF="node34.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/icons/next_motif.gif"></A> 
+<A NAME="tex2html1197"
+ HREF="node32.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/icons/up_motif.gif"></A> 
+<A NAME="tex2html1191"
+ HREF="node32.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/icons/previous_motif.gif"></A> 
+<A NAME="tex2html1199"
+ HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/icons/contents_motif.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html1202"
+ HREF="node34.html">Bounding Rectangle Convenience Functions</A>
+<B> Up:</B> <A NAME="tex2html1198"
+ HREF="node32.html">Bounding Rectangles</A>
+<B> Previous:</B> <A NAME="tex2html1192"
+ HREF="node32.html">Bounding Rectangles</A>
+ &nbsp <B>  <A NAME="tex2html1200"
+ HREF="node1.html">Contents</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H2><A NAME="SECTION03211000000000000000">
+The Bounding Rectangle Protocol</A>
+</H2>
+
+<P>
+The following generic function comprises the bounding rectangle protocol.  All
+classes that participate in this protocol (including all subclasses of
+region that are bounded regions) must implement a method for
+bounding-rectangle*.
+
+<P>
+bounding-rectangle* region
+
+<P>
+Returns the bounding rectangle of <I> region</I> as four real numbers specifying
+the 1#1 and 2#2 coordinates of the min point and the 1#1 and 2#2 coordinates of
+the max point of the rectangle.  The argument <I> region</I> must be either a
+bounded region (such as a line or an ellipse) or some other object that obeys
+the bounding rectangle protocol, such as a sheet or an output record.
+
+<P>
+The four returned values <I> min-x</I>, <I> min-y</I>, <I> max-x</I>, and <I> max-y</I>
+will satisfy the inequalities
+<P></P>
+<DIV ALIGN="CENTER">
+
+<!-- MATH
+ \begin{eqnarray*}
+minx \leq maxx \\
+  miny \leq maxy \\
+\end{eqnarray*}
+ -->
+30#30
+<BR CLEAR="ALL"></DIV><P></P>
+<BR CLEAR="ALL"><P></P>
+<BR CLEAR="ALL"><P></P>
+
+<P>
+bounding-rectangle region
+
+<P>
+Returns the bounding rectangle of <I> region</I> as an object that is a subclass
+of rectangle (described in Section&nbsp;<A HREF="node27.html#rect">3.2.4</A>).  The argument <I> region</I>
+must be either a bounded region (such as a line or an ellipse) or some other
+object that obeys the bounding rectangle protocol, such as a sheet or an output
+record.
+
+<P>
+It is unspecified whether bounding-rectangle will or will not create a new
+object each time it is called.  Many CLIM implementations will cache the
+bounding rectangle for sheets and output records.  The implication of this is
+that, since bounding rectangles are volatile, programmers should depend on the
+object returned by bounding-rectangle remaining constant.
+
+<P>
+bounding-rectangle is part of the bounding rectangle API, but not part of
+the bounding rectangle protocol.  CLIM will supply a default method for
+bounding-rectangle on the protocol class bounding-rectangle that is
+implemented by calling bounding-rectangle*.
+
+<P>
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html1201"
+ HREF="node34.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/icons/next_motif.gif"></A> 
+<A NAME="tex2html1197"
+ HREF="node32.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/icons/up_motif.gif"></A> 
+<A NAME="tex2html1191"
+ HREF="node32.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/icons/previous_motif.gif"></A> 
+<A NAME="tex2html1199"
+ HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/icons/contents_motif.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html1202"
+ HREF="node34.html">Bounding Rectangle Convenience Functions</A>
+<B> Up:</B> <A NAME="tex2html1198"
+ HREF="node32.html">Bounding Rectangles</A>
+<B> Previous:</B> <A NAME="tex2html1192"
+ HREF="node32.html">Bounding Rectangles</A>
+ &nbsp <B>  <A NAME="tex2html1200"
+ HREF="node1.html">Contents</A></B> 
+<!--End of Navigation Panel-->
+<ADDRESS>
+<I>&</I>
+<BR><I>2001-06-12</I>
+</ADDRESS>
+</BODY>
+</HTML>

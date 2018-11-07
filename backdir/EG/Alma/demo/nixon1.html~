@@ -1,0 +1,48 @@
+<html>
+<title>
+Alma demos
+</title>
+
+<h3> The tweety example </h3>
+<br>
+
+<h4> Things to note </h4>
+<ul>
+<li> At step 1 you see the contents of the database initially. We know
+that
+<ul>
+<li> Formula 0: penguins are birds
+<li> Formula birdsfly: birds usually fly
+<li> Formula penguinsdontfly: penguins don't ususally fly
+<li> Formual 1: we prefer the penguinsdontfly default to the birdsfly
+one
+<li> The rest of the formulas tell us about how to use this preference
+together with information about the derivation of the formulas to
+resolve conflicts.
+</ul>
+<li> At step 3 we add formula 10: tweety is a bird.
+<li> This results in formula 12: tweety flies at step 4
+<li> At step 6 we add formula 15: tweety is a penguin.
+<li> At step 7 we therefore conclude that tweety does not fly.
+<li> At step 8 we notice that this causes a contradiction and we
+distrust formulas 18 and 12. This results in the system not knowing
+whether tweety flies.
+<li> At step 9 we start processing the contradiction to attempt a
+resolution.
+<li> At step 10 we find which defaults were used to derive the
+contradictands. 
+<li> From this information and the preference for penguinsdontfly, we
+conclude that tweety does not fly and add this as formula 30.
+
+</ul>
+
+
+
+<applet codebase="../Alma/gi" code="Gui.class" width = 500 height=700>
+<param name="historyFromFile" value="true">
+<param name="historyInputURLName" value="http://www.cs.umd.edu/users/kpurang/alma/demo/tweety.history">
+</applet>
+
+
+
+</html>

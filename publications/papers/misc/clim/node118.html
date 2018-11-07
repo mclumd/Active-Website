@@ -1,0 +1,248 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 99.1 release (March 30, 1999)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Port-specific Drawing Functions</TITLE>
+<META NAME="description" CONTENT="Port-specific Drawing Functions">
+<META NAME="keywords" CONTENT="clim">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v99.1 release">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="clim.css">
+
+<LINK REL="previous" HREF="node117.html">
+<LINK REL="up" HREF="node115.html">
+<LINK REL="next" HREF="node119.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2356"
+ HREF="node119.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/icons/next_motif.gif"></A> 
+<A NAME="tex2html2352"
+ HREF="node115.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/icons/up_motif.gif"></A> 
+<A NAME="tex2html2348"
+ HREF="node117.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/icons/previous_motif.gif"></A> 
+<A NAME="tex2html2354"
+ HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/icons/contents_motif.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html2357"
+ HREF="node119.html">Drawing in Color</A>
+<B> Up:</B> <A NAME="tex2html2353"
+ HREF="node115.html">Graphics Protocols</A>
+<B> Previous:</B> <A NAME="tex2html2349"
+ HREF="node117.html">Medium-specific Drawing Functions</A>
+ &nbsp <B>  <A NAME="tex2html2355"
+ HREF="node1.html">Contents</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H2><A NAME="SECTION05363000000000000000">
+Port-specific Drawing Functions</A>
+</H2>
+
+<P>
+The following port-specific functions are required by the drawing functions in
+the API.  If the optional arguments to these functions are not supplied, they
+are defaulted from the medium.
+
+<P>
+port-draw-point port medium x-offset y-offset x y
+                               <TT> &amp;optional </TT>ink line-style clipping-region
+
+<P>
+Draws a point on the <I> medium</I> <I> medium</I> on the <I> port</I> <I> port</I>.
+The point is drawn at 6#6, with <I> x-offset</I> added to 1#1 and
+<I> y-offset</I> added to 2#2, and the device transformation applied.
+
+<P>
+port-draw-points port medium x-offset y-offset coord-seq
+                                <TT> &amp;optional </TT>ink line-style clipping-region
+
+<P>
+Draws a set of points on the <I> medium</I> <I> medium</I> on the <I> port</I>
+<I> port</I>.  <I> coord-seq</I> is a sequence of coordinate pairs, which are real
+numbers.  It is an error if <I> coord-seq</I> does not contain an even number of
+elements.  port-draw-points could be implemented by repeatedly calling
+port-draw-point, but some ports may support faster primitives to do this.
+
+<P>
+port-draw-line port medium x-offset y-offset x1 y1 x2 y2
+                              <TT> &amp;optional </TT>ink line-style clipping-region
+
+<P>
+Draws a line on the <I> medium</I> <I> medium</I> on the <I> port</I> <I> port</I>.
+The line is drawn from 32#32 to 33#33, with <I> x-offset</I> added to 56#56
+and 57#57 and <I> y-offset</I> added to 58#58 and 59#59, and the device
+transformation applied.
+
+<P>
+port-draw-lines port medium x-offset y-offset coord-seq
+                               <TT> &amp;optional </TT>ink line-style clipping-region
+
+<P>
+Draws a set of disconnected lines on the <I> medium</I> <I> medium</I> on the
+<I> port</I> <I> port</I>.  <I> coord-seq</I> is a sequence of coordinate pairs,
+which are real numbers.  It is an error if <I> coord-seq</I> does not contain an
+even number of elements.  port-draw-lines could be implemented by
+repeatedly calling port-draw-line, but some ports may support faster
+primitives to do this.
+
+<P>
+port-draw-polygon port medium x-offset y-offset coord-seq closed
+                                 <TT> &amp;optional </TT>ink line-style clipping-region 
+
+<P>
+Draws a polygon or polyline on the <I> medium</I> <I> medium</I> on the <I> port</I>
+<I> port</I>.  When <I> line-style</I> is nil, this draws a filled polygon;
+otherwise, <I> line-style</I> is the line style to use when drawing a set of
+connected lines.  <I> coord-seq</I> is a sequence of coordinate pairs, which are
+real numbers.  It is an error if <I> coord-seq</I> does not contain an even number
+of elements.  The coordinate sequence specifies the corners of the polygon;
+<I> x-offset</I> is added to the 1#1 coordinates and <I> y-offset</I> is added to
+the 2#2 coordinates, and the device transformation is then applied.
+
+<P>
+When port-draw-polygon is drawing a set of connected lines, then if
+<I> closed</I> is <I> true</I>, a closed polygon is drawn.  If <I> closed</I> is
+<I> false</I>, the polygon will not be closed.
+
+<P>
+port-draw-rectangle port medium x-offset y-offset x1 y1 x2 y2
+                                   <TT> &amp;optional </TT>ink line-style clipping-region
+
+<P>
+Draws a rectangle on the <I> medium</I> <I> medium</I> on the <I> port</I>
+<I> port</I>.  When <I> line-style</I> is nil, this draws a filled rectangle;
+otherwise, <I> line-style</I> is the line style to use when drawing an unfilled
+rectangle.  The corners of the rectangle are at 32#32 and 33#33, with
+<I> x-offset</I> added to 56#56 and 57#57 and <I> y-offset</I> added to 58#58 and 59#59,
+and the device transformation applied.
+
+<P>
+port-draw-ellipse port medium x-offset y-offset 
+                                 center-x center-y 
+                                 radius-1-dx radius-1-dy radius-2-dx radius-2-dy
+                                 start-angle end-angle
+                                 <TT> &amp;optional </TT>ink line-style clipping-region
+
+<P>
+Draws an ellipse rectangle on the <I> medium</I> <I> medium</I> on the <I> port</I>
+<I> port</I>.  When <I> line-style</I> is nil, this draws a filled ellipse;
+otherwise, <I> line-style</I> is the line style to use when drawing an unfilled
+ellipse.  
+
+<P>
+The center of the ellipse is at (<I> center-x</I>,<I> center-y</I>), with
+<I> x-offset</I> and <I> y-offset</I> added to <I> center-x</I> and <I> center-y</I>,
+and the device transformation applied.  Two vectors,
+(<I> radius-1-dx</I>,<I> radius-1-dy</I>) and (<I> radius-2-dx</I>,<I> radius-2-dy</I>)
+specify the bounding parallelogram of the ellipse as explained in
+Chapter&nbsp;<A HREF="node16.html#geometry">3</A>.  When the ellipse vectors have the same length, the
+ellipse is circle.  The device transformation must be applied to the vectors as
+well.
+
+<P>
+ 
+<I> start-angle</I> and <I> end-angle</I> are real numbers that specify an arc
+rather than a complete ellipse.  The device transformation must be applied to
+the angles as well.
+
+<P>
+port-draw-string port medium x-offset y-offset text x y
+                               (start 0) end
+                               (align-x :left) (align-y :baseline)
+                               toward-x toward-y transform-glyphs
+                               <TT> &amp;optional </TT>ink text-style clipping-region
+
+<P>
+Draws a string on the <I> medium</I> <I> medium</I> on the <I> port</I> <I> port</I>.
+The string is drawn starting at 6#6, and towards
+(<I> toward-x</I>,<I> toward-y</I>).  <I> align-x</I> is one of :left,
+:center, or :right.  <I> align-y</I> is one of :baseline,
+:top, :center, or :bottom.
+
+<P>
+ 
+<I> start</I> and <I> end</I> specify the start and end of the string.  <I> start</I>
+is an integer that is less than the length of the string.  <I> end</I> is an
+integer that is less than the length of the string, but greater than or equal to
+<I> start</I>.
+
+<P>
+Normally, glyphs are drawn from left to right, but <I> toward-x</I> and
+<I> toward-y</I> can be used to change the direction from one glyph to the next
+one.  The reference point in each glyph lies on a line from 6#6 to
+(<I> toward-x</I>,<I> toward-y</I>) and the spacing of each glyph is determined by
+packing rectangles along that line, where each rectangle is ``char-width'' wide
+and ``char-height'' high.  Of course, some ports may not be able to fully
+support this.
+
+<P>
+If <I> transform-glyphs</I> is <I> true</I>, then each glyph is transformed as an
+image before it is drawn.  It is permissible for CLIM implementations to ignore
+<I> transform-glyphs</I> if it is too expensive to implement.
+
+<P>
+port-draw-character port medium x-offset y-offset character x y
+                                   (align-x :left) (align-y :baseline)
+                                   <TT> &amp;optional </TT>ink text-style clipping-region
+
+<P>
+Draws a single character on the <I> medium</I> <I> medium</I> on the <I> port</I>
+<I> port</I> at the position 6#6.  <I> align-x</I> is one of :left,
+:center, or :right.  <I> align-y</I> is one of :baseline,
+:top, :center, or :bottom.
+
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2356"
+ HREF="node119.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/icons/next_motif.gif"></A> 
+<A NAME="tex2html2352"
+ HREF="node115.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/icons/up_motif.gif"></A> 
+<A NAME="tex2html2348"
+ HREF="node117.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/icons/previous_motif.gif"></A> 
+<A NAME="tex2html2354"
+ HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/icons/contents_motif.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html2357"
+ HREF="node119.html">Drawing in Color</A>
+<B> Up:</B> <A NAME="tex2html2353"
+ HREF="node115.html">Graphics Protocols</A>
+<B> Previous:</B> <A NAME="tex2html2349"
+ HREF="node117.html">Medium-specific Drawing Functions</A>
+ &nbsp <B>  <A NAME="tex2html2355"
+ HREF="node1.html">Contents</A></B> 
+<!--End of Navigation Panel-->
+<ADDRESS>
+<I>&</I>
+<BR><I>2001-06-12</I>
+</ADDRESS>
+</BODY>
+</HTML>

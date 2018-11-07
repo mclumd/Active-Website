@@ -1,0 +1,179 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 99.1 release (March 30, 1999)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Internal Interfaces for Native Coordinates</TITLE>
+<META NAME="description" CONTENT="Internal Interfaces for Native Coordinates">
+<META NAME="keywords" CONTENT="clim">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v99.1 release">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="clim.css">
+
+<LINK REL="previous" HREF="node78.html">
+<LINK REL="up" HREF="node77.html">
+<LINK REL="next" HREF="node80.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html1832"
+ HREF="node80.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/icons/next_motif.gif"></A> 
+<A NAME="tex2html1828"
+ HREF="node77.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/icons/up_motif.gif"></A> 
+<A NAME="tex2html1824"
+ HREF="node78.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/icons/previous_motif.gif"></A> 
+<A NAME="tex2html1830"
+ HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/icons/contents_motif.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html1833"
+ HREF="node80.html">Standard Input Contract</A>
+<B> Up:</B> <A NAME="tex2html1829"
+ HREF="node77.html">Mirrors and Mirrored Sheets</A>
+<B> Previous:</B> <A NAME="tex2html1825"
+ HREF="node78.html">Mirror Functions</A>
+ &nbsp <B>  <A NAME="tex2html1831"
+ HREF="node1.html">Contents</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H2><A NAME="SECTION04442000000000000000">
+Internal Interfaces for Native Coordinates</A>
+</H2>
+
+<P>
+sheet-native-transformation sheet
+
+<P>
+Returns the transformation for the <I> sheet</I> <I> sheet</I> that converts sheet
+coordinates into native coordinates.  The object returned by this function is
+volatile, so programmers must not depend on the components of the object
+remaining constant.
+
+<P>
+sheet-native-region sheet
+
+<P>
+Returns the region for the <I> sheet</I> <I> sheet</I> in native coordinates.  The
+object returned by this function is volatile, so programmers must not depend on
+the components of the object remaining constant.
+
+<P>
+RSL These used to be called fetch-mirrored-sheet,
+fetch-native-transformation, and fetch-native-clipping-region.
+
+<P>
+sheet-device-transformation sheet
+
+<P>
+Returns the transformation used by the graphics output routines when drawing on
+the mirror.  This is the composition of the sheet's native transformation and
+the user transformation.  The object returned by this function is volatile, so
+programmers must not depend on the components of the object remaining constant.
+
+<P>
+sheet-device-region sheet
+
+<P>
+Returns the actual clipping region to be used when drawing on the mirror.  This
+is the intersection of the user's clipping region (transformed by the device
+transformation) with the sheet's native region.  The object returned by this
+function is volatile, so programmers must not depend on the components of the
+object remaining constant.
+
+<P>
+invalidate-cached-transformations sheet
+
+<P>
+sheet-native-transformation and sheet-device-transformation typically
+cache the transformations for performance reasons.
+invalidate-cached-transformations clears the cached native and device
+values for the <I> sheet</I> <I> sheet</I>'s transformation and clipping region.
+It is invoked when a sheet's native transformation changes, which happens when a
+sheet's transformation is changed or when invalidate-cached-transformations
+is called on any of its ancestors.
+
+<P>
+invalidate-cached-regions sheet
+
+<P>
+sheet-native-region and sheet-device-region typically cache the
+regions for performance reasons.  invalidate-cached-regions clears the
+cached native and device values for the <I> sheet</I> <I> sheet</I>'s native
+clipping region.  It is invoked when a sheet's native clipping region changes,
+which happens when the clipping region changes or when
+invalidate-cached-regions is called on any of its ancestors.
+
+<P>
+Here is stuff from the old Silica chapters that should perhaps
+be incorporated into the above:
+
+<P>
+fetch-clipping-region child ancestor
+
+<P>
+Returns the clipping region of <I> child</I> with respect to <I> ancestor</I> in
+<I> ancestor</I>'s coordinate system.  This region is the subregion of ancestor
+that is occupied by child.  Note that this calculation takes into account the
+ordering of children if they intersect in the chain of windowing relationships
+between child and ancestor.  Specifying an <I> ancestor</I> of nil is the
+same as specifying the greatest ancestor of <I> child</I> (a graft if child is
+grafted).  An error is signalled if <I> ancestor</I> is not an ancestor of
+<I> child</I>.  It is an error to modify the region returned by this function.
+
+<P>
+Rao Need a much better definition of clipping region.
+
+<P>
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html1832"
+ HREF="node80.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/icons/next_motif.gif"></A> 
+<A NAME="tex2html1828"
+ HREF="node77.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/icons/up_motif.gif"></A> 
+<A NAME="tex2html1824"
+ HREF="node78.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/icons/previous_motif.gif"></A> 
+<A NAME="tex2html1830"
+ HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/icons/contents_motif.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html1833"
+ HREF="node80.html">Standard Input Contract</A>
+<B> Up:</B> <A NAME="tex2html1829"
+ HREF="node77.html">Mirrors and Mirrored Sheets</A>
+<B> Previous:</B> <A NAME="tex2html1825"
+ HREF="node78.html">Mirror Functions</A>
+ &nbsp <B>  <A NAME="tex2html1831"
+ HREF="node1.html">Contents</A></B> 
+<!--End of Navigation Panel-->
+<ADDRESS>
+<I>&</I>
+<BR><I>2001-06-12</I>
+</ADDRESS>
+</BODY>
+</HTML>

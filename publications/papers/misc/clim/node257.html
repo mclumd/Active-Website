@@ -1,0 +1,132 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 99.1 release (March 30, 1999)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Frame Managers</TITLE>
+<META NAME="description" CONTENT="Frame Managers">
+<META NAME="keywords" CONTENT="clim">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v99.1 release">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="clim.css">
+
+<LINK REL="next" HREF="node261.html">
+<LINK REL="previous" HREF="node256.html">
+<LINK REL="up" HREF="node250.html">
+<LINK REL="next" HREF="node258.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html4275"
+ HREF="node258.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/icons/next_motif.gif"></A> 
+<A NAME="tex2html4271"
+ HREF="node250.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/icons/up_motif.gif"></A> 
+<A NAME="tex2html4265"
+ HREF="node256.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/icons/previous_motif.gif"></A> 
+<A NAME="tex2html4273"
+ HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/icons/contents_motif.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html4276"
+ HREF="node258.html">Finding Frame Managers</A>
+<B> Up:</B> <A NAME="tex2html4272"
+ HREF="node250.html">Application Frames</A>
+<B> Previous:</B> <A NAME="tex2html4266"
+ HREF="node256.html">Window Viewport Management</A>
+ &nbsp <B>  <A NAME="tex2html4274"
+ HREF="node1.html">Contents</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION08250000000000000000">
+Frame Managers</A>
+</H1>
+
+<P>
+Frames may be <I> adopted</I><A NAME="35001"></A> by a frame manager, which involves invoking a
+protocol for generating the pane hierarchy of the frame.  This protocol provides
+for selecting pane types for abstract gadget panes based on the style
+requirements imposed by the frame manager.  That is, the frame manager is
+responsible for the ``look and feel'' of a frame.
+
+<P>
+After a frame is adopted it can be in any of the three following states:
+<I> enabled</I><A NAME="35003"></A>, <I> disabled</I><A NAME="35005"></A>, or <I> shrunk</I><A NAME="35007"></A>.  An enabled frame is
+visible unless it is occluded by other frames or the user is browsing outside of
+the portion of the frame manager's space that the frame occupies.  A shrunken
+frame provides a cue or handle for the frame, but generally will not show the
+entire contents of the frame.  For example, the frame may be iconified or an
+item for the frame may be placed in a special suspended frame menu.  A disabled
+frame is not visible, nor is there any user accessible handle for enabling the
+frame.
+
+<P>
+Frames may also be disowned, which involves releasing the frame's panes as well
+as all associated foreign resources.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
+
+<UL>
+<LI><A NAME="tex2html4277"
+ HREF="node258.html">Finding Frame Managers</A>
+<LI><A NAME="tex2html4278"
+ HREF="node259.html">Frame Manager Operations</A>
+<LI><A NAME="tex2html4279"
+ HREF="node260.html">Frame Manager Settings</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html4275"
+ HREF="node258.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/icons/next_motif.gif"></A> 
+<A NAME="tex2html4271"
+ HREF="node250.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/icons/up_motif.gif"></A> 
+<A NAME="tex2html4265"
+ HREF="node256.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/icons/previous_motif.gif"></A> 
+<A NAME="tex2html4273"
+ HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/icons/contents_motif.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html4276"
+ HREF="node258.html">Finding Frame Managers</A>
+<B> Up:</B> <A NAME="tex2html4272"
+ HREF="node250.html">Application Frames</A>
+<B> Previous:</B> <A NAME="tex2html4266"
+ HREF="node256.html">Window Viewport Management</A>
+ &nbsp <B>  <A NAME="tex2html4274"
+ HREF="node1.html">Contents</A></B> 
+<!--End of Navigation Panel-->
+<ADDRESS>
+<I>&</I>
+<BR><I>2001-06-12</I>
+</ADDRESS>
+</BODY>
+</HTML>

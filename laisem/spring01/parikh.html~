@@ -1,0 +1,36 @@
+<HTML>
+<HEAD>
+<TITLE>
+Parikh Spring 01
+</TITLE>
+<BODY BGCOLOR = "eeeeee" BACKGROUND="bg.gif">
+</HEAD>
+<b>
+<p>
+<p>Title: Social Software
+
+<p>
+
+<a href="http://www.sci.brooklyn.cuny.edu/cis/main/parikh.html">
+Rohit Parikh</a>
+<br> Brooklyn College of the City University of New York
+<p>
+<br>
+
+Abstract:            </b>
+<p>
+
+We suggest that the issue of constructing and verifying social
+   procedures, which we suggestively call {\em social software}, be pursued
+   as systematically as computer software is pursued by computer scientists.
+   There are certain complications arising with social software which do not
+   arise with computer software, but the similarities are nonetheless
+   strong, and tools already exist which would enable us to start work on
+   this important project.  We give a variety of suggestive examples like
+   that of Solomon and the two mothers, or the problem of the two horsemen,
+   and indicate some theoretical work which already exists.  Tools used
+   include Game logic, an extension of Dynamic Logic, and Game theory in
+   the sense of von-Neumann, Morgenstern and Nash.
+
+<BR>
+</html>

@@ -1,0 +1,180 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 99.1 release (March 30, 1999)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Interface with Presentation Types</TITLE>
+<META NAME="description" CONTENT="Interface with Presentation Types">
+<META NAME="keywords" CONTENT="clim">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v99.1 release">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="clim.css">
+
+<LINK REL="next" HREF="node255.html">
+<LINK REL="previous" HREF="node253.html">
+<LINK REL="up" HREF="node253.html">
+<LINK REL="next" HREF="node255.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html4241"
+ HREF="node255.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/icons/next_motif.gif"></A> 
+<A NAME="tex2html4237"
+ HREF="node253.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/icons/up_motif.gif"></A> 
+<A NAME="tex2html4231"
+ HREF="node253.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/icons/previous_motif.gif"></A> 
+<A NAME="tex2html4239"
+ HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/icons/contents_motif.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html4242"
+ HREF="node255.html">The Generic Command Loop</A>
+<B> Up:</B> <A NAME="tex2html4238"
+ HREF="node253.html">The Application Frame Protocol</A>
+<B> Previous:</B> <A NAME="tex2html4232"
+ HREF="node253.html">The Application Frame Protocol</A>
+ &nbsp <B>  <A NAME="tex2html4240"
+ HREF="node1.html">Contents</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H2><A NAME="SECTION08231000000000000000">
+Interface with Presentation Types</A>
+</H2>
+
+<P>
+All classes that inherit from application-frame must inherit or implement
+methods for all of these functions.
+
+<P>
+frame-maintain-presentation-histories frame
+
+<P>
+Returns <I> true</I> if the <I> frame</I> <I> frame</I> maintains histories for its
+presentations, otherwise returns <I> false</I>.  The default method (on
+standard-application-frame) returns <I> true</I> if and only if the frame
+has at least one interactor pane.
+
+<P>
+frame-find-innermost-applicable-presentation frame input-context stream x y
+
+<P>
+Locates and returns the innermost applicable presentation on the window
+<I> stream</I> whose sensitivity region contains the point indicated by <I> x</I>
+and <I> y</I>, on behalf of the <I> frame</I> <I> frame</I> in the input context
+<I> input-context</I>.
+
+<P>
+The default method (on standard-application-frame) will simply call
+find-innermost-applicable-presentation.
+
+<P>
+frame-input-context-button-press-handler frame stream button-press-event
+
+<P>
+This function is responsible for handling user pointer events on behalf of the
+<I> frame</I> <I> frame</I>.  <I> stream</I> is the window on which
+<I> button-press-event</I> took place.
+
+<P>
+The default implementation (on standard-application-frame) unhighlight any
+highlighted presentations, find the applicable presentation with
+frame-find-innermost-applicable-presentation-at-position, and then call
+throw-highlighted-presentation to execute the translator that corresponds
+to the user's gesture.
+
+<P>
+frame-document-highlighted-presentation frame presentation input-context window x y stream
+
+<P>
+This function is responsible for producing pointer documentation on behalf of
+the <I> frame</I> <I> frame</I>.  The default method (on
+standard-application-frame) should produce documentation that corresponds
+to calling document-presentation-translator on all of the applicable
+translators in the input context <I> input-context</I>.  <I> presentation</I>,
+<I> window</I>, <I> x</I>, <I> y</I>, and <I> stream</I> are as for
+document-presentation-translator.
+
+<P>
+frame-click-and-drag-feedback frame presentation stream
+                                             initial-x initial-y new-x new-y state 
+
+<P>
+The default feedback function for translators defined by
+define-click-and-drag-translator, which provides visual feedback during the
+``dragging'' phase of such translators on behalf of the <I> frame</I>
+<I> frame</I>.  <I> presentation</I> is the presentation being dragged on the stream
+<I> stream</I>.  The pointing device was initially at the position specified by
+<I> initial-x</I> and <I> initial-y</I>, and is at the position specified by
+<I> new-x</I> and <I> new-y</I> when frame-click-and-drag-feedback is invoked.
+(Both position are supplied for rubber-banding, if that is the sort of desired
+feedback.)  <I> state</I> will be either :highlight, meaning that the
+feedback should be drawn, or :unhighlight, meaning that the feedback should
+be erased.
+
+<P>
+frame-click-and-drag-highlighting frame presentation stream state
+
+<P>
+The default highlighting function for translators defined by
+define-click-and-drag-translator, which is invoked when a ``to object''
+should be highlighted during the ``dragging'' phase of such translators on
+behalf of the <I> frame</I> <I> frame</I>.  <I> presentation</I> is the presentation
+over which the pointing device is located on the stream <I> stream</I>.
+<I> state</I> will be either :highlight, meaning that the highlighting for
+the presentation should be drawn, or :unhighlight, meaning that the
+highlighting should be erased.
+
+<P>
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html4241"
+ HREF="node255.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/icons/next_motif.gif"></A> 
+<A NAME="tex2html4237"
+ HREF="node253.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/icons/up_motif.gif"></A> 
+<A NAME="tex2html4231"
+ HREF="node253.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/icons/previous_motif.gif"></A> 
+<A NAME="tex2html4239"
+ HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/icons/contents_motif.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html4242"
+ HREF="node255.html">The Generic Command Loop</A>
+<B> Up:</B> <A NAME="tex2html4238"
+ HREF="node253.html">The Application Frame Protocol</A>
+<B> Previous:</B> <A NAME="tex2html4232"
+ HREF="node253.html">The Application Frame Protocol</A>
+ &nbsp <B>  <A NAME="tex2html4240"
+ HREF="node1.html">Contents</A></B> 
+<!--End of Navigation Panel-->
+<ADDRESS>
+<I>&</I>
+<BR><I>2001-06-12</I>
+</ADDRESS>
+</BODY>
+</HTML>

@@ -1,0 +1,227 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 99.1 release (March 30, 1999)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Input Protocol Functions</TITLE>
+<META NAME="description" CONTENT="Input Protocol Functions">
+<META NAME="keywords" CONTENT="clim">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v99.1 release">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="clim.css">
+
+<LINK REL="next" HREF="node60.html">
+<LINK REL="previous" HREF="node58.html">
+<LINK REL="up" HREF="node58.html">
+<LINK REL="next" HREF="node60.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html1585"
+ HREF="node60.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/icons/next_motif.gif"></A> 
+<A NAME="tex2html1581"
+ HREF="node58.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/icons/up_motif.gif"></A> 
+<A NAME="tex2html1575"
+ HREF="node58.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/icons/previous_motif.gif"></A> 
+<A NAME="tex2html1583"
+ HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/icons/contents_motif.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html1586"
+ HREF="node60.html">Input Protocol Classes</A>
+<B> Up:</B> <A NAME="tex2html1582"
+ HREF="node58.html">Input Protocol</A>
+<B> Previous:</B> <A NAME="tex2html1576"
+ HREF="node58.html">Input Protocol</A>
+ &nbsp <B>  <A NAME="tex2html1584"
+ HREF="node1.html">Contents</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H2><A NAME="SECTION04311000000000000000">
+Input Protocol Functions</A>
+</H2>
+
+<P>
+SWM Do we want to advertise sheet-event-queue?  Probably not.
+
+<P>
+process-next-event port <TT> &amp;key </TT>wait-function timeout
+
+<P>
+This function provides a standard interface for one pass through a port's event
+processing loop.  <I> wait-function</I> is either nil or a function of no
+arguments that acts as a predicate; it has dynamic extent.  The predicate should
+wait until one of three conditions occurs:
+
+<P>
+
+<UL>
+<LI>If an event if received and processed, the predicate should return
+<I> true</I>.
+
+<P>
+ </LI>
+<LI>If a timeout occurs, the predicate should return <I> false</I>.
+
+<P>
+ </LI>
+<LI>If the wait function returns <I> true</I>, the predicate should return the
+two values <I> false</I> and :timeout.</LI>
+</UL>
+
+<P>
+A port implementation must provide a method for this function that reads the
+next window server-specific device event, blocking if necessary, and then
+invokes the event distributor.
+
+<P>
+port-keyboard-input-focus port
+(setf port-keyboard-input-focus) focus port
+
+<P>
+Returns the client to which keyboard events are to be dispatched.
+
+<P>
+RSL Name of this accessor?  Maybe it should just be
+keyboard-input-focus.  We might like to have this object be a frame, which
+in turn might also want to have a per-frame focus sheet or pane or mosaic or
+whatever.
+
+<P>
+distribute-event port event
+
+<P>
+The <I> event</I> is distributed to the <I> port</I>'s proper client.  In general,
+this will be the keyboard input focus for keyboard events, and the lowest sheet
+under the pointer for pointer events.
+
+<P>
+RSL Do we just want to call this function dispatch-event and have
+it called on the port first?
+
+<P>
+dispatch-event client event
+
+<P>
+This function is called by process-next-event to inform a client about an
+event of interest.  It is invoked synchronously by whatever process called
+process-next-event, so many methods for this function will simply queue the
+event for later handling.  Certain classes of clients and events may cause this
+function immediately to call either queue-event or handle-event, or to
+ignore the event entirely.
+
+<P>
+SWM What exactly is a ``client''?  It says above that it can be
+something other than a sheet, but what are those other things?
+
+<P>
+queue-event client event
+
+<P>
+Places the event <I> event</I> into the queue of events for the client <I> client</I>.
+
+<P>
+handle-event client event
+
+<P>
+Implements the client's policy with respect to the event.  For example, if the
+programmer wishes to highlight a sheet in response to an event that informs it
+that the pointer has entered its territory, there would be a method to carry out
+the policy that specializes the appropriate sheet and event classes.
+
+<P>
+In addition to queue-event, the queued input protocol handles the following
+generic functions:
+
+<P>
+RSL These names are subject to change.
+
+<P>
+event-read client
+
+<P>
+Takes the next event out of the queue of events for this client.
+
+<P>
+event-read-no-hang client
+
+<P>
+Takes the next event out of the queue of events for this client.  It returns
+nil if there are no events in the queue.
+
+<P>
+event-peek client <TT> &amp;optional </TT>event-type
+
+<P>
+Returns the next event in the queue without removing it from the queue.  If
+<I> event-type</I> is supplied, events that are not of that type are first
+removed and discarded.
+
+<P>
+event-unread client event
+
+<P>
+Places the <I> event</I> at the head of the <I> client</I>'s event queue, so as to
+be the next event read.
+
+<P>
+event-listen client
+
+<P>
+Returns <I> true</I> if there are any events queued for <I> client</I>, otherwise
+returns <I> false</I>.
+
+<P>
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html1585"
+ HREF="node60.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/icons/next_motif.gif"></A> 
+<A NAME="tex2html1581"
+ HREF="node58.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/icons/up_motif.gif"></A> 
+<A NAME="tex2html1575"
+ HREF="node58.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/icons/previous_motif.gif"></A> 
+<A NAME="tex2html1583"
+ HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/icons/contents_motif.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html1586"
+ HREF="node60.html">Input Protocol Classes</A>
+<B> Up:</B> <A NAME="tex2html1582"
+ HREF="node58.html">Input Protocol</A>
+<B> Previous:</B> <A NAME="tex2html1576"
+ HREF="node58.html">Input Protocol</A>
+ &nbsp <B>  <A NAME="tex2html1584"
+ HREF="node1.html">Contents</A></B> 
+<!--End of Navigation Panel-->
+<ADDRESS>
+<I>&</I>
+<BR><I>2001-06-12</I>
+</ADDRESS>
+</BODY>
+</HTML>

@@ -1,0 +1,231 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 99.1 release (March 30, 1999)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Sheet Relationship Functions</TITLE>
+<META NAME="description" CONTENT="Sheet Relationship Functions">
+<META NAME="keywords" CONTENT="clim">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v99.1 release">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="clim.css">
+
+<LINK REL="next" HREF="node52.html">
+<LINK REL="previous" HREF="node50.html">
+<LINK REL="up" HREF="node50.html">
+<LINK REL="next" HREF="node52.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html1476"
+ HREF="node52.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/icons/next_motif.gif"></A> 
+<A NAME="tex2html1472"
+ HREF="node50.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/icons/up_motif.gif"></A> 
+<A NAME="tex2html1466"
+ HREF="node50.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/icons/previous_motif.gif"></A> 
+<A NAME="tex2html1474"
+ HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/icons/contents_motif.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html1477"
+ HREF="node52.html">Sheet Genealogy Classes</A>
+<B> Up:</B> <A NAME="tex2html1473"
+ HREF="node50.html">Relationships Between Sheets</A>
+<B> Previous:</B> <A NAME="tex2html1467"
+ HREF="node50.html">Relationships Between Sheets</A>
+ &nbsp <B>  <A NAME="tex2html1475"
+ HREF="node1.html">Contents</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H2><A NAME="SECTION04211000000000000000">
+Sheet Relationship Functions</A>
+</H2>
+
+<P>
+The generic functions in this section comprise the sheet protocol.  All sheet
+objects must implement methods for each of these generic functions.
+
+<P>
+SWM Is the above statement accurate?
+
+<P>
+sheet-parent sheet 
+
+<P>
+Returns the parent of the <I> sheet</I> <I> sheet</I>, or nil if the sheet has
+no parent.
+
+<P>
+sheet-children sheet
+
+<P>
+Returns a list of sheets that are the children of the <I> sheet</I> <I> sheet</I>.
+Some sheet classes support only a single child; in this case, the result of
+sheet-children will be a list of one element.
+This function returns objects that reveal CLIM's internal state;
+do not modify those objects. 
+<P>
+sheet-adopt-child sheet child
+
+<P>
+Adds the child sheet <I> child</I> to the set of children of the <I> sheet</I>
+<I> sheet</I>, and makes the <I> sheet</I> the child's parent.  If <I> child</I>
+already has a parent, the sheet-already-has-parent error will be signalled.
+
+<P>
+Some sheet classes support only a single child.  For such sheets, attempting to
+adopt more than a single child will cause the sheet-supports-only-one-child
+error to be signalled.
+
+<P>
+sheet-disown-child sheet child
+
+<P>
+Removes the child sheet <I> child</I> from the set of children of the <I> sheet</I>
+<I> sheet</I>, and makes the parent of the child be nil.  If <I> child</I> is
+not actually a child of <I> sheet</I>, the sheet-is-not-child error will be
+signalled.
+
+<P>
+sheet-siblings sheet
+
+<P>
+Returns a list of all of the siblings of the <I> sheet</I> <I> sheet</I>.  The
+sibling are all of the children of <I> sheet</I>'s parent excluding <I> sheet</I>
+itself.
+This function returns fresh objects that may be modified. 
+<P>
+sheet-enabled-children sheet
+
+<P>
+Returns a list of those children of the <I> sheet</I> <I> sheet</I> that are enabled.
+This function returns fresh objects that may be modified. 
+<P>
+sheet-ancestor-p sheet putative-ancestor
+
+<P>
+Returns <I> true</I> if the the <I> sheet</I> <I> putative-ancestor</I> is in fact
+an ancestor of the <I> sheet</I> <I> sheet</I>, otherwise returns <I> false</I>.
+
+<P>
+raise-sheet sheet
+bury-sheet  sheet
+
+<P>
+These functions reorder the children of a sheet by raising the <I> sheet</I>
+<I> sheet</I> to the top or burying it at the bottom.  Raising a sheet puts it at
+the beginning of the ordering; burying it puts it at the end.  If sheets
+overlap, the one that appears ``on top'' on the display device is earlier in the
+ordering than the one underneath.
+
+<P>
+This may change which parts of which sheets are visible on the display device.
+
+<P>
+reorder-sheets sheet new-ordering
+
+<P>
+Reorders the children of the <I> sheet</I> <I> sheet</I> to have the new ordering
+specified by <I> new-ordering</I>.  <I> new-ordering</I> is an ordered list of the
+child sheets; elements at the front of <I> new-ordering</I> are ``on top'' of
+elements at the rear.
+
+<P>
+If <I> new-ordering</I> does not contain all of the children of <I> sheet</I>, the
+sheet-ordering-underspecified error will be signalled.  If
+<I> new-ordering</I> contains a sheet that is not a child of <I> sheet</I>, the
+sheet-is-not-child error will be signalled.
+
+<P>
+sheet-enabled-p sheet
+
+<P>
+Returns <I> true</I> if the the <I> sheet</I> <I> sheet</I> is enabled by its
+parent, otherwise returns <I> false</I>.  Note that all of a sheet's ancestors
+must be enabled before the sheet is viewable.
+
+<P>
+ 
+(setf sheet-enabled-p) enabled-p sheet
+
+<P>
+When <I> enabled-p</I> is <I> true</I>, this enables the the <I> sheet</I>
+<I> sheet</I>.  When <I> enabled-p</I> is <I> false</I>, this disables the sheet.
+
+<P>
+Note that a sheet is not visible unless it and all of its ancestors are enabled.
+
+<P>
+sheet-viewable-p sheet
+
+<P>
+Returns <I> true</I> if the <I> sheet</I> <I> sheet</I> and all its ancestors are
+enabled, and if one of its ancestors is a graft.  See
+Chapter&nbsp;<A HREF="node73.html#ports-and-grafts">9</A> for further information.
+
+<P>
+sheet-occluding-sheets sheet child
+
+<P>
+Returns a list of the <I> sheet</I> <I> child</I>'s siblings that occlude part or
+all of the region of the <I> child</I>.  In general, these are the siblings that
+are enabled and appear earlier in the <I> sheet</I> <I> sheet</I>'s children.  If
+<I> sheet</I> does not permit overlapping among its children,
+sheet-occluding-sheets will return nil.
+
+<P>
+This function returns fresh objects that may be modified. 
+<P>
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html1476"
+ HREF="node52.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/icons/next_motif.gif"></A> 
+<A NAME="tex2html1472"
+ HREF="node50.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/icons/up_motif.gif"></A> 
+<A NAME="tex2html1466"
+ HREF="node50.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/icons/previous_motif.gif"></A> 
+<A NAME="tex2html1474"
+ HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/icons/contents_motif.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html1477"
+ HREF="node52.html">Sheet Genealogy Classes</A>
+<B> Up:</B> <A NAME="tex2html1473"
+ HREF="node50.html">Relationships Between Sheets</A>
+<B> Previous:</B> <A NAME="tex2html1467"
+ HREF="node50.html">Relationships Between Sheets</A>
+ &nbsp <B>  <A NAME="tex2html1475"
+ HREF="node1.html">Contents</A></B> 
+<!--End of Navigation Panel-->
+<ADDRESS>
+<I>&</I>
+<BR><I>2001-06-12</I>
+</ADDRESS>
+</BODY>
+</HTML>

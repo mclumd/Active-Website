@@ -1,0 +1,284 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 99.1 release (March 30, 1999)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Region Composition Protocol</TITLE>
+<META NAME="description" CONTENT="Region Composition Protocol">
+<META NAME="keywords" CONTENT="clim">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v99.1 release">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="clim.css">
+
+<LINK REL="previous" HREF="node18.html">
+<LINK REL="up" HREF="node17.html">
+<LINK REL="next" HREF="node20.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html1029"
+ HREF="node20.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/icons/next_motif.gif"></A> 
+<A NAME="tex2html1025"
+ HREF="node17.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/icons/up_motif.gif"></A> 
+<A NAME="tex2html1021"
+ HREF="node18.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/icons/previous_motif.gif"></A> 
+<A NAME="tex2html1027"
+ HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/icons/contents_motif.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html1030"
+ HREF="node20.html">Other Region Types</A>
+<B> Up:</B> <A NAME="tex2html1026"
+ HREF="node17.html">General Regions</A>
+<B> Previous:</B> <A NAME="tex2html1022"
+ HREF="node18.html">The Region Predicate Protocol</A>
+ &nbsp <B>  <A NAME="tex2html1028"
+ HREF="node1.html">Contents</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H2><A NAME="SECTION03112000000000000000">
+Region Composition Protocol</A>
+</H2>
+
+<P>
+Region composition is not always equivalent to simple set operations.  Instead,
+composition attempts to return an object that has the same dimensionality as one
+of its arguments.  If this is not possible, then the result is defined to be an
+empty region, which is canonicalized to +nowhere+.  (The exact details of
+this are specified with each function.)
+
+<P>
+Sometimes, composition of regions can produce a result that is not a simple
+contiguous region.  For example, region-union of two rectangular regions
+might not be a single rectangle.  In order to support cases like this, CLIM has
+the concept of a <I> region set</I><A NAME="4386"></A>, which is an object that represents one or
+more region objects related by some region operation, usually a union.
+CLIM provides standard classes to cover the cases of region union, intersection,
+and difference.
+
+<P>
+Some CLIM implementations might only implement a subset of full region
+composition.  Because of the importance of rectangular regions and region sets
+that are the union of rectangular regions, every CLIM implementation is required
+to fully support all functions that use regions for those cases.  (For example,
+CLIM implementations must be able do clipping and repainting on region sets
+composed entirely of axis-aligned rectangles.)  If a CLIM implementation does
+not support some functions on non-rectangular region sets (for example,
+clipping), it must signal an error when an unsupported case is encountered;
+the exact details of this depend on the particular CLIM implementation.
+
+<P>
+region-set
+
+<P>
+The protocol class that represents a region set; a subclass of region and
+bounding-rectangle.
+
+<P>
+In addition to the three classes below, there may be other instantiable
+subclasses of region-set that represent special cases, for instance, some
+implementations might have a standard-rectangle-set class that represents
+the union of several axis-aligned rectangles.
+
+<P>
+Members of this class are immutable. 
+<P>
+region-set-p object
+
+<P>
+Returns <I> true</I> if <I> object</I> is a <I> region set</I>, otherwise returns
+<I> false</I>.
+
+<P>
+standard-region-union
+standard-region-intersection
+standard-region-difference
+
+<P>
+These three instantiable classes respectively implement the union, intersection,
+and differences of regions.  Implementations may, but are not required to, take
+advantage of the commutativity and associativity of union and intersection in
+order to ``collapse'' complicated region sets into simpler ones.
+
+<P>
+Region sets that are composed entirely of axis-aligned rectangles must be
+canonicalized into either a single rectangle or a union of rectangles.
+Furthermore, the rectangles in the union must not overlap each other.
+
+<P>
+The following generic functions comprise the region composition protocol.  All
+classes that are subclasses of region must implement methods for these
+generic functions.
+
+<P>
+The methods for region-union, region-intersection, and
+region-difference will typically specialize both the <I> region1</I> and
+<I> region2</I> arguments.
+
+<P>
+region-set-regions region <TT> &amp;key </TT>normalize
+
+<P>
+Returns a sequence of the regions in the <I> region set</I> <I> region</I>.
+<I> region</I> can be either a <I> region set</I> or a ``simple'' region, in which
+case the result is simply a sequence of one element: <I> region</I>.
+This function returns objects that reveal CLIM's internal state;
+do not modify those objects. 
+<P>
+For the case of region sets that are unions of axis-aligned rectangles, the
+rectangles returned by region-set-regions are guaranteed not to overlap.
+
+<P>
+If <I> normalize</I> is supplied, it must be either :x-banding or
+:y-banding.  If it is :x-banding and all the regions in <I> region</I>
+are axis-aligned rectangles, the result is normalized by merging adjacent
+rectangles with banding done in the 1#1 direction.  If it is :y-banding and
+all the regions in <I> region</I> are rectangles, the result is normalized with
+banding done in the 2#2 direction.  Normalizing a region set that is not
+composed entirely of axis-aligned rectangles using x- or y-banding causes CLIM
+to signal the region-set-not-rectangular error.
+
+<P>
+map-over-region-set-regions function region <TT> &amp;key </TT>normalize
+
+<P>
+Calls <I> function</I> on each region in the <I> region set</I> <I> region</I>.  This
+is often more efficient than calling region-set-regions.  <I> function</I> is
+a function of one argument, a region; it has dynamic extent.  <I> region</I> can
+be either a <I> region set</I> or a ``simple'' region, in which case
+<I> function</I> is called once on <I> region</I> itself.  <I> normalize</I> is as for
+region-set-regions.
+
+<P>
+
+<P></P>
+<DIV ALIGN="CENTER"><A NAME="3884"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure:</STRONG>
+Normalization of rectangular region sets.</CAPTION>
+<TR><TD>7#7</TD></TR>
+</TABLE>
+</DIV><P></P>
+
+<P>
+region-union region1 region2
+
+<P>
+Returns a region that contains all points that are in either of the
+<I> regions</I> <I> region1</I> or <I> region2</I> (possibly with some points removed
+in order to satisfy the dimensionality rule).  The result of region-union
+always has dimensionality that is the maximum dimensionality of <I> region1</I>
+and <I> region2</I>.  For example, the union of a path and an area produces an
+area; the union of two paths is a path.
+
+<P>
+region-union will return either a simple region or a member of the class
+standard-region-union.
+
+<P>
+This function is permitted to capture its mutable inputs; the
+consequences of modifying those objects are unspecified. 
+<P>
+region-intersection region1 region2
+
+<P>
+Returns a region that contains all points that are in both of the <I> regions</I>
+<I> region1</I> and <I> region2</I> (possibly with some points removed in order to
+satisfy the dimensionality rule).  The result of region-intersection has
+dimensionality that is the minimum dimensionality of <I> region1</I> and
+<I> region2</I>, or is +nowhere+.  For example, the intersection of two areas
+is either another area or +nowhere+; the intersection of two paths is
+either another path or +nowhere+; the intersection of a path and an area
+produces the path clipped to stay inside of the area.
+
+<P>
+region-intersection will return either a simple region or a member of the
+class standard-region-intersection.
+
+<P>
+This function is permitted to capture its mutable inputs; the
+consequences of modifying those objects are unspecified. 
+<P>
+region-difference region1 region2
+
+<P>
+Returns a region that contains all points in the <I> region</I> <I> region1</I>
+that are not in the <I> region</I> <I> region2</I> (possibly plus additional
+boundary points to make the result closed).  The result of
+region-difference has the same dimensionality as <I> region1</I>, or is
++nowhere+.  For example, the difference of an area and a path produces the
+same area; the difference of a path and an area produces the path clipped to
+stay outside of the area.
+
+<P>
+region-difference will return either a simple region or a member of the
+class standard-region-difference.
+
+<P>
+This function is permitted to capture its mutable inputs; the
+consequences of modifying those objects are unspecified. 
+<P>
+
+<P></P>
+<DIV ALIGN="CENTER"><A NAME="3923"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure:</STRONG>
+Examples of region union, intersection, and difference.</CAPTION>
+<TR><TD>8#8</TD></TR>
+</TABLE>
+</DIV><P></P>
+
+<P>
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html1029"
+ HREF="node20.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/icons/next_motif.gif"></A> 
+<A NAME="tex2html1025"
+ HREF="node17.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/icons/up_motif.gif"></A> 
+<A NAME="tex2html1021"
+ HREF="node18.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/icons/previous_motif.gif"></A> 
+<A NAME="tex2html1027"
+ HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/icons/contents_motif.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html1030"
+ HREF="node20.html">Other Region Types</A>
+<B> Up:</B> <A NAME="tex2html1026"
+ HREF="node17.html">General Regions</A>
+<B> Previous:</B> <A NAME="tex2html1022"
+ HREF="node18.html">The Region Predicate Protocol</A>
+ &nbsp <B>  <A NAME="tex2html1028"
+ HREF="node1.html">Contents</A></B> 
+<!--End of Navigation Panel-->
+<ADDRESS>
+<I>&</I>
+<BR><I>2001-06-12</I>
+</ADDRESS>
+</BODY>
+</HTML>

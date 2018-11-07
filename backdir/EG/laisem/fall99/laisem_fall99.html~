@@ -1,0 +1,75 @@
+<HTML>
+<HEAD>
+<TITLE>
+Logic and AI Seminar  - Fall '99
+</TITLE>
+<!-- This is a comment -->
+<!-- if you have problems, mail webmaster@cs.umd.edu -->
+<BODY BGCOLOR = "FFFFFF" BACKGROUND="bg.gif">
+</HEAD>
+<H1>
+
+<P>
+<a href="http://www.cs.umd.edu/projects/active/laisem/laisem.html"> LOGIC AND AI SEMINAR</a>
+</H1>
+<H2>
+<P>
+Fall 1999
+</H2>
+
+<!---------------------------------------------------------------------->
+<p> <hr>
+<H3>
+September
+</H3>
+<!---------------------------------------------------------------------->
+ 
+<li> September 13, 11:00 am
+<dd>Carl Andersen <br>
+<dd>University of Maryland
+<dd><a href ="fall99/cfa.html">"Getting ALMA/CARNE to talk"
+</a><br>
+<!---------------------------------------------------------------------->
+<p> <hr>
+
+<!---------------------------------------------------------------------->
+
+<H3>
+October
+</H3>
+
+<li> October 04,  11:00 am
+<dd>Samir Chopra <br>
+<dd>CUNY Graduate Center
+<dd>"Relevance sensitive models for
+inconsistency tolerant belief revision"
+<dd><a href = "http://pages.nyu.edu/~sc57/IJCFIN2.ps">Paper 1</a><br>
+<dd><a href = "http://pages.nyu.edu/~sc57/cgpnew.ps" > Paper 2 </a> <br>
+
+<!---------------------------------------------------------------------->
+<p> <hr>
+
+<!---------------------------------------------------------------------->
+
+<H3>
+November
+</H3>
+
+<li> November 11, 3:30 pm
+<dd>Richard Shore<br>
+<dd>Cornell University<br>
+<dd><a href ="fall99/shore.html"> Common Knowledge with (Infinitely)
+Many Agents <br>
+
+<br>
+<p> <hr>
+<p>
+<em>
+This page is maintained by
+<a href = "http://www.cs.umd.edu/projects/active/">
+Active Logic Group </a> . Send comments <a
+href="mailto:darsana@cs.umd.edu"><I> here</I></a>.  
+<br>
+</em>
+</BODY>
+</HTML>

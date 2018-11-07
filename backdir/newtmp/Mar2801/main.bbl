@@ -1,0 +1,58 @@
+\begin{thebibliography}{}
+
+\bibitem[\protect\citeauthoryear{Colton \&
+  Bundy}{1999}]{colton/bundy1999:notion_interestingness}
+Colton, S., and Bundy, A.
+\newblock 1999.
+\newblock On the notion of interestingness in automated mathematical discovery.
+\newblock In {\em AISB Symposium on AI and Scientific Discovery}.
+
+\bibitem[\protect\citeauthoryear{Horvitz}{1997}]{horvitz1997:models_continual}
+Horvitz, E.
+\newblock 1997.
+\newblock Models of continual comrutation.
+\newblock In {\em Proceedings of the 14th National Conference on Artificial
+  Intelligence and 9th Innovative Applications of Artificial Intelligence
+  Conference ({AAAI}-97/{IAAI}-97)},  286--293.
+\newblock Menlo Park: AAAI Press.
+
+\bibitem[\protect\citeauthoryear{Horvitz}{2001}]{horvitz2001:principles}
+Horvitz, E.
+\newblock 2001.
+\newblock Principles and applications of continual computation.
+\newblock {\em Artificial Intelligence} 126(1-2):159--196.
+
+\bibitem[\protect\citeauthoryear{Lenat \& Brown}{1984}]{lenat/brown1984:why_am}
+Lenat, D.~B., and Brown, J.~S.
+\newblock 1984.
+\newblock Why {AM} and {EURISKO} appear to work.
+\newblock {\em Artificial Intelligence} 23(3):269--294.
+
+\bibitem[\protect\citeauthoryear{Lenat}{1982}]{lenat1982:am}
+Lenat, D.~B.
+\newblock 1982.
+\newblock {\em {AM}: Discovery in Mathematics as Heuristic Search}.
+\newblock New York, NY: McGraw-Hill.
+\newblock  1--225.
+
+\bibitem[\protect\citeauthoryear{Lenat}{1983}]{lenat1983:theory_formation}
+Lenat, D.~B.
+\newblock 1983.
+\newblock {Theory Formation by Heuristic Search}.
+\newblock {\em Artificial Intelligence} 21:31--59.
+
+\bibitem[\protect\citeauthoryear{Wolpert \&
+  Macready}{1995}]{wolpert/macready1995:no_free}
+Wolpert, D.~H., and Macready, W.~G.
+\newblock 1995.
+\newblock No free lunch theorems for search.
+\newblock Technical Report SFI-TR-95-02-010, Santa Fe Institute, Santa Fe, NM.
+
+\bibitem[\protect\citeauthoryear{Wolpert \&
+  Macready}{1997}]{wolpert/macready1997:no_free}
+Wolpert, D.~H., and Macready, W.~G.
+\newblock 1997.
+\newblock No free lunch theorems for optimization.
+\newblock {\em IEEE Transactions on Evolutionary Computation} 1(1):67--82.
+
+\end{thebibliography}

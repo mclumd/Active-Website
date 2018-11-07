@@ -1,0 +1,384 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 99.1 release (March 30, 1999)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Menu Facilities</TITLE>
+<META NAME="description" CONTENT="Menu Facilities">
+<META NAME="keywords" CONTENT="clim">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v99.1 release">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="clim.css">
+
+<LINK REL="next" HREF="node240.html">
+<LINK REL="previous" HREF="node231.html">
+<LINK REL="up" HREF="node195.html">
+<LINK REL="next" HREF="node240.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html4000"
+ HREF="node240.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/icons/next_motif.gif"></A> 
+<A NAME="tex2html3996"
+ HREF="node195.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/icons/up_motif.gif"></A> 
+<A NAME="tex2html3990"
+ HREF="node238.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/icons/previous_motif.gif"></A> 
+<A NAME="tex2html3998"
+ HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/icons/contents_motif.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html4001"
+ HREF="node240.html">Dialog Facilities</A>
+<B> Up:</B> <A NAME="tex2html3997"
+ HREF="node195.html">Extended Stream Input Facilities</A>
+<B> Previous:</B> <A NAME="tex2html3991"
+ HREF="node238.html">Completion</A>
+ &nbsp <B>  <A NAME="tex2html3999"
+ HREF="node1.html">Contents</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION07400000000000000000"></A>
+<A NAME="menus"></A>
+<BR>
+Menu Facilities
+</H1>
+
+<P>
+SWM There is a general issue about how these menus fit in with the
+menus that might be provided by the underlying toolkit.
+
+<P>
+menu-choose items <TT> &amp;key </TT>associated-window printer presentation-type
+                                      default-item default-style label
+                                      cache unique-id id-test cache-value cache-test
+                                      max-width max-height n-rows n-columns
+                                      x-spacing y-spacing
+                                      cell-align-x cell-align-y
+                                      pointer-documentation
+
+<P>
+Displays a menu whose choices are given by the elements of the sequence
+<I> items</I>.  It returns three values:  the value of the chosen item, the item
+itself, and the pointer button event corresponding to the gesture that the user
+used to select it.  If the user aborts out of the menu, a single value is
+returned, nil.
+
+<P>
+ 
+<I> items</I> is a sequence of menu items.  Each menu item has a visual
+representation derived from a display object, an internal representation that is
+a value object, and a set of menu item options.  The form of a menu item is one
+of the following:
+
+<P>
+
+<UL>
+<LI>An atom. The item is both the display object and the value object.
+
+<P>
+ </LI>
+<LI>A cons. The car is the display object and the cdr is the value
+object.  The value object must be an atom. If you need to return a list as the
+value, use the :value option in the list menu item format described below.
+
+<P>
+ </LI>
+<LI>A list. The car is the display object and the cdr is a list of
+alternating option keywords and values.  The value object is specified with the
+keyword :value and defaults to the display object if :value is not
+present.</LI>
+</UL>
+
+<P>
+The menu item options are: 
+
+<P>
+
+<UL>
+<LI>:value--specifies the value object.
+
+<P>
+ </LI>
+<LI>:style--specifies the text style used to princ the display
+object when neither <I> presentation-type</I> nor <I> printer</I> is supplied.
+
+<P>
+ </LI>
+<LI>:items--specifies a sequence of menu items for a sub-menu used if
+this item is selected.
+
+<P>
+ </LI>
+<LI>:documentation--associates some documentation with the menu item.
+When <I> :pointer-documentation</I> is not nil, it will be used a pointer
+documentation for the item.</LI>
+</UL>
+
+<P>
+The visual representation of an item depends on the <I> printer</I> and
+<I> presentation-type</I> keyword arguments.  If <I> presentation-type</I> is
+supplied, the visual representation is produced by present of the menu item
+with that presentation type.  Otherwise, if <I> printer</I> is supplied, the visual
+representation is produced by the <I> printer</I> function, which receives two
+arguments, the <I> item</I> and a <I> stream</I> to do output on.  The <I> printer</I>
+function should output some text or graphics at the stream's cursor position, but
+need not call present.  If neither <I> presentation-type</I> nor <I> printer</I>
+is supplied, the visual representation is produced by princ of the display
+object.  Note that if <I> presentation-type</I> or <I> printer</I> is supplied, the
+visual representation is produced from the entire menu item, not just from the
+display object.  CLIM implementations are free to use the menus provided by the
+underlying window system when possible; this is likely to be the case when the
+printer and presentation-type are the default, and no other options are supplied.
+
+<P>
+ 
+<I> associated-window</I> is the CLIM window with which the menu is associated.
+This defaults to the top-level window of the current application frame.
+
+<P>
+ 
+<I> default-item</I> is the menu item where the mouse will appear.
+
+<P>
+ 
+<I> default-style</I> is a text style that defines how the menu items are
+presented.
+
+<P>
+ 
+<I> label</I> is a string to which the menu title will be set.
+
+<P>
+ 
+<I> printer</I> is a function of two arguments used to print the menu items in the
+menu.  The two arguments are the menu item and the stream to output it on.  It
+has dynamic extent.
+
+<P>
+ 
+<I> presentation-type</I> specifies the presentation type of the menu items. 
+
+<P>
+ 
+<I> cache</I> is a boolean that indicates whether CLIM should cache this menu for
+later use.  (Caching menus might speed up later uses of the same menu.)  If
+<I> cache</I> is <I> true</I>, then <I> unique-id</I> and <I> id-test</I> serve to
+uniquely identify this menu.  When cache is <I> true</I>, <I> unique-id</I>
+defaults to <I> items</I>, but programmers be able to specify a more efficient
+tag.  <I> id-test</I> is a function of two arguments used to compare unique-ids,
+which defaults to equal.  <I> cache-value</I> is the value that is used to
+indicate that a cached menu is still valid.  It defaults to <I> items</I>, but
+programmers may be able to supply a more efficient cache value than that.
+<I> cache-test</I> is a function of two arguments that is used to compare cache
+values, which defaults to equal.  Both <I> cache-value</I> and
+<I> unique-id</I> have dynamic extent.
+
+<P>
+ 
+<I> max-width</I> and <I> max-height</I> specify the maximum width and height of the
+menu, in device units.  They can be overridden by <I> n-rows</I> and
+<I> n-columns</I>.
+
+<P>
+ 
+<I> n-rows</I> and <I> n-columns</I> specify the number of rows and columns in the
+menu.
+
+<P>
+ 
+<I> x-spacing</I> specifies the amount of space to be inserted between columns of
+the table; the default is the width of a space character.  It is specified the
+same way as the :x-spacing option to formatting-table.
+
+<P>
+ 
+<I> y-spacing</I> specifies the amount of blank space inserted between rows of the
+table; the default is the vertical spacing for the stream.  The possible values
+for this option are the same as for the <I> :y-spacing</I> option to
+formatting-table.
+
+<P>
+ 
+<I> cell-align-x</I> specifies the horizontal placement of the contents of the
+cell.  Can be one of :left, :right, or :center.  The default is
+:left.   The semantics are the same as for the :align-x option to
+formatting-cell.
+
+<P>
+ 
+<I> cell-align-y</I> specifies the vertical placement of the contents of the cell.
+Can be one of :top, :bottom, or :center.  The default is
+:top.  The semantics are the same as for the :align-y option to
+formatting-cell.
+
+<P>
+ 
+<I> pointer-documentation</I> is either nil (the default), meaning that no
+pointer documentation should be computed, or a stream on which pointer
+documentation should be displayed.
+
+<P>
+menu-choose-from-drawer menu type drawer
+                                       <TT> &amp;key </TT>x-position y-position
+                                            cache unique-id id-test cache-value cache-test
+                                            default-presentation pointer-documentation
+
+<P>
+This is a a lower-level routine for displaying menus.  It allows the programmer
+much more flexibility in the menu layout.  Unlike menu-choose, which
+automatically creates and lays out the menu, menu-choose-from-drawer takes
+a programmer-provided window and drawing function.  It then draws the menu items
+into that window using the drawing function. The drawing function gets called
+with arguments (<I> stream</I> <I> type</I>).  It can use <I> type</I> for its
+own purposes, the usual being using it for present.
+
+<P>
+menu-choose-from-drawer returns two values: the object the user clicked on,
+and the pointer button event.  If the user aborts out of the menu, a single
+value is returned, nil.
+
+<P>
+ 
+<I> menu</I> is a CLIM window to use for the menu.  This argument may be
+specialized to provide a different look-and-feel for different host window
+systems.
+
+<P>
+ 
+<I> type</I> is a presentation type specifier for each of the mouse-sensitive
+items in the menu.  This is the input context that will be established once the
+menu is displayed.  For programmers who don't need to define their own types, a
+useful presentation-type is menu-item.
+
+<P>
+ 
+<I> drawer</I> is a function that takes two arguments, <I> stream</I> and
+<I> type</I>, draws the contents of the menu.  It has dynamic extent.
+
+<P>
+ 
+<I> x-position</I> and <I> y-position</I> are the requested 1#1 and 2#2 positions of
+the menu.  They may be nil, meaning that the position is unspecified.
+
+<P>
+If <I> leave-menu-visible</I> is <I> true</I>, the window will not be deexposed
+once the selection has been made. The default is <I> false</I>, meaning that the
+window will be deexposed once the selection has been made.
+
+<P>
+ 
+<I> default-presentation</I> is used to identify the presentation that the mouse
+is pointing to when the menu comes up.
+
+<P>
+ 
+<I> cache</I>, <I> unique-id</I>, <I> id-test</I>, <I> cache-value</I>, and
+<I> cache-test</I> are as for menu-choose.
+
+<P>
+print-menu-item menu-item <TT> &amp;optional </TT>stream
+
+<P>
+Given a menu item <I> menu-item</I>, displays it on the stream <I> stream</I>. This
+is the function that menu-choose uses to display menu items if no printer
+is supplied.
+
+<P>
+menu-item-value menu-item
+
+<P>
+Returns the value of the menu item <I> menu-item</I>, where the format of a menu
+item is described under menu-choose.  If <I> menu-item</I> is not a menu item,
+the result is unspecified.
+
+<P>
+menu-item-display menu-item
+
+<P>
+Returns the display object of the menu item <I> menu-item</I>, where the format of
+a menu item is described under menu-choose.  If <I> menu-item</I> is not a
+menu item, the result is unspecified.
+
+<P>
+menu-item-options menu-item
+
+<P>
+Returns the options of the menu item <I> menu-item</I>, where the format of a menu
+item is described under menu-choose.  If <I> menu-item</I> is not a menu
+item, the result is unspecified.
+
+<P>
+with-menu (menu <TT> &amp;optional </TT>associated-window <TT> &amp;key </TT>(deexpose t))
+                       <TT> &amp;body </TT>body 
+
+<P>
+Binds <I> menu</I> to a ``temporary'' window, exposes the window on the same
+screen as the <I> associated-window</I> and runs the body.  After the body has
+been run, the window is deexposed only if the boolean <I> deexpose</I> is
+<I> true</I> (the default).
+
+<P>
+The values returned by with-menu are the values returned by <I> body</I>.
+<I> body</I> may have zero or more declarations as its first forms.
+
+<P>
+ 
+<I> menu</I> must be a variable name.  <I> associated-window</I> is as for
+menu-choose.
+
+<P>
+None of the arguments is evaluated.
+
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html4000"
+ HREF="node240.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/icons/next_motif.gif"></A> 
+<A NAME="tex2html3996"
+ HREF="node195.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/icons/up_motif.gif"></A> 
+<A NAME="tex2html3990"
+ HREF="node238.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/icons/previous_motif.gif"></A> 
+<A NAME="tex2html3998"
+ HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/icons/contents_motif.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html4001"
+ HREF="node240.html">Dialog Facilities</A>
+<B> Up:</B> <A NAME="tex2html3997"
+ HREF="node195.html">Extended Stream Input Facilities</A>
+<B> Previous:</B> <A NAME="tex2html3991"
+ HREF="node238.html">Completion</A>
+ &nbsp <B>  <A NAME="tex2html3999"
+ HREF="node1.html">Contents</A></B> 
+<!--End of Navigation Panel-->
+<ADDRESS>
+<I>&</I>
+<BR><I>2001-06-12</I>
+</ADDRESS>
+</BODY>
+</HTML>

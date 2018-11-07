@@ -1,0 +1,29 @@
+<html>
+<head>
+    <title>Put the title of your document here</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+    
+<link rel="stylesheet" href="/assets/styles/netscape.css" type="text/css">
+      
+<style type="text/css">
+    <!-- 
+       @import url(/assets/styles/explorer.css);
+    -->
+</style>
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000">
+<!--#include virtual="/assets/page-elements/banner.lbi"-->
+<!-- The body of the document begins here -->
+<table border="0" cellpadding="3" cellspacing="0" width="100%">
+  <tr> 
+    <td valign="top"> 
+      <!--#include virtual="/assets/page-elements/public-links.lbi"-->
+    </td>
+    <td valign="top" width="100%">
+Put the body of your document here
+   </td>
+  </tr>
+</table>
+</body>
+</html>

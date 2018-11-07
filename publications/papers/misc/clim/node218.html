@@ -1,0 +1,253 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 99.1 release (March 30, 1999)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Presentation Translator Functions</TITLE>
+<META NAME="description" CONTENT="Presentation Translator Functions">
+<META NAME="keywords" CONTENT="clim">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v99.1 release">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="clim.css">
+
+<LINK REL="next" HREF="node219.html">
+<LINK REL="previous" HREF="node217.html">
+<LINK REL="up" HREF="node216.html">
+<LINK REL="next" HREF="node219.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html3740"
+ HREF="node219.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/icons/next_motif.gif"></A> 
+<A NAME="tex2html3736"
+ HREF="node216.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/icons/up_motif.gif"></A> 
+<A NAME="tex2html3730"
+ HREF="node217.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/icons/previous_motif.gif"></A> 
+<A NAME="tex2html3738"
+ HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/icons/contents_motif.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html3741"
+ HREF="node219.html">Finding Applicable Presentations</A>
+<B> Up:</B> <A NAME="tex2html3737"
+ HREF="node216.html">Presentation Translators</A>
+<B> Previous:</B> <A NAME="tex2html3731"
+ HREF="node217.html">Defining Presentation Translators</A>
+ &nbsp <B>  <A NAME="tex2html3739"
+ HREF="node1.html">Contents</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H2><A NAME="SECTION07262000000000000000">
+Presentation Translator Functions</A>
+</H2>
+
+<P>
+find-presentation-translators from-type to-type frame
+
+<P>
+Returns a list of all the translators associated with <I> frame</I>'s current
+command table that translate from <I> from-type</I> to <I> to-type</I>, without
+taking into account any type parameters or testers.  <I> from-type</I> and
+<I> to-type</I> are presentation type specifiers, and must not be abbreviations.
+<I> frame</I> must be an application frame.
+
+<P>
+ 
+<B> Implementation note:</B> find-presentation-translators will probably
+cache its result in order to avoid consing.  Therefore, the resulting list of
+translators should not be modified; the consequences of doing so are unspecified.
+
+<P>
+test-presentation-translator translator presentation context-type frame window x y
+                                       <TT> &amp;key </TT>event modifier-state for-menu
+
+<P>
+Returns <I> true</I> if the translator <I> translator</I> applies to the
+presentation <I> presentation</I> in input context type <I> context-type</I>,
+otherwise returns <I> false</I>.  (There is no <I> from-type</I> argument because
+it is derived from <I> presentation</I>.)  <I> x</I> and <I> y</I> are the 1#1 and 2#2
+positions of the pointer within the window stream <I> window</I>.
+
+<P>
+ 
+<I> event</I> and <I> modifier-state</I> are a pointer button event and modifier
+state (see event-modifier-key-state), and are compared against the
+translator's gesture.  <I> event</I> defaults to nil, and
+<I> modifier-state</I> defaults to 0, meaning that no modifier keys are held down.
+Only one of <I> event</I> or <I> modifier-state</I> may be supplied; it is
+unspecified what will happen if both are supplied.
+
+<P>
+If <I> for-menu</I> is <I> true</I>, the comparison against <I> event</I> and
+<I> modifier-state</I> is not done.
+
+<P>
+ 
+<I> presentation</I>, <I> context-type</I>, <I> frame</I>, <I> window</I>, <I> x</I>,
+<I> y</I>, and <I> event</I> are passed along to the translator's tester if and
+when the tester is called.
+
+<P>
+test-presentation-translator is responsible for matching type parameters
+and calling the translator's tester.  Under some circumstances,
+test-presentation-translator may also call the body of the translator to
+ensure that its value matches <I> to-type</I>.
+
+<P>
+find-applicable-translators presentation input-context frame window x y
+                                      <TT> &amp;key </TT>event modifier-state for-menu fastp
+
+<P>
+Returns a list of translators that definitely apply to the <I> presentation</I>
+<I> presentation</I> in the input context <I> input-context</I>.  Since input
+contexts can be nested, find-applicable-translators must iterate over all
+the contexts in <I> input-context</I>.  <I> window</I>, <I> x</I>, and <I> y</I> are as
+for test-presentation-translator.  <I> event</I> and <I> modifier-state</I>
+(which default to nil and the current modifier state for <I> window</I>,
+respectively) are used to further restrict the set of applicable translators.
+(Only one of <I> event</I> or <I> modifier-state</I> may be supplied; it is
+unspecified what will happen if both are supplied.)
+
+<P>
+When <I> for-menu</I> is non-nil, this matches the value of <I> for-menu</I>
+against the presentation's menu specification, and returns only those
+translators that match.  <I> event</I> and <I> modifier-state</I> are disregarded in
+this case.  <I> for-menu</I> defaults to nil.
+
+<P>
+When the boolean <I> fastp</I> is <I> true</I>, find-applicable-translators
+will simply return <I> true</I> if there are any translators.  <I> fastp</I>
+defaults to <I> false</I>.
+
+<P>
+ 
+<B> Implementation note:</B> find-applicable-translators could be implemented
+by looping over <I> input-context</I>, calling find-presentation-translators
+to generate all the translators, and then calling test-presentation-translator
+to filter out the ones that do not apply.  The consequences of modifying the
+returned value are unspecified.
+
+<P>
+presentation-matches-context-type presentation context-type frame window x y
+                                            <TT> &amp;key </TT>event modifier-state
+
+<P>
+Returns <I> true</I> if there are any translators that translate from the
+<I> presentation</I> <I> presentation</I>'s type to the input context type
+<I> context-type</I>, otherwise returns <I> false</I>.  (There is no
+<I> from-type</I> argument because it is derived from <I> presentation</I>.)
+<I> frame</I>, <I> window</I>, <I> x</I>, <I> y</I>, <I> event</I>, and
+<I> modifier-state</I> are as for test-presentation-translator.
+
+<P>
+If there are no applicable translators, presentation-matches-context-type
+will return <I> false</I>.
+
+<P>
+call-presentation-translator translator presentation context-type
+                                       frame event window x y
+
+<P>
+Calls the function that implements the body of the translator <I> translator</I>
+on the <I> presentation</I> <I> presentation</I>'s object, and passes
+<I> presentation</I>, <I> context-type</I>, <I> frame</I>, <I> event</I>, <I> window</I>,
+<I> x</I>, and <I> y</I> to the body of the translator as well.
+
+<P>
+The returned values are the same as the values returned by the body of the
+translator, namely, the translated object and the translated type.
+
+<P>
+document-presentation-translator translator presentation context-type
+                                           frame event window x y
+                                           <TT> &amp;key </TT>(stream *standard-output*) documentation-type  
+
+<P>
+Computes the documentation string for the translator <I> translator</I> and
+outputs it to the stream <I> stream</I>.  <I> presentation</I>, <I> context-type</I>,
+<I> frame</I>, <I> event</I>, <I> window</I>, <I> x</I>, and <I> y</I> are as for
+test-presentation-translator.
+
+<P>
+documentation-type must be either :normal or :pointer.  If it is
+:normal, the usual translator documentation function is called.  If it is
+:pointer, the translator's pointer documentation is called.
+
+<P>
+call-presentation-menu presentation input-context frame window x y
+                                 <TT> &amp;key </TT>for-menu label
+
+<P>
+Finds all the applicable translators for the <I> presentation</I>
+<I> presentation</I> in the input context <I> input-context</I>, creates a menu that
+contains all of the translators, and pops up the menu from which the user can
+choose a translator.  After the translator is chosen, it is called with the
+arguments supplied to call-presentation-menu and the matching input context
+that was established by with-input-context is terminated.
+
+<P>
+ 
+<I> window</I>, <I> x</I>, <I> y</I>, and <I> event</I> are as for
+find-applicable-translators.  <I> for-menu</I>, which defaults to t, is
+used to decide which of the applicable translators will go into the menu; only
+those translators whose :menu option matches <I> menu</I> will be included.
+
+<P>
+ 
+<I> label</I> is either a tring to use as a label for the menu, or is nil
+(the default), meaning the menu will not be labelled.
+
+<P>
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html3740"
+ HREF="node219.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/icons/next_motif.gif"></A> 
+<A NAME="tex2html3736"
+ HREF="node216.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/icons/up_motif.gif"></A> 
+<A NAME="tex2html3730"
+ HREF="node217.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/icons/previous_motif.gif"></A> 
+<A NAME="tex2html3738"
+ HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/icons/contents_motif.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html3741"
+ HREF="node219.html">Finding Applicable Presentations</A>
+<B> Up:</B> <A NAME="tex2html3737"
+ HREF="node216.html">Presentation Translators</A>
+<B> Previous:</B> <A NAME="tex2html3731"
+ HREF="node217.html">Defining Presentation Translators</A>
+ &nbsp <B>  <A NAME="tex2html3739"
+ HREF="node1.html">Contents</A></B> 
+<!--End of Navigation Panel-->
+<ADDRESS>
+<I>&</I>
+<BR><I>2001-06-12</I>
+</ADDRESS>
+</BODY>
+</HTML>

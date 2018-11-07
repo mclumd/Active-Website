@@ -1,0 +1,448 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 99.1 release (March 30, 1999)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Command Tables</TITLE>
+<META NAME="description" CONTENT="Command Tables">
+<META NAME="keywords" CONTENT="clim">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v99.1 release">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="clim.css">
+
+<LINK REL="next" HREF="node245.html">
+<LINK REL="previous" HREF="node243.html">
+<LINK REL="up" HREF="node242.html">
+<LINK REL="next" HREF="node245.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html4111"
+ HREF="node245.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/icons/next_motif.gif"></A> 
+<A NAME="tex2html4107"
+ HREF="node242.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/icons/up_motif.gif"></A> 
+<A NAME="tex2html4101"
+ HREF="node243.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/icons/previous_motif.gif"></A> 
+<A NAME="tex2html4109"
+ HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/icons/contents_motif.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html4112"
+ HREF="node245.html">Command Menus</A>
+<B> Up:</B> <A NAME="tex2html4108"
+ HREF="node242.html">Command Processing</A>
+<B> Previous:</B> <A NAME="tex2html4102"
+ HREF="node243.html">Commands</A>
+ &nbsp <B>  <A NAME="tex2html4110"
+ HREF="node1.html">Contents</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION08120000000000000000">
+Command Tables</A>
+</H1>
+
+<P>
+There are four main styles of interaction: keyboard interaction using a command-
+line processor, keyboard interaction using keystroke accelerators, mouse
+interaction via command menus, and mouse interaction via translators.  A
+<I> command table</I><A NAME="32362"></A> is an object that serves to mediate between an
+application frame, a set of commands, and the four interaction styles.  Command
+tables contain the following information:
+
+<P>
+
+<UL>
+<LI>The name of the command table, which is a symbol.
+
+<P>
+ </LI>
+<LI>An ordered list of command tables to inherit from.
+
+<P>
+ </LI>
+<LI>The set of commands that are present in this command table.
+
+<P>
+ </LI>
+<LI>A table that associates command-line names to command names (used to
+support command-line processor interactions).
+
+<P>
+ </LI>
+<LI>A set of presentation translators, defined via
+define-presentation-translator and
+define-presentation-to-command-translator.
+
+<P>
+ </LI>
+<LI>A table that associates keyboard gesture names to menu items (used to
+support keystroke accelerator interactions).  The keystroke accelerator table
+does not contain any items inherited from superior command tables.
+
+<P>
+ </LI>
+<LI>A menu that associates menu names to menu items (used to support
+interaction via command menus).  The menu items can invoke commands or
+sub-menus.  The menu does not contain any items inherited from superior command
+tables.</LI>
+</UL>
+
+<P>
+We say that a command is <I> present</I><A NAME="32364"></A> in a command table when it has been
+added to that command table.  We say that a command is <I> accessible</I><A NAME="32366"></A> in a
+command table when it is present in that command table or is present in any of
+the command tables from which that command table inherits.
+
+<P>
+command-table
+
+<P>
+The protocol class that corresponds to command tables.
+a command table command-table
+Members of this class are mutable. 
+<P>
+command-table-p object
+
+<P>
+Returns <I> true</I> if <I> object</I> is a <I> command table</I>, otherwise returns
+<I> false</I>.
+
+<P>
+standard-command-table
+
+<P>
+The instantiable class that implements command tables, a subclass of
+command-table.  make-command-table returns objects that are members of
+this class.
+
+<P>
+SWM Do we really want to advertise these classes, since all the
+functions below are vanilla functions instead of generic functions?  Or should
+we make those functions be generic functions?
+
+<P>
+command-table-name command-table
+
+<P>
+Returns the name of the <I> command table</I> <I> command-table</I>.
+
+<P>
+command-table-inherit-from command-table
+
+<P>
+Returns a list of the command tables from which the <I> command table</I>
+<I> command-table</I> inherits.
+This function returns objects that reveal CLIM's internal state;
+do not modify those objects. 
+<P>
+define-command-table name <TT> &amp;key </TT>inherit-from menu
+
+<P>
+Defines a command table whose name is the symbol <I> name</I>.  The new command
+table inherits from all of the command tables specified by <I> inherit-from</I>,
+which is a list of <I> command table designators</I><A NAME="32379"></A> (that is, either a command
+table or a symbol that names a command table).  The inheritance is done by union
+with shadowing.  If no inheritance is specified, the command table will be made
+to inherit from CLIM's global command table.  (This command table contains such
+things as the ``menu'' translator that is associated with the right-hand button
+on pointers.)
+
+<P>
+ 
+<I> menu</I> can be used to specify a menu for the command table.  The value of
+<I> menu</I> is a list of clauses.  Each clause is a list with the syntax
+(<I> string</I> <I> type</I> <I> value</I> <TT> &amp;key </TT><I> keystroke</I>
+<I> documentation</I> <I> text-style</I>), where <I> string</I>, <I> type</I>,
+<I> value</I>, <I> keystroke</I>, <I> documentation</I>, and <I> text-style</I> are as
+for add-menu-item-to-command-table.
+
+<P>
+If the command table named by <I> name</I> already exists,
+define-command-table will modify the existing command table to have the new
+value for <I> inherit-from</I> and <I> menu</I>, and leaves the other attributes for
+the existing command table alone.
+
+<P>
+None of define-command-table's arguments are evaluated.
+
+<P>
+make-command-table name <TT> &amp;key </TT>inherit-from menu (errorp t)
+
+<P>
+Creates a command table named <I> name</I>.  <I> inherit-from</I> and <I> menu</I> are
+the same as for define-command-table.  make-command-table does not
+implicitly include CLIM's global command table in the inheritance list for the
+new command table.  If the command table already exists and <I> errorp</I> is
+<I> true</I>, the command-table-already-exists error will be signalled.  If
+the command table already exists and <I> errorp</I> is <I> false</I>, then the old
+command table will be discarded.  The returned value is the command table.
+
+<P>
+find-command-table name <TT> &amp;key </TT>(errorp t)
+
+<P>
+Returns the command table named by <I> name</I>.  If <I> name</I> is itself a
+command table, it is returned.  If the command table is not found and
+<I> errorp</I> is <I> true</I>, the command-table-not-found error will be
+signalled.
+
+<P>
+command-table-error
+
+<P>
+The class that is the superclass of the following four conditions.  This class
+is a subclass of error.
+
+<P>
+command-table-not-found
+
+<P>
+The error that is signalled by such functions as find-command-table when a
+command table is not found.
+
+<P>
+command-table-already-exists
+
+<P>
+The error that is signalled when the programmer tries to create a command table
+that already exists.
+
+<P>
+command-not-present
+
+<P>
+The error that is signalled when a command is not present in a command table.
+
+<P>
+command-not-accessible
+
+<P>
+The error that is signalled when a command is not accessible in a command table.
+
+<P>
+command-already-present
+
+<P>
+The error that is signalled when a function tries to add a command to a command
+table when it is already present in the command table.
+
+<P>
+add-command-to-command-table command-name command-table 
+                                       <TT> &amp;key </TT>name menu keystroke (errorp t)
+
+<P>
+Adds the command named by <I> command-name</I> to the command table specified by
+the <I> command table designator</I> <I> command-table</I>.
+
+<P>
+ 
+<I> name</I> is the command-line name for the command, and can be nil,
+t, or a string.  When it is nil, the command will not be available via
+command-line interactions.  When it is a string, that string is the command-line
+name for the command.  When it is t, the command-line name is generated
+automatically.  (The automatically generated name consists of the command's name
+with the hyphens replaced by spaces, and the words capitalized; furthermore, if
+there is a prefix of ``COM-'', the prefix is removed.  For example, if the
+command name is com-show-file, the command-line name will be ``Show
+File''.)  For the purposes of command-line name lookup, the character case and
+style of <I> name</I> are ignored.
+
+<P>
+ 
+<I> menu</I> is a menu item for the command, and can be nil, t, a
+string, or a cons.  When it is nil, the command will not be available via
+menus.  When it is a string, the string will be used as the menu name.  When it
+is t, an automatically generate menu name will be used.  When it is a cons
+of the form (<I> string</I> . <I> menu-options</I>), <I> string</I> is the menu
+name and <I> menu-options</I> consists of keyword-value pairs.  The valid keywords
+are :after, :documentation, and :text-style, which are
+interpreted as for add-menu-item-to-command-table.
+
+<P>
+The value for <I> keystroke</I> is either keyboard gesture name or nil.  When
+it is a gesture name, it is the keystroke accelerator for the command; otherwise
+the command will not be available via keystroke accelerators.
+
+<P>
+If the command is already present in the command table and <I> errorp</I> is
+<I> true</I>, the command-already-present error will be signalled.  When the
+command is already present in the command table and <I> errorp</I> is
+<I> false</I>, then the old command-line name, menu, and keystroke accelerator
+will first be removed from the command table.
+
+<P>
+remove-command-from-command-table command-name command-table <TT> &amp;key </TT>(errorp t)
+
+<P>
+Removes the command named by <I> command-name</I> from the command table specified
+by the <I> command table designator</I> <I> command-table</I>.
+
+<P>
+If the command is not present in the command table and <I> errorp</I> is
+<I> true</I>, the command-not-present error will be signalled.
+
+<P>
+do-command-table-inheritance  (command-table-var command-table) <TT> &amp;body </TT>body
+
+<P>
+Successively executes <I> body</I> with <I> command-table-var</I> bound first to
+the command table specified by the <I> command table designator</I>
+<I> command-table</I>, and then (recursively) to all of the command tables from
+which <I> command-table</I> inherits.
+
+<P>
+The <I> command-table-var</I> argument is not evaluated.  <I> body</I> may have zero
+or more declarations as its first forms. 
+
+<P>
+map-over-command-table-commands function command-table <TT> &amp;key </TT>(inherited t)
+
+<P>
+Applies <I> function</I> to all of the commands accessible in the command table
+specified by the <I> command table designator</I> <I> command-table</I>.
+<I> function</I> must be a function that takes a single argument, the command
+name; it has dynamic extent.
+
+<P>
+If <I> inherited</I> is <I> false</I>, this applies <I> function</I> only to
+those commands present in <I> command-table</I>, that is, it does not map over
+any inherited command tables.  If <I> inherited</I> is <I> true</I>, then the
+inherited command tables are traversed in the same order as for
+do-command-table-inheritance.
+
+<P>
+map-over-command-table-names function command-table <TT> &amp;key </TT>(inherited t)
+
+<P>
+Applies <I> function</I> to all of the command-line name accessible in the
+command table specified by the <I> command table designator</I>
+<I> command-table</I>.  <I> function</I> must be a function of two arguments,
+the command-line name and the command name; it has dynamic extent.
+
+<P>
+If <I> inherited</I> is <I> false</I>, this applies <I> function</I> only to
+those command-line names present in <I> command-table</I>, that is, it does
+not map over any inherited command tables.  If <I> inherited</I> is
+<I> true</I>, then the inherited command tables are traversed in the same
+order as for do-command-table-inheritance.
+
+<P>
+command-present-in-command-table-p command-name command-table
+
+<P>
+Returns <I> true</I> if the command named by <I> command-name</I> is present in
+the command table specified by the <I> command table designator</I>
+<I> command-table</I>, otherwise returns <I> false</I>.
+
+<P>
+command-accessible-in-command-table-p command-name command-table
+
+<P>
+If the command named by <I> command-name</I> is not accessible in the command
+table specified by the <I> command table designator</I> <I> command-table</I>, then
+this function returns nil.  Otherwise, it returns the command table in
+which the command was found.
+
+<P>
+find-command-from-command-line-name name command-table <TT> &amp;key </TT>(errorp t)
+
+<P>
+Given a command-line name <I> name</I> and a command table, returns two values,
+the command name and the command table in which the command was found.  If the
+command is not accessible in <I> command-table</I> and <I> errorp</I> is
+<I> true</I>, the command-not-accessible error will be signalled.
+<I> command-table</I> is a <I> command table designator</I>.
+
+<P>
+find-command-from-command-line-name ignores character case and style.
+
+<P>
+command-line-name-for-command command-name command-table <TT> &amp;key </TT>(errorp t)
+
+<P>
+Returns the command-line name for <I> command-name</I> as it is installed in
+<I> command-table</I>.  <I> command-table</I> is a <I> command table designator</I>.
+
+<P>
+If the command is not accessible in <I> command-table</I> or has no command-line
+name, then there are three possible results.  If <I> errorp</I> is nil, then
+the returned value will be nil.  If <I> errorp</I> is :create, then a
+command-line name will be generated, as described in
+add-command-to-command-table.  Otherwise, if <I> errorp</I> is t, then
+the command-not-accessible error will be signalled.  The returned
+command-line name should not be modified.
+
+<P>
+This is the inverse of find-command-from-command-line-name.  It should be
+implemented in such as way that it is fast, since it may be used by presentation
+translators to produce pointer documentation.
+
+<P>
+global-command-table
+
+<P>
+The command table from which all other command tables inherit by default.
+Programmers should not explicitly add anything to or remove anything from this
+command table.The command table used by CLIM to store 
+
+<P>
+user-command-table
+
+<P>
+A command table that can be used by the programmer for any purpose.  CLIM does
+not use it for anything, and its contents are completely undefined.
+
+<P>
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html4111"
+ HREF="node245.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/icons/next_motif.gif"></A> 
+<A NAME="tex2html4107"
+ HREF="node242.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/icons/up_motif.gif"></A> 
+<A NAME="tex2html4101"
+ HREF="node243.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/icons/previous_motif.gif"></A> 
+<A NAME="tex2html4109"
+ HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/icons/contents_motif.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html4112"
+ HREF="node245.html">Command Menus</A>
+<B> Up:</B> <A NAME="tex2html4108"
+ HREF="node242.html">Command Processing</A>
+<B> Previous:</B> <A NAME="tex2html4102"
+ HREF="node243.html">Commands</A>
+ &nbsp <B>  <A NAME="tex2html4110"
+ HREF="node1.html">Contents</A></B> 
+<!--End of Navigation Panel-->
+<ADDRESS>
+<I>&</I>
+<BR><I>2001-06-12</I>
+</ADDRESS>
+</BODY>
+</HTML>

@@ -1,0 +1,54 @@
+<HTML>
+<HEAD>
+<TITLE>UMCP Computer Science: Primer on Active Logic</TITLE>
+</HEAD>
+<BODY>
+
+<!BODY bgcolor="#000088" text="#dddddd" link="#FFFF00" vlink="#CCAA00">
+ 
+<basefont size=3>
+<p>
+<font size=+2>
+<img src="/projects/active/picts/al_quarter_logo.gif" align=right hspace=0>
+What is an Active Logic?
+
+</font>
+<hr>
+<br>
+
+Active logics are a family of inference engines, that incorporate 
+a history of their own reasoning
+as they run. Thus at any time <i>T</i>, an active logic has a record of
+its reasoning at all times prior to <i>T</i>, and it also knows that the
+current time is <i>T</i>. As it continues to reason from time <i>T</i>, that
+reasoning is also recorded in the history, marked at time <i>T+1</i> as
+having occurred at time <i>T</i>. Thus an active logic records the passage
+of time in discrete steps, and the "current" time slides forward
+as the system runs. It is convenient to regard its current inferences
+as occurring in a working memory, that is then transferred to the
+history (or long-term memory) in the next time-step.
+
+<p>
+
+The key aspect that makes such logics different from traditional
+temporal logics and from simple archival "dumps": in active logics 
+the current time is itself noted in the working memory-<i>Now(T)</i>-and 
+this changes to <i>Now(T+1)</i> one step later. (A time-step should be thought 
+of as very fast, perhaps 0.1 sec in correspondence with performance of 
+elementary cognitive tasks by humans). Thus active logics "ground" <i>Now</i>
+in terms of real time-passage during reasoning.
+
+<p>
+<br>
+
+
+<hr>
+
+<a href=/projects/active/primer/primer.html>
+<img src="/fs/www/projects/active/picts/bgnds/the_up_arrow.gif" alt="BACK"></a>
+
+<a href="mailto:kpurang@cs.umd.edu"><i> Comments: kpurang@cs.umd.edu </i>
+</a>
+
+</body>
+</html>

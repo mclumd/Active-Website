@@ -1,0 +1,46 @@
+<html>
+<head>
+<title>
+The Nixon Diamond
+</title>
+</head>
+
+<body bgcolor="#ffffee" text="#000000" link="#ff0000" vlink="0000ff">
+
+<h3>The Nixon diamond </h3>
+<p>
+<h4>Description: </h4>
+Republicans are usually not pacifists, quakers are usually
+pacfists, nixon is both quaker and republican. Is he a pacifist?
+<br>
+
+<p>
+<a href="nixon_2_applet.html" target="History"> View the history applet</a>
+<br>
+<a href="../histories/nixon_2.pl"> Alma specification</a>
+<br>
+<a href="../histories/nmr_2_help.pl"> Associated Prolog procedures</a>
+<p>
+<h4>Run: </h4>
+<ul>
+
+</ul>
+<p>
+<h4>Note:</h4>
+<li> At step 1, all the information is present. We know that Nixon is
+a republican quaker and the defaults that republicans are not
+pacifists and quakers are.
+<li> At step 2, Alma attempts to apply both the defaults.
+<li> At step 3, Alma does not see any objection to applying them.
+<li> At step 4, Alma gets both that Nixon is pacifist and not.
+<li> This is noted as a contradiction at step 5 and Alma distrusts the
+contradictands.
+<li> Both the contradictands are found to depend on defaults at step
+7. 
+<li> These defaults are not related, so there is nothing much Alma can
+do now. Alma has no opinion as to whether Nixon is a pacifist or not.
+<p>
+<hr>
+<a href="mailto:kpurang@cs.umd.edu">kpurang@cs.umd.edu</a>
+</html>
+

@@ -1,0 +1,116 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!--Converted with LaTeX2HTML 98.1p1 release (March 2nd, 1998)
+originally by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>The problem</TITLE>
+<META NAME="description" CONTENT="The problem">
+<META NAME="keywords" CONTENT="presup">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<LINK REL="STYLESHEET" HREF="presup.css">
+<LINK REL="next" HREF="node6.html">
+<LINK REL="previous" HREF="node2.html">
+<LINK REL="up" HREF="presup.html">
+<LINK REL="next" HREF="node6.html">
+</HEAD>
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html70"
+ HREF="node6.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="http://www.cs.umd.edu/icons/latex2html/icons.gif/next_motif.gif"></A> 
+<A NAME="tex2html68"
+ HREF="presup.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="http://www.cs.umd.edu/icons/latex2html/icons.gif/up_motif.gif"></A> 
+<A NAME="tex2html62"
+ HREF="node4.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="http://www.cs.umd.edu/icons/latex2html/icons.gif/previous_motif.gif"></A>   
+<BR>
+<B> Next:</B> <A NAME="tex2html71"
+ HREF="node6.html">Our solution</A>
+<B> Up:</B> <A NAME="tex2html69"
+ HREF="presup.html">No Title</A>
+<B> Previous:</B> <A NAME="tex2html63"
+ HREF="node4.html">Heim's rules</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION00030000000000000000">
+The problem</A>
+</H1>
+
+<P>
+Consider the following:
+<BR><B>U1:</B> There are no roses.
+<BR><B>U2:</B> So the roses are not in the fridge.
+
+<P>
+We take the logical from of U1 to be 
+<!-- MATH: $\neg \exists x~Roses(x)$ -->
+<IMG
+ WIDTH="124" HEIGHT="66" ALIGN="MIDDLE" BORDER="0"
+ SRC="img5.gif"
+ ALT="$\neg \exists x~Roses(x)$">
+and
+that of U2 including the presuppositions that there is a fridge and
+that there are roses to be 
+<!-- MATH: $\exists x~y~ Roses(x) \wedge Fridge(y)
+\wedge In(x, y)$ -->
+<IMG
+ WIDTH="275" HEIGHT="27" ALIGN="MIDDLE" BORDER="0"
+ SRC="img6.gif"
+ ALT="$\exists x~y~ Roses(x) \wedge Fridge(y)
+\wedge In(x, y)$">.
+
+<P>
+<DL COMPACT>
+<DT>1.
+<DD>We start with context <I>C</I><SUB>1</SUB>.
+<DT>2.
+<DD>After U1, the new context is 
+<!-- MATH: $C_2 = C_1 + [[ \neg \exists x~Roses(x) ]]$ -->
+<IMG
+ WIDTH="13" HEIGHT="12" ALIGN="MIDDLE" BORDER="0"
+ SRC="img7.gif"
+ ALT="$C_2 = C_1 + [[ \neg \exists x~Roses(x) ]]
+$"><DT>3.
+<DD>Applying CCPN and accomodation to U2 results in context 
+<!-- MATH: $C_3 =
+C_2 \setminus (((C_2 + Roses(x)) + Fridge(y)) + In(x, y))$ -->
+<IMG
+ WIDTH="102" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img8.gif"
+ ALT="$C_3 =
+C_2 \setminus (((C_2 + Roses(x)) + Fridge(y)) + In(x, y))$">Since <I>C</I><SUB>2</SUB> entails that there are no roses, the proposition to the
+right of the <IMG
+ WIDTH="24" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img9.gif"
+ ALT="$\setminus$">
+is the empty set of worlds and we are left
+with the <I>C</I><SUB>2</SUB> which says that there are no roses.
+</DL>
+<P>
+The problem here is that, we lose the information that there is a
+fridge. However we should retain that presupposition at the end of U2.
+
+<P>
+The belief that there are roses which is one of the presuppositions of
+U2 is mistaken when viewed in the larger context. Heim's rules do not
+deal with this mistake correctly and the results are not intuitive.
+
+<P>
+<BR><HR>
+<ADDRESS>
+<I>K. Purang</I>
+<BR><I>2001-06-16</I>
+</ADDRESS>
+</BODY>
+</HTML>

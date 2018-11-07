@@ -1,0 +1,94 @@
+<html>
+<head>
+<title>
+Nonmonotonic reasoning II
+</title>
+</head>
+
+<body bgcolor="#ffffee" text="#000000" link="#ff0000" vlink="0000ff">
+
+<h3>Nonmonotonic reasoning II </h3>
+<p>
+<a href="#Examples">Examples</a>
+
+<hr>
+
+This is an alternative approach to doing nonmonotonic reasoning in
+Alma.
+<p>
+If the premise of a default is in the KB, the conclusion is a
+candidate to be added to the KB provided that there is not a more
+preferred default the conclusion of which is already in the KB. If
+that is the case, the default conclusion is not added.
+<p> 
+If there is no such more preferred default, the conclusion can be
+added to the KB, but we must make sure that there are no less
+preferred defaults that hold. If there are, the conclusions of these
+defaults and their consequences are distrusted.
+<p> 
+As a result of this treatment there are no contradictions that
+involve defaults which are related through the preference
+relation. 
+<p>
+Recall that the presence of a contradiction causes the following in
+Alma: 1. a contra fact is asserted; 2. the contradictands and their
+consequences are made unavailable for further inference; 3. distrusted
+facts corresponding to these unavailable formulas are added to the
+database. Any reinstatement of either contradictand has to be
+specified by axioms.
+<p>
+In this case then, the possible contradictions are 1. between defaults
+for which no preference has been stated; 2. between defaults and
+non-defeasible formulas; 3. between non-defeasible formulas.
+<p>
+In the first case, nothing can be done and neither of the
+contradictands is reinstated.
+<p>
+In the second case, we prefer the non-defeasible formulas and
+reinstate those.
+<p>
+The third case is like the second in that no reinstatement is
+justified. 
+<p>
+Some future work:
+<p> We assume that the preferences between defaults are known
+beforehand. If they are not, we should be able to derive specificity
+preferences. This can be done by using backward chaining to prove that
+one default is more specific than the other.
+<p>
+
+<hr>
+<a name="Examples">
+<h4> Examples </h4>
+The examples here all use the same Alma and prolog specifications for
+dealing with defaults and contradictions. These common <a
+href="../almafiles/nmr_2.pl"> Alma</a> and <a
+href="../almafiles/nmr_2_help.pl"> Prolog</a> files are included in
+the examples used below unless otherwise noted.
+
+<ul>
+<li>
+The <a href="tweety_2_1.html"> Tweety </a> example is the usual
+non-flying bird example. In this case, we are first told that Tweety
+is a bird, then that it is a penguin, then that it does fly, then that
+it does not. Alma's view of Tweety's flying changes appropirately.
+
+<li> The <a href="nixon_2.html"> nixon diamond</a>
+example. Republicans are usually not pacifists, quakers are usually
+pacfists, nixon is both quaker and republican. Is he a pacifist?
+
+<li> A set of the <a href="lifschitz/lifschitz.html">Lifschitz</a>
+benchmark problems.
+
+</ul>
+
+
+
+
+
+
+
+<p>
+<hr>
+<a href="mailto:kpurang@cs.umd.edu">kpurang@cs.umd.edu</a>
+</html>

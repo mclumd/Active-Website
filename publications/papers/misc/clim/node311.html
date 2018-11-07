@@ -1,0 +1,88 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 99.1 release (March 30, 1999)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Text Styles</TITLE>
+<META NAME="description" CONTENT="Text Styles">
+<META NAME="keywords" CONTENT="clim">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v99.1 release">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="clim.css">
+
+<LINK REL="next" HREF="node312.html">
+<LINK REL="previous" HREF="node310.html">
+<LINK REL="up" HREF="node304.html">
+<LINK REL="next" HREF="node312.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html4976"
+ HREF="node312.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/icons/next_motif.gif"></A> 
+<A NAME="tex2html4972"
+ HREF="node304.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/icons/up_motif.gif"></A> 
+<A NAME="tex2html4966"
+ HREF="node310.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/icons/previous_motif.gif"></A> 
+<A NAME="tex2html4974"
+ HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/icons/contents_motif.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html4977"
+ HREF="node312.html">Drawing in Color</A>
+<B> Up:</B> <A NAME="tex2html4973"
+ HREF="node304.html">Changes from CLIM 1.0</A>
+<B> Previous:</B> <A NAME="tex2html4967"
+ HREF="node310.html">Ports, Grafts, and Mirrored</A>
+ &nbsp <B>  <A NAME="tex2html4975"
+ HREF="node1.html">Contents</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H4><A NAME="SECTION09500070000000000000">
+Text Styles</A>
+</H4>
+
+<P>
+
+<UL>
+<LI>The macros with-text-style, with-text-family,
+with-text-face, and with-text-size have been changed to take the
+<I> medium</I> argument first and the text style (or family, face, or size)
+argument second.  This was done in order to be consistent with all of the other
+macros that take a <I> medium</I> argument as the first argument.  Compatibility
+code will be provided that attempts to detect the old syntax and massages it
+into the new syntax, although it will probably not be able to detect all cases.
+
+<P>
+ </LI>
+<LI>add-text-style-mapping has been replaced by (setf&nbsp;text-style-mapping)
+to be consistent with Common Lisp conventions.  A compatibility function will be
+provided. </LI>
+</UL>
+
+<P>
+<BR><HR>
+<ADDRESS>
+<I>&</I>
+<BR><I>2001-06-12</I>
+</ADDRESS>
+</BODY>
+</HTML>

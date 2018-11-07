@@ -1,0 +1,191 @@
+
+step(1)
+add("now(1)", node(8, [now(1)], fc, [], [], 1, 1, [], [], [if]))
+add("unrecycle(X1, X2) -f-> conclusion(cycle(X1, X2))", node(7, [not(unrecycle(X3, X4)), conclusion(cycle(X3, X4))], fc, [], [], 1, 1, [], [], [fif]))
+add("unrecycle(X5, X6) -f-> conclusion(eval_bound(df(ON), [X5, X6]))", node(6, [not(unrecycle(X8, X7)), conclusion(eval_bound(df(ON), [X8, X7]))], fc, [], [], 1, 1, [], [], [fif]))
+add("unrecycle(X9, X10) -f-> conclusion(eval_bound(af(OFF), [X9, X10]))", node(5, [not(unrecycle(X12, X11)), conclusion(eval_bound(af(OFF), [X12, X11]))], fc, [], [], 1, 1, [], [], [fif]))
+add("uncycle(X13, X14) & eval_bound(is(X15, +(X13, X14)), [X13, X14]) & now(X13) -f-> conclusion(unrecycle(X15, X14))", node(4, [not(uncycle(X18, X17)), not(eval_bound(is(X16, +(X18, X17)), [X18, X17])), not(now(X18)), conclusion(unrecycle(X16, X17))], fc, [], [], 1, 1, [], [], [fif]))
+add("recycle(X19, X20) -f-> conclusion(uncycle(X19, X20))", node(3, [not(recycle(X21, X22)), conclusion(uncycle(X21, X22))], fc, [], [], 1, 1, [], [], [fif]))
+add("recycle(X23, X24) -f-> conclusion(eval_bound(df(OFF), [X23, X24]))", node(2, [not(recycle(X26, X25)), conclusion(eval_bound(df(OFF), [X26, X25]))], fc, [], [], 1, 1, [], [], [fif]))
+add("recycle(X27, X28) -f-> conclusion(eval_bound(af(ON), [X27, X28]))", node(1, [not(recycle(X30, X29)), conclusion(eval_bound(af(ON), [X30, X29]))], fc, [], [], 1, 1, [], [], [fif]))
+add("eval_bound(is(X31, +(X32, X33)), [X32, X33]) & cycle(X32, X33) & now(X32) -f-> conclusion(recycle(X31, X33))", node(0, [not(eval_bound(is(X34, +(X36, X35)), [X36, X35])), not(cycle(X36, X35)), not(now(X36)), conclusion(recycle(X34, X35))], fc, [], [], 1, 1, [], [], [fif]))
+end
+
+step(2)
+add("now(2)", node(9, [now(2)], fc, [], [], 2, 1, [], [], [if]))
+delete("now(1)", node(8, [now(1)], fc, [], [], 1, 1, [], [], [if]))
+end
+
+step(3)
+add("now(3)", node(11, [now(3)], fc, [], [], 3, 1, [], [], [if]))
+add("cycle(5, 5)", node(10, [cycle(5, 5)], fc, [], [], 3, 1, [], [], [if]))
+delete("now(2)", node(9, [now(2)], fc, [], [], 2, 1, [], [], [if]))
+end
+
+step(4)
+add("now(4)", node(12, [now(4)], fc, [], [], 4, 1, [], [], [if]))
+delete("now(3)", node(11, [now(3)], fc, [], [], 3, 1, [], [], [if]))
+end
+
+step(5)
+add("now(5)", node(13, [now(5)], fc, [], [], 5, 1, [], [], [if]))
+delete("now(4)", node(12, [now(4)], fc, [], [], 4, 1, [], [], [if]))
+end
+
+step(6)
+add("now(6)", node(15, [now(6)], fc, [], [], 6, 1, [], [], [if]))
+add("recycle(10, 5)", node(14, [recycle(10, 5)], fc, [], [], 6, 1, [[0, 13, 10]], [], [if]))
+delete("now(5)", node(13, [now(5)], fc, [], [], 5, 1, [], [], [if]))
+end
+
+step(7)
+add("now(7)", node(19, [now(7)], fc, [], [], 7, 1, [], [], [if]))
+add("uncycle(10, 5)", node(18, [uncycle(10, 5)], fc, [], [], 7, 1, [[3, 14]], [], [if]))
+add("eval_bound(df(OFF), [10, 5])", node(17, [eval_bound(df(OFF), [10, 5])], fc, [], [], 7, 1, [[2, 14]], [], [if]))
+add("eval_bound(af(ON), [10, 5])", node(16, [eval_bound(af(ON), [10, 5])], fc, [], [], 7, 1, [[1, 14]], [], [if]))
+delete("now(6)", node(15, [now(6)], fc, [], [], 6, 1, [], [], [if]))
+end
+
+step(8)
+add("now(8)", node(23, [now(8)], fc, [], [], 8, 1, [], [], [if]))
+add("df(OFF)", node(22, [df(OFF)], fc, [], [], 8, 1, [[2, 14]], [], [if]))
+add("af(ON)", node(21, [af(ON)], fc, [], [], 8, 1, [[1, 14]], [], [if]))
+add("ON", node(20, [ON], fc, [], [], 8, 1, [], [], [if]))
+delete("now(7)", node(19, [now(7)], fc, [], [], 7, 1, [], [], [if]))
+end
+
+step(9)
+add("now(9)", node(24, [now(9)], fc, [], [], 9, 1, [], [], [if]))
+delete("now(8)", node(23, [now(8)], fc, [], [], 8, 1, [], [], [if]))
+end
+
+step(10)
+add("now(10)", node(25, [now(10)], fc, [], [], 10, 1, [], [], [if]))
+delete("now(9)", node(24, [now(9)], fc, [], [], 9, 1, [], [], [if]))
+end
+
+step(11)
+add("now(11)", node(27, [now(11)], fc, [], [], 11, 1, [], [], [if]))
+add("unrecycle(15, 5)", node(26, [unrecycle(15, 5)], fc, [], [], 11, 1, [[4, 25, 18]], [], [if]))
+delete("now(10)", node(25, [now(10)], fc, [], [], 10, 1, [], [], [if]))
+end
+
+step(12)
+add("now(12)", node(31, [now(12)], fc, [], [], 12, 1, [], [], [if]))
+add("cycle(15, 5)", node(30, [cycle(15, 5)], fc, [], [], 12, 1, [[7, 26]], [], [if]))
+add("eval_bound(df(ON), [15, 5])", node(29, [eval_bound(df(ON), [15, 5])], fc, [], [], 12, 1, [[6, 26]], [], [if]))
+add("eval_bound(af(OFF), [15, 5])", node(28, [eval_bound(af(OFF), [15, 5])], fc, [], [], 12, 1, [[5, 26]], [], [if]))
+delete("ON", node(20, [ON], fc, [], [], 8, 1, [], [], [if]))
+delete("now(11)", node(27, [now(11)], fc, [], [], 11, 1, [], [], [if]))
+end
+
+step(13)
+add("now(13)", node(35, [now(13)], fc, [], [], 13, 1, [], [], [if]))
+add("df(ON)", node(34, [df(ON)], fc, [], [], 13, 1, [[6, 26]], [], [if]))
+add("af(OFF)", node(33, [af(OFF)], fc, [], [], 13, 1, [[5, 26]], [], [if]))
+add("OFF", node(32, [OFF], fc, [], [], 13, 1, [], [], [if]))
+delete("now(12)", node(31, [now(12)], fc, [], [], 12, 1, [], [], [if]))
+end
+
+step(14)
+add("now(14)", node(36, [now(14)], fc, [], [], 14, 1, [], [], [if]))
+delete("now(13)", node(35, [now(13)], fc, [], [], 13, 1, [], [], [if]))
+end
+
+step(15)
+add("now(15)", node(37, [now(15)], fc, [], [], 15, 1, [], [], [if]))
+delete("now(14)", node(36, [now(14)], fc, [], [], 14, 1, [], [], [if]))
+end
+
+step(16)
+add("now(16)", node(39, [now(16)], fc, [], [], 16, 1, [], [], [if]))
+add("recycle(20, 5)", node(38, [recycle(20, 5)], fc, [], [], 16, 1, [[0, 37, 30]], [], [if]))
+delete("now(15)", node(37, [now(15)], fc, [], [], 15, 1, [], [], [if]))
+end
+
+step(17)
+add("now(17)", node(43, [now(17)], fc, [], [], 17, 1, [], [], [if]))
+add("uncycle(20, 5)", node(42, [uncycle(20, 5)], fc, [], [], 17, 1, [[3, 38]], [], [if]))
+add("eval_bound(df(OFF), [20, 5])", node(41, [eval_bound(df(OFF), [20, 5])], fc, [], [], 17, 1, [[2, 38]], [], [if]))
+add("eval_bound(af(ON), [20, 5])", node(40, [eval_bound(af(ON), [20, 5])], fc, [], [], 17, 1, [[1, 38]], [], [if]))
+delete("OFF", node(32, [OFF], fc, [], [], 13, 1, [], [], [if]))
+delete("now(16)", node(39, [now(16)], fc, [], [], 16, 1, [], [], [if]))
+end
+
+step(18)
+add("now(18)", node(47, [now(18)], fc, [], [], 18, 1, [], [], [if]))
+add("ON", node(44, [ON], fc, [], [], 18, 1, [], [], [if]))
+delete("now(17)", node(43, [now(17)], fc, [], [], 17, 1, [], [], [if]))
+end
+
+step(19)
+add("now(19)", node(48, [now(19)], fc, [], [], 19, 1, [], [], [if]))
+delete("now(18)", node(47, [now(18)], fc, [], [], 18, 1, [], [], [if]))
+end
+
+step(20)
+add("now(20)", node(49, [now(20)], fc, [], [], 20, 1, [], [], [if]))
+delete("now(19)", node(48, [now(19)], fc, [], [], 19, 1, [], [], [if]))
+end
+
+step(21)
+add("now(21)", node(51, [now(21)], fc, [], [], 21, 1, [], [], [if]))
+add("unrecycle(25, 5)", node(50, [unrecycle(25, 5)], fc, [], [], 21, 1, [[4, 49, 42]], [], [if]))
+delete("now(20)", node(49, [now(20)], fc, [], [], 20, 1, [], [], [if]))
+end
+
+step(22)
+add("now(22)", node(55, [now(22)], fc, [], [], 22, 1, [], [], [if]))
+add("cycle(25, 5)", node(54, [cycle(25, 5)], fc, [], [], 22, 1, [[7, 50]], [], [if]))
+add("eval_bound(df(ON), [25, 5])", node(53, [eval_bound(df(ON), [25, 5])], fc, [], [], 22, 1, [[6, 50]], [], [if]))
+add("eval_bound(af(OFF), [25, 5])", node(52, [eval_bound(af(OFF), [25, 5])], fc, [], [], 22, 1, [[5, 50]], [], [if]))
+delete("ON", node(44, [ON], fc, [], [], 18, 1, [], [], [if]))
+delete("now(21)", node(51, [now(21)], fc, [], [], 21, 1, [], [], [if]))
+end
+
+step(23)
+add("now(23)", node(59, [now(23)], fc, [], [], 23, 1, [], [], [if]))
+add("OFF", node(56, [OFF], fc, [], [], 23, 1, [], [], [if]))
+delete("now(22)", node(55, [now(22)], fc, [], [], 22, 1, [], [], [if]))
+end
+
+step(24)
+add("now(24)", node(60, [now(24)], fc, [], [], 24, 1, [], [], [if]))
+delete("now(23)", node(59, [now(23)], fc, [], [], 23, 1, [], [], [if]))
+end
+
+step(25)
+add("now(25)", node(61, [now(25)], fc, [], [], 25, 1, [], [], [if]))
+delete("now(24)", node(60, [now(24)], fc, [], [], 24, 1, [], [], [if]))
+end
+
+step(26)
+add("now(26)", node(63, [now(26)], fc, [], [], 26, 1, [], [], [if]))
+add("recycle(30, 5)", node(62, [recycle(30, 5)], fc, [], [], 26, 1, [[0, 61, 54]], [], [if]))
+delete("now(25)", node(61, [now(25)], fc, [], [], 25, 1, [], [], [if]))
+end
+
+step(27)
+add("now(27)", node(67, [now(27)], fc, [], [], 27, 1, [], [], [if]))
+add("uncycle(30, 5)", node(66, [uncycle(30, 5)], fc, [], [], 27, 1, [[3, 62]], [], [if]))
+add("eval_bound(df(OFF), [30, 5])", node(65, [eval_bound(df(OFF), [30, 5])], fc, [], [], 27, 1, [[2, 62]], [], [if]))
+add("eval_bound(af(ON), [30, 5])", node(64, [eval_bound(af(ON), [30, 5])], fc, [], [], 27, 1, [[1, 62]], [], [if]))
+delete("OFF", node(56, [OFF], fc, [], [], 23, 1, [], [], [if]))
+delete("now(26)", node(63, [now(26)], fc, [], [], 26, 1, [], [], [if]))
+end
+
+step(28)
+add("now(28)", node(71, [now(28)], fc, [], [], 28, 1, [], [], [if]))
+add("ON", node(68, [ON], fc, [], [], 28, 1, [], [], [if]))
+delete("now(27)", node(67, [now(27)], fc, [], [], 27, 1, [], [], [if]))
+end
+
+step(29)
+add("now(29)", node(72, [now(29)], fc, [], [], 29, 1, [], [], [if]))
+delete("now(28)", node(71, [now(28)], fc, [], [], 28, 1, [], [], [if]))
+end
+
+step(30)
+add("now(30)", node(73, [now(30)], fc, [], [], 30, 1, [], [], [if]))
+delete("now(29)", node(72, [now(29)], fc, [], [], 29, 1, [], [], [if]))
+end

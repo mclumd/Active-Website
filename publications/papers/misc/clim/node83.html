@@ -1,0 +1,136 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 99.1 release (March 30, 1999)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Non-standard Sheet Types</TITLE>
+<META NAME="description" CONTENT="Non-standard Sheet Types">
+<META NAME="keywords" CONTENT="clim">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v99.1 release">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="clim.css">
+
+<LINK REL="next" HREF="node87.html">
+<LINK REL="previous" HREF="node73.html">
+<LINK REL="up" HREF="node43.html">
+<LINK REL="next" HREF="node84.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html1878"
+ HREF="node84.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/icons/next_motif.gif"></A> 
+<A NAME="tex2html1874"
+ HREF="node43.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/icons/up_motif.gif"></A> 
+<A NAME="tex2html1868"
+ HREF="node82.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/icons/previous_motif.gif"></A> 
+<A NAME="tex2html1876"
+ HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/icons/contents_motif.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html1879"
+ HREF="node84.html">Sheet Types and Contracts</A>
+<B> Up:</B> <A NAME="tex2html1875"
+ HREF="node43.html">Windowing Substrate</A>
+<B> Previous:</B> <A NAME="tex2html1869"
+ HREF="node82.html">Standard Windowing</A>
+ &nbsp <B>  <A NAME="tex2html1877"
+ HREF="node1.html">Contents</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION04500000000000000000"></A>
+<A NAME="sheet-types"></A>
+<BR>
+Non-standard Sheet Types
+</H1>
+
+<P>
+In the last section, standard sheets that have roughly the functionality of the
+lightweight windows of X were described.  This section provides a more detailed
+account of how sheet types are implemented, so that programmers can implement
+their own types (either to support new types of window-like surfaces or to build
+toolkits objects like buttons, scrollbars, and grapher nodes).
+
+<P>
+In addition to the basic properties of sheets describe above, sheets also have
+the following four properties called contracts: input contract, output contract,
+adult windowing contract, youth windowing contract.  These contracts specify and
+implement the input, output, or windowing functionality of the sheet.  The input
+contract defines the input interface of a sheet, specifically how input gestures
+are delivered to client of a sheet.  The output contract define the output
+interface, specifically how the client of the sheet can draw images on the
+sheet's surface and how the client is expected to repaint the sheet.
+
+<P>
+Windowing contracts provide support for maintaining windowing relationships.  A
+sheet can participate in one windowing relationship as a parent as well as in
+another as child.  The windowing contract in which the sheet is a parent is
+called its adult contract; similarly the one in which the sheet is a child is
+called its youth contract.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
+
+<UL>
+<LI><A NAME="tex2html1880"
+ HREF="node84.html">Sheet Types and Contracts</A>
+<LI><A NAME="tex2html1881"
+ HREF="node85.html">Dynamic Output Contract</A>
+<LI><A NAME="tex2html1882"
+ HREF="node86.html">Providing a Display Medium Type</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html1878"
+ HREF="node84.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/icons/next_motif.gif"></A> 
+<A NAME="tex2html1874"
+ HREF="node43.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/icons/up_motif.gif"></A> 
+<A NAME="tex2html1868"
+ HREF="node82.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/icons/previous_motif.gif"></A> 
+<A NAME="tex2html1876"
+ HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/icons/contents_motif.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html1879"
+ HREF="node84.html">Sheet Types and Contracts</A>
+<B> Up:</B> <A NAME="tex2html1875"
+ HREF="node43.html">Windowing Substrate</A>
+<B> Previous:</B> <A NAME="tex2html1869"
+ HREF="node82.html">Standard Windowing</A>
+ &nbsp <B>  <A NAME="tex2html1877"
+ HREF="node1.html">Contents</A></B> 
+<!--End of Navigation Panel-->
+<ADDRESS>
+<I>&</I>
+<BR><I>2001-06-12</I>
+</ADDRESS>
+</BODY>
+</HTML>

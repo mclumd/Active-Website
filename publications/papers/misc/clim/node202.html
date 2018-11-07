@@ -1,0 +1,169 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 99.1 release (March 30, 1999)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>The Pointer Protocol</TITLE>
+<META NAME="description" CONTENT="The Pointer Protocol">
+<META NAME="keywords" CONTENT="clim">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v99.1 release">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="clim.css">
+
+<LINK REL="next" HREF="node203.html">
+<LINK REL="previous" HREF="node200.html">
+<LINK REL="up" HREF="node196.html">
+<LINK REL="next" HREF="node203.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html3520"
+ HREF="node203.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/icons/next_motif.gif"></A> 
+<A NAME="tex2html3516"
+ HREF="node196.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/icons/up_motif.gif"></A> 
+<A NAME="tex2html3510"
+ HREF="node201.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/icons/previous_motif.gif"></A> 
+<A NAME="tex2html3518"
+ HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/icons/contents_motif.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html3521"
+ HREF="node203.html">Pointer Tracking</A>
+<B> Up:</B> <A NAME="tex2html3517"
+ HREF="node196.html">Extended Stream Input</A>
+<B> Previous:</B> <A NAME="tex2html3511"
+ HREF="node201.html">Standard Gesture Names</A>
+ &nbsp <B>  <A NAME="tex2html3519"
+ HREF="node1.html">Contents</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION07140000000000000000">
+The Pointer Protocol</A>
+</H1>
+
+<P>
+pointer
+
+<P>
+The protocol class that corresponds to a pointing device.
+a pointer pointer
+Members of this class are mutable. 
+<P>
+pointerp object
+
+<P>
+Returns <I> true</I> if <I> object</I> is a <I> pointer</I>, otherwise returns
+<I> false</I>.
+
+<P>
+ 
+:port
+
+<P>
+The :port initarg is used to specify the port with which the pointer is
+associated.
+
+<P>
+standard-pointer
+
+<P>
+The instantiable class that implements a pointer.
+
+<P>
+pointer-port pointer
+
+<P>
+Returns the port with which the <I> pointer</I> <I> pointer</I> is associated.
+
+<P>
+pointer-sheet pointer
+(setf pointer-sheet) sheet pointer
+
+<P>
+Returns (or sets) the sheet over which the <I> pointer</I> <I> pointer</I> is located.
+
+<P>
+pointer-buttons pointer
+
+<P>
+Returns the state of the buttons of the <I> pointer</I> <I> pointer</I>.  This is
+represented in the same as pointer-event-button.
+
+<P>
+pointer-position* pointer
+
+<P>
+Returns the 1#1 and 2#2 position of the <I> pointer</I> <I> pointer</I> as two
+values.
+
+<P>
+ 
+(setf pointer-position*) x y pointer
+
+<P>
+Sets the 1#1 and 2#2 position of the <I> pointer</I> <I> pointer</I> to the
+specified position.
+
+<P>
+pointer-cursor pointer
+(setf pointer-cursor) cursor pointer
+
+<P>
+A pointer object usually has a visible cursor associated with it.  These
+functions return (or set) the cursor associated with the <I> pointer</I>
+<I> pointer</I>.
+
+<P>
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html3520"
+ HREF="node203.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/icons/next_motif.gif"></A> 
+<A NAME="tex2html3516"
+ HREF="node196.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/icons/up_motif.gif"></A> 
+<A NAME="tex2html3510"
+ HREF="node201.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/icons/previous_motif.gif"></A> 
+<A NAME="tex2html3518"
+ HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/icons/contents_motif.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html3521"
+ HREF="node203.html">Pointer Tracking</A>
+<B> Up:</B> <A NAME="tex2html3517"
+ HREF="node196.html">Extended Stream Input</A>
+<B> Previous:</B> <A NAME="tex2html3511"
+ HREF="node201.html">Standard Gesture Names</A>
+ &nbsp <B>  <A NAME="tex2html3519"
+ HREF="node1.html">Contents</A></B> 
+<!--End of Navigation Panel-->
+<ADDRESS>
+<I>&</I>
+<BR><I>2001-06-12</I>
+</ADDRESS>
+</BODY>
+</HTML>

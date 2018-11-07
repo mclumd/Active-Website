@@ -1,0 +1,42 @@
+<HTML>
+<HEAD>
+<TITLE>
+Cardie Spring 01
+</TITLE>
+<BODY BGCOLOR = "eeeeee" BACKGROUND="bg.gif">
+</HEAD>
+<b>
+<p>
+<p>Title: Noun Phrase Coreference for Information Extraction
+
+<p>
+<a href="http://www.cs.cornell.edu/Info/People/cardie/">Claire Cardie</a>
+<br>Cornell University
+<p>
+<br>
+
+Abstract:            </b>
+<p>
+
+
+This talk will first briefly describe information extraction systems
+--- natural language understanding systems that take as input a
+collection of unrestricted texts and ``summarize'' each text with
+respect to a prespecified topic or domain of interest.  We then will
+focus on the problem of noun phrase coreference, one of the most cited
+underlying problems for information extraction and for many other
+practical natural language processing tasks.  The goal for noun phrase
+coreference algorithms is to determine which noun phrases in a text or
+dialogue refer to the same real-world entity.  We will introduce an
+algorithm for noun phrase coreference resolution that differs from
+existing methods in that it views coreference resolution as a
+clustering task. In initial evaluations on a standard coreference
+resolution corpus, our results are extremely encouraging.  The
+coreference clustering algorithm appears to provide a flexible
+mechanism for combining context-independent coreference constraints
+and context-dependent preferences for accurate partitioning of noun
+phrases into coreference equivalence classes.
+
+
+<BR>
+</html>

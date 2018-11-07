@@ -1,0 +1,141 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 99.1 release (March 30, 1999)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Mirrors and Mirrored Sheets</TITLE>
+<META NAME="description" CONTENT="Mirrors and Mirrored Sheets">
+<META NAME="keywords" CONTENT="clim">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v99.1 release">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="clim.css">
+
+<LINK REL="next" HREF="node80.html">
+<LINK REL="previous" HREF="node76.html">
+<LINK REL="up" HREF="node73.html">
+<LINK REL="next" HREF="node78.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html1808"
+ HREF="node78.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/icons/next_motif.gif"></A> 
+<A NAME="tex2html1804"
+ HREF="node73.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/icons/up_motif.gif"></A> 
+<A NAME="tex2html1798"
+ HREF="node76.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/icons/previous_motif.gif"></A> 
+<A NAME="tex2html1806"
+ HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/icons/contents_motif.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html1809"
+ HREF="node78.html">Mirror Functions</A>
+<B> Up:</B> <A NAME="tex2html1805"
+ HREF="node73.html">Ports, Grafts, and Mirrored</A>
+<B> Previous:</B> <A NAME="tex2html1799"
+ HREF="node76.html">Grafts</A>
+ &nbsp <B>  <A NAME="tex2html1807"
+ HREF="node1.html">Contents</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION04440000000000000000">
+Mirrors and Mirrored Sheets</A>
+</H1>
+
+<P>
+A <I> mirrored sheet</I><A NAME="8703"></A> is a special class of sheet that is attached directly
+to a window on a display server.  Grafts, for example, are always mirrored
+sheets.  However, any sheet anywhere in a sheet hierarchy may be a mirrored
+sheet.  A mirrored sheet will usually contain a reference to a window system
+object, called a mirror.  For example, a mirrored sheet attached to an X11
+server might have an X window system object stored in one of its slots.
+Allowing mirrored sheets at any point in the hierarchy enables the adaptive
+toolkit facilities.
+
+<P>
+Since not all sheets in the hierarchy have mirrors, there is no direct
+correspondence between the sheet hierarchy and the mirror hierarchy.  However,
+on those display servers that support hierarchical windows, the hierarchies must
+be parallel.  If a mirrored sheet is an ancestor of another mirrored sheet,
+their corresponding mirrors must have a similar ancestor/descendant
+relationship.
+
+<P>
+CLIM interacts with mirrors when it must display output or process events.
+On output, the mirrored sheet closest in ancestry to the sheet on which we wish
+to draw provides the mirror on which to draw.  The mirror's drawing clipping
+region is set up to be the intersection of the user's clipping region and the
+sheet's region (both transformed to the appropriate coordinate system) for the
+duration of the output.  On input, events are delivered from mirrors to the
+sheet hierarchy.  The CLIM port must determine which sheet shall receive events
+based on information such as the location of the pointer.
+
+<P>
+In both of these cases, we must have a coordinate transformation that converts
+coordinates in the mirror (so-called ``native'' coordinates) into coordinates
+in the sheet and vice-versa.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
+
+<UL>
+<LI><A NAME="tex2html1810"
+ HREF="node78.html">Mirror Functions</A>
+<LI><A NAME="tex2html1811"
+ HREF="node79.html">Internal Interfaces for Native Coordinates</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html1808"
+ HREF="node78.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/icons/next_motif.gif"></A> 
+<A NAME="tex2html1804"
+ HREF="node73.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/icons/up_motif.gif"></A> 
+<A NAME="tex2html1798"
+ HREF="node76.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/icons/previous_motif.gif"></A> 
+<A NAME="tex2html1806"
+ HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/icons/contents_motif.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html1809"
+ HREF="node78.html">Mirror Functions</A>
+<B> Up:</B> <A NAME="tex2html1805"
+ HREF="node73.html">Ports, Grafts, and Mirrored</A>
+<B> Previous:</B> <A NAME="tex2html1799"
+ HREF="node76.html">Grafts</A>
+ &nbsp <B>  <A NAME="tex2html1807"
+ HREF="node1.html">Contents</A></B> 
+<!--End of Navigation Panel-->
+<ADDRESS>
+<I>&</I>
+<BR><I>2001-06-12</I>
+</ADDRESS>
+</BODY>
+</HTML>

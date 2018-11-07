@@ -1,0 +1,193 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 99.1 release (March 30, 1999)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>The Text Cursor</TITLE>
+<META NAME="description" CONTENT="The Text Cursor">
+<META NAME="keywords" CONTENT="clim">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v99.1 release">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="clim.css">
+
+<LINK REL="next" HREF="node153.html">
+<LINK REL="previous" HREF="node149.html">
+<LINK REL="up" HREF="node147.html">
+<LINK REL="next" HREF="node151.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2821"
+ HREF="node151.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/icons/next_motif.gif"></A> 
+<A NAME="tex2html2817"
+ HREF="node147.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/icons/up_motif.gif"></A> 
+<A NAME="tex2html2811"
+ HREF="node149.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/icons/previous_motif.gif"></A> 
+<A NAME="tex2html2819"
+ HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/icons/contents_motif.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html2822"
+ HREF="node151.html">Text Cursor Protocol</A>
+<B> Up:</B> <A NAME="tex2html2818"
+ HREF="node147.html">Extended Stream Output</A>
+<B> Previous:</B> <A NAME="tex2html2812"
+ HREF="node149.html">Extended Output Streams</A>
+ &nbsp <B>  <A NAME="tex2html2820"
+ HREF="node1.html">Contents</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION06130000000000000000">
+The Text Cursor</A>
+</H1>
+
+<P>
+In the days when display devices displayed only two dimensional arrays of fixed
+width characters, the text cursor was a simple thing.  A discrete position was
+selected in integer character units, and a character could go there and noplace
+else.  Even for variable width fonts, simply addressing a character by the pixel
+position of one of its corners is sufficient.  However, variable height fonts
+with variable baselines on pixel-addressable displays upset this simple model.
+The ``logical'' vertical reference point is the baseline, as it is in
+typesetting.  In typesetting, however, an entire line of text is created with
+baselines aligned and padded to the maximum ascent and descent, then the entire
+line is put below the previous line.  
+
+<P>
+It is clearly desirable to have the characters on a line aligned with their
+baselines, but when the line on the display is formed piece by piece, it is
+impossible to pick in advance the proper baseline.  The solution CLIM adopts is
+to choose a baseline, but not commit to it.
+
+<P>
+The CLIM model says that text has at least 6 properties.  With a reference point
+of 31#31 at the upper left of the text, it has a bounding box consisting of
+ascent, descent, left kerning, right extension, and a displacement to the next
+reference point in both 1#1 and 2#2.  CLIM determines the position of the
+reference point and draws the text relative to that, and then the cursor
+position is adjusted by the displacement.  In this way, text has width and
+height, but the 1#1 and 2#2 displacements need not equal the width and height.
+
+<P>
+CLIM adopts the following approach to the actual rendering of a glyph.  Textual
+output using the stream functions (<I> not</I> the graphics functions) maintains
+text on a ``line''.   Note that a line is not an output record, but is rather a
+collection of ``text so far'', a top (which is positioned at the bottom of the
+previous line plus the stream's vertical spacing), a baseline, a bottom, and a
+``cursor position''.  The cursor position is defined to be at the top of the
+line, not at the baseline.  The reason for this is that the baseline can move,
+but the top is relative to the previous line, which has been completed and
+therefore doesn't move.  If text is drawn on the current line whose ascent is
+greater than the current ascent of the line, then the line is moved down to make
+room.  This can be done easily using the output records for the existing text on
+the line.  When there is enough room, the reference point for the text is the
+1#1 position of the cursor at the baseline, and the cursor position is adjusted
+by the displacement.
+
+<P>
+The following figures show this in action before and after each of three
+characters are drawn.  In all three figure, the small circle is the ``cursor
+position''.  At first, there is nothing on the line.  The first character
+establishes the initial baseline, and is then drawn.  The upper left corner of
+the character is where the cursor was (as in the traditional model), but this
+will not remain the case.  Drawing the second character, which is larger than
+the first, requires moving the first character down in order to get the
+baselines to align; during this time, the top of the line remains the same.
+Again, the upper left of the second character is where the cursor was, but that
+is no longer the case for the first character (which has moved down).  The third
+character is smaller than the second, so no moving of characters needs to be
+done.  However, the character is drawn to align the baselines, which in this
+case means the upper left is <I> not</I> where the cursor was.  Nor is the cursor
+at the upper right of the character as it was for the previous two characters.
+It is, however, at the upper right of the collective line.
+
+<P>
+ 
+
+  .1in
+
+<P>
+ 
+<BR>
+80#80
+<BR>
+
+<P>
+
+
+<P>
+DCPL The above may be too simplistic. The displacement probably
+wants to depend not only on language but language rendering mode.  For example,
+Japanese can apparently go either vertically or horizontally.  It may be
+necessary to have the bounding box and perhaps the reference point dispatch as
+well.  Similarly, ``newline'' could mean ``down one line, all the way to the
+left'' for English, ``down one line, all the way to the right'' for Arabic, or
+``to the left one line, all the way to the top.''  ``Home cursor'' is another
+ditty to consider.  We need to discuss this on a larger scale with people who
+know multi-lingual rendering issues.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
+
+<UL>
+<LI><A NAME="tex2html2823"
+ HREF="node151.html">Text Cursor Protocol</A>
+<LI><A NAME="tex2html2824"
+ HREF="node152.html">Stream Text Cursor Protocol</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2821"
+ HREF="node151.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/icons/next_motif.gif"></A> 
+<A NAME="tex2html2817"
+ HREF="node147.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/icons/up_motif.gif"></A> 
+<A NAME="tex2html2811"
+ HREF="node149.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/icons/previous_motif.gif"></A> 
+<A NAME="tex2html2819"
+ HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/icons/contents_motif.gif"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html2822"
+ HREF="node151.html">Text Cursor Protocol</A>
+<B> Up:</B> <A NAME="tex2html2818"
+ HREF="node147.html">Extended Stream Output</A>
+<B> Previous:</B> <A NAME="tex2html2812"
+ HREF="node149.html">Extended Output Streams</A>
+ &nbsp <B>  <A NAME="tex2html2820"
+ HREF="node1.html">Contents</A></B> 
+<!--End of Navigation Panel-->
+<ADDRESS>
+<I>&</I>
+<BR><I>2001-06-12</I>
+</ADDRESS>
+</BODY>
+</HTML>

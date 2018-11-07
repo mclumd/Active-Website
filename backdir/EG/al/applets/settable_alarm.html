@@ -1,0 +1,47 @@
+<html>
+<head>
+<title>
+Settable alarm I example
+</title>
+</head>
+
+<body bgcolor="#ffffee" text="#000000" link="#ff0000" vlink="0000ff">
+
+<h3> Settable alarm I example </h3>
+<p>
+<h4>Description: </h4>
+We assert the time for lunch and at the right time, Alma asserts that
+it is lunch time.
+<br>
+
+<p>
+<a href="settable_alarm_applet.html" target="History"> View the history applet</a>
+<br>
+<a href="../histories/settable_alarm.pl"> Alma specification</a>
+<p>
+<h4>Run: </h4>
+<ul>
+<li> Alma start with the description of the solution to the problem at
+step 1. This consists of a single assertion: "if it is now T and lunch
+is at T, assert lunch."
+<li> At step 1, the assertion is instantiated with T = 1 since now it
+is 1. But since Alma does not have lunch_at(1), nothing happens.
+<li> The same thing happens for eachof the other stpes.
+<li> At step 11 we assert lunch_at(12).
+<li> At step 12 the antecedents are true and
+<li> At step 13 Alma asserts 'lunch'
+</ul>
+<p>
+<h4>Note:</h4>
+The time at which lunch is asserted is one step later than the time we
+specified because of the time the inference takes.
+<br>
+This looks like a rather strange way to do things because we have one
+of the "lunch_at(X) -> lunch" assertions derived for each step. See
+Settable alarm II for an alternative.
+
+<p>
+<hr>
+<a href="mailto:kpurang@cs.umd.edu">kpurang@cs.umd.edu</a>
+</html>
+
