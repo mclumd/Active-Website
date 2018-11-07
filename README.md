@@ -41,3 +41,12 @@ file template.shtml is also identical to TEMPLATE.
     * Uncertainty Primer (primers/uncertain.shtml lines 58-61)
     * Technical Primer (primers/technical.shtml lines 5, 54-59)
 * Clean up unused or unlinked files
+
+## List of Pages Linked Somewhere
+* index.shtml
+* aims.shtml
+* primers/index.shtml
+* primers/uncertain.shtml
+* primers/technical.shtml
+* primers/example_al_1.shtml
+*
