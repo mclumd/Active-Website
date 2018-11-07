@@ -5,11 +5,11 @@ To create a new web page linked from the home ALMECOM page
 
 2. insert at the TOP of that file the line (*exactly this way*):
 
-<!--#include virtual="include.shtml"-->
+`<!--#include virtual="include.shtml"-->`
 
 If your page is not in the same directory as the include file, you will need to prepend the appropriate path. 
 Example for a page in the research directory:
-<!--#include virtual="../include.shtml"-->
+`<!--#include virtual="../include.shtml"-->`
 
 
 3. Insert *after* that line whatever you want to appear on your
@@ -18,7 +18,7 @@ standard ALMECOM banner and sidebar into your page when it is
 viewed.
 
 4. Repeat steps 2 and 3 at the bottom of the file with the line 
-<!--#include virtual="footer.shtml"-->
+`<!--#include virtual="footer.shtml"-->`
 
 5. For convenience, there is a TEMPLATE file that you can copy
 to your_page_name.shtml, that has the special "include" line
@@ -26,8 +26,8 @@ already in it, plus some other hopefully-helpful info.  The
 file template.shtml is also identical to TEMPLATE.
 
 
-TODO
----
+## TODO
+
 * Fix the redirect issues
 * Empty image at bottom of seminars page (metacogseminar/index.html line 101)
 * Broken link near the end of home page (index.shtml line 41)
