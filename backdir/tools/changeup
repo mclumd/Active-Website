@@ -1,6 +1,0 @@
-echo $1
-cat $1 | \
-sed  -e s/"back2.gif"/"bgnds\/granite_up.gif"/g \
-| cat > foo ;\
-mv foo $1
-

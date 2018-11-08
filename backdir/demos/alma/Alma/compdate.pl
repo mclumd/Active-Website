@@ -1,1 +1,0 @@
-print_compiled:-print('Compiled on Tuesday October 10 2000 16:58'),nl,nl.

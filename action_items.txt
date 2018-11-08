@@ -1,7 +1,0 @@
-On 2009-10-30, the text file for action items was discontinued due to text formatting problems (i.e., the carriage return/line feed distinction).  The new list of action items is at 
-
-http://www.cs.umd.edu/active/action_items.rtf 
-
-The old archive of action items can be found at 
-
-http://www.cs.umd.edu/active/action_items_old.txt
