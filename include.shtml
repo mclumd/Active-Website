@@ -56,7 +56,7 @@ trail.style.visibility="hidden"
 }
 
   </script>
-  <base href="http://yeet.local:8888/lab-website-2018.10.31/">
+  <base href="https://cs.umd.edu/active/">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
      
 
