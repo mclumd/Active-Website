@@ -1,5 +1,5 @@
 <!--#include virtual="../include.shtml"-->
-<!-------------------------------------------------------------------------->    
+<!-------------------------------------------------------------------------->
 <h2>Publications</h2>
 <ul>
 
@@ -7,35 +7,35 @@
 
 <li>Dissertations
   <ul>
-  <li><a href="http://www.cs.umd.edu/active/publications/papers/dissertations/drapkin_thesis.pdf">
+  <li><a href="publications/papers/dissertations/drapkin_thesis.pdf">
       Jennifer Elgot-Drapkin (1988): Step Logic: Reasoning Situated in Time. </a></li>
 
-  <li><a href="http://www.cs.umd.edu/active/publications/papers/dissertations/DVF.pdf">
+  <li><a href="publications/papers/dissertations/DVF.pdf">
       Michael Miller (1993): Reasoned Change in Beliefs. </a></li>
 
-  <li><a href="http://www.cs.umd.edu/active/publications/papers/dissertations/madhura_thesis.pdf">
+  <li><a href="publications/papers/dissertations/madhura_thesis.pdf">
       Madhura Nirkhe (1994): Reasoning with Deadlines and With Space and Computational Bounds. </a></li>
 
-  <li><a href="http://www.cs.umd.edu/active/publications/papers/dissertations/purang_thesis.pdf">
+  <li><a href="publications/papers/dissertations/purang_thesis.pdf">
       Khemdut Purang (2001): Systems that Detect and Repair Their Own Mistakes. </a></li>
 
-  <li><a href="http://www.cs.umd.edu/active/publications/papers/dissertations/darsana_thesis.pdf">
+  <li><a href="publications/papers/dissertations/darsana_thesis.pdf">
       Darsana Josyula (2005): A Unified Theory of Acting and Agency. </a></li>
 
-  <li><a href="http://www.cs.umd.edu/active/publications/papers/dissertations/yuan_thesis.pdf">
+  <li><a href="publications/papers/dissertations/yuan_thesis.pdf">
       Waiyian Chong (2006): Reflective Reasoning. </a></li>
-      
-	<li><a href="http://www.cs.umd.edu/active/publications/papers/dissertations/thomas_diss.pdf">
+
+	<li><a href="publications/papers/dissertations/thomas_diss.pdf">
       Scott Thomas (2007): VERB IDIOSYNCRASY, ARGUMENT REALIZATION AND POLYSEMY</a></li>
 
-  <li><a href="http://www.cs.umd.edu/active/publications/papers/dissertations/Dissertation-HamidHaidarianShahri2011.pdf">
+  <li><a href="publications/papers/dissertations/Dissertation-HamidHaidarianShahri2011.pdf">
       Hamid Haidarian Shahri (2011): Data Interoperability and Semantic Search on the Web. </a></li>
 
   <li><a
-  href="http://www.cs.umd.edu/active/publications/papers/dissertations/swilson_dissertation_web.pdf">
-  Shomir Wilson (2011): The Use-Mention Distinction in Natural Language.  </a></li>  
+  href="publications/papers/dissertations/swilson_dissertation_web.pdf">
+  Shomir Wilson (2011): The Use-Mention Distinction in Natural Language.  </a></li>
 
-<li><a href="http://www.cs.umd.edu/active/publications/papers/dissertations/dwright.pdf">  Dean Wright (2011): Finding a Temporal Comparison Function for the Metacognitive Loop. </a></li>
+<li><a href="publications/papers/dissertations/dwright.pdf">  Dean Wright (2011): Finding a Temporal Comparison Function for the Metacognitive Loop. </a></li>
   </ul></li>
 
 </ul>
@@ -49,5 +49,5 @@
     </div>
   </div>
 </form>
-<!-- Google Scholar --> 
+<!-- Google Scholar -->
 <!--#include virtual="../footer.shtml"-->
