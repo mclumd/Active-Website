@@ -1,16 +1,75 @@
 <!--#include virtual="../include.shtml"-->
 <h2>Publications by Year</h2>
+<h4>2018</h4><ul>
 
+<li><a href="publications/papers/the_internal_reasoning_of_robots.pdf">
+The Internal Reasoning of Robots.</a> Don Perlis, Justin Brody, Sarit Kraus, Michael Miller.</li>
 
+<li><a href="publications/papersan_embodied_multi-sensor_fusion_approach_to_visual_motion_estimation_usinging_unsupervised_deep_netowrks.pdf">
+An Embodied Multi-Sensor Fusion Approach to Visual Motion Estimation Using Unsupervised Deep Networks.</a> E Jared Shamwell, William D Nothwang, Donald Perlis.</li>
 
+<li><a href="publications/papers/multi-hypothesis_visual_inertial_flow.pdf">
+Multi-Hypothesis Visual-Inertial Flow.</a> E Jared Shamwell, William D Nothwang, Donald Perlis.</li>
 
-<h4>2013</h4><ul>
+</ul><h4>2016</h4><ul>
+
+<li><a href="publications/papers/reasoning_with_grounded_self_symbols_for_human-robot_interaction.pdf">
+Reasoning with Grounded Self-Symbols for Human-Robot Interaction.</a> Justin Brody, Samuel Barham, Yue Dai, Christopher Maxey, Donald Perlis, David Sekora, Jared Shamwell.</li>
+
+<li><a href="publications/papers/five_dimensions_of_reasoning_in_the_wild.pdf">
+Five Dimensions of Reasoning in the Wild.</a> Don Perlis.</li>
+
+<li><a href="publications/papers/MIDCA_a_metacognitive_integrated_dual-cycle.pdf">
+MIDCA: A Metacognitive, Integrated Dual-Cycle Architecture for Self-Regulated Autonomy.</a> Michael T Cox, Zohreh Alavi, Dustin Dannenhauer, Vahid Eyorokon, Hector Munoz-Avila, Don Perlis.</li>
+
+<li><a href="publications/papers/taking_physical_infinity_seriously.pdf">
+Taking physical infinity seriously.</a> Donald Perlis.</li>
+
+</ul><h4>2015</h4><ul>
+
+<li><a href="publications/papers/whos_talking_efference_copy_and_a_robots_sense_of_agency.pdf">
+Who&rsquo;s Talking?&mdash;Efference Copy and a Robot&rsquo;s Sense of Agency.</a> Justin Brody, Don Perlis, Jared Shamwell.</li>
+
+</ul><h4>2014</h4><ul>
+
+<li><a href="publications/papers/two_approaches_to_implementing_metacognition.pdf">
+Two Approaches to Implementing Metacognition.</a> Emily Hand, Darsana Josyula, Matthew Paisner, Elizabeth McNany, Donald Perlis, Michael Cox.</li>
+
+<li><a href="publications/papers/imagination-human_and_artificial.pdf">
+Imagination, Human and Artifical.</a> Donald Perlis.</li>
+
+<li><a href="publications/papers/anomaly_detection_for_symbolic_representations.pdf">
+Anomaly Detection for Symbolic Representations.</a> Michael T Cox, Matt Paisner, Tim Oates, Don Perlis.</li>
+
+<li><a href="publications/papers/Toward_meta-level_control_of_autonomous_agents.pdf">
+Toward meta-level control of autonomous agents.</a> Dustin Dannenhauer, Michael T Cox, Shubham Gupta, Matt Paisner, Don Perlis.</li>
+
+<li><a href="publications/papers/goal-driven_autonomy_for_cognnitive_systems.pdf">
+Goal-driven autonomy for cognitive systems.</a> Matthew Paisner, Michael Cox, Michael Maynord, Don Perlis.</li>
+
+</ul><h4>2013</h4><ul>
+
+<li><a href="publications/papers/a_broad_vision_for_intelligent_behavior.pdf">
+	A Broad Vision for Intelligent Behavior: Perpetual Real-World Cognitive Agents.</a> Don Perlis, Michael Cox, Michael Maynord, Elizabeth McNany, Matthew Paisner, Vikas Shivashankar, Jared Shamwell, Tim Oates, Tongchun Du, Darsana Josyula, Manuel Caro.</li>
+
+	<li><a href="publications/papers/data-driven_goal_generation_for_integrated_cognitive_systems.pdf">
+	data-driven goal generation for integrated cognitive systems.</a> Michael Maynord, Michael T Cox, Matt Paisner, Don Perlis.</li>
+
+	<li><a href="publications/papers/symbolic_anomaly_detection_and_assessment_using_growig_neural_growing_gas.pdf">
+	Symbolic anomaly dete tion and assessment using growing neural gas.</a> Matthew Paisner, Michael T Cox, Don Perlis.</li>
+
+	<li><a href="publications/papers/the_integration_of_cognitive_and_metacognitive_processes_with_data-drive_and_knowledge-rich_structures.pdf">
+	the integration of cognitive and metacognitive processes with data-driven and knowledge rich structures.</a> Michael T Cox, Michael Maynord, M Paisner, D Perlis, T Oates.</li>
+
+	<li><a href="publications/papers/the_processual_self_as_cognitive_unifier.pdf">
+	the processual self as cognitive unifier.</a> Justin Brody, Michael T Cox, Donald Perlis.</li>
+
+	<li><a href="publications/papers/an_approach_to_human_level_commonsense_reasoning.pdf">
+	An approach to human-level commonsense reasoning.</a> Michael L Anderson, Walid Gomaa, John Grant, Don Perlis.</li>
+
 
 	<li><a href="https://mclumd.github.io/ALMECOM%20Papers/2013/Metacognitive%20Guidance%20in%20a%20Dialog%20Agent.pdf">Metacognitive Guidance in a Dialog Agent</a> Elizabeth McNany, Darsana Josyula, Michael Cox, Matthew Paisner, Don Perlis. In Cognitive 2013, the Fifth International Conference on Advanced Cognitive Technologies and Applications, pp. 137-140.</li>
 
-
-
-	<li><a href="https://mclumd.github.io/ALMECOM%20Papers/2013/Metacognitive%20Guidance%20in%20a%20Dialog%20Agent.pdf">Metacognitive Guidance in a Dialog Agent</a> Elizabeth McNany, Darsana Josyula, Michael Cox, Matthew Paisner, Don Perlis. In Cognitive 2013, the Fifth International Conference on Advanced Cognitive Technologies and Applications, pp. 137-140.</li>
 
 	<li><a href="https://mclumd.github.io/ALMECOM%20Papers/2013/Toward%20Automatic%20Processing%20of%20English%20Metalanguage.pdf">Toward Automatic Processing of English Metalanguage.</a> In Proceedings of the 6th International Joint Conference on Natural Language Processing. Nagoya, Japan, 14-18 October.</li>
 
