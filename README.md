@@ -1,4 +1,6 @@
 # Active Logic Website
+## Important note for deploying
+There is a `<base>` tag in /include.shtml that must contain the correct root url.
 ## Creating pages
 To create a new web page linked from the home ALMECOM page
 (or any other of our pages), do this:
