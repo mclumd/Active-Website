@@ -2,9 +2,9 @@
 
 <h2>Examples of Active Logic Inferences</h2>
 <p>
-        There are several examples of active logics in our papers. We present 
+        There are several examples of active logics in our papers. We present
     here a couple of simple ones. </p>
-      
+
 
           <table cellpadding="5" align="center"><tr><td>\(t\):</td><td align="center">\(Now(t)\)</td></tr><tr><td>\(t+1\):</td><td align="center" style="border-top: 1px solid black">\(Now(t+1)\)</td></tr></table>
 <!--$$\frac{Now(t)}{Now(t+1)} \label{t}$$
@@ -21,7 +21,7 @@ then, at the next step, let \(Now\) have the value \(t+1\). This enables
 the active logic to keep track of step numbers and therefore of time.
 </p><p>
 
-This is a basic rule and is included in all active logics. 
+This is a basic rule and is included in all active logics.
 
 </p>
 <hr>
@@ -40,7 +40,7 @@ the next step, we add \(contra(P,\neg P)\) to the database to indicate
 the contradiction. There will be other rules that will cause the
 consequences of \(P\) and \(\neg P\) not to be derived in later steps, and
 rules that will attempt to resolve the contradiction and reinstate
-either \(P\) or \(\neg P\) to the database at a later time. 
+either \(P\) or \(\neg P\) to the database at a later time.
 </p>
 <hr>
 <p>
@@ -63,7 +63,7 @@ get \(R\) immediately, but only after 2 steps. First, we use \(P\) and \(P\impli
 <p>
 The inheritance rule keeps formulas in the database unless there is a
     contradiction: </p>
-        <table cellpadding="5" align="center"><tr><td>\(t\):</td><td align="center">\(P, not\_know(\neg P), \+ P=Now(t)\)</td></tr><tr><td>\(t+1\):</td><td align="center" style="border-top: 1px solid black">\(P\)</td></tr></table>
+        <table cellpadding="5" align="center"><tr><td>\(t\):</td><td align="center">\(P, not\_know(\neg P), \not\vdash P=Now(t)\)</td></tr><tr><td>\(t+1\):</td><td align="center" style="border-top: 1px solid black">\(P\)</td></tr></table>
         <table cellpadding="5" align="center"><tr><td>\(t\):</td><td align="center">\(P, not\_know(P)\)</td></tr><tr><td>\(t+1\):</td><td align="center" style="border-top: 1px solid black">\(\neg P\)</td></tr></table>
 <!--<pre>
 
@@ -78,13 +78,13 @@ The inheritance rule keeps formulas in the database unless there is a
 </pre>-->
 <p>
 \(not\_know(P)\) is true iff \(P\) is not in the current database. Since the
-database is finite, this poses no computational problems. "\+ P =
-Now(t)" verifies that \(P\) is not of the form \(Now(t)\) and prevents time
+database is finite, this poses no computational problems. \(\not\vdash P =
+Now(t)\) verifies that \(P\) is not of the form \(Now(t)\) and prevents time
 form being inherited.
 </p><p>
 This pair of rules causes contradictions not to be present after they
 are detected.
-   
+
 </p>
 <hr>
 <p>
@@ -94,7 +94,7 @@ Bird(tweety), Bird(x) \land not\_know(\neg fly(x)) \implies fly(x)$$
 With the above rules of inference, this is what the database looks like at
 consecutive steps:
 </p><p>
-At step 0: 
+At step 0:
 $$Now(0),
 Bird(tweety), Bird(x) \land not\_know(\neg fly(x)) \implies fly(x)$$
 </p><p>
@@ -114,7 +114,7 @@ Bird(tweety), Bird(x) \land not\_know(\neg fly(x)) \implies fly(x),\neg fly(twee
 </p><p>
 This time we get:
 </p><p>
-At step 0: 
+At step 0:
 $$Now(0),
 Bird(tweety), Bird(x) \land not\_know(\neg fly(x)) \implies fly(x),\neg fly(tweety)$$
 </p><p>
