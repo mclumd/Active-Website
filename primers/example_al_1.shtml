@@ -7,14 +7,6 @@
 
 
           <table cellpadding="5" align="center"><tr><td>\(t\):</td><td align="center">\(Now(t)\)</td></tr><tr><td>\(t+1\):</td><td align="center" style="border-top: 1px solid black">\(Now(t+1)\)</td></tr></table>
-<!--$$\frac{Now(t)}{Now(t+1)} \label{t}$$
-          $$\begin{array}{l c}t: & \underline{Now(t)}\\  t+1: & Now(t+1)\end{array}$$
-<pre>
-
-       t:     Now(t)
-            ----------
-       t+1:  Now(t+1)
-</pre>-->
 
 <p>is a rule that says: if at the current step, \(Now\) has the value \(t\),
 then, at the next step, let \(Now\) have the value \(t+1\). This enables
@@ -28,12 +20,7 @@ This is a basic rule and is included in all active logics.
 
 <p>Another example is the contradiction rule:</p>
         <table cellpadding="5" align="center"><tr><td>\(t\):</td><td align="center">\(P, \neg P\)</td></tr><tr><td>\(t+1\):</td><td align="center" style="border-top: 1px solid black">\(contra(P,\neg P)\)</td></tr></table>
-<!--<pre>
 
-       t:      P, not(P)
-             -----------------
-       t+1:  contra(P, not(P))
-</pre>-->
 <p>
 If at a step, we have both \(P\) and \(\neg P\) present in the database, at
 the next step, we add \(contra(P,\neg P)\) to the database to indicate
@@ -46,12 +33,7 @@ either \(P\) or \(\neg P\) to the database at a later time.
 <p>
     We can also have modus ponens:</p>
         <table cellpadding="5" align="center"><tr><td>\(t\):</td><td align="center">\(P, P\implies Q\)</td></tr><tr><td>\(t+1\):</td><td align="center" style="border-top: 1px solid black">\(Q\)</td></tr></table>
-<!--<pre>
 
-      t:       P, P -> Q
-            --------------
-      t+1:        Q
-</pre>-->
 <p>
 This says: if at time \(t\), the database contains \(P\) and \(P\implies Q\), then in
 the next time step, conclude \(Q\).
@@ -65,17 +47,7 @@ The inheritance rule keeps formulas in the database unless there is a
     contradiction: </p>
         <table cellpadding="5" align="center"><tr><td>\(t\):</td><td align="center">\(P, not\_know(\neg P), \not\vdash P=Now(t)\)</td></tr><tr><td>\(t+1\):</td><td align="center" style="border-top: 1px solid black">\(P\)</td></tr></table>
         <table cellpadding="5" align="center"><tr><td>\(t\):</td><td align="center">\(P, not\_know(P)\)</td></tr><tr><td>\(t+1\):</td><td align="center" style="border-top: 1px solid black">\(\neg P\)</td></tr></table>
-<!--<pre>
 
-      t:        P , not_know(not(P)), \+ P = Now(t)
-	      -------------------------------------
-      t + 1:                    P
-
-      t:           P , not_know(P)
-	      ------------------------
-      t + 1:            not(P)
-
-</pre>-->
 <p>
 \(not\_know(P)\) is true iff \(P\) is not in the current database. Since the
 database is finite, this poses no computational problems. \(\not\vdash P =
