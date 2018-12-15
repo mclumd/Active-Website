@@ -43,7 +43,7 @@
 <form  class="form-inline my-2 my-lg-0"method="get" action="http://scholar.google.com/scholar">
 
   <div class="row">
-    <div class="col"><a href="http://scholar.google.com/"> <img src="images/Google_Scholar_logo_2015.png" alt="Google Scholar" class="img-fluid" style="height:4rem"/></a>
+    <div class="col"><a href="http://scholar.google.com/"> <img src="../images/Google_Scholar_logo_2015.png" alt="Google Scholar" class="img-fluid" style="height:4rem"/></a>
     <input type="hidden" name="hl" value="en"/>
     <input class="form-control mr-sm-2" placeholder="Search" type="text" name="q" value="" />
     </div>
