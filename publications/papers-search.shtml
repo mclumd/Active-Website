@@ -1,5 +1,11 @@
 <!--#include virtual="../include.html"-->
 <h2>Publications by Year</h2>
+
+<h4>2019></h4>
+<ul>
+<li>Operationalizing Consciousness. D Perlis and J Brody. AAAI Spring Symposium, 2019.</li>
+</ul>
+
 <h4>2018</h4><ul>
 
 <li><a href="publications/papers/the_internal_reasoning_of_robots.pdf">
@@ -11,7 +17,22 @@ An Embodied Multi-Sensor Fusion Approach to Visual Motion Estimation Using Unsup
 <li><a href="publications/papers/multi-hypothesis_visual_inertial_flow.pdf">
 Multi-Hypothesis Visual-Inertial Flow.</a> E Jared Shamwell, William D Nothwang, Donald Perlis.</li>
 
-</ul><h4>2016</h4><ul>
+</ul>
+
+<h4>2017</h4>
+<ul>
+<li>Shamwell, J., Nothwang, W., & Perlis, D. (2017) DeepEfference: Learning to predict the sensory consequences of action through deep correspondence. Proceedings, IEEE Conf on Development and Learning and on Epigenetic Robotics (ICDL/EipRob).</li>
+<li>Shamwell, J., Nothwang, W., & Perlis, D. (2017) A deep neural network approach to fusing vision and heteroscedastic motion estimates for Low-SWaP robotic applications. Proceedings, IEEE Conf on Multisensor Fusion and Integration for Intelligent Systems (MFI).</li>
+<li>D. Perlis, J. Brody, S. Kraus, M. Miller. The internal reasoning of robots. Commonsense-2017, London.</li>
+<li>Sekora, D., Barham, S., Brody, J., & Perlis, D. (2017) Anatomy of a task: To- wards a tentative taxonomy of the mind. AAAI Fall Symposium.</li>
+<li>Shamwell, J., Brody, J., Nothwang, W., & Perlis, D. (2017) DeepEfference for self-aware robotics. Workshop on development of self, IEEE Conf on Develop- ment and Learning and on Epigenetic Robotics (ICDL/EipRob).</li>
+<li>Brody, J., Shamwell, J., Nothwang, W., & Perlis, D. (2017) Key features for an enactive minimal self. Workshop on development of self, IEEE Conf on Devel- opment and Learning and on Epigenetic Robotics (ICDL/EipRob).</li>
+<li>Perlis, D., Brody, J., Kraus, S., & Miller, M. (2017). The internal reasoning of robots. Commonsense Reasoning (CSR-2017), London.</li>
+<li>Sekora, D., Barham, S., Brody, J., & Perlis, D. (2017) Anatomy of a task: Towards a tentative taxonomy of the mind. AAAI Fall Symposium.</li>
+<li>Perlis D. 2017. I am, therefore I think. APA Newsletter on Philosophy and Computers, v16, no 2, Spring 2017.</li>
+</ul>
+
+<h4>2016</h4><ul>
 
 <li><a href="publications/papers/reasoning_with_grounded_self_symbols_for_human-robot_interaction.pdf">
 Reasoning with Grounded Self-Symbols for Human-Robot Interaction.</a> Justin Brody, Samuel Barham, Yue Dai, Christopher Maxey, Donald Perlis, David Sekora, Jared Shamwell.</li>
