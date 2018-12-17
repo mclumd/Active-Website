@@ -3,12 +3,12 @@
 
 
     <ul>
-        <li><a href="primers/uncertain.html">Introduction to Active Logic and Uncertainty </a> 
+        <li><a href="primers/uncertain.shtml">Introduction to Active Logic and Uncertainty </a>
         <li><a
-          href="primers/technical.html">Technical Introduction to Active Logics</a>  
-                
+          href="primers/technical.shtml">Technical Introduction to Active Logics</a>
+
         <li><a
-          href="primers/example_al_1.html">Examples of Active Logic Inferences</a> 
+          href="primers/example_al_1.shtml">Examples of Active Logic Inferences</a> 
 
       </ul>
 <!--#include virtual="../footer.html"-->

@@ -16,12 +16,12 @@ mind's ability to deal easily and smoothly with mistakes,
 contradictions, and other irregularities; click <a href="aims">here</a>
 for more on this. </p>
       <p> One area in which these strategies are most apparent, and
-most often used, is in <a href="research/conv.html">conversation</a>,
+most often used, is in <a href="research/conv.shtml">conversation</a>,
 and so one central area of our research focuses on human-computer
 natural-language dialog. </p>
         <hr/>
       Click <a
- href="http://www.cs.umd.edu/~khennacy/research/emergence/index.htm">here</a> 
+ href="http://www.cs.umd.edu/~khennacy/research/emergence/index.htm">here</a>
 for a demo that illustrates the capabilities of a simulator designed
 to test what a robot has learned (similar to the type of testing
 performed on laboratory mice).
@@ -31,7 +31,6 @@ symbolic
 reasoner.
 <hr/>
 <p><b>We appreciate the sponsorship of <a href="http://www.wpafb.af.mil/afrl/afosr/">
-AFOSR</a>,  
 <a href="http://www.nsf.gov/">NSF</a>, <a href="http://www.onr.navy.mil"> ONR</a>,
 and
 <a href="http://www.umiacs.umd.edu"> UMIACS</a>.</b>
