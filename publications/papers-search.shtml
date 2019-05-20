@@ -1,12 +1,11 @@
 <!--#include virtual="../include.html"-->
 <h2>Publications by Year</h2>
 
-<h4>2019</h4>
-<ul>
-<li><a href="publications/papers/operationalizing-consciousness-final-post-review.pdf">Operationalizing Consciousness.</a> D Perlis and J Brody. AAAI Spring Symposium, 2019.</li>
-</ul>
+<h4>2019</h4><ul>
 
-<h4>2018</h4><ul>
+<li><a href="publications/papers/operationalizing-consciousness-final-post-review.pdf">Operationalizing Consciousness.</a> D Perlis and J Brody. AAAI Spring Symposium, 2019.</li>
+
+</ul><h4>2018</h4><ul>
 
 <li><a href="publications/papers/the_internal_reasoning_of_robots.pdf">
 The Internal Reasoning of Robots.</a> Don Perlis, Justin Brody, Sarit Kraus, Michael Miller.</li>
@@ -17,22 +16,17 @@ An Embodied Multi-Sensor Fusion Approach to Visual Motion Estimation Using Unsup
 <li><a href="publications/papers/multi-hypothesis_visual_inertial_flow.pdf">
 Multi-Hypothesis Visual-Inertial Flow.</a> E Jared Shamwell, William D Nothwang, Donald Perlis.</li>
 
-</ul>
+</ul><h4>2017</h4><ul>
 
-<h4>2017</h4>
-<ul>
 <li>Shamwell, J., Nothwang, W., & Perlis, D. (2017) DeepEfference: Learning to predict the sensory consequences of action through deep correspondence. Proceedings, IEEE Conf on Development and Learning and on Epigenetic Robotics (ICDL/EipRob).</li>
 <li>Shamwell, J., Nothwang, W., & Perlis, D. (2017) A deep neural network approach to fusing vision and heteroscedastic motion estimates for Low-SWaP robotic applications. Proceedings, IEEE Conf on Multisensor Fusion and Integration for Intelligent Systems (MFI).</li>
 <li>D. Perlis, J. Brody, S. Kraus, M. Miller. The internal reasoning of robots. Commonsense-2017, London.</li>
-<li>Sekora, D., Barham, S., Brody, J., & Perlis, D. (2017) Anatomy of a task: To- wards a tentative taxonomy of the mind. AAAI Fall Symposium.</li>
 <li>Shamwell, J., Brody, J., Nothwang, W., & Perlis, D. (2017) DeepEfference for self-aware robotics. Workshop on development of self, IEEE Conf on Develop- ment and Learning and on Epigenetic Robotics (ICDL/EipRob).</li>
 <li>Brody, J., Shamwell, J., Nothwang, W., & Perlis, D. (2017) Key features for an enactive minimal self. Workshop on development of self, IEEE Conf on Devel- opment and Learning and on Epigenetic Robotics (ICDL/EipRob).</li>
-<li>Perlis, D., Brody, J., Kraus, S., & Miller, M. (2017). The internal reasoning of robots. Commonsense Reasoning (CSR-2017), London.</li>
 <li>Sekora, D., Barham, S., Brody, J., & Perlis, D. (2017) Anatomy of a task: Towards a tentative taxonomy of the mind. AAAI Fall Symposium.</li>
 <li>Perlis D. 2017. I am, therefore I think. APA Newsletter on Philosophy and Computers, v16, no 2, Spring 2017.</li>
-</ul>
 
-<h4>2016</h4><ul>
+</ul><h4>2016</h4><ul>
 
 <li><a href="publications/papers/reasoning_with_grounded_self_symbols_for_human-robot_interaction.pdf">
 Reasoning with Grounded Self-Symbols for Human-Robot Interaction.</a> Justin Brody, Samuel Barham, Yue Dai, Christopher Maxey, Donald Perlis, David Sekora, Jared Shamwell.</li>
@@ -146,172 +140,70 @@ Incorporating Elements of a Processual Self into Active Logic.</a> Justin Brody,
 
 </ul><h4>2010</h4><ul>
 
-<li><em style="font-style: normal"><a href="https://mclumd.github.io/ALMECOM%20Papers/2010/Metareasoning-%20An%20introduction.pdf">Metareasoning:An Introduction.</a></em> Michael Cox and Anita Raja. In Cox, M., Raja, A.
+  <li><a href="https://mclumd.github.io/ALMECOM%20Papers/2010/Metareasoning-%20An%20introduction.pdf">Metareasoning:An Introduction.</a> Michael Cox and Anita Raja. In Cox, M., Raja, A. (Ed.), Metareasoning: Thinking about Thinking. MIT Press, MA, USA, 2010.</li>
 
-	(Ed.), Metareasoning: Thinking about Thinking. MIT Press, MA, USA, 2010.</li>
-
-<li><a href="https://mclumd.github.io/ALMECOM%20Papers/2010/Postulates%20for%20revising%20BDI%20structures.pdf">Postulates for Revising BDI
-
-	Structures. </a>J. Grant, S. Kraus, D. Perlis, M. Wooldridge.
+  <li><a href="https://mclumd.github.io/ALMECOM%20Papers/2010/Postulates%20for%20revising%20BDI%20structures.pdf">Postulates for Revising BDI Structures.</a> J. Grant, S. Kraus, D. Perlis, M. Wooldridge. Synthese, to appear, 2010.</li>
 
 <!-- % DOI: 10.1007/s11229-010-9735-1 -->
 
-	Synthese, to appear, 2010.</li>
+  <li><a href="https://mclumd.github.io/ALMECOM%20Papers/2008/BICA%20AND%20BEYOND-%20HOW%20BIOLOGY%20AND%20ANOMALIES%20TOGETHER%20CONTRIBUTE%20TO%20FLEXIBLE%20COGNITION.pdf">To BICA and beyond: How biology and anomalies together contribute to flexible cognition</a>. D. Perlis. International Journal of Machine Consciousness, Vol. 2, No. 2, 2010. [based on a 2008 talk whose ppt slides are available among the 2008 publications]</li>
 
-	<li><a href="https://mclumd.github.io/ALMECOM%20Papers/2008/BICA%20AND%20BEYOND-%20HOW%20BIOLOGY%20AND%20ANOMALIES%20TOGETHER%20CONTRIBUTE%20TO%20FLEXIBLE%20COGNITION.pdf">To BICA and
+  <li><a href="https://mclumd.github.io/ALMECOM%20Papers/2010/The%20Metacognitive%20Loop-%20An%20Architecture%20for%20Building%20Robust%20Intelligent%20Systems.pdf">The Metacognitive Loop: An Architecture for Building Robust Intelligent Systems</a>. Hamid Haidarian, Wikum Dinalankara, Scott Fults, Shomir Wilson, Don Perlis, Matt Schmill, Tim Oates, Darsana Josyula, Michael Anderson. Proceedings of the AAAI Fall Symposium on Commonsense Knowledge (AAAI/CSK�10), Arlington, VA, USA, November 11-13, 2010.</li>
 
-	beyond: How biology and anomalies together contribute to flexible cognition</a>.
-
-	D. Perlis. International Journal of Machine Consciousness, Vol. 2, No. 2,
-
-	2010. [based on a 2008 talk whose ppt slides are available among the 2008
-
-	publications]</li>
-
-	<li><a href="https://mclumd.github.io/ALMECOM%20Papers/2010/The%20Metacognitive%20Loop-%20An%20Architecture%20for%20Building%20Robust%20Intelligent%20Systems.pdf">
-
-	The Metacognitive Loop: An Architecture for Building Robust Intelligent
-
-	Systems</a>. Hamid Haidarian, Wikum Dinalankara, Scott Fults, Shomir Wilson,
-
-	Don Perlis, Matt Schmill, Tim Oates, Darsana Josyula, Michael Anderson.
-
-	Proceedings of the AAAI Fall Symposium on Commonsense Knowledge (AAAI/CSK�10),
-
-        Arlington, VA, USA, November 11-13, 2010.</li>
-        <li>
-
-	<a href="https://mclumd.github.io/ALMECOM%20Papers/2010/Metacognition%20for%20Detecting%20and%20Resolving%20Conflicts%20in%20Operational%20Policies.pdf">
-
-	Metacognition for Detecting and Resolving Conflicts in Operational Policies</a>.
-
-	D. Josyula, B. Donahue, M. McCaslin, M. Snowden, M. Anderson, M.<br>
-
-	Schmill, T. Oates and D. Perlis, Proceedings of the Workshop on
-
-	Metacognition for Robust Social Systems at the 24th AAAI Conference on
-
-            Artificial Intelligence (AAAI�10), Atlanta, Georgia, USA, July 11-15, 2010.</li><li><a href="https://mclumd.github.io/ALMECOM%20Papers/2010/Neural%20reuse-%20A%20fundamental%20organizational%20principle%20of%20the%20brain.pdf">
-
-	Neural reuse: A fundamental organizational principle of the brain.</a>
-
-	Michael L. Anderson. Behavioral and Brain Sciences, 33(3), in press.</li><li>
-
-	<a href="https://mclumd.github.io/ALMECOM%20Papers/2010/Investigating%20Functional%20Cooperation%20in%20the%20Human%20Brain%20Using%20Simple%20Graph-Theoretic%20Methods.pdf">
-
-	Investigating functional cooperation in the human brain using simple
-
-	graph-theoretic methods</a>. Michael L. Anderson, Joan Brumbaugh and Aysu
-
-	Suben. In: W. Chaovalitwongse, P. Pardalos and P. Xanthopoulos, eds.
-
-	Computational Neuroscience, Springer, 2010, pages 31-42.</li><li>
-
-	<a href="https://mclumd.github.io/ALMECOM%20Papers/2010/A%20critique%20of%20multi-voxel%20pattern%20analysis.pdf">A critique of
-
-	multi-voxel pattern analysis</a>. Michael L. Anderson and Tim Oates.
-
-	Proceedings of the 32nd Annual Conference of the Cognitive Science Society,
-
-	2010.</li><li>
-
-	<a href="https://mclumd.github.io/ALMECOM%20Papers/2010/The_Origins_of_Collective_Overvaluation.pdf">The origins
-
-	of collective overvaluation: Irrational exuberance emerges from simple,
-
-	honest and rational individual behavior</a>. Michael L. Anderson and C.
-
-	Athena Aktipis. Proceedings of the 32nd Annual Conference of the Cognitive
-
-	Science Society, 2010.</li><li>
-
-	<a href="https://mclumd.github.io/ALMECOM%20Papers/2010/Foundations%20of%20data%20interoperability%20on%20the%20web-%20A%20web%20science%20perspective.pdf">Foundations
-
-	of Data Interoperability on the Web: A Web Science Perspective</a>. Hamid
-
-	Haidarian. Proceedings of the 6th International Conference on Semantic
-
-	Systems (I-Semantics�10), Graz, Austria, September 1-3, 2010.</li><li>
-
-	<a href="https://mclumd.github.io/ALMECOM%20Papers/2010/Semantic%20Search%20in%20Linked%20Data-%20Opportunities%20and%20Challenges.pdf">Semantic
-
-	Search in Linked Data: Opportunities and Challenges</a>. Hamid Haidarian.
-
-	Proceedings of the 24th AAAI Conference on Artificial Intelligence
-
-	(AAAI�10), Atlanta, Georgia, USA, July 11-15, 2010.</li><li><a href="https://mclumd.github.io/ALMECOM%20Papers/2010/Vagueness%20and%20scales.pdf">
-
-	Vagueness and Scales. Scott Fults. Chapter in Vagueness and Language Use,
-
-	Paul �gr� and Nathan Klinedinst (Eds.) to appear, Palgrave Macmillan.</a></li><li><a href="https://mclumd.github.io/ALMECOM%20Papers/2010/Distinguishing%20Use%20and%20Mention%20in%20Natural%20Language.pdf">
-
-	Distinguishing Use and Mention in Natural Language. Shomir Wilson.</a>
-
-	Proceedings of the NAACL HLT Student Research Workshop, pp. 29-33. Los
-
-	Angeles, CA: Association for Computational Linguistics. 2010.</li><li>
-
-	Ontologies for Metacognitive Monitoring and Repair of Dialog. Aparna
-
-	Subramanian and Tim Oates. Proceedings of the 4th Language and Technology
-
-	Conference, Poznan, Poland, November 6-8, 2009.</li><li>
-
-	Ontologies for Monitoring and Repairing Human-Computer Dialogs. Aparna
-
-	Subramanian, Tim Oates, and Scott Fults. To appear in Papers from the 6th
-
-	IEEE International Conference on Natural Language Processing and Knowledge
-
-        Engineering, Beijing, China, Aug 21- 23, 2010.</li></ul><h4>2009</h4><ul>
+  <li><a href="https://mclumd.github.io/ALMECOM%20Papers/2010/Metacognition%20for%20Detecting%20and%20Resolving%20Conflicts%20in%20Operational%20Policies.pdf">Metacognition for Detecting and Resolving Conflicts in Operational Policies</a>. D. Josyula, B. Donahue, M. McCaslin, M. Snowden, M. Anderson, M. Schmill, T. Oates and D. Perlis, Proceedings of the Workshop on Metacognition for Robust Social Systems at the 24th AAAI Conference on Artificial Intelligence (AAAI�10), Atlanta, Georgia, USA, July 11-15, 2010.</li>
+  
+  <li><a href="https://mclumd.github.io/ALMECOM%20Papers/2010/Neural%20reuse-%20A%20fundamental%20organizational%20principle%20of%20the%20brain.pdf"> Neural reuse: A fundamental organizational principle of the brain.</a> Michael L. Anderson. Behavioral and Brain Sciences, 33(3), in press.</li>
+  
+  <li><a href="https://mclumd.github.io/ALMECOM%20Papers/2010/Investigating%20Functional%20Cooperation%20in%20the%20Human%20Brain%20Using%20Simple%20Graph-Theoretic%20Methods.pdf">Investigating functional cooperation in the human brain using simple graph-theoretic methods</a>. Michael L. Anderson, Joan Brumbaugh and Aysu Suben. In: W. Chaovalitwongse, P. Pardalos and P. Xanthopoulos, eds. Computational Neuroscience, Springer, 2010, pages 31-42.</li>
+  
+  <li><a href="https://mclumd.github.io/ALMECOM%20Papers/2010/A%20critique%20of%20multi-voxel%20pattern%20analysis.pdf">A critique of multi-voxel pattern analysis</a>. Michael L. Anderson and Tim Oates. Proceedings of the 32nd Annual Conference of the Cognitive Science Society, 2010.</li>
+  
+  <li><a href="https://mclumd.github.io/ALMECOM%20Papers/2010/The_Origins_of_Collective_Overvaluation.pdf">The origins of collective overvaluation: Irrational exuberance emerges from simple, honest and rational individual behavior</a>. Michael L. Anderson and C. Athena Aktipis. Proceedings of the 32nd Annual Conference of the Cognitive Science Society, 2010.</li>
+  
+  <li><a href="https://mclumd.github.io/ALMECOM%20Papers/2010/Foundations%20of%20data%20interoperability%20on%20the%20web-%20A%20web%20science%20perspective.pdf">Foundations of Data Interoperability on the Web: A Web Science Perspective</a>. Hamid Haidarian. Proceedings of the 6th International Conference on Semantic Systems (I-Semantics�10), Graz, Austria, September 1-3, 2010.</li>
+  
+  <li><a href="https://mclumd.github.io/ALMECOM%20Papers/2010/Semantic%20Search%20in%20Linked%20Data-%20Opportunities%20and%20Challenges.pdf">Semantic Search in Linked Data: Opportunities and Challenges</a>. Hamid Haidarian. Proceedings of the 24th AAAI Conference on Artificial Intelligence (AAAI�10), Atlanta, Georgia, USA, July 11-15, 2010.</li>
+  
+  <li><a href="https://mclumd.github.io/ALMECOM%20Papers/2010/Distinguishing%20Use%20and%20Mention%20in%20Natural%20Language.pdf"> Distinguishing Use and Mention in Natural Language. Shomir Wilson.</a> Proceedings of the NAACL HLT Student Research Workshop, pp. 29-33. Los Angeles, CA: Association for Computational Linguistics. 2010.</li>
+  
+  <li>Ontologies for Metacognitive Monitoring and Repair of Dialog. Aparna Subramanian and Tim Oates. Proceedings of the 4th Language and Technology Conference, Poznan, Poland, November 6-8, 2009.</li>
+  
+  <li>Ontologies for Monitoring and Repairing Human-Computer Dialogs. Aparna Subramanian, Tim Oates, and Scott Fults. To appear in Papers from the 6th IEEE International Conference on Natural Language Processing and Knowledge Engineering, Beijing, China, Aug 21- 23, 2010.</li>
+  
+</ul><h4>2009</h4><ul>
 
 	<li><a href="https://mclumd.github.io/ALMECOM%20Papers/2010/Affordances%20and%20intentionality-%20Reply%20to%20Roberts.pdf">
-
 	Affordances and intentionality: Reply to Roberts</a>. Michael L. Anderson
-
-	and Tony Chemero. Journal of Mind and Behavior, 30(4), 2009.</li><li><a href="https://mclumd.github.io/ALMECOM%20Papers/2009/What%20puts%20the%20%E2%80%9Cmeta%E2%80%9D%20in%20metacognition.pdf">What puts
-
+	and Tony Chemero. Journal of Mind and Behavior, 30(4), 2009.</li>
+  
+  <li><a href="https://mclumd.github.io/ALMECOM%20Papers/2009/What%20puts%20the%20%E2%80%9Cmeta%E2%80%9D%20in%20metacognition.pdf">What puts
 	the &ldquo;meta&rdquo; in metacognition?</a> Michael L. Anderson and Don Perlis. Behavioral
-
-	and Brain Sciences, 32(2):138-139, 2009.</li><li>
-
-	<a href="https://mclumd.github.io/ALMECOM%20Papers/2009/What%20Mindedness%20Is.pdf">What
-
+	and Brain Sciences, 32(2):138-139, 2009.</li>
+  
+  <li><a href="https://mclumd.github.io/ALMECOM%20Papers/2009/What%20Mindedness%20Is.pdf">What
 	mindedness is</a>. Michael L. Anderson. Europe&rsquo;s Journal of Psychology,
-
-	November, 2009.</li><li>
-
-	<a href="https://mclumd.github.io/ALMECOM%20Papers/2009/Modeling%20Emotions%20for%20Choosing%20Between%20Deliberation%20and%20Action.pdf">Modeling
-
+	November, 2009.</li>
+  
+  <li><a href="https://mclumd.github.io/ALMECOM%20Papers/2009/Modeling%20Emotions%20for%20Choosing%20Between%20Deliberation%20and%20Action.pdf">Modeling
 	Emotions for Choosing Between Deliberation and Action</a>. Darsana P.
-
 	Josyula, Franklin C. Hughes, Harish Vadali and Bette J. Donahue. In
-
 	Proceedings of the IEEE World Congress on Nature and Biologically Inspired
-
-	Computing (NABIC&rsquo;09), 2009.</li><li>
-
-	<a href="https://mclumd.github.io/ALMECOM%20Papers/2009/Modeling%20Metacognition%20for%20Learning%20in%20Artificial%20Systems.pdf">Modeling
-
+	Computing (NABIC&rsquo;09), 2009.</li>
+  
+  <li><a href="https://mclumd.github.io/ALMECOM%20Papers/2009/Modeling%20Metacognition%20for%20Learning%20in%20Artificial%20Systems.pdf">Modeling
 	Metacognition for learning in Artificial Systems</a>. Darsana P. Josyula,
-
 	Harish Vadali, Bette J. Donahue and Franklin C. Hughes. In Proceedings of
-
 	the International Symposium on Innovations in Computing (INC&rsquo;09), 2009.</li>
 
 	<li><a href="http://www.cs.umd.edu/~darsana/papers/SASO-09.pdf">
-
 	Metacognition for Self-Regulated Learning in a Dynamic Environment</a>.
-
 	Darsana P. Josyula, Franklin C. Hughes, Harish Vadali, Bette J. Donahue,
-
 	Fassil Molla, Michelle Snowden, Jalissa Miles, Ahmed Kamara and Chinomnso
-
 	Maduka. In 2009 SASO Workshop on Metareasoning in Self-Adaptive Systems at
-
 	the Third IEEE International Conference on Self-Adaptive and Self-Organizing
-
-	Systems (SASO&rsquo;09), 2009.</li></ul><h4>2008</h4><ul>
+	Systems (SASO&rsquo;09), 2009.</li>
+  
+</ul><h4>2008</h4><ul>
 
 	<li><a href="https://mclumd.github.io/ALMECOM%20Papers/2008/Brain%20network%20analysis%20of%20seizure%20evolution.pdf">Brain network
 
