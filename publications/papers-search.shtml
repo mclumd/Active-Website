@@ -3,47 +3,40 @@
 
 <h4>2019</h4><ul>
 
-<li><a href="publications/papers/operationalizing-consciousness-final-post-review.pdf">Operationalizing Consciousness.</a> D Perlis and J Brody. AAAI Spring Symposium, 2019.</li>
+<li>Perlis, D., & Brody, J. (2019). <a href="https://mclumd.github.io/ALMECOM%20Papers/2019/Perlis%20and%20Brody%20-%202019%20-%20Operationalizing%20Consciousness.pdf">Operationalizing Consciousness.</a> AAAI Spring Symposium, Towards Conscious AI Systems 2019.</li>
 
 </ul><h4>2018</h4><ul>
 
-<li><a href="publications/papers/the_internal_reasoning_of_robots.pdf">
-The Internal Reasoning of Robots.</a> Don Perlis, Justin Brody, Sarit Kraus, Michael Miller.</li>
+<li>Goldberg, M. D., Brody, J., Clausner, T. C., & Perlis, D. (2018). <a href = "https://mclumd.github.io/ALMECOM%20Papers/2018/Goldberg%20et%20al.%20-%202018%20-%20The%20overlooked%20role%20of%20self-agency%20in%20artificial%20s.pdf">The overlooked role of self-agency in artificial systems.</a> Workshop on Shortcomings in Vision and Language at European Conference on Computer Vision.</li>
 
-<li><a href="publications/papers/an_embodied_multi-sensor_fusion_approach_to_visual_motion_estimation_usinging_unsupervised_deep_netowrks.pdf">
-An Embodied Multi-Sensor Fusion Approach to Visual Motion Estimation Using Unsupervised Deep Networks.</a> E Jared Shamwell, William D Nothwang, Donald Perlis.</li>
+<li>Shamwell, E., Nothwang, W., & Perlis, D. (2018). <a href="https://mclumd.github.io/ALMECOM%20Papers/2018/Shamwell%20et%20al.%20-%202018%20-%20An%20Embodied%20Multi-Sensor%20Fusion%20Approach%20to%20Visual.pdf">An Embodied Multi-Sensor Fusion Approach to Visual Motion Estimation Using Unsupervised Deep Networks.</a> Sensors, 18(5), 1427.</li>
 
-<li><a href="publications/papers/multi-hypothesis_visual_inertial_flow.pdf">
-Multi-Hypothesis Visual-Inertial Flow.</a> E Jared Shamwell, William D Nothwang, Donald Perlis.</li>
+<li>Shamwell, E. J., Nothwang, W. D., & Perlis, D. (2018). <a href="https://mclumd.github.io/ALMECOM%20Papers/2018/Shamwell%20et%20al.%20-%202018%20-%20Multi-Hypothesis%20Visual-Inertial%20Flow.pdf">Multi-Hypothesis Visual-Inertial Flow.</a></li>
 
 </ul><h4>2017</h4><ul>
 
-<li>Shamwell, J., Nothwang, W., & Perlis, D. (2017) DeepEfference: Learning to predict the sensory consequences of action through deep correspondence. Proceedings, IEEE Conf on Development and Learning and on Epigenetic Robotics (ICDL/EipRob).</li>
-<li>Shamwell, J., Nothwang, W., & Perlis, D. (2017) A deep neural network approach to fusing vision and heteroscedastic motion estimates for Low-SWaP robotic applications. Proceedings, IEEE Conf on Multisensor Fusion and Integration for Intelligent Systems (MFI).</li>
+<li>Shamwell, J., Nothwang, W., & Perlis, D. (2017) <a href="https://mclumd.github.io/ALMECOM%20Papers/2017/Shamwell%20et%20al.%20-%202017%20-%20DeepEfference%20Learning%20to%20predict%20the%20sensory%20con.pdf">DeepEfference: Learning to predict the sensory consequences of action through deep correspondence.</a> Proceedings, IEEE Conf on Development and Learning and on Epigenetic Robotics (ICDL/EipRob).</li>
+<li>Shamwell, J., Nothwang, W., & Perlis, D. (2017) <a href="https://mclumd.github.io/ALMECOM%20Papers/2017/Shamwell%20et%20al.%20-%202017%20-%20A%20deep%20neural%20network%20approach%20to%20fusing%20vision%20an.pdf">A deep neural network approach to fusing vision and heteroscedastic motion estimates for Low-SWaP robotic applications.</a> Proceedings, IEEE Conf on Multisensor Fusion and Integration for Intelligent Systems (MFI).</li>
+<li>Perlis, D., Brody, J., Kraus, S., & Miller, M. (2017). <a href="https://mclumd.github.io/ALMECOM%20Papers/2017/Perlis%20et%20al.%20-%202017%20-%20The%20Internal%20Reasoning%20of%20Robots.pdf">The Internal Reasoning of Robots.</a> Thirteenth International Symposium on Commonsense Reasoning. Presented at the Commonsense 2017.</li>
 <li>D. Perlis, J. Brody, S. Kraus, M. Miller. The internal reasoning of robots. Commonsense-2017, London.</li>
 <li>Shamwell, J., Brody, J., Nothwang, W., & Perlis, D. (2017) DeepEfference for self-aware robotics. Workshop on development of self, IEEE Conf on Develop- ment and Learning and on Epigenetic Robotics (ICDL/EipRob).</li>
 <li>Brody, J., Shamwell, J., Nothwang, W., & Perlis, D. (2017) Key features for an enactive minimal self. Workshop on development of self, IEEE Conf on Devel- opment and Learning and on Epigenetic Robotics (ICDL/EipRob).</li>
-<li>Sekora, D., Barham, S., Brody, J., & Perlis, D. (2017) Anatomy of a task: Towards a tentative taxonomy of the mind. AAAI Fall Symposium.</li>
+<li>Sekora, D., Barham, S., Brody, J., & Perlis, D. (2017) <a href="https://mclumd.github.io/ALMECOM%20Papers/2017/Anatomy%20of%20a%20Task%20-%20Towards%20a%20Tentative%20Taxonomy%20of%20the%20Mind.pdf">Anatomy of a task: Towards a tentative taxonomy of the mind.</a> AAAI Fall Symposium.</li>
 <li>Perlis D. 2017. I am, therefore I think. APA Newsletter on Philosophy and Computers, v16, no 2, Spring 2017.</li>
 
 </ul><h4>2016</h4><ul>
 
-<li><a href="publications/papers/reasoning_with_grounded_self_symbols_for_human-robot_interaction.pdf">
-Reasoning with Grounded Self-Symbols for Human-Robot Interaction.</a> Justin Brody, Samuel Barham, Yue Dai, Christopher Maxey, Donald Perlis, David Sekora, Jared Shamwell.</li>
+<li>Brody, J., Barham, S., Dai, Y., Maxey, C., Perlis, D., Sekora, D., & Shamwell, J. (2016). <a href="https://mclumd.github.io/ALMECOM%20Papers/2016/Brody%20et%20al.%20-%202016%20-%20Reasoning%20with%20Grounded%20Self-Symbols%20for%20Human-Rob.pdf">Reasoning with Grounded Self-Symbols for Human-Robot Interaction.</a> 2016 AAAI Fall Symposium Series: Artificial Intelligence for Human-Robot Interaction.</li>
 
-<li><a href="publications/papers/five_dimensions_of_reasoning_in_the_wild.pdf">
-Five Dimensions of Reasoning in the Wild.</a> Don Perlis.</li>
+<li>Perlis, D. (2016). <a href="https://mclumd.github.io/ALMECOM%20Papers/2016/Perlis%20-%202016%20-%20Five%20Dimensions%20of%20Reasoning%20in%20the%20Wild.pdf">Five Dimensions of Reasoning in the Wild.</a> Proceedings of the Thirtieth AAAI Conference on Artificial Intelligence.</li>
 
-<li><a href="publications/papers/MIDCA_a_metacognitive_integrated_dual-cycle.pdf">
-MIDCA: A Metacognitive, Integrated Dual-Cycle Architecture for Self-Regulated Autonomy.</a> Michael T Cox, Zohreh Alavi, Dustin Dannenhauer, Vahid Eyorokon, Hector Munoz-Avila, Don Perlis.</li>
+<li>Cox, M. T., Zohreh, A., Dannenhauer, D., Eyorokon, V., Munoz-Avila, H., & Perlis, D. (2016). <a href="https://mclumd.github.io/ALMECOM%20Papers/2016/Cox%20et%20al.%20-%202016%20-%20MIDCA%20A%20Metacognitive%2C%20Integrated%20Dual-Cycle%20Arch.pdf">MIDCA: A Metacognitive, Integrated Dual-Cycle Architecture for Self-Regulated Autonomy.</a> Proceedings of the Thirtieth AAAI Conference on Artificial Intelligence (AAAI-16).</li>
 
-<li><a href="publications/papers/taking_physical_infinity_seriously.pdf">
-Taking physical infinity seriously.</a> Donald Perlis.</li>
+<li>Perlis, D. (2016). <a href="https://mclumd.github.io/ALMECOM%20Papers/2016/Perlis%20-%202016%20-%20Taking%20physical%20infinity%20seriously.pdf">Taking physical infinity seriously.</a> In Martin Davis on Computability, Computational Logic, and Mathematical Foundations (pp. 243–254). Springer.</li>
 
 </ul><h4>2015</h4><ul>
 
-<li><a href="publications/papers/whos_talking_efference_copy_and_a_robots_sense_of_agency.pdf">
-Who&rsquo;s Talking?&mdash;Efference Copy and a Robot&rsquo;s Sense of Agency.</a> Justin Brody, Don Perlis, Jared Shamwell.</li>
+<li>Brody, J., Perlis, D., & Shamwell, J. (2015). <a href="https://mclumd.github.io/ALMECOM%20Papers/2015/Brody%20et%20al.%20-%202015%20-%20Who's%20Talking%E2%80%94Efference%20Copy%20and%20a%20Robot's%20Sense%20.pdf">Who’s Talking?—Efference Copy and a Robot’s Sense of Agency.</a> 2015 AAAI Fall Symposium Series.</li>
 
 </ul><h4>2014</h4><ul>
 
@@ -62,7 +55,7 @@ Toward meta-level control of autonomous agents.</a> Dustin Dannenhauer, Michael 
 <li><a href="publications/papers/goal-driven_autonomy_for_cognnitive_systems.pdf">
 Goal-driven autonomy for cognitive systems.</a> Matthew Paisner, Michael Cox, Michael Maynord, Don Perlis.</li>
 
-<li><a href="publications/papers/implementing_elements_of_a_processual_self_into_active_logic.pdf">
+<li><a href="https://mclumd.github.io/ALMECOM%20Papers/2014/Brody%20et%20al.%20-%202014%20-%20Incorporating%20Elements%20of%20a%20Processual%20Self%20into%20A.pdf">
 Incorporating Elements of a Processual Self into Active Logic.</a> Justin Brody, Michael Cox, Don Perlis.</li>
 
 
@@ -73,13 +66,10 @@ Incorporating Elements of a Processual Self into Active Logic.</a> Justin Brody,
 	Data-driven goal generation for integrated cognitive systems.</a> Michael Maynord, Michael T Cox, Matt Paisner, Don Perlis.</li>
 
 	<li><a href="publications/papers/symbolic_anomaly_detection_and_assessment_using_growig_neural_growing_gas.pdf">
-	Symbolic anomaly dete tion and assessment using growing neural gas.</a> Matthew Paisner, Michael T Cox, Don Perlis.</li>
+	Symbolic anomaly detection and assessment using growing neural gas.</a> Matthew Paisner, Michael T Cox, Don Perlis.</li>
 
 	<li><a href="publications/papers/the_integration_of_cognitive_and_metacognitive_processes_with_data-drive_and_knowledge-rich_structures.pdf">
 	The integration of cognitive and metacognitive processes with data-driven and knowledge rich structures.</a> Michael T Cox, Michael Maynord, M Paisner, D Perlis, T Oates.</li>
-
-	<li><a href="publications/papers/the_processual_self_as_cognitive_unifier.pdf">
-	The processual self as cognitive unifier.</a> Justin Brody, Michael T Cox, Donald Perlis.</li>
 
 	<li><a href="publications/papers/an_approach_to_human_level_commonsense_reasoning.pdf">
 	An approach to human-level commonsense reasoning.</a> Michael L Anderson, Walid Gomaa, John Grant, Don Perlis.</li>
@@ -87,11 +77,15 @@ Incorporating Elements of a Processual Self into Active Logic.</a> Justin Brody,
 	<li><a href="publications/papers/autonomy_beyond_anomalies_and_goals.pdf">
 	Autonomy beyond Anomalies and Goals: A strategic Perspective.</a> Don Perlis, Michael T Cox.</li>
 
-	<li><a href="https://mclumd.github.io/ALMECOM%20Papers/2013/Metacognitive%20Guidance%20in%20a%20Dialog%20Agent.pdf">Metacognitive Guidance in a Dialog Agent</a> Elizabeth McNany, Darsana Josyula, Michael Cox, Matthew Paisner, Don Perlis. In Cognitive 2013, the Fifth International Conference on Advanced Cognitive Technologies and Applications, pp. 137-140.</li>
 
 
-	<li><a href="https://mclumd.github.io/ALMECOM%20Papers/2013/Toward%20Automatic%20Processing%20of%20English%20Metalanguage.pdf">Toward Automatic Processing of English Metalanguage.</a> In Proceedings of the 6th International Joint Conference on Natural Language Processing. Nagoya, Japan, 14-18 October.</li>
+</ul><h4>2013</h4><ul>
 
+<li>Brody, J., Cox, M. T., & Perlis, D. (2013). <a href="https://mclumd.github.io/ALMECOM%20Papers/2013/Brody%20et%20al.%20-%202013%20-%20The%20processual%20self%20as%20cognitive%20unifier.pdf">The processual self as cognitive unifier.</a> Proceedings of the Annual Meeting of the International Association for Computing and Philosophy.</li>
+
+	<li><a href="https://mclumd.github.io/ALMECOM%20Papers/2013/Metacognitive%20Guidance%20in%20a%20Dialog%20Agent.pdf">Metacognitive Guidance in a Dialog Agent.</a> Elizabeth McNany, Darsana Josyula, Michael Cox, Matthew Paisner, Don Perlis. In Cognitive 2013, the Fifth International Conference on Advanced Cognitive Technologies and Applications, pp. 137-140.</li>
+
+	<li><a href="https://mclumd.github.io/ALMECOM%20Papers/2013/Toward%20Automatic%20Processing%20of%20English%20Metalanguage.pdf">Toward Automatic Processing of English Metalanguage.</a> Shomir Wilson. In Proceedings of the 6th International Joint Conference on Natural Language Processing. Nagoya, Japan, 14-18 October. 2013.</li>
 
 
 
