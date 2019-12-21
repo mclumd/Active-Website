@@ -10,13 +10,13 @@
 
 		<h3>Senior Researchers</h3>
 		<ul>
-			<li><a href="http://www.cs.umd.edu/~anderson">Michael Anderson</a></li>
+			<!-- <li><a href="http://www.cs.umd.edu/~anderson">Michael Anderson</a></li> -->
 			<li><a href="http://www.goucher.edu/academics/computer-science/faculty/justin-brody">Justin Brody</a></li>
 			<li>Timothy Clausner</li>
-			<li><a href="http://www.cs.umd.edu/~mcox">Michael Cox</a></li>
-			<li><a href="https://www.english.umd.edu/profiles/misrael">Michael Israel</a></li>
+			<!-- <li><a href="http://www.cs.umd.edu/~mcox">Michael Cox</a></li> -->
+			<!-- <li><a href="https://www.english.umd.edu/profiles/misrael">Michael Israel</a></li> -->
 			<li><a href="http://www.cs.umd.edu/~darsana">Darsana P. Josyula</a></li>
-			<li><a href="http://www.coral-lab.org/people/tim-oates">Tim Oates</a> </li>
+			<!-- <li><a href="http://www.coral-lab.org/people/tim-oates">Tim Oates</a> </li> -->
 			<li><a href="http://www.cs.umd.edu/~perlis/">Don Perlis 
 			(Project Director)</a></li>
 		</ul>
@@ -25,16 +25,24 @@
 <div class="col" valign="top" height="251">
   <h3>Students</h3>
 	<h4>&nbsp;&nbsp;&nbsp; Graduate</h4>
-  <ul>
-    <li>Sam Barham</li>
-    <li>Yue Dai</li>
-    <li>Matthew Goldberg</li>
-    <li>Fangyuan Hou</li>
-    <li>Bhushan Korpe</li>
-    <li>Chris Maxey</li>
-    <li>David Sekora</li>
-    <li>Jared Shamwell</li>
-  </ul>
+      <ul>
+        <li>Varun Asthana</li>
+        <!-- <li>Sam Barham</li> -->
+        <!-- <li>Yue Dai</li> -->
+        <li>Matthew Goldberg</li>
+        <li>Smriti Gupta</li>
+        <!-- <li>Fangyuan Hou</li> -->
+        <!-- <li>Bhushan Korpe</li> -->
+        <li>Chris Maxey</li>
+        <li>David Sekora</li>
+        <!-- <li>Jared Shamwell</li> -->
+        <li>Aman Virmani</li>
+      </ul>
+    <h4>&nbsp;&nbsp;&nbsp; Undergraduate</h4>
+      <ul>
+        <li>Simrat Bhandari</li>
+        <li>Paul Zaidins</li>
+      </ul>
 </div>
 
 </div>

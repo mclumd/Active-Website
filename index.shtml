@@ -20,7 +20,8 @@ most often used, is in <a href="research/conv.shtml">conversation</a>,
 and so one central area of our research focuses on human-computer
 natural-language dialog. </p>
         <hr/>
-      Click <a
+Demo Coming Soon
+<!-- Click <a
  href="http://www.cs.umd.edu/~khennacy/research/emergence/index.htm">here</a>
 for a demo that illustrates the capabilities of a simulator designed
 to test what a robot has learned (similar to the type of testing
@@ -28,7 +29,7 @@ performed on laboratory mice).
 The robot under study has its actions
 guided by the cooperative interaction between a neural network and
 symbolic
-reasoner.
+reasoner. -->
 <hr/>
 <p><b>We appreciate the sponsorship of <a href="http://www.wpafb.af.mil/afrl/afosr/">
 AFOSR</a>,
